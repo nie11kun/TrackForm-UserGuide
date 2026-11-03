@@ -1,0 +1,61 @@
+# Created by https://www.toptal.com/developers/gitignore/api/gitbook,node,windows,macos
+
+### GitBook / HonKit ###
+.grunt
+node_modules
+node_modules/
+_book
+*.epub
+*.mobi
+*.pdf
+
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+### Node ###
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+pids
+*.pid
+*.seed
+*.pid.lock
+.npm
+.cache
+
+### Python ###
+__pycache__/
+*.py[cod]
+.venv/
+tools/
+
+
+### Windows ###
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+

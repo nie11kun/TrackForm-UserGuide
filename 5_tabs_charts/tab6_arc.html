@@ -1,0 +1,804 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <title>单圆弧近似 · TrackForm User Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="author" content="Nie Kun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/honkit-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../6_exports_data/" />
+    
+    
+    <link rel="prev" href="tab5_sim.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1_getting_started/">
+            
+                <a href="../1_getting_started/">
+            
+                    
+                    快速开始
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../1_getting_started/installation.html">
+            
+                <a href="../1_getting_started/installation.html">
+            
+                    
+                    软件安装与启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../1_getting_started/ui_overview.html">
+            
+                <a href="../1_getting_started/ui_overview.html">
+            
+                    
+                    界面布局与基本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../1_getting_started/quickstart.html">
+            
+                <a href="../1_getting_started/quickstart.html">
+            
+                    
+                    三分钟快速上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2_basic_params/">
+            
+                <a href="../2_basic_params/">
+            
+                    
+                    基本参数设置
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2_basic_params/track_params.html">
+            
+                <a href="../2_basic_params/track_params.html">
+            
+                    
+                    ① 钢球与球道轨迹
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../2_basic_params/section_params.html">
+            
+                <a href="../2_basic_params/section_params.html">
+            
+                    
+                    ② 球道法向截面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../2_basic_params/tool_and_part_params.html">
+            
+                <a href="../2_basic_params/tool_and_part_params.html">
+            
+                    
+                    ③ 刀具安装与 ④ 工件外形
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../3_advanced_params/">
+            
+                <a href="../3_advanced_params/">
+            
+                    
+                    高级参数设置
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../3_advanced_params/tip_and_profile.html">
+            
+                <a href="../3_advanced_params/tip_and_profile.html">
+            
+                    
+                    刀尖与廓形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../3_advanced_params/shank_and_part.html">
+            
+                <a href="../3_advanced_params/shank_and_part.html">
+            
+                    
+                    刀柄与姿态、工件细节
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../3_advanced_params/tolerance_arc_export.html">
+            
+                <a href="../3_advanced_params/tolerance_arc_export.html">
+            
+                    
+                    校验范围、单圆弧近似与导出设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../4_result_panel/">
+            
+                <a href="../4_result_panel/">
+            
+                    
+                    计算结果面板解读
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../4_result_panel/exact_and_check.html">
+            
+                <a href="../4_result_panel/exact_and_check.html">
+            
+                    
+                    截面数据、精确刀具与加工校核
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../4_result_panel/arc_and_table1.html">
+            
+                <a href="../4_result_panel/arc_and_table1.html">
+            
+                    
+                    单圆弧近似与轮廓方程常数(Table 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    图形页签（Tab 图表）详解
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="tab1_tool.html">
+            
+                <a href="tab1_tool.html">
+            
+                    
+                    刀具廓形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="tab2_section.html">
+            
+                <a href="tab2_section.html">
+            
+                    
+                    球道截面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="tab3_part.html">
+            
+                <a href="tab3_part.html">
+            
+                    
+                    星形套截面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="tab4_pose.html">
+            
+                <a href="tab4_pose.html">
+            
+                    
+                    加工姿态(子午面)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="tab5_sim.html">
+            
+                <a href="tab5_sim.html">
+            
+                    
+                    反向仿真偏差
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.6" data-path="tab6_arc.html">
+            
+                <a href="tab6_arc.html">
+            
+                    
+                    单圆弧近似
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../6_exports_data/">
+            
+                <a href="../6_exports_data/">
+            
+                    
+                    导出文件与工程应用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../6_exports_data/dxf_files.html">
+            
+                <a href="../6_exports_data/dxf_files.html">
+            
+                    
+                    DXF 图纸导出与 CAD/磨刀应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../6_exports_data/csv_files.html">
+            
+                <a href="../6_exports_data/csv_files.html">
+            
+                    
+                    CSV 数据表导出与编程/检测应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../7_menus_session/">
+            
+                <a href="../7_menus_session/">
+            
+                    
+                    菜单功能、快捷键与参数管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../7_menus_session/menus_shortcuts.html">
+            
+                <a href="../7_menus_session/menus_shortcuts.html">
+            
+                    
+                    菜单栏与快捷键速查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../7_menus_session/params_management.html">
+            
+                <a href="../7_menus_session/params_management.html">
+            
+                    
+                    参数文件管理与自动记忆
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../8_workflows_cases/">
+            
+                <a href="../8_workflows_cases/">
+            
+                    
+                    典型设计实战案例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../8_workflows_cases/case1_ellipse.html">
+            
+                <a href="../8_workflows_cases/case1_ellipse.html">
+            
+                    
+                    案例一：椭圆截面成型刀与单圆弧设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../8_workflows_cases/case2_points.html">
+            
+                <a href="../8_workflows_cases/case2_points.html">
+            
+                    
+                    案例二：导入截面点表(CSV)与图纸 Table 1/2 对照
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../8_workflows_cases/case3_gothic.html">
+            
+                <a href="../8_workflows_cases/case3_gothic.html">
+            
+                    
+                    案例三：双圆弧(尖底)球道精确成型刀设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../8_workflows_cases/case4_allowance_pose.html">
+            
+                <a href="../8_workflows_cases/case4_allowance_pose.html">
+            
+                    
+                    案例四：预留加工余量与刀柄防干涉调优
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../9_troubleshooting/">
+            
+                <a href="../9_troubleshooting/">
+            
+                    
+                    常见提示与故障排除
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            本书使用 HonKit 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >单圆弧近似</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="56-tab-6：单圆弧近似-ctrl6">5.6 Tab 6：单圆弧近似 (<code>Ctrl+6</code>)</h1>
+<p>在实际生产中，制造和检测一把“复杂样条曲线成型刀”成本较高，而在数控工具磨床或外圆磨床砂轮修整器上，加工一段<strong>标准单圆弧（Single Arc）</strong>则极其简便、精度极高。</p>
+<p><strong><code>单圆弧近似</code></strong> 标签页专门用来帮您做工程决策：<strong>当前这把刀具能不能直接用单圆弧替代？用单圆弧替代后，加工出来的球道误差有多大？有没有超出图纸公差？</strong></p>
+<p><img src="resources/tab6_arc.png" alt="Tab 6 单圆弧近似详解"></img></p>
+<hr></hr>
+<h2 id="一、三子图布局与各自含义">一、三子图布局与各自含义</h2>
+<p>该标签页采用左一、右二的经典三视图布局：</p>
+<h3 id="1-左图：单圆弧刀具-与精确廓形宏观对比">1. 左图：<code>单圆弧刀具</code> 与精确廓形宏观对比</h3>
+<ul>
+<li><strong>顶部标题栏</strong>：直接给出可直接标注到刀具制造图纸上的 4 个单圆弧核心尺寸（已按高级参数 <code>取整位数</code> 圆整）：
+<code>单圆弧刀具  R 12.360  圆心 径向 -2.192 / 轴向 +1.071  圆柱 Ø20.336</code></li>
+<li><strong>珊瑚红粗实线（<code>精确刀具接触段</code>）</strong>：理论精确刀具接触段刀刃；</li>
+<li><strong>绿色实线（<code>单圆弧刀具 (圆弧 + 圆柱)</code>）</strong>：由半径 <code>R 12.360</code> 的圆弧段、下端相切延伸出的竖直圆柱段（<code>Ø20.336</code>）以及顶部平端共同组成的单圆弧近似刀头轮廓；</li>
+<li><strong>洋红色十字 <code>+</code>（<code>圆弧圆心</code>）</strong>：标示左右两侧圆弧刀刃对应的偏心圆心位置（径向 <code>-2.192 mm</code> 位于中心轴对侧，轴向在当前虚拟钢球坐标系下位于 <code>z = -1.071 mm</code>，即距离钢球中心朝刀柄方向 <code>1.071 mm</code>）；</li>
+<li><strong>橙色虚线（<code>刀尖段最大外形 (不切削)</code>）</strong>：标示刀尖避空段的最大允许外形边界。</li>
+</ul>
+<h3 id="2-右上图：刀具半径差：单圆弧-−-精确（刀刃自身差多少微米？）">2. 右上图：<code>刀具半径差：单圆弧 − 精确</code>（刀刃自身差多少微米？）</h3>
+<ul>
+<li><strong>横轴 <code>z 沿刀轴 (mm)</code></strong>，<strong>纵轴 <code>半径差 (μm)</code></strong>；</li>
+<li>展示沿着刀具接触段轴向高度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>，单圆弧刀刃半径与精确刀刃半径之间的微米级差值。</li>
+<li>可以看到黑色曲线呈平滑的“S 型”均衡交错分布（在 <code>-3 μm ~ +4 μm</code> 之间波动），直观体现了单圆弧对复杂空间包络曲线的最佳逼近效果。</li>
+</ul>
+<h3 id="3-右下图：单圆弧刀具切出的球道-−-设计截面（最核心判据！）">3. 右下图：<code>单圆弧刀具切出的球道 − 设计截面</code>（<strong>最核心判据！</strong>）</h3>
+<ul>
+<li><strong>横轴 <code>y 横向 (mm)</code></strong>（球道半截面宽度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>∼</mo><msub><mi>y</mi><mi>max</mi><mo>⁡</mo></msub></mrow><annotation encoding="application/x-tex">0 \sim y_{\max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">a</span><span class="mtight">x</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>），<strong>纵轴 <code>法向偏差 (μm)</code></strong>；</li>
+<li><strong>顶部彩色标题栏</strong>：<ul>
+<li>当合格时显示为<strong>绿色标题</strong>：<code>单圆弧刀具切出的球道 − 设计截面  最大 3.78 μm  合格</code>；</li>
+<li>当超差时自动变为<strong>红色标题</strong>：<code>... 超出公差 ±10 μm!</code>；</li>
+</ul>
+</li>
+<li><strong>蓝色粗实线</strong>：使用这把圆整后的单圆弧刀具加工星形套，实际切出的球道截面与设计截面之间的法向偏差曲线；</li>
+<li><strong>上下两条红色水平虚线（<code>红虚线 = 轮廓度 ±10 μm</code>）</strong>：由高级参数中的 <strong><code>轮廓度公差</code></strong>（默认 <code>0.02 mm</code>，即半公差带 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>±</mo><mn>10</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\pm 10\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">±</span><span class="mord">10</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>）决定的合格边界线！</li>
+</ul>
+<hr></hr>
+<h2 id="二、单圆弧替代可行性一秒判定法">二、单圆弧替代可行性“一秒判定法”</h2>
+<p>切换到 <strong><code>Tab 6：单圆弧近似</code></strong> 后，您只需看右下角子图：</p>
+<ul>
+<li><strong>情况 A（绿色标题“合格”，推荐使用单圆弧）</strong>：<ul>
+<li><strong>表现</strong>：右下角子图标题为<strong>绿色</strong>，且<strong>蓝色实线完全处于上下两条红色水平虚线（<code>±10 μm</code>）内部</strong>（如上图最大偏差仅 <code>3.78 μm</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>10</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">&lt; 10\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">10</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>）。</li>
+<li><strong>决策</strong>：无需制造复杂样条曲线刀具！直接点击左下角的 <strong><code>圆弧刀具 DXF</code></strong> 导出单圆弧刀具工程图，即可低成本、高精度地完成生产。</li>
+</ul>
+</li>
+<li><strong>情况 B（红色标题“超出公差”，不可使用单圆弧）</strong>：<ul>
+<li><strong>表现</strong>：右下角子图标题变为<strong>红色</strong>，蓝色实线大幅冲出红色虚线公差带（例如在 <strong><a href="../8_workflows_cases/case3_gothic.html">8.3 案例三：双圆弧哥德式尖底球道</a></strong> 中偏差高达 <code>292.80 μm</code>），且左侧计算结果面板弹出红字警告 <code>⚠ 单圆弧近似球道偏差 超出公差</code>。</li>
+<li><strong>决策</strong>：说明该球道截面形状（如双圆弧尖底或大曲率变化点表）在几何上无法用单段圆弧近似，此时<strong>必须使用精确刀具</strong>（点击 <strong><code>刀具 DXF</code></strong> 或 <strong><code>刀具点表 CSV</code></strong> 导出精确样条廓形进行数控磨削）。</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="tab5_sim.html" class="navigation navigation-prev " aria-label="Previous page: 反向仿真偏差">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../6_exports_data/" class="navigation navigation-next " aria-label="Next page: 导出文件与工程应用">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"单圆弧近似","level":"1.6.6","depth":2,"next":{"title":"导出文件与工程应用","level":"1.7","depth":1,"path":"6_exports_data/README.md","ref":"6_exports_data/README.md","articles":[{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"path":"6_exports_data/dxf_files.md","ref":"6_exports_data/dxf_files.md","articles":[]},{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"path":"6_exports_data/csv_files.md","ref":"6_exports_data/csv_files.md","articles":[]}]},"previous":{"title":"反向仿真偏差","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab6_arc.md","mtime":"2026-11-03T09:19:27.143Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-03T09:19:38.370Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

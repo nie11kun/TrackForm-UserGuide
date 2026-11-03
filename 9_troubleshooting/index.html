@@ -1,0 +1,945 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <title>常见提示与故障排除 · TrackForm User Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="author" content="Nie Kun">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/honkit-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../8_workflows_cases/case4_allowance_pose.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../1_getting_started/">
+            
+                <a href="../1_getting_started/">
+            
+                    
+                    快速开始
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../1_getting_started/installation.html">
+            
+                <a href="../1_getting_started/installation.html">
+            
+                    
+                    软件安装与启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../1_getting_started/ui_overview.html">
+            
+                <a href="../1_getting_started/ui_overview.html">
+            
+                    
+                    界面布局与基本操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../1_getting_started/quickstart.html">
+            
+                <a href="../1_getting_started/quickstart.html">
+            
+                    
+                    三分钟快速上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../2_basic_params/">
+            
+                <a href="../2_basic_params/">
+            
+                    
+                    基本参数设置
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2_basic_params/track_params.html">
+            
+                <a href="../2_basic_params/track_params.html">
+            
+                    
+                    ① 钢球与球道轨迹
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../2_basic_params/section_params.html">
+            
+                <a href="../2_basic_params/section_params.html">
+            
+                    
+                    ② 球道法向截面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../2_basic_params/tool_and_part_params.html">
+            
+                <a href="../2_basic_params/tool_and_part_params.html">
+            
+                    
+                    ③ 刀具安装与 ④ 工件外形
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../3_advanced_params/">
+            
+                <a href="../3_advanced_params/">
+            
+                    
+                    高级参数设置
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../3_advanced_params/tip_and_profile.html">
+            
+                <a href="../3_advanced_params/tip_and_profile.html">
+            
+                    
+                    刀尖与廓形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../3_advanced_params/shank_and_part.html">
+            
+                <a href="../3_advanced_params/shank_and_part.html">
+            
+                    
+                    刀柄与姿态、工件细节
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../3_advanced_params/tolerance_arc_export.html">
+            
+                <a href="../3_advanced_params/tolerance_arc_export.html">
+            
+                    
+                    校验范围、单圆弧近似与导出设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../4_result_panel/">
+            
+                <a href="../4_result_panel/">
+            
+                    
+                    计算结果面板解读
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../4_result_panel/exact_and_check.html">
+            
+                <a href="../4_result_panel/exact_and_check.html">
+            
+                    
+                    截面数据、精确刀具与加工校核
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../4_result_panel/arc_and_table1.html">
+            
+                <a href="../4_result_panel/arc_and_table1.html">
+            
+                    
+                    单圆弧近似与轮廓方程常数(Table 1)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../5_tabs_charts/">
+            
+                <a href="../5_tabs_charts/">
+            
+                    
+                    图形页签（Tab 图表）详解
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../5_tabs_charts/tab1_tool.html">
+            
+                <a href="../5_tabs_charts/tab1_tool.html">
+            
+                    
+                    刀具廓形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../5_tabs_charts/tab2_section.html">
+            
+                <a href="../5_tabs_charts/tab2_section.html">
+            
+                    
+                    球道截面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../5_tabs_charts/tab3_part.html">
+            
+                <a href="../5_tabs_charts/tab3_part.html">
+            
+                    
+                    星形套截面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../5_tabs_charts/tab4_pose.html">
+            
+                <a href="../5_tabs_charts/tab4_pose.html">
+            
+                    
+                    加工姿态(子午面)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../5_tabs_charts/tab5_sim.html">
+            
+                <a href="../5_tabs_charts/tab5_sim.html">
+            
+                    
+                    反向仿真偏差
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../5_tabs_charts/tab6_arc.html">
+            
+                <a href="../5_tabs_charts/tab6_arc.html">
+            
+                    
+                    单圆弧近似
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../6_exports_data/">
+            
+                <a href="../6_exports_data/">
+            
+                    
+                    导出文件与工程应用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../6_exports_data/dxf_files.html">
+            
+                <a href="../6_exports_data/dxf_files.html">
+            
+                    
+                    DXF 图纸导出与 CAD/磨刀应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../6_exports_data/csv_files.html">
+            
+                <a href="../6_exports_data/csv_files.html">
+            
+                    
+                    CSV 数据表导出与编程/检测应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../7_menus_session/">
+            
+                <a href="../7_menus_session/">
+            
+                    
+                    菜单功能、快捷键与参数管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../7_menus_session/menus_shortcuts.html">
+            
+                <a href="../7_menus_session/menus_shortcuts.html">
+            
+                    
+                    菜单栏与快捷键速查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../7_menus_session/params_management.html">
+            
+                <a href="../7_menus_session/params_management.html">
+            
+                    
+                    参数文件管理与自动记忆
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../8_workflows_cases/">
+            
+                <a href="../8_workflows_cases/">
+            
+                    
+                    典型设计实战案例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../8_workflows_cases/case1_ellipse.html">
+            
+                <a href="../8_workflows_cases/case1_ellipse.html">
+            
+                    
+                    案例一：椭圆截面成型刀与单圆弧设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../8_workflows_cases/case2_points.html">
+            
+                <a href="../8_workflows_cases/case2_points.html">
+            
+                    
+                    案例二：导入截面点表(CSV)与图纸 Table 1/2 对照
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../8_workflows_cases/case3_gothic.html">
+            
+                <a href="../8_workflows_cases/case3_gothic.html">
+            
+                    
+                    案例三：双圆弧(尖底)球道精确成型刀设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../8_workflows_cases/case4_allowance_pose.html">
+            
+                <a href="../8_workflows_cases/case4_allowance_pose.html">
+            
+                    
+                    案例四：预留加工余量与刀柄防干涉调优
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    常见提示与故障排除
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            本书使用 HonKit 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >常见提示与故障排除</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="第九章：常见报警排查与故障处理速查">第九章：常见报警排查与故障处理速查</h1>
+<p>在使用 TrackForm 进行球道成型刀具设计的过程中，如果输入的参数存在几何矛盾、数值越界或干涉超差风险，软件会通过<strong>弹窗报错</strong>或<strong>计算结果面板红字警告</strong>第一时间提醒您。</p>
+<p>本章汇总了全部常见报错信息、触发原因及一步到位的解决办法，供您随时查阅排障。</p>
+<hr></hr>
+<h2 id="一、点击计算时的弹窗报错排查表（输入合法性拦截）">一、点击“计算”时的弹窗报错排查表（输入合法性拦截）</h2>
+<p>当您点击 <strong><code>▶ 计算刀具廓形</code></strong>（或按 <code>F5</code>）时，若直接弹出错误提示对话框，请对照下表修改左侧对应的输入框：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">弹窗报错提示内容</th>
+<th style="text-align:left">触发原因</th>
+<th style="text-align:left">解决办法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>钢球直径必须大于 0</code></strong></td>
+<td style="text-align:left"><code>钢球直径</code> 输入了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\le 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 的数值或非法字符。</td>
+<td style="text-align:left">输入正数（常见万向节钢球直径为 <code>12.7 ~ 30.0 mm</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>节圆直径必须大于钢球直径</code></strong></td>
+<td style="text-align:left"><code>节圆直径 PCD</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo></mrow><annotation encoding="application/x-tex">\le</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span></span></span></span> <code>钢球直径</code>，在几何上无法排布球道。</td>
+<td style="text-align:left">核对图纸节圆直径 PCD（通常约为钢球直径的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.8</mn><mo>∼</mo><mn>3.5</mn></mrow><annotation encoding="application/x-tex">2.8 \sim 3.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2.8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3.5</span></span></span></span> 倍）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>外球面直径必须大于 0</code></strong></td>
+<td style="text-align:left">高级参数 <code>外球面直径</code> 输入了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\le 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 的值。</td>
+<td style="text-align:left">填入星形套外球面直径（如 <code>61.113 mm</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>内孔直径不能为负</code> / <code>内孔直径必须小于外球面直径</code></strong></td>
+<td style="text-align:left">高级参数 <code>内孔直径</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">&lt; 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo></mrow><annotation encoding="application/x-tex">\ge</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span></span></span></span> <code>外球面直径</code>。</td>
+<td style="text-align:left">填入真实中心内孔直径（如 <code>26.907 mm</code>），不关心时可填 <code>0</code>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>工件宽度必须大于 0</code></strong></td>
+<td style="text-align:left">高级参数 <code>工件宽度</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\le 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</td>
+<td style="text-align:left">填入星形套两端面总宽度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>球心至端面距离必须在 (0, 工件宽度) 范围内</code></strong></td>
+<td style="text-align:left">高级参数 <code>球心至端面</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>≤</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">H \le 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>≥</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">H \ge W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>，导致外球面球心跑到了星形套两端面之外。</td>
+<td style="text-align:left">核对图纸上外球面球心到左侧基准端面的距离 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span>（对称零件 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mi>W</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">H = W/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mord">/2</span></span></span></span>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>接触角必须在 (0°, 90°) 范围内</code></strong></td>
+<td style="text-align:left"><code>接触角 α</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><msup><mn>0</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">\le 0^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>9</mn><msup><mn>0</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">\ge 90^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>。</td>
+<td style="text-align:left">填入正确的球道接触角（通常为 <code>30° ~ 48°</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>相似度 k 必须大于 1.0（球道曲率半径须大于钢球半径）</code></strong></td>
+<td style="text-align:left">在 <code>给定相似度</code> 模式下，<code>给定相似度 k</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>1.0</mn></mrow><annotation encoding="application/x-tex">\le 1.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1.0</span></span></span></span>（球道比钢球还窄，钢球无法放入）。</td>
+<td style="text-align:left">将 <code>给定相似度 k</code> 设为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&gt;</mo><mn>1.0</mn></mrow><annotation encoding="application/x-tex">&gt; 1.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1.0</span></span></span></span> 的值（典型范围 <code>1.02 ~ 1.08</code>，常用 <code>1.04</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>顶隙必须大于 0</code></strong></td>
+<td style="text-align:left">在 <code>给定顶隙</code> 或 <code>点表(CSV)</code> 模式下，<code>给定顶隙 c</code> / <code>顶隙 c</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\le 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</td>
+<td style="text-align:left">填入正数顶隙（典型范围 <code>0.010 ~ 0.050 mm</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>椭圆半轴 a, b 必须大于钢球半径 (X.XXX mm)</code></strong></td>
+<td style="text-align:left">在 <code>给定半轴(椭圆)</code> 模式下，输入的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><msub><mi>D</mi><mi>w</mi></msub><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\le D_w/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">/2</span></span></span></span>。</td>
+<td style="text-align:left">检查图纸半轴数值，确保 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>&gt;</mo><msub><mi>D</mi><mi>w</mi></msub><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">a, b &gt; D_w/2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">/2</span></span></span></span>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>切入角 β 必须在 (0°, 90°) 范围内</code></strong></td>
+<td style="text-align:left"><code>切入角 β</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><msup><mn>0</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">\le 0^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>9</mn><msup><mn>0</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">\ge 90^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>。</td>
+<td style="text-align:left">填入合理的刀具主轴倾角（常用 <code>25° ~ 45°</code>，默认 <code>36°</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>球道底部半径 (Rp - r_bottom &lt;= 0) 无效，请增大 PCD 或减小钢球直径</code></strong></td>
+<td style="text-align:left">球道深度超过了球道中心轨迹半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">R_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>。</td>
+<td style="text-align:left">检查 <code>节圆直径 PCD</code> 是否少输了一位数字，或 <code>钢球直径</code> 是否填错。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>外球面半径小于球道底部，无法形成球道口</code></strong></td>
+<td style="text-align:left"><code>外球面直径</code> 设得太小，甚至比球道最深处底径还要小。</td>
+<td style="text-align:left">核对高级参数中的 <code>外球面直径</code> 与 <code>节圆直径 PCD</code>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>切入角 β = XX° 过大，法面在球道边缘无法与包络相容！最大允许切入角约 XX°</code></strong></td>
+<td style="text-align:left"><code>切入角 β</code> 设得太大，导致刀具在球道上边缘处超过几何相容极限。</td>
+<td style="text-align:left">按弹窗提示的最大允许角度，<strong>调小 <code>切入角 β</code></strong>（例如改回 <code>35° ~ 38°</code>）。</td>
+</tr>
+</tbody>
+</table>
+<hr></hr>
+<h2 id="二、点表-csv--给定半轴模式下钢球与球道不匹配报错详解">二、点表 (CSV) / 给定半轴模式下“钢球与球道不匹配”报错详解</h2>
+<p>当 <code>截面类型</code> 选择 <strong><code>点表(CSV)</code></strong> 或 <code>截面求解</code> 选择 <strong><code>给定半轴(椭圆)</code></strong> 时，软件会自动检验直径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的钢球放入球道后是否能与两侧槽壁准确相切贴合：</p>
+<p><img src="resources/err_ball_gap_mismatch.png" alt="钢球与球道接触不匹配示意图"></img></p>
+<h3 id="1-典型报错一：钢球未与球道侧面贴合（最小径向间隙--xxxxx-mm）（上图-②）">1. 典型报错一：<code>钢球未与球道侧面贴合（最小径向间隙 = +X.XXXX mm）</code>（上图 ②）</h3>
+<ul>
+<li><strong>物理原因</strong>：您输入的 <strong><code>顶隙 c</code> 偏大</strong>（或 <code>椭圆中心高 uc</code> 偏小），导致球道位置偏低，钢球放在既定高度时两侧悬空，无法与槽壁接触。</li>
+<li><strong>一步解决方法</strong>：软件在报错弹窗末尾已经为您自动算出了<strong><code>建议顶隙 ≈ X.XXXX mm</code></strong>！您只需直接将该建议顶隙数值填入左侧的 <strong><code>顶隙 c</code></strong> 输入框（或调整 <code>椭圆中心高 uc</code>），重新按 <code>F5</code> 即可立即通过！</li>
+</ul>
+<h3 id="2-典型报错二：钢球侵入球道壁面-xxxxx-mm（上图-③）">2. 典型报错二：<code>钢球侵入球道壁面 X.XXXX mm</code>（上图 ③）</h3>
+<ul>
+<li><strong>物理原因</strong>：您输入的 <strong><code>顶隙 c</code> 偏小</strong>（或 <code>椭圆中心高 uc</code> 偏大），导致钢球卡入两侧槽壁内部发生干涉。</li>
+<li><strong>一步解决方法</strong>：同样直接采用报错弹窗中提示的 <strong><code>建议顶隙 ≈ X.XXXX mm</code></strong> 填入 <strong><code>顶隙 c</code></strong> 输入框即可消除干涉。</li>
+</ul>
+<h3 id="3-其它点表相关报错与调整技巧">3. 其它点表相关报错与调整技巧</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">报错 / 现像</th>
+<th style="text-align:left">原因与解决办法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>请选择截面点表文件 (CSV)</code> / <code>找不到点表文件</code></strong></td>
+<td style="text-align:left">未选择 CSV 文件或文件被移动。点击 <code>点表文件</code> 右侧的 <strong><code>浏览…</code></strong> 重新选择。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>点表至少需要 5 个有效数据点 (y, u)</code></strong></td>
+<td style="text-align:left">CSV 文件中有效数字行少于 5 行，或列分隔符异常。用记事本打开 CSV 检查格式（支持两列 <code>y, u</code> 或三列 <code>No, Z(±), Y</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>点表横向宽度必须大于 0</code> / <code>点表深度范围必须大于 0</code></strong></td>
+<td style="text-align:left">CSV 数据列全为 0 或单列数据缺失，请检查点表坐标列是否正确。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>点表导出的刀具廓形局部有微小波纹</strong></td>
+<td style="text-align:left">客户图纸点表由于小数位数较少（如仅保留 3 位小数）存在截断台阶。将 <strong><code>点表精度</code></strong> 从 <code>1e-5</code> 调大为 <strong><code>5e-5</code></strong> 或 <strong><code>1e-4</code></strong> 即可平滑毛刺。</td>
+</tr>
+</tbody>
+</table>
+<hr></hr>
+<h2 id="三、计算结果面板红字警告（⚠）全面排查表">三、计算结果面板红字警告（<code>⚠</code>）全面排查表</h2>
+<p>当计算顺利完成，但左侧 <strong><code>计算结果</code></strong> 面板底部出现红色加粗的 <strong><code>⚠</code></strong> 警告行时，请按以下指南逐条消除：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">计算结果红字警告</th>
+<th style="text-align:center">严重程度</th>
+<th style="text-align:left">根本原因与一键消除方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>⚠ 刀尖高度 (X.XXX) 低于接触段上端 (Y.YYY)，接触区将被截断!</code></strong></td>
+<td style="text-align:center"><strong>高危（严禁投产）</strong></td>
+<td style="text-align:left">高级参数 <code>刀尖高度</code> 小于上方显示的 <code>接触段 z</code> 上限 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mi>max</mi><mo>⁡</mo></msub></mrow><annotation encoding="application/x-tex">z_{\max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">a</span><span class="mtight">x</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，刀头前端把有效工作刃口截断了。<br></br><strong>消除方法</strong>：展开 <code>▶ 高级参数</code>，将 <strong><code>刀尖高度</code></strong> 调大至 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><msub><mi>z</mi><mi>max</mi><mo>⁡</mo></msub><mo>+</mo><mn>0.1</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\ge z_{\max} + 0.1\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">a</span><span class="mtight">x</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0.1</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>⚠ 刀具廓形非单调，存在干涉!</code></strong></td>
+<td style="text-align:center"><strong>高危（严禁投产）</strong></td>
+<td style="text-align:left">刀具轴向坐标出现折返。<br></br><strong>消除方法</strong>：减小基本参数 <strong><code>切入角 β</code></strong>；若为点表模式，适当增大 <strong><code>点表精度</code></strong>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>⚠ 检测到包络过切风险 (曲率间隙 -X.XXXX mm)!</code></strong></td>
+<td style="text-align:center"><strong>高危（严禁投产）</strong></td>
+<td style="text-align:left">刀具局部包络曲率半径大于球道曲率半径，走刀时会铲伤球道壁。<br></br><strong>消除方法</strong>：减小 <strong><code>切入角 β</code></strong>（例如从 <code>42°</code> 降至 <code>35°</code>）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>⚠ 反向仿真过切 XX.X μm!</code></strong></td>
+<td style="text-align:center"><strong>高危（严禁投产）</strong></td>
+<td style="text-align:left">反向包络切削仿真发现过切（负偏差 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mo>−</mo><mn>0.5</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">&lt; -0.5\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord">0.5</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>）。<br></br><strong>消除方法</strong>：切换到 <strong><code>Tab 5：反向仿真偏差</code></strong> 查看过切位置，减小 <strong><code>切入角 β</code></strong> 或检查刀尖过渡设置。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>⚠ 反向仿真欠切 XX.X μm!</code></strong></td>
+<td style="text-align:center"><strong>高危（严禁投产）</strong></td>
+<td style="text-align:left">有效工作接触区未切到位（正偏差 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&gt;</mo><mn>0.5</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">&gt; 0.5\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">0.5</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>）。<br></br><strong>消除方法</strong>：通常是 <code>刀尖高度</code> 过低截断了接触段，调大 <strong><code>刀尖高度</code></strong> 即可归零。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>⚠ 球道顶隙 X.XXXX mm 超出 [min, max] mm</code></strong></td>
+<td style="text-align:center"><strong>中度（尺寸预警）</strong></td>
+<td style="text-align:left">当前截面的理论顶隙超出了高级参数设定的 <code>[顶隙下限, 顶隙上限]</code>。<br></br><strong>消除方法</strong>：若图纸原本就是此顶隙（如双圆弧尖底或小顶隙点表），可在高级参数中调整 <code>顶隙下限</code> / <code>顶隙上限</code>；若顶隙确实偏离图纸，请调整 <code>给定相似度 k</code> 或 <code>给定顶隙 c</code>。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>⚠ 单圆弧近似球道偏差 XX.XX μm 超出公差 ±10 μm</code></strong></td>
+<td style="text-align:center"><strong>工艺路线提醒</strong></td>
+<td style="text-align:left">用单段圆弧替代精确刀刃时，误差超出了图纸轮廓度公差（常见于 <strong><code>双圆弧(尖底)</code></strong> 截面）。<br></br><strong>处理方法</strong>：<strong>不影响精确刀具的正确性</strong>！只需放弃单圆弧近似，直接点击导出 <strong><code>刀具 DXF</code></strong> 或 <strong><code>刀具点表 CSV</code></strong> 制造精确样条刀具即可。</td>
+</tr>
+</tbody>
+</table>
+<hr></hr>
+<h2 id="四、下游-cad-与-excel-使用常见问题-faq">四、下游 CAD 与 Excel 使用常见问题 (FAQ)</h2>
+<h3 id="q1：导出的-csv-文件用-excel-打开为什么没有乱码，但导入某些老旧数控系统报错？">Q1：导出的 CSV 文件用 Excel 打开为什么没有乱码，但导入某些老旧数控系统报错？</h3>
+<ul>
+<li><strong>答</strong>：TrackForm 导出的 CSV 默认带有 UTF-8 BOM 头并包含顶部 <code>#</code> 注释说明行，方便 Excel 直接双击阅读。如果您使用的老旧磨床数控系统只接受纯数字行，只需在 Excel 中打开该 CSV，删掉顶部以 <code>#</code> 开头的说明行和中文表头行，另存为普通 CSV 即可。</li>
+</ul>
+<h3 id="q2：刀具点表-csv-toolprofilepointscsv-中的-z球心-和-z端面-两列有什么区别？编程时该用哪一列？">Q2：<code>刀具点表 CSV</code> (<code>tool_profile_points.csv</code>) 中的 <code>z_球心</code> 和 <code>z_端面</code> 两列有什么区别？编程时该用哪一列？</h3>
+<ul>
+<li><strong>答</strong>：<ul>
+<li>第 5 列 <strong><code>z_球心</code></strong> 是以<strong>虚拟钢球球心</strong>为原点 <code>z = 0</code>（向刀尖方向为正），与软件界面 <code>Tab 1：刀具廓形</code> 的纵轴完全一致；</li>
+<li>第 6 列 <strong><code>z_端面</code></strong> 则是以<strong>刀柄定位端面（如 HSK 法兰端面）</strong>为原点 <code>z = 0</code> 计算出的轴向距离（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>z_端面</mtext><mo>=</mo><mtext>z_球心</mtext><mo>+</mo><mtext>球心距&nbsp;</mtext><mi>L</mi></mrow><annotation encoding="application/x-tex">\text{z\_端面} = \text{z\_球心} + \text{球心距 } L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.99333em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">z_</span><span class="mord cjk_fallback">端面</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.99333em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">z_</span><span class="mord cjk_fallback">球心</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">球心距</span><span class="mord">&nbsp;</span></span><span class="mord mathnormal">L</span></span></span></span>）。当车间在数控工具磨床、加工中心或对刀仪上以<strong>刀柄端面作为编程与测量零点</strong>时，直接使用第 6 列 <strong><code>z_端面</code></strong> 即可免去一切手工加减换算！</li>
+</ul>
+</li>
+</ul>
+<h3 id="q3：在-autocad-中打开导出的-刀具-dxf-toolprofiledxf，应该选哪条线生成数控磨床刀路？">Q3：在 AutoCAD 中打开导出的 <code>刀具 DXF</code> (<code>tool_profile.dxf</code>)，应该选哪条线生成数控磨床刀路？</h3>
+<ul>
+<li><strong>答</strong>：在 AutoCAD 图层管理器中，关闭或冻结 <code>PROFILE</code>（绿色折线）图层，只保留 <strong><code>PROFILE_SPLINE</code></strong>（青色样条线）图层。该图层是一条数学光滑的 3 阶样条曲线（<code>SPLINE</code>），直接拾取它生成的砂轮磨削刀路表面光洁度最佳。如果加工的是单圆弧刀具（<code>arc_tool.dxf</code>），则直接拾取 <code>PROFILE</code> 图层上的原生 <code>ARC</code> 圆弧图元即可。</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../8_workflows_cases/case4_allowance_pose.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 案例四：预留加工余量与刀柄防干涉调优">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"常见提示与故障排除","level":"1.10","depth":1,"previous":{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"path":"8_workflows_cases/case4_allowance_pose.md","ref":"8_workflows_cases/case4_allowance_pose.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"9_troubleshooting/README.md","mtime":"2026-11-03T09:19:27.149Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-03T09:19:38.370Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
