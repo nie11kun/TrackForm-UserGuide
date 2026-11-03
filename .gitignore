@@ -41,7 +41,6 @@ pids
 __pycache__/
 *.py[cod]
 .venv/
-tools/
 
 
 ### Windows ###
