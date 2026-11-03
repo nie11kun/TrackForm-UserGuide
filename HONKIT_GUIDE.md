@@ -66,7 +66,7 @@ TrackForm-UserGuide/
 │   ├── website.css         # 网页端自定义样式
 │   └── pdf.css             # PDF 导出自定义样式
 ├── tools/
-│   └── build_images.py     # 本地自动化配图生成脚本（已被 .gitignore 与 .bookignore 忽略）
+│   └── build_images.py     # 自动化配图生成脚本（已在 .bookignore 中忽略，不会进入网页构建）
 ├── 1_getting_started/      # 第 1 章 Markdown 及 resources/ 配图
 ├── 2_basic_params/         # 第 2 章 Markdown 及 resources/ 配图
 ...
@@ -114,7 +114,7 @@ python tools/build_images.py
 ```
 
 * 该脚本会自动调用同级目录 `..\TrackForm` 的提示卡片绘图与图表渲染接口，将生成的 PNG 图片输出到各章节的 `resources/` 目录下。
-* 注意：`tools/` 目录仅保存在本地开发环境中，已在 `.gitignore` 和 `.bookignore` 中配置忽略，不会上传到公开仓库或编译到网页中。
+* 注意：`tools/` 目录已在 `.bookignore` 中配置忽略，编译时不会进入 `_book/` 静态网页或 `gh-pages` 分支中。
 
 ---
 
