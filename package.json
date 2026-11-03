@@ -1,0 +1,25 @@
+{
+  "name": "trackform-userguide",
+  "version": "1.0.0",
+  "description": "欢迎使用 TrackForm 星形套球道成型刀具设计软件用户指南！本指南旨在帮助您全面掌握球道截面设置、精确成型刀具与单圆弧近似刀具设计、仿真校核以及 DXF/CSV 工程文件导出的完整工作流。",
+  "main": "index.js",
+  "scripts": {
+    "build": "honkit build",
+    "serve": "honkit serve",
+    "test": "honkit build"
+  },
+  "keywords": [
+    "TrackForm",
+    "星形套",
+    "球道成型刀具",
+    "单圆弧近似",
+    "用户指南"
+  ],
+  "author": "Nie Kun",
+  "license": "ISC",
+  "devDependencies": {
+    "honkit": "^6.1.7",
+    "honkit-plugin-katex": "^1.1.7"
+  }
+}
+

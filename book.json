@@ -1,0 +1,20 @@
+{
+    "title": "TrackForm User Guide",
+    "author": "Nie Kun",
+    "description": "TrackForm 星形套球道成型刀具设计软件完整用户指南",
+    "language": "zh-hans",
+    "plugins": [
+        "theme-default",
+        "katex"
+    ],
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": false
+        }
+    },
+    "styles": {
+        "website": "styles/website.css",
+        "pdf": "styles/pdf.css"
+    }
+}
+
