@@ -2,7 +2,7 @@
 
 包含：
 1. 封面图 cover.jpg / cover_small.jpg
-2. 全部 32 张参数定义与红色高亮示意图（直接调用 trackform.tipfig）
+2. 全部 37 张参数定义与红色高亮示意图（直接调用 trackform.tipfig）
 3. 8 组关键参数调整前后对比图（Before vs After）
 4. 右侧 6 大图形页签高清标准图与局部放大/工具栏操作图
 5. 真实导出 DXF 文件（tool_profile.dxf, arc_tool.dxf, part_section.dxf）的 CAD 预览渲染图
@@ -10,6 +10,7 @@
 """
 from __future__ import annotations
 
+import json
 import os
 import sys
 import tempfile
@@ -22,9 +23,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from matplotlib.figure import Figure
-from matplotlib.patches import Arc, Circle, FancyBboxPatch, Rectangle
+from matplotlib.patches import Circle, FancyBboxPatch, Rectangle
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 
 # 引入 TrackForm 项目源码路径
 TRACKFORM_ROOT = r"C:\Users\Marco Nie\Development\WorkProgram\TrackForm"
@@ -32,14 +33,54 @@ GUIDE_ROOT = r"C:\Users\Marco Nie\Development\WorkProgram\TrackForm-UserGuide"
 sys.path.insert(0, TRACKFORM_ROOT)
 
 from trackform import __version__, tipfig
-from trackform.arc_tool import evaluate_arc, fit_arc, table1_check, table1_constants, table2_from_equation
+from trackform.arc_tool import (
+    evaluate_arc, fit_arc, fit_arc_chain, fit_arcs, optimize_arc,
+    round_arc, seat_ball, table1_check, table1_constants, table2_from_equation,
+)
 from trackform.dxf_export import export_arc_dxf, export_dxf, export_part_dxf
 from trackform.envelope import arc_r, compute_profile, overcut_check, phi_range, simulate_section, tool_frame
-from trackform.fields import EXPORT_TIPS, FIELDS, UNITS
-from trackform.geometry import BASIC_END, GothicSection, Params, SECTION_TYPES, SOLVE_MODES, TABLE_BASIS, solve_section
-from trackform.part import part_section
+from trackform.geometry import (
+    ARC_FIT, BASIC_END, Params, SECTION_TYPES, SOLVE_MODES, TABLE_BASIS, TILT_SIDES,
+)
 from trackform.plots import PlotsMixin
 from tools.make_icon import draw as draw_app_icon
+
+_REV_MAP = {
+    "section_type": {v: k for k, v in SECTION_TYPES.items()},
+    "solve_mode": {v: k for k, v in SOLVE_MODES.items()},
+    "tilt_side": {v: k for k, v in TILT_SIDES.items()},
+    "arc_fit": {v: k for k, v in ARC_FIT.items()},
+    "basic_end": {v: k for k, v in BASIC_END.items()},
+    "table_basis": {v: k for k, v in TABLE_BASIS.items()},
+}
+
+
+def load_example_params(json_name: str, **overrides) -> Params:
+    path = os.path.join(TRACKFORM_ROOT, "examples", json_name)
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    raw = data["params"] if "params" in data and isinstance(data["params"], dict) else data
+    p_def = Params()
+    kw = {}
+    for k, v in raw.items():
+        if not hasattr(p_def, k):
+            continue
+        if k in _REV_MAP and v in _REV_MAP[k]:
+            kw[k] = _REV_MAP[k][v]
+        elif k == "arc_decimals" and v == "不取整":
+            kw[k] = -1
+        else:
+            ref = getattr(p_def, k)
+            if isinstance(ref, int):
+                kw[k] = int(float(v))
+            elif isinstance(ref, float):
+                kw[k] = float(v)
+            else:
+                kw[k] = str(v)
+    if kw.get("points_file") and not os.path.isabs(kw["points_file"]):
+        kw["points_file"] = os.path.join(TRACKFORM_ROOT, "examples", kw["points_file"])
+    kw.update(overrides)
+    return Params(**kw)
 
 matplotlib.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "DejaVu Sans"]
 matplotlib.rcParams["axes.unicode_minus"] = False
@@ -67,27 +108,47 @@ def save_fig(fig: Figure, path: str, dpi: int = DPI, pad: float = 0.08):
 
 
 class DummyHost(PlotsMixin):
-    """复用 TrackForm 的 PlotsMixin 渲染 6 大图形页签。"""
+    """复用 TrackForm 的 PlotsMixin 渲染 6 大图形页签（与 app.py 最新计算流水线同步）。"""
 
     def __init__(self, params: Params):
         self.params = params
         self.prof = compute_profile(params)
         _, self._gap = overcut_check(self.prof, n_t=301, n_phi=401)
-        sim = simulate_section(self.prof, n_y=121, n_phi=801)
-        self._sim_y, self._ug, self._ud, self._dev = sim
+        sim_y, ug, ud, dev, (yn, un) = simulate_section(self.prof, n_y=121, n_phi=801, normal_points=True)
+        self._sim_y, self._ug, self._ud, self._dev = sim_y, ug, ud, dev
+        self._seat = self._sim_seat = seat_ball(yn, un, params.rb)
+
         dec = params.arc_decimals if params.arc_decimals >= 0 else None
-        self.arc_eval = evaluate_arc(self.prof, fit_arc(self.prof, dec), params.profile_tol,
-                                     params.n_basic, n_y=161, n_phi=1001)
-        ev_t = (evaluate_arc(self.prof, fit_arc(self.prof, None), params.profile_tol,
-                             params.n_basic, n_y=161, n_phi=1001)
-                if params.table_basis == "fit" and dec is not None else self.arc_eval)
-        C = table1_constants(params, ev_t.tool, ev_t.ball_height)
-        basic = table2_from_equation(C, params.n_basic) if params.basic_end == "c9" else ev_t.basic
-        self.table = dict(C=C, check=table1_check(C, ev_t.basic), basis=TABLE_BASIS[params.table_basis],
-                          ev=ev_t, basic=basic, end=BASIC_END[params.basic_end])
+        n_arc = max(1, int(params.arc_count))
+        audit = n_arc == 1 and params.arc_fit == "audit"
+        chain = fit_arc_chain(self.prof, n_arc) if n_arc > 1 else None
+        opt_raw = optimize_arc(self.prof) if audit else None
+        tool = (fit_arcs(self.prof, n_arc, dec, chain) if n_arc > 1 else
+                round_arc(self.prof, opt_raw, dec) if audit else fit_arc(self.prof, dec))
+        self.arc_eval = evaluate_arc(self.prof, tool, params.profile_tol,
+                                     params.n_basic, n_y=161, n_phi=1001, flank_only=audit)
+        if n_arc == 1:
+            raw_tool = opt_raw if audit else fit_arc(self.prof, None)
+            ev_t = (evaluate_arc(self.prof, raw_tool, params.profile_tol,
+                                 params.n_basic, n_y=161, n_phi=1001, flank_only=audit)
+                    if params.table_basis == "fit" and dec is not None else self.arc_eval)
+            C = table1_constants(params, ev_t.tool, ev_t.ball_height)
+            basic = table2_from_equation(C, params.n_basic) if params.basic_end == "c9" else ev_t.basic
+            self.table = dict(C=C, check=table1_check(C, ev_t.basic), basis=TABLE_BASIS[params.table_basis],
+                              ev=ev_t, basic=basic, end=BASIC_END[params.basic_end])
+        else:
+            self.table = dict(C=None, check=0.0, basis="多段圆弧", ev=self.arc_eval,
+                              basic=self.arc_eval.basic, end="球道边缘（仿真点表）")
+
         self.figs = {}
         for k in ("tool", "section", "part", "pose", "sim", "arc"):
-            f = Figure(figsize=(11.2, 6.4) if k == "arc" else (8.6, 6.4), dpi=DPI)
+            if k == "arc":
+                figsize = (12.4, 9.0)
+            elif k == "sim":
+                figsize = (9.6, 7.6)
+            else:
+                figsize = (9.0, 6.8)
+            f = Figure(figsize=figsize, dpi=DPI)
             c = FigureCanvasAgg(f)
             self.figs[k] = (f, c)
 
@@ -108,7 +169,6 @@ def build_covers():
     W, H = 1200, 1600
     img = Image.new("RGB", (W, H), (14, 34, 64))
     draw = ImageDraw.Draw(img)
-    # 渐变深蓝科技底色
     for y in range(H):
         t = y / (H - 1)
         r = int(18 + (8 - 18) * t)
@@ -116,21 +176,17 @@ def build_covers():
         b = int(88 + (48 - 88) * t)
         draw.line([(0, y), (W, y)], fill=(r, g, b))
 
-    # 工程图纸网格暗纹
     grid_col = (28, 64, 112)
     for x in range(0, W, 60):
         draw.line([(x, 0), (x, H)], fill=grid_col, width=1)
     for y in range(0, H, 60):
         draw.line([(0, y), (W, y)], fill=grid_col, width=1)
 
-    # 顶部装饰条
     draw.rectangle([0, 0, W, 18], fill=(46, 134, 222))
 
-    # 绘制软件高清图标居中偏上
     icon = draw_app_icon().resize((460, 460), Image.LANCZOS)
     img.paste(icon, ((W - 460) // 2, 200), icon)
 
-    # 加载中文字体
     font_path = r"C:\Windows\Fonts\msyhbd.ttc"
     font_reg = r"C:\Windows\Fonts\msyh.ttc"
     f_title = ImageFont.truetype(font_path, 88)
@@ -143,7 +199,6 @@ def build_covers():
     draw.line([(W // 2 - 260, 900), (W // 2 + 260, 900)], fill=(68, 138, 208), width=3)
     draw.text((W // 2, 955), "用户操作指南  User Guide", font=f_desc, fill=(220, 235, 250), anchor="mm")
 
-    # 中下部：放一张半透明工程廓形示意卡片
     p = Params()
     prof = compute_profile(p)
     fig = Figure(figsize=(8.0, 3.2), dpi=150)
@@ -194,27 +249,40 @@ def build_covers():
 
 
 # =============================================================================
-# 2. 生成全部 32 张参数定义示意图（调用 tipfig.render_png）
+# 2. 生成全部 37 张参数定义示意图（调用 tipfig.render_png）
 # =============================================================================
 def build_tipfig_images():
-    print("=== 2. 生成 32 张参数定义示意图 (tipfig) ===")
+    print("=== 2. 生成 37 张参数定义示意图 (tipfig) ===")
     ch2_dir = ensure_dir(os.path.join(GUIDE_ROOT, "2_basic_params", "resources"))
     ch3_dir = ensure_dir(os.path.join(GUIDE_ROOT, "3_advanced_params", "resources"))
 
     basic_keys = [
         "ball_d", "pcd", "track_offset",
         "section_type", "solve_mode", "pressure_angle", "conformity", "clearance",
-        "ellipse_a", "ellipse_b", "ellipse_uc", "points_file", "points_tol", "allowance",
+        "ellipse_a", "ellipse_b", "ellipse_uc", "gothic_r",
+        "points_file", "points_tol", "allowance",
         "setting_angle",
         "sphere_d", "width", "sphere_center_h",
     ]
     adv_keys = [
-        "tip_z", "tip_relief", "tip_relief_len", "extra_extend", "profile_step",
-        "gauge_length", "tilt_side",
-        "bore_d",
-        "clearance_min", "profile_tol",
-        "arc_decimals",
-        "n_basic", "basic_end", "table_basis",
+        ("tip_z", "tip_tip_z.png"),
+        ("tip_relief", "tip_tip_relief.png"),
+        ("tip_relief_len", "tip_tip_relief_len.png"),
+        ("extra_extend", "tip_extra_extend.png"),
+        ("profile_step", "tip_profile_step.png"),
+        ("gauge_length", "tip_gauge_length.png"),
+        ("tilt_side", "tip_tilt_side.png"),
+        ("bore_d", "tip_bore_d.png"),
+        ("clearance_min", "tip_clearance_limits.png"),
+        ("alpha_min", "tip_alpha_limits.png"),
+        ("span_min", "tip_span_limits.png"),
+        ("profile_tol", "tip_profile_tol.png"),
+        ("arc_count", "tip_arc_count.png"),
+        ("arc_fit", "tip_arc_fit.png"),
+        ("arc_decimals", "tip_arc_decimals.png"),
+        ("n_basic", "tip_n_basic.png"),
+        ("basic_end", "tip_basic_end.png"),
+        ("table_basis", "tip_table_basis.png"),
     ]
 
     for k in basic_keys:
@@ -224,9 +292,8 @@ def build_tipfig_images():
             f.write(png)
         print(f"  [OK] 2_basic_params/resources/tip_{k}.png")
 
-    for k in adv_keys:
+    for k, name in adv_keys:
         png = tipfig.render_png(k, dpi=180)
-        name = "tip_clearance_limits.png" if k == "clearance_min" else f"tip_{k}.png"
         out = os.path.join(ch3_dir, name)
         with open(out, "wb") as f:
             f.write(png)
@@ -256,7 +323,6 @@ def build_ch1_images():
     ax.set_ylim(920, 0)
     ax.axis("off")
 
-    # 窗口背景与标题栏
     ax.add_patch(Rectangle((10, 10), 1430, 900, fc="#f0f2f5", ec="#2f5d8c", lw=2))
     ax.add_patch(Rectangle((10, 10), 1430, 34, fc="#1e293b", ec="none"))
     ax.text(24, 28, f"TrackForm  星形套球道成型刀具设计  v{__version__}", color="white", fontsize=11, fontweight="bold", va="center")
@@ -266,7 +332,6 @@ def build_ch1_images():
     ax.add_patch(Rectangle((12, 44), 1426, 28, fc="white", ec="#cbd5e1", lw=1))
     ax.text(26, 59, "文件(F)      计算(C)      导出(E)      视图(V)      帮助(H)", color="#1e293b", fontsize=10, va="center")
 
-    # 左侧面板容器 (x=18..365)
     # ② 输入参数卡片
     ax.add_patch(Rectangle((18, 78), 345, 445, fc="white", ec="#9fb0c4", lw=1.2))
     ax.add_patch(Rectangle((18, 78), 345, 26, fc="#2f5d8c", ec="none"))
@@ -293,7 +358,7 @@ def build_ch1_images():
         yy += h_box + 5
 
     ax.add_patch(Rectangle((24, yy + 2), 332, 24, fc="#e2e8f0", ec="#94a3b8", lw=0.8))
-    ax.text(190, yy + 14, "[+] 高级参数（点击展开刀尖、刀柄、公差与导出设置）", color="#1e293b", fontsize=8.5, ha="center", va="center")
+    ax.text(190, yy + 14, "[+] 高级参数（刀尖、刀柄、校验范围、圆弧近似、导出）", color="#1e293b", fontsize=8.3, ha="center", va="center")
 
     # ③ 计算与导出卡片
     ax.add_patch(Rectangle((18, 531), 345, 165, fc="white", ec="#9fb0c4", lw=1.2))
@@ -316,22 +381,23 @@ def build_ch1_images():
     ax.add_patch(Rectangle((305, 707), 54, 20, fc="#3f74ab", ec="none"))
     ax.text(332, 717, "[展开]", color="white", fontsize=8.5, ha="center", va="center")
     res_lines = [
-        ("截面：椭圆（给定相似度）", "#0f172a"),
-        ("轨迹半径 Rp = 31.5225", "#0f172a"),
-        ("椭圆半轴 a=10.1762  b=10.6436  uc=0.6929", "#0f172a"),
-        ("相似度 = 1.0400   顶隙 = 0.0287  [OK]", "#15803d"),
-        ("接触段 r: 7.9269 ~ 10.1384   最大直径 = 20.2768", "#0f172a"),
-        ("廓形单调 OK  |  过切校验 OK  |  仿真过切 OK", "#15803d"),
-        ("—— 单圆弧近似 ——", "#1e293b"),
-        ("R=12.3600  圆心 -2.1920 / +1.0710  Ø20.3360", "#0f172a"),
-        ("生成球道偏差 = 3.78 μm（±10）  [合格]", "#15803d"),
+        ("■ 一、球道截面设计【理论值】", "#1f4e79"),
+        ("  截面：椭圆（给定相似度）  Rp = 31.5225", "#0f172a"),
+        ("  接触角 α=42.0° OK  顶隙=0.0287 OK", "#15803d"),
+        ("■ 二、精确刀具廓形【理论值】", "#1f4e79"),
+        ("  最大直径 = 20.2768  单调/过切校验 OK", "#15803d"),
+        ("■ 三、精确刀具切出的球道【实际值·仿真】", "#1f4e79"),
+        ("  实际落座：顶隙 0.0287 OK  接触角 42.001° OK", "#15803d"),
+        ("■ 四、圆弧近似刀具：单圆弧，拟合精确廓形", "#1f4e79"),
+        ("  R=12.3600  截面偏差 3.78 μm（±10） 合格", "#15803d"),
     ]
     for i, (ltxt, col) in enumerate(res_lines):
-        ax.text(26, 742 + i * 17, ltxt, color=col, fontsize=8, va="center")
+        ax.text(26, 742 + i * 17, ltxt, color=col, fontsize=7.8,
+                fontweight="bold" if ltxt.startswith("■") else "normal", va="center")
 
     # ⑤ 右侧图形页签区
     ax.add_patch(Rectangle((372, 78), 1060, 824, fc="white", ec="#9fb0c4", lw=1.2))
-    tab_names = ["刀具廓形", "球道截面", "星形套截面", "加工姿态(子午面)", "反向仿真偏差", "单圆弧近似"]
+    tab_names = ["刀具廓形", "球道截面", "星形套截面", "加工姿态(子午面)", "反向仿真偏差", "圆弧近似"]
     tx = 374
     for idx, tname in enumerate(tab_names):
         tw = 135 if idx != 3 else 155
@@ -342,7 +408,6 @@ def build_ch1_images():
                 ha="center", va="center")
         tx += tw + 2
 
-    # 嵌入右侧图形图像
     ax_img = fig.add_axes([0.265, 0.06, 0.71, 0.78])
     ax_img.imshow(tab_im)
     ax_img.axis("off")
@@ -353,13 +418,12 @@ def build_ch1_images():
             color="#334155", fontsize=9, va="center")
     ax.text(1415, 884, "x=7.52, y=3.14", color="#64748b", fontsize=8.5, ha="right", va="center")
 
-    # 绘制红色编号标注徽标 ①~⑥
     badges = [
         ("① 顶部菜单栏", 430, 58),
         ("② 输入参数区（含悬停示意图提示）", 235, 92),
         ("③ 计算与导出按钮区", 265, 545),
-        ("④ 计算结果区（可展开/复制）", 215, 718),
-        ("⑤ 六大图形页签（Ctrl+1~6）", 1265, 95),
+        ("④ 计算结果区（5 大分块，可展开/复制）", 215, 718),
+        ("⑤ 六大图形页签（Ctrl+1~6）", 1255, 95),
         ("⑥ 图表缩放/平移/保存工具栏", 1060, 884),
     ]
     for btxt, bx, by in badges:
@@ -375,7 +439,6 @@ def build_ch1_images():
     ax.set_xlim(0, 1050)
     ax.set_ylim(520, 0)
     ax.axis("off")
-    # 左侧参数局部
     ax.add_patch(Rectangle((15, 20), 340, 260, fc="#f8fafc", ec="#2f5d8c", lw=1.5))
     ax.add_patch(Rectangle((15, 20), 340, 28, fc="#2f5d8c", ec="none"))
     ax.text(26, 34, "② 球道法向截面（鼠标悬停参数演示）", color="white", fontsize=10, fontweight="bold", va="center")
@@ -400,7 +463,6 @@ def build_ch1_images():
                 color=HL, fontsize=10, fontweight="bold",
                 arrowprops=dict(arrowstyle="->", color=HL, lw=2))
 
-    # 右侧黄色提示弹窗
     ax.add_patch(Rectangle((370, 15), 660, 490, fc="#ffffe0", ec="#334155", lw=1.2))
     tip_png = os.path.join(GUIDE_ROOT, "2_basic_params", "resources", "tip_pressure_angle.png")
     tip_im = Image.open(tip_png)
@@ -417,38 +479,37 @@ def build_ch1_images():
     save_fig(fig, os.path.join(res, "ui_hover_tip_demo.png"), dpi=160, pad=0.02)
 
     # 3.3 截面类型与定义方式动态显隐四联对比图 (ui_section_modes_compare.png)
-    fig = Figure(figsize=(12.5, 4.0), dpi=160)
+    fig = Figure(figsize=(13.0, 4.2), dpi=160)
     FigureCanvasAgg(fig)
     modes_cfg = [
-        ("模式 A：椭圆 + 给定相似度", "#1f6fd1", [
-            ("截面类型", "椭圆  [v]", ""),
-            ("定义方式", "给定相似度  [v]", ""),
+        ("模式 A：椭圆 / 双圆弧 + 相似度 / 顶隙", "#1f6fd1", [
+            ("截面类型", "椭圆 / 双圆弧 [v]", ""),
+            ("定义方式", "给定相似度/顶隙 [v]", ""),
             ("接触角 α", "42.0", "°"),
-            ("相似度 k", "1.04", ""),
+            ("相似度 k / 顶隙 c", "1.04 / 0.0295", ""),
             ("法向余量", "0.0", "mm"),
-        ], "适用：图纸给出接触角 α 与相似度 k\n（或接触点曲率半径 Rc），顶隙自动算出"),
-        ("模式 B：椭圆 / 双圆弧 + 给定顶隙", "#2e7d32", [
-            ("截面类型", "椭圆 / 双圆弧  [v]", ""),
-            ("定义方式", "给定顶隙  [v]", ""),
+        ], "适用：图纸给出接触角 α，以及\n相似度 k 或顶隙 c 之一"),
+        ("模式 B：双圆弧 + 给定半径 R（新增）", "#2e7d32", [
+            ("截面类型", "双圆弧  [v]", ""),
+            ("定义方式", "给定半径 R  [v]", ""),
             ("接触角 α", "42.0", "°"),
-            ("顶隙 c", "0.0295", "mm"),
+            ("圆弧半径 R", "10.24", "mm"),
             ("法向余量", "0.0", "mm"),
-        ], "适用：图纸给出接触角 α 与顶隙 c，\n相似度 k 作为结果自动算出"),
-        ("模式 C：椭圆 + 给定半轴(椭圆)", "#9333ea", [
+        ], "适用：双圆弧图纸直接给出接触角 α\n和两段圆弧半径 R（如 AC10000）"),
+        ("模式 C：椭圆 + 给定半轴", "#9333ea", [
             ("截面类型", "椭圆  [v]", ""),
-            ("定义方式", "给定半轴(椭圆)  [v]", ""),
+            ("定义方式", "给定半轴  [v]", ""),
             ("半轴 a（横向）", "10.18", "mm"),
             ("半轴 b（径向）", "10.64", "mm"),
             ("中心高 uc", "0.69", "mm"),
-            ("法向余量", "0.0", "mm"),
-        ], "适用：图纸直接标出椭圆长短半轴 a、b\n与椭圆中心位置，接触角/顶隙自动算出"),
+        ], "适用：椭圆图纸直接标出长短半轴 a、b\n与椭圆中心位置 uc"),
         ("模式 D：点表(CSV) 截面", "#d97706", [
             ("截面类型", "点表(CSV)  [v]", ""),
             ("顶隙 c", "0.0101", "mm"),
             ("点表文件", "Nexteer_...csv", "…"),
             ("点表精度", "1e-05", "mm"),
             ("法向余量", "0.0", "mm"),
-        ], "适用：图纸给出截面坐标点表（Table 2），\n导入 CSV 并按图纸填顶隙与小数精度"),
+        ], "适用：图纸给出截面坐标点表（Table 2），\n导入 CSV 并自动检查曲率质量"),
     ]
     for idx, (mtitle, col, rows, note) in enumerate(modes_cfg):
         ax = fig.add_axes([0.01 + idx * 0.248, 0.03, 0.238, 0.92])
@@ -457,17 +518,17 @@ def build_ch1_images():
         ax.axis("off")
         ax.add_patch(Rectangle((2, 2), 236, 314, fc="#f8fafc", ec=col, lw=1.5))
         ax.add_patch(Rectangle((2, 2), 236, 30, fc=col, ec="none"))
-        ax.text(120, 17, mtitle, color="white", fontsize=8.8, fontweight="bold", ha="center", va="center")
+        ax.text(120, 17, mtitle, color="white", fontsize=8.4, fontweight="bold", ha="center", va="center")
         for r_i, (lbl, val, u) in enumerate(rows):
             ry = 52 + r_i * 34
-            ax.text(12, ry, lbl, color="#1e293b", fontsize=8.5, va="center")
-            ax.add_patch(Rectangle((98, ry - 11), 108, 22, fc="white", ec="#94a3b8", lw=0.8))
-            ax.text(104, ry, val, color="#0f172a", fontsize=8.2, va="center")
+            ax.text(10, ry, lbl, color="#1e293b", fontsize=8.2, va="center")
+            ax.add_patch(Rectangle((102, ry - 11), 104, 22, fc="white", ec="#94a3b8", lw=0.8))
+            ax.text(107, ry, val, color="#0f172a", fontsize=8.0, va="center")
             if u == "…":
                 ax.add_patch(Rectangle((210, ry - 11), 22, 22, fc="#e2e8f0", ec="#64748b", lw=0.8))
                 ax.text(221, ry, "…", color="#0f172a", fontsize=9, ha="center", va="center")
             else:
-                ax.text(212, ry, u, color="#64748b", fontsize=8, va="center")
+                ax.text(210, ry, u, color="#64748b", fontsize=8, va="center")
         ax.text(120, 275, note, color=col, fontsize=8, ha="center", va="center",
                 bbox=dict(boxstyle="round,pad=0.3", fc="white", ec=col, lw=0.8))
     save_fig(fig, os.path.join(res, "ui_section_modes_compare.png"), dpi=160, pad=0.02)
@@ -480,9 +541,9 @@ def build_ch1_images():
     ax.set_ylim(280, 0)
     ax.axis("off")
     states = [
-        ("① 启动就绪 / 已恢复上次设置", "已恢复上次的设置。请点“计算”开始", "#555555", False, "启动软件时自动载入上次关闭前的全部参数，点击【计算 (F5)】即可生成结果"),
-        ("② 后台计算进行中（带进度条与秒表）", "正在计算单圆弧近似…  0.6 s", "#b36b00", True, "计算在后台执行，界面不卡顿；实时显示当前所处计算阶段与耗时"),
-        ("③ 计算成功完成（绿色提示）", "计算完成（0.9 s）", "#2e7d32", False, "全部计算、仿真校核与 6 个图形页签绘制完成，此时可安全导出文件"),
+        ("① 启动就绪 / 已恢复上次设置", "已恢复上次的设置。请点“计算”开始", "#555555", False, "启动软件时自动载入上次关闭前的全部参数，点击【>> 计算 (F5)】即可生成结果"),
+        ("② 后台计算进行中（带进度条与秒表）", "正在近似圆弧刀具…  0.6 s", "#b36b00", True, "计算在后台执行，界面不卡顿；实时显示当前所处计算阶段（或优化步数）与耗时"),
+        ("③ 计算成功完成（绿色提示）", "计算完成（0.9 s）", "#2e7d32", False, "全部计算、仿真落座校核与 6 个图形页签绘制完成，此时可安全导出文件"),
         ("④ 参数已修改提醒（橙色提示）", "参数已修改，请点“计算”更新结果", "#b36b00", False, "改动任意输入框后自动变为橙色提醒；若未重算直接点导出，软件会弹窗确认"),
     ]
     for i, (stitle, stxt, scol, pbar, desc) in enumerate(states):
@@ -490,7 +551,6 @@ def build_ch1_images():
         ax.add_patch(Rectangle((15, y0), 970, 56, fc="#f8fafc", ec="#cbd5e1", lw=1))
         ax.text(28, y0 + 18, stitle, color="#1e293b", fontsize=9.5, fontweight="bold", va="center")
         ax.text(28, y0 + 40, desc, color="#64748b", fontsize=8.5, va="center")
-        # 模拟状态栏小框
         ax.add_patch(Rectangle((630, y0 + 12), 340, 32, fc="white", ec="#94a3b8", lw=1))
         ax.text(642, y0 + 28, stxt, color=scol, fontsize=9, fontweight="bold", va="center")
         if pbar:
@@ -507,7 +567,7 @@ def build_ch1_images():
     ax.axis("off")
     steps = [
         ("第一步：输入或载入参数", "在左侧按图纸填写基本参数\n或【文件 → 载入示例参数】", "#1f6fd1"),
-        ("第二步：点击计算 (F5)", "点击绿色【>> 计算 (F5)】按钮\n等待约 1 秒完成计算与仿真", "#2e7d32"),
+        ("第二步：点击计算 (F5)", "点击绿色【>> 计算 (F5)】按钮\n完成廓形求解与钢球落座仿真", "#2e7d32"),
         ("第三步：核对结果与图形", "查看左下结果栏绿色 OK / 合格\n切换右侧 6 个页签审阅图形", "#9333ea"),
         ("第四步：导出 DXF / CSV", "点击导出按钮输出刀具 DXF、\n圆弧刀具 DXF 或点表 CSV", "#d97706"),
     ]
@@ -542,7 +602,6 @@ def build_comparison_images():
         lbl = f"β = {ang:g}°（单圆弧 R={ev.tool.R:.3f}, Ø{2*ev.tool.cyl_r:.3f}）"
         ax1.plot(pr.r, pr.z, color=col, lw=2.0, label=lbl)
         ax1.plot(-pr.r, pr.z, color=col, lw=2.0)
-        # 刀轴方向示意
         tf = tool_frame(pr.params, 0.0)
         P = tf.P
         shank = P - 38 * tf.d_tip
@@ -652,7 +711,6 @@ def build_comparison_images():
     ax1.legend(fontsize=8)
     ax1.grid(alpha=0.3)
 
-    # 对比两者算出的刀具半径相对于理想圆弧的残差
     tl = fit_arc(pr_smooth, None)
     ax2.plot(pr_raw.z, (pr_raw.r - tl.radius(pr_raw.z)) * 1000, color="#94a3b8", lw=1.0, label="点表精度 = 0（舍入误差放大为刀形波动）")
     ax2.plot(pr_smooth.z, (pr_smooth.r - tl.radius(pr_smooth.z)) * 1000, color="#d62728", lw=1.8, label="点表精度 = 1e-5（刀形光滑，偏差 < 0.05 μm）")
@@ -664,12 +722,12 @@ def build_comparison_images():
     fig.tight_layout()
     save_fig(fig, os.path.join(ch2_dir, "cmp_points_tol.png"))
 
-    # 4.5 刀尖高度三态对比 (9.922 默认 vs 6.200 优化短刀尖 vs 5.500 过低截断报警) -> ch3_dir/cmp_tip_z_three_states.png
+    # 4.5 刀尖高度三态对比 (9.922 默认 vs 6.200 优化短刀尖 vs 5.500 过低截断) -> ch3_dir/cmp_tip_z_three_states.png
     fig = Figure(figsize=(12.0, 4.2), dpi=160)
     cases_tip = [
         (9.922, "① 默认值：刀尖高度 = 9.922 mm（钢球半径）", "#1f6fd1", "绿色刀尖段较长，切削刃完整 [OK]"),
         (6.200, "② 推荐优化：刀尖高度 = 6.200 mm（高于 6.0205）", "#16a34a", "绿色刀尖段大幅缩短，刀头刚性更好、更易磨制 [OK]"),
-        (5.500, "③ 错误设置：刀尖高度 = 5.500 mm（低于 6.0205）", "#d62728", "低于接触段最高点 6.0205，截掉切削刃，球道底欠切！[报警]"),
+        (5.500, "③ 低于接触段最高点：刀尖高度 = 5.500 mm", "#d62728", "截去刀尖侧接触刃 0.52 mm，球道底欠切，软件自动校核实际顶隙"),
     ]
     for i, (tz, ctitle, col, note) in enumerate(cases_tip):
         ax = fig.add_subplot(1, 3, i + 1)
@@ -692,14 +750,14 @@ def build_comparison_images():
     fig.tight_layout()
     save_fig(fig, os.path.join(ch3_dir, "cmp_tip_z_three_states.png"))
 
-    # 4.6 让刀过渡长度对比 (1.0 mm 平滑过渡 vs 0.0 mm 无过渡台阶) -> ch3_dir/cmp_tip_relief_len.png
+    # 4.6 让刀过渡长度对比 -> ch3_dir/cmp_tip_relief_len.png
     fig = Figure(figsize=(10.0, 4.0), dpi=160)
     for i, (rlen, ctitle, col, desc) in enumerate([
         (1.0, "让刀过渡 = 1.0 mm（默认推荐：平滑过渡）", "#16a34a", "让刀量在 1 mm 长度内从 0 平滑增加到 0.05 mm，无台阶、好磨制"),
         (0.0, "让刀过渡 = 0.0 mm（不推荐：突变台阶）", "#d62728", "在接触段最高点处直接向内缩进 0.05 mm，形成尖角台阶，易崩刃"),
     ]):
         ax = fig.add_subplot(1, 2, i + 1)
-        pr = compute_profile(Params(tip_relief=0.15, tip_relief_len=rlen, profile_step=0.02))  # 放大让刀量以便看清局部
+        pr = compute_profile(Params(tip_relief=0.15, tip_relief_len=rlen, profile_step=0.02))
         zz = np.linspace(pr.z[0] - 0.5, pr.tip_z[-1], 100)
         ax.plot(arc_r(pr.section, pr.params, zz), zz, ":", color="#1f6fd1", lw=1.4, label="球道底圆弧约束")
         ax.plot(pr.r, pr.z, "r-", lw=2.6, label="红色接触段（切削）")
@@ -783,109 +841,112 @@ def build_ch4_images():
     print("=== 5. 生成第 4 章计算结果面板与 Table 1 图解 ===")
     res = ensure_dir(os.path.join(GUIDE_ROOT, "4_result_panel", "resources"))
 
-    # 5.1 正常计算结果展开窗口带分区批注图 (result_panel_normal.png)
-    fig = Figure(figsize=(11.5, 7.6), dpi=160)
+    # 5.1 正常计算结果展开窗口带 5 大分区批注图 (result_panel_normal.png)
+    fig = Figure(figsize=(11.8, 8.2), dpi=160)
     FigureCanvasAgg(fig)
     ax = fig.add_axes([0, 0, 1, 1])
-    ax.set_xlim(0, 1150)
-    ax.set_ylim(760, 0)
+    ax.set_xlim(0, 1180)
+    ax.set_ylim(820, 0)
     ax.axis("off")
 
-    ax.add_patch(Rectangle((15, 15), 620, 730, fc="white", ec="#2f5d8c", lw=1.8))
-    ax.add_patch(Rectangle((15, 15), 620, 32, fc="#1e293b", ec="none"))
-    ax.text(28, 31, "计算结果 - TrackForm（独立展开窗口，支持一键复制）", color="white", fontsize=10, fontweight="bold", va="center")
-    ax.add_patch(Rectangle((17, 47), 616, 30, fc="#f1f5f9", ec="#cbd5e1", lw=0.8))
-    ax.text(28, 62, "每次计算后自动刷新；可选中文字复制", color="#475569", fontsize=9, va="center")
-    ax.add_patch(Rectangle((540, 51), 82, 22, fc="white", ec="#64748b", lw=0.8))
-    ax.text(581, 62, "复制全部", color="#0f172a", fontsize=8.5, ha="center", va="center")
+    ax.add_patch(Rectangle((15, 15), 635, 790, fc="white", ec="#2f5d8c", lw=1.8))
+    ax.add_patch(Rectangle((15, 15), 635, 32, fc="#1e293b", ec="none"))
+    ax.text(28, 31, "计算结果 - TrackForm（独立展开窗口，支持选中或一键复制全部）", color="white", fontsize=10, fontweight="bold", va="center")
+    ax.add_patch(Rectangle((17, 47), 631, 28, fc="#f1f5f9", ec="#cbd5e1", lw=0.8))
+    ax.text(28, 61, "理论值 = 按图纸参数算出的设计值；实际值 = 反向仿真：刀具沿球道运动后实际切出的球道", color="#475569", fontsize=8.2, va="center")
+    ax.add_patch(Rectangle((558, 50), 82, 22, fc="white", ec="#64748b", lw=0.8))
+    ax.text(599, 61, "复制全部", color="#0f172a", fontsize=8.3, ha="center", va="center")
 
     lines_normal = [
-        ("截面：椭圆（给定相似度）", "#0f172a", None),
-        ("轨迹半径 Rp = 31.5225", "#0f172a", None),
-        ("椭圆半轴 a(横向) = 10.1762", "#0f172a", None),
-        ("椭圆半轴 b(径向) = 10.6436", "#0f172a", None),
-        ("椭圆中心高 uc = 0.6929（距球道底 10.6436）", "#0f172a", None),
-        ("相似度 = 1.0400", "#0f172a", None),
-        ("顶隙 = 0.0287  ", "#0f172a", ("OK", "#16a34a")),
-        ("球道边缘接触角  = 57.53°", "#0f172a", None),
-        ("接触段 r: 7.9269 ~ 10.1384", "#0f172a", None),
-        ("接触段 z: -0.1747 ~ 6.0205", "#0f172a", None),
-        ("刀头最大直径    = 20.2768", "#0f172a", None),
-        ("廓形单调(无自交)  ", "#0f172a", ("OK", "#16a34a")),
-        ("过切校验 最小间隙 = -2.23e-07  ", "#0f172a", ("OK", "#16a34a")),
-        ("仿真最大过切 = 2.15e-07  ", "#0f172a", ("OK", "#16a34a")),
-        ("仿真接触区欠切 = 8.42e-06  ", "#0f172a", ("OK", "#16a34a")),
-        ("球道底欠切 = 0.0500（顶隙区，仅提示）", "#0f172a", None),
-        ("—— 单圆弧近似 ——", "#1f4e79", None),
-        ("R=12.3600  圆心 -2.1920 / +1.0710  Ø20.3360", "#0f172a", None),
-        ("生成球道偏差 = 3.78 μm（±10）  ", "#0f172a", ("合格", "#16a34a")),
-        ("生成球道顶隙 = 0.0325  ", "#0f172a", ("OK", "#16a34a")),
-        ("—— 轮廓方程常数 Table 1（拟合值）——", "#1f4e79", None),
-        ("C1 = 2.19160    C2 = -25.50227    C3 = -18.52849", "#0f172a", None),
-        ("C4 = -19.59946  C5 = 1.07098      C6 = -21.56794", "#0f172a", None),
-        ("C7 = 650.36593  C8 = -6.06824     C9 = 1.07098", "#0f172a", None),
-        ("C10 = 152.76417", "#0f172a", None),
-        ("常数自检：由常数还原的轮廓与基本轮廓最大偏差 0.02 μm  ", "#0f172a", ("OK", "#16a34a")),
+        ("■ 一、球道截面设计【理论值】", "#1f4e79", None),
+        ("  截面：椭圆（给定相似度）   钢球中心轨迹半径 Rp = 31.5225", "#0f172a", None),
+        ("  椭圆半轴 a(横向)=10.1762  b(径向)=10.6436  中心高 uc=0.6929", "#0f172a", None),
+        ("  接触角 α = 42.000°（图纸 40 ~ 44）  ", "#0f172a", ("OK", "#16a34a")),
+        ("  相似度 = 1.0400   顶隙 = 0.0287（图纸 0.019 ~ 0.04）  ", "#0f172a", ("OK", "#16a34a")),
+        ("  接触角跨距 = 13.2782（未给范围，不校验）   边缘接触角 = 67.32°", "#0f172a", None),
+        ("■ 二、精确刀具廓形【理论值】", "#1f4e79", None),
+        ("  接触段 r: 7.9269 ~ 10.1384   z: -0.1747 ~ 6.0205", "#0f172a", None),
+        ("  刀头最大直径 = 20.2768   刀尖高度 = 9.922", "#0f172a", None),
+        ("  廓形单调(无自交)  ", "#0f172a", ("OK", "#16a34a")),
+        ("  过切校验 最小间隙 = 0.00e+00  ", "#0f172a", ("OK", "#16a34a")),
+        ("■ 三、精确刀具切出的球道【实际值·仿真】", "#1f4e79", None),
+        ("  最大过切 = 0.00e+00  ", "#0f172a", ("OK", "#16a34a")),
+        ("  侧面（钢球接触区）欠切 = 1.98e-05  ", "#0f172a", ("OK", "#16a34a")),
+        ("  球道底欠切 = 0.0000（顶隙区）", "#0f172a", None),
+        ("  钢球放进切出的球道（实际落座）：", "#0f172a", None),
+        ("    实际顶隙 = 0.0287（图纸 0.019 ~ 0.04）  ", "#0f172a", ("OK", "#16a34a")),
+        ("    实际接触角 = 42.001°（图纸 40 ~ 44）  ", "#0f172a", ("OK", "#16a34a")),
+        ("    实际接触角跨距 = 13.2785   钢球中心移动 +0.0 μm", "#0f172a", None),
+        ("■ 四、圆弧近似刀具：单圆弧，拟合精确廓形（取整到 3 位，磨刀尺寸）", "#1f4e79", None),
+        ("  R=12.3600  圆心 -2.1920 / +1.0710  圆柱 Ø20.3360", "#0f172a", None),
+        ("  该刀具切出的球道【实际值·仿真】：", "#0f172a", None),
+        ("    与设计截面偏差 = 3.78 μm（轮廓度 ±10）  ", "#0f172a", ("合格", "#16a34a")),
+        ("    实际顶隙 = 0.0325 OK   实际接触角 = 41.988° OK", "#15803d", None),
+        ("■ 五、轮廓方程常数 Table 1（拟合值）", "#1f4e79", None),
+        ("  C1 = 2.19160   C2 = -25.50227   C3 = -18.52849   C4 = -19.59946", "#0f172a", None),
+        ("  C5 = 1.07098   C6 = -21.56794   C7 = 650.36593   C8 = -6.06824", "#0f172a", None),
+        ("  C9 = 1.07098   C10 = 152.76417", "#0f172a", None),
+        ("  常数自检：由常数还原的轮廓与基本轮廓最大偏差 0.00 μm  ", "#0f172a", ("OK", "#16a34a")),
     ]
     for idx, (txt, col, tag) in enumerate(lines_normal):
-        yy = 96 + idx * 24.5
-        ax.text(32, yy, txt, color=col, fontsize=9, fontweight="bold" if "——" in txt else "normal", va="center")
+        yy = 92 + idx * 24.0
+        ax.text(28, yy, txt, color=col, fontsize=8.5, fontweight="bold" if txt.startswith("■") else "normal", va="center")
         if tag:
-            w_px = sum(13.5 if ord(ch) > 127 else 7.2 for ch in txt)
-            ax.text(36 + w_px, yy, tag[0], color=tag[1], fontsize=9.5, fontweight="bold", va="center")
+            w_px = sum(12.8 if ord(ch) > 127 else 6.8 for ch in txt)
+            ax.text(32 + w_px, yy, tag[0], color=tag[1], fontsize=9.0, fontweight="bold", va="center")
 
-    # 右侧分块说明批注
     brackets = [
-        (88, 275, "① 球道截面几何参数", "显示轨迹半径 Rp、求出的椭圆半轴/圆弧半径、\n实际相似度与顶隙（在上下限内标绿色 OK）", "#1f6fd1"),
-        (285, 360, "② 精确成型刀尺寸范围", "接触段半径 r、轴向位置 z 范围及刀头最大直径；\n接触段最高点 z（6.0205）是刀尖高度的下限", "#9333ea"),
-        (368, 480, "③ 四项加工安全性校核", "自动检验刀具无自交、整段球道无过切、反向仿真\n接触区吻合；球道底欠切≈让刀量属正常顶隙保护", "#16a34a"),
-        (488, 585, "④ 单圆弧近似刀具与合格判定", "给出可直接磨刀的圆弧半径 R、圆心径向/轴向偏置、\n圆柱直径 Ø，并校验切出的球道是否在轮廓度公差内", "#d97706"),
-        (593, 730, "⑤ 图纸轮廓方程常数 C1~C10", "对应客户产品图纸 Table 1 的 10 个常数及方程复现\n自检偏差（< 1 μm 标绿色 OK）", "#2f5d8c"),
+        (85, 220, "■ 一、球道截面设计【理论值】", "按图纸参数算出的理论截面尺寸、轨迹半径 Rp，\n并核对理论接触角、顶隙、跨距是否在图纸范围内", "#1f6fd1"),
+        (228, 340, "■ 二、精确刀具廓形【理论值】", "精确成型刀接触段 r/z 范围、刀头最大直径，\n并检验刀具廓形无自交、整条球道无过切", "#9333ea"),
+        (348, 530, "■ 三、精确刀具切出的球道【实际值·仿真】", "反向仿真精确刀具切出的球道，并把钢球实际放进\n切出的球道（实际落座），测量实际顶隙/接触角/跨距", "#16a34a"),
+        (538, 668, "■ 四、圆弧近似刀具与实际落座审核", "给出单圆弧（或多段相切圆弧）磨刀尺寸，并检验该刀\n切出的球道偏差及钢球实际落座后的各项审核指标", "#d97706"),
+        (676, 792, "■ 五、轮廓方程常数 Table 1", "单圆弧刀具对应的客户图纸 Table 1 常数 C1~C10\n及参数方程还原自检（多段圆弧时提示不适用）", "#2f5d8c"),
     ]
     for y1, y2, btitle, bdesc, col in brackets:
         ym = (y1 + y2) / 2
-        ax.plot([642, 656, 656, 642], [y1, y1, y2, y2], color=col, lw=1.8)
-        ax.add_patch(FancyBboxPatch((668, ym - 34), 460, 68, boxstyle="round,pad=6", fc="#f8fafc", ec=col, lw=1.4))
-        ax.text(682, ym - 12, btitle, color=col, fontsize=9.8, fontweight="bold", va="center")
-        ax.text(682, ym + 14, bdesc, color="#334155", fontsize=8.5, va="center", linespacing=1.4)
+        ax.plot([656, 670, 670, 656], [y1, y1, y2, y2], color=col, lw=1.8)
+        ax.add_patch(FancyBboxPatch((682, ym - 36), 478, 72, boxstyle="round,pad=6", fc="#f8fafc", ec=col, lw=1.4))
+        ax.text(696, ym - 13, btitle, color=col, fontsize=9.5, fontweight="bold", va="center")
+        ax.text(696, ym + 14, bdesc, color="#334155", fontsize=8.3, va="center", linespacing=1.4)
 
     save_fig(fig, os.path.join(res, "result_panel_normal.png"), dpi=160, pad=0.02)
 
     # 5.2 异常与红色报警结果面板示例图 (result_panel_warnings.png)
-    fig = Figure(figsize=(10.8, 5.2), dpi=160)
+    fig = Figure(figsize=(10.8, 5.4), dpi=160)
     FigureCanvasAgg(fig)
     ax = fig.add_axes([0, 0, 1, 1])
     ax.set_xlim(0, 1080)
-    ax.set_ylim(520, 0)
+    ax.set_ylim(540, 0)
     ax.axis("off")
-    ax.add_patch(Rectangle((15, 15), 1050, 490, fc="white", ec=HL, lw=1.8))
+    ax.add_patch(Rectangle((15, 15), 1050, 510, fc="white", ec=HL, lw=1.8))
     ax.add_patch(Rectangle((15, 15), 1050, 32, fc=HL, ec="none"))
-    ax.text(28, 31, "计算结果面板 —— 常见红色报警提示与含义对照（出现任一红字时导出前均会弹窗拦截提醒）",
+    ax.text(28, 31, "计算结果面板 —— 常见红色报警提示与解决办法对照（出现任一红字时导出前均会弹窗拦截确认）",
             color="white", fontsize=10, fontweight="bold", va="center")
 
     warns_demo = [
-        ("报警情形 A：刀尖高度设得过低（截断切削刃）",
-         "刀尖高度 5.5 低于接触段最高点 6.0205：切削刃被截掉，球道底将欠切！请把刀尖高度设为 ≥ 6.0205\n"
-         "球道底欠切 = 0.3125（刀尖高度截断切削刃）",
-         "解决办法：展开【高级参数 → 刀尖与廓形】，将“刀尖高度”改为大于或等于提示的接触段最高点数值。"),
-        ("报警情形 B：顶隙超出图纸允许范围",
-         "顶隙 = 0.0462  超出范围!\n"
-         "生成球道顶隙 = 0.0498  超出范围!",
-         "解决办法：核对基本参数中的“相似度 k”或“顶隙 c”是否填错，或核对【高级参数 → 校验范围】中的顶隙上下限是否与图纸一致。"),
-        ("报警情形 C：点表模式下顶隙或椭圆半轴中心高不匹配",
-         "钢球未与截面贴合，请核对顶隙/椭圆中心！   （或：钢球与截面干涉（截面过窄）！）",
-         "解决办法：选“点表(CSV)”时必须把“顶隙 c”改为该点表图纸规定的顶隙；选“给定半轴”时核对椭圆中心高 uc。"),
-        ("报警情形 D：单圆弧近似刀具超差（如用于双圆弧尖底截面或公差过严）",
-         "生成球道偏差 = 292.80 μm（±10）  超差!\n"
-         "圆弧刀具刀尖被“刀尖高度”截短（圆弧切出球道底处 z = 6.0682）…刀尖高度应 ≥ 6.0682",
-         "解决办法：双圆弧(尖底)球道不能用单圆弧刀加工，请导出【刀具 DXF / 刀具点表 CSV】磨制精确成型刀。"),
+        ("报警情形 A：刀尖高度低于接触段最高点（截断刀尖侧切削刃）",
+         "球道底欠切 = 0.0480（刀尖高度 9.875 低于接触段最高点 10.2269，截去 0.3519 mm；实际顶隙 0.038 仍在图纸下限 0.02 之上）\n"
+         "（若截去过多导致实际顶隙低于下限，则标红报警：请把刀尖高度调大（至 10.2269 可完全消除））",
+         "解决办法：先看“实际顶隙”是否仍在下限之上（绿字 OK 则允许使用）；若标红报警，将【刀尖高度】调大即可。"),
+        ("报警情形 B：理论或实际落座的顶隙 / 接触角 / 跨距超出图纸范围",
+         "实际接触角 = 51.318°（图纸 38.5 ~ 45.5）  超出范围!\n"
+         "实际顶隙 = 0.0498（图纸 0.019 ~ 0.04）  超出范围!",
+         "解决办法：核对基本参数与【高级参数 → 校验范围】中的上下限；若因双圆弧用单圆弧拟合导致，改用多段圆弧或按审核优化。"),
+        ("报警情形 C：点表(CSV) 存在曲率反向/波动或顶隙不匹配",
+         "点表在 Z = 2.15 ~ 7.82 mm 处曲率反向或明显波动（原始点表即如此，非本软件引起），算出的刀具廓形在该段也会相应变形\n"
+         "钢球未与截面贴合，请核对顶隙/椭圆中心！",
+         "解决办法：核对点表文件自身坐标质量或适度增大【点表精度】；并确保【顶隙 c】填入了点表图纸规定的顶隙。"),
+        ("报警情形 D：双圆弧(尖底)截面直接用单圆弧“拟合精确廓形”超差",
+         "与设计截面偏差 = 287.10 μm（轮廓度 ±50）  超差!\n"
+         "提示：双圆弧（尖底）球道的精确刀具廓形带凸转凹拐点，单圆弧“拟合精确廓形”无法贴合",
+         "解决办法：在【高级参数 → 圆弧近似】中将“圆弧段数”设为 2~3 段，或将“单圆弧求法”设为“按审核优化”。"),
     ]
     for i, (wtitle, wred, wfix) in enumerate(warns_demo):
-        y0 = 60 + i * 110
-        ax.add_patch(Rectangle((28, y0), 1024, 98, fc="#fff5f5", ec="#fca5a5", lw=1))
+        y0 = 58 + i * 116
+        ax.add_patch(Rectangle((28, y0), 1024, 104, fc="#fff5f5", ec="#fca5a5", lw=1))
         ax.text(40, y0 + 18, wtitle, color="#1e293b", fontsize=9.5, fontweight="bold", va="center")
-        ax.text(40, y0 + 48, wred, color=HL, fontsize=8.8, fontweight="bold", va="center", linespacing=1.4)
-        ax.text(40, y0 + 82, wfix, color="#15803d", fontsize=8.8, va="center")
+        ax.text(40, y0 + 50, wred, color=HL, fontsize=8.4, fontweight="bold", va="center", linespacing=1.4)
+        ax.text(40, y0 + 86, wfix, color="#15803d", fontsize=8.6, va="center")
     save_fig(fig, os.path.join(res, "result_panel_warnings.png"), dpi=160, pad=0.02)
 
     # 5.3 单圆弧近似刀具尺寸标注与 Table 1/2 工程用途对应图 (table1_geometry_map.png)
@@ -923,20 +984,19 @@ def build_ch4_images():
     ax1.set_ylabel("z 沿刀轴 (mm)，刀尖方向为正")
     ax1.grid(alpha=0.3)
 
-    # 右图：单圆弧结果与 Table 1 / Table 2 的下游工程应用流向（不含内部推导公式）
     ax2.axis("off")
     ax2.set_xlim(0, 100)
     ax2.set_ylim(0, 100)
     ax2.add_patch(FancyBboxPatch((3, 4), 94, 90, boxstyle="round,pad=3", fc="#f8fafc", ec="#2f5d8c", lw=1.5))
-    ax2.text(50, 90, "下半部分结果数据的工程应用指南", color="#1f4e79", fontsize=10.8, fontweight="bold", ha="center", va="center")
+    ax2.text(50, 90, "第 四、五 分块结果数据的工程应用指南", color="#1f4e79", fontsize=10.8, fontweight="bold", ha="center", va="center")
     cards_info = [
-        (63, "#1f6fd1", "① 单圆弧近似刀具尺寸（R / 圆心 / Ø）",
-         "· 直接用于数控工具磨床磨制“圆弧 + 圆柱”成型刀\n"
+        (63, "#1f6fd1", "① 圆弧近似刀具尺寸（单圆弧 或 2~5 段相切圆弧）",
+         "· 直接用于数控工具磨床磨制圆弧成型刀\n"
          "· 点击【圆弧刀具 DXF】可一键导出带真实 ARC 圆弧的加工图"),
-        (36, "#16a34a", "② 生成球道偏差与生成球道顶隙",
-         "· 自动检验用取整后的圆弧刀加工出的球道是否满足图纸公差\n"
-         "· 显示绿色“合格”与“OK”即可放心用单圆弧刀替代自由曲线刀"),
-        (9, "#9333ea", "③ 轮廓方程常数 Table 1（C1 ~ C10）",
+        (36, "#16a34a", "② 切出的球道偏差与钢球实际落座审核",
+         "· 自动检验圆弧刀切出的球道轮廓偏差，并仿真钢球实际落座\n"
+         "· 实际顶隙、实际接触角、实际跨距均显示绿色 OK 即可放心投产"),
+        (9, "#9333ea", "③ 轮廓方程常数 Table 1（C1 ~ C10，仅单圆弧）",
          "· 对应客户产品开发图纸上的 Table 1 常数表\n"
          "· 点击【方程常数（Table 1）】与【基本轮廓（Table 2）】直接导出填图"),
     ]
@@ -963,8 +1023,8 @@ def build_ch5_images():
     save_fig(host.figs["sim"][0], os.path.join(res, "tab5_sim.png"))
     save_fig(host.figs["arc"][0], os.path.join(res, "tab6_arc.png"))
 
-    # 双圆弧截面页签图 (tab2_section_gothic.png)
-    host_goth = DummyHost(Params(section_type="gothic", conformity=1.04))
+    # 双圆弧（给定半径 R，以 AC10000 参数为例）截面页签图 (tab2_section_gothic.png)
+    host_goth = DummyHost(load_example_params("AC10000_参数.json", arc_count=1))
     host_goth._plot_section()
     save_fig(host_goth.figs["section"][0], os.path.join(res, "tab2_section_gothic.png"))
 
@@ -991,7 +1051,6 @@ def build_ch5_images():
                      bbox=dict(boxstyle="round,pad=0.25", fc="#ffffe0", ec="#cbd5e1"),
                      arrowprops=dict(arrowstyle="->", color=HL, lw=1.2))
 
-    # 下方展示局部框选放大效果（左：全图框选刀尖，右：放大后的刀尖与球道底圆弧约束）
     ax_l = fig.add_axes([0.06, 0.06, 0.40, 0.44])
     ax_r = fig.add_axes([0.55, 0.06, 0.40, 0.44])
     pr = host.prof
@@ -1048,7 +1107,7 @@ def build_ch6_images():
     dxf1 = os.path.join(tmp_dir, "tool_profile.dxf")
     dxf2 = os.path.join(tmp_dir, "arc_tool.dxf")
     dxf3 = os.path.join(tmp_dir, "part_section.dxf")
-    export_dxf(host.prof, dxf1, detail=False)
+    export_dxf(host.prof, dxf1, detail=False, seat=host._sim_seat)
     export_arc_dxf(host.arc_eval, host.prof, dxf2, host.table, detail=False)
     export_part_dxf(host.prof, dxf3, detail=False)
 
@@ -1076,7 +1135,6 @@ def build_ch6_images():
     ax.axvline(0, color="#1f6fd1", ls="-.", lw=1.2)
     ax.axhline(0, color="gray", ls="-.", lw=0.7)
 
-    # 标注某一点 P 在两种基准下的坐标
     idx_pt = len(prof.z) // 2
     zp, rp = float(prof.z[idx_pt]), float(prof.r[idx_pt])
     ax.plot(zp, rp, "ro", ms=6)
@@ -1122,7 +1180,7 @@ def build_ch7_8_9_images():
         ("文件(F)", [
             ("载入参数…", "Ctrl+O"),
             ("保存参数…", "Ctrl+S"),
-            ("载入示例参数", "AC3300-G 等"),
+            ("载入示例参数", "AC10000 / AC3300-G 等"),
             ("恢复默认设置", ""),
             ("---", ""),
             ("退出", "Alt+F4"),
@@ -1148,7 +1206,7 @@ def build_ch7_8_9_images():
             ("星形套截面", "Ctrl+3"),
             ("加工姿态(子午面)", "Ctrl+4"),
             ("反向仿真偏差", "Ctrl+5"),
-            ("单圆弧近似", "Ctrl+6"),
+            ("圆弧近似", "Ctrl+6"),
         ]),
         ("帮助(H)", [
             ("打开示例目录", ""),
@@ -1157,8 +1215,8 @@ def build_ch7_8_9_images():
             ("关于 TrackForm", ""),
         ]),
     ]
-    xs = [15, 225, 385, 675, 935]
-    ws = [195, 145, 275, 245, 300]
+    xs = [15, 235, 385, 675, 935]
+    ws = [208, 138, 275, 245, 300]
     for (mtitle, mitems), x0, w in zip(menus_data, xs, ws):
         ax.add_patch(Rectangle((x0, 15), w, 30, fc="#2f5d8c", ec="#1e293b", lw=1))
         ax.text(x0 + 14, 30, mtitle, color="white", fontsize=10, fontweight="bold", va="center")
@@ -1169,28 +1227,38 @@ def build_ch7_8_9_images():
             if ilbl == "---":
                 ax.plot([x0 + 8, x0 + w - 8], [iy, iy], color="#cbd5e1", lw=1)
             else:
-                ax.text(x0 + 14, iy, ilbl, color="#0f172a", fontsize=8.8, va="center")
+                ax.text(x0 + 12, iy, ilbl, color="#0f172a", fontsize=8.5, va="center")
                 if iacc:
-                    ax.text(x0 + w - 12, iy, iacc, color="#1f6fd1", fontsize=8.5, fontweight="bold", ha="right", va="center")
+                    ax.text(x0 + w - 10, iy, iacc, color="#1f6fd1", fontsize=8.0, fontweight="bold", ha="right", va="center")
     save_fig(fig, os.path.join(res7, "menus_overview.png"), dpi=160, pad=0.02)
 
-    # 8.2 案例二：Nexteer 34205673 点表导入与单圆弧拟合验证图 (case2_nexteer_points.png)
-    pts_path = os.path.join(TRACKFORM_ROOT, "examples", "Nexteer_34205673_截面点表.csv")
-    h_nex = DummyHost(Params(ball_d=17.4625, pcd=55.9414, track_offset=0.0, section_type="points",
-                             points_file=pts_path, points_tol=1e-5, clearance=0.0101,
-                             clearance_min=0.0051, clearance_max=0.0201,
-                             setting_angle=36.0, sphere_d=200.0, width=24.0, sphere_center_h=12.0,
-                             tip_z=5.23775, extra_extend=0.0, profile_step=0.02))
+    # 8.2 案例二：Nexteer 34205673 点表导入与单圆弧拟合验证图
+    h_nex = DummyHost(load_example_params("Nexteer_34205673_参数.json"))
     h_nex.render_all()
     save_fig(h_nex.figs["section"][0], os.path.join(res8, "case2_nexteer_section.png"))
     save_fig(h_nex.figs["arc"][0], os.path.join(res8, "case2_nexteer_arc.png"))
 
-    # 8.3 案例三：双圆弧（尖底）球道精确成型刀 vs 单圆弧近似超差报警图 (case3_gothic_exact_vs_arc.png)
-    h_goth = DummyHost(Params(section_type="gothic", conformity=1.04, profile_step=0.02))
-    h_goth.render_all()
-    save_fig(h_goth.figs["tool"][0], os.path.join(res8, "case3_gothic_tool.png"))
-    save_fig(h_goth.figs["sim"][0], os.path.join(res8, "case3_gothic_sim.png"))
-    save_fig(h_goth.figs["arc"][0], os.path.join(res8, "case3_gothic_arc_fail.png"))
+    # 8.3 案例三：AC10000 双圆弧（给定半径 R = 10.24 mm）——
+    #   (a) 精确刀具廓形 (case3_gothic_tool.png) & 反向仿真落座 (case3_gothic_sim.png)
+    #   (b) 3 段相切圆弧刀具合格图 (case3_gothic_multi_arc.png)
+    #   (c) 单圆弧“拟合精确廓形”超差报警图 (case3_gothic_arc_fail.png)
+    #   (d) 单圆弧“按审核优化”合格图 (case3_gothic_audit_arc.png)
+    h_ac_multi = DummyHost(load_example_params("AC10000_参数.json"))
+    h_ac_multi.render_all()
+    save_fig(h_ac_multi.figs["tool"][0], os.path.join(res8, "case3_gothic_tool.png"))
+    save_fig(h_ac_multi.figs["sim"][0], os.path.join(res8, "case3_gothic_sim.png"))
+    save_fig(h_ac_multi.figs["arc"][0], os.path.join(res8, "case3_gothic_multi_arc.png"))
+
+    # 单圆弧 + 拟合精确廓形（超差对比）
+    h_ac_fail = DummyHost(load_example_params("AC10000_参数.json", arc_count=1, arc_fit="fit"))
+    h_ac_fail._plot_arc()
+    save_fig(h_ac_fail.figs["arc"][0], os.path.join(res8, "case3_gothic_arc_fail.png"))
+
+    # 单圆弧 + 按审核优化（球道底适应、侧面与落座全部合格）
+    print("  [..] 正在生成案例三 AC10000 按审核优化单圆弧对比图...")
+    h_ac_audit = DummyHost(load_example_params("AC10000_参数.json", arc_count=1, arc_fit="audit"))
+    h_ac_audit._plot_arc()
+    save_fig(h_ac_audit.figs["arc"][0], os.path.join(res8, "case3_gothic_audit_arc.png"))
 
     # 8.4 第 9 章故障排除：钢球未与截面贴合 vs 干涉 vs 正常贴合三联图 (err_ball_gap_mismatch.png)
     fig = Figure(figsize=(11.5, 3.8), dpi=160)
