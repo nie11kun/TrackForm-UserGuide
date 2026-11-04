@@ -153,3 +153,6 @@ git push origin main
    * **主机记录 (Host/Name)**：`trackform-manual`
    * **记录值 (Value/Target)**：`nie11kun.github.io`
    配置生效后，即可通过 **https://trackform-manual.niekun.net/** 访问在线手册。
+
+> **进阶参考**：关于 GitHub Actions 自动化工作流权限设置、Cloudflare 小黄云（Proxied）两阶段切换策略、Let's Encrypt 证书签发与 DNS 负缓存排查等更深入的运维细节，请参阅专门编写的 **[GITHUB_PAGES_GUIDE.md](GITHUB_PAGES_GUIDE.md)**。
+
