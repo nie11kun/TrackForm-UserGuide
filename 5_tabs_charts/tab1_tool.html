@@ -3,7 +3,7 @@
 <html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
-        <title>刀具廓形 · TrackForm User Guide</title>
+        <title>精确刀具廓形 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 6.2.5">
@@ -337,7 +337,7 @@
                 <a href="tab1_tool.html">
             
                     
-                    刀具廓形
+                    精确刀具廓形
             
                 </a>
             
@@ -350,7 +350,7 @@
                 <a href="tab2_section.html">
             
                     
-                    球道截面
+                    球道设计截面
             
                 </a>
             
@@ -363,7 +363,7 @@
                 <a href="tab3_part.html">
             
                     
-                    星形套截面
+                    星形套轴向剖面
             
                 </a>
             
@@ -389,7 +389,7 @@
                 <a href="tab5_sim.html">
             
                     
-                    反向仿真偏差
+                    精确刀具反向仿真
             
                 </a>
             
@@ -402,7 +402,7 @@
                 <a href="tab6_arc.html">
             
                     
-                    圆弧近似
+                    圆弧近似刀具
             
                 </a>
             
@@ -619,7 +619,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >刀具廓形</a>
+        <a href=".." >精确刀具廓形</a>
     </h1>
 </div>
 
@@ -634,17 +634,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="51-tab-1：刀具廓形-ctrl1">5.1 Tab 1：刀具廓形 (<code>Ctrl+1</code>)</h1>
-<p><strong><code>刀具廓形</code></strong> 是软件启动后的默认首屏标签页，以 <strong>1:1 等比例坐标系</strong> 直观展示所设计的球道成型刀具（成型铣刀或成型磨轮）的轴向回转截面全貌。</p>
-<p><img src="resources/tab1_tool.png" alt="Tab 1 刀具廓形详解"></img></p>
+                                <h1 id="51-tab-1：精确刀具廓形-ctrl1">5.1 Tab 1：精确刀具廓形 (<code>Ctrl+1</code>)</h1>
+<p><strong><code>精确刀具廓形</code></strong> 是软件启动后的默认首屏标签页，以 <strong>1:1 等比例坐标系</strong> 直观展示按包络条件算出的精确球道成型刀具轴截面全貌，并在图上直接标出<strong>关键尺寸箭头</strong>、<strong>切削边界说明</strong>以及<strong>球道边缘延伸段的局部放大窗</strong>。</p>
+<p><img src="resources/tab1_tool.png" alt="Tab 1 精确刀具廓形详解"></img></p>
 <hr></hr>
-<h2 id="一、标题栏关键读数与坐标系定义">一、标题栏关键读数与坐标系定义</h2>
-<h3 id="1-顶部标题栏三项核心读数">1. 顶部标题栏三项核心读数</h3>
-<p>图表顶部标题栏实时汇总当前刀头的三项基准参数（以默认参数为例）：</p>
+<h2 id="一、标题栏关键读数、坐标系与图面尺寸标注">一、标题栏关键读数、坐标系与图面尺寸标注</h2>
+<h3 id="1-顶部标题栏与图面直接尺寸标注">1. 顶部标题栏与图面直接尺寸标注</h3>
 <ul>
-<li><strong><code>刀头轴截面 (原点 = 虚拟钢球中心)</code></strong>：标明当前视图为包含刀具旋转轴线的轴向剖面，且坐标原点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 位于虚拟钢球中心；</li>
-<li><strong><code>最大直径 Ø20.277</code></strong>：接触段刀刃下端最大半径（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>max</mi><mo>⁡</mo></msub><mo>=</mo><mn>10.1384</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">r_{\max} = 10.1384\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">a</span><span class="mtight">x</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">10.1384</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）对应的回转外径，直接用于选定刀具棒料或毛坯直径；</li>
-<li><strong><code>刀柄端面 z = -50</code></strong>：标明刀柄定位端面在当前刀具坐标系中的轴向位置（由高级参数中的 <code>球心距 L</code> 与 <code>刀柄方向</code> 共同决定）。</li>
+<li><strong>顶部标题栏</strong>：<code>精确刀具轴截面廓形【理论值】（原点 = 虚拟钢球中心）  刀柄端面 z = -50</code>；</li>
+<li><strong>左侧竖向尺寸箭头 <code>刀尖高度 9.922</code></strong>：直接标出从原点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">z = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>（虚拟钢球中心）到刀尖平端面的轴向高度；</li>
+<li><strong>下部横向尺寸箭头 <code>最大直径 Ø20.277</code></strong>：直接标出刀头接触段（含边缘延伸）最宽处的最大回转外径，用于选定刀具棒料直径。</li>
 </ul>
 <h3 id="2-坐标轴定义">2. 坐标轴定义</h3>
 <ul>
@@ -657,12 +656,12 @@
 </li>
 </ul>
 <hr></hr>
-<h2 id="二、图例与各色曲线工程含义">二、图例与各色曲线工程含义</h2>
-<p>在阅读 <code>刀具廓形</code> 图时，请对照右下角图例重点区分以下 5 组几何元素：</p>
+<h2 id="二、图例、各色曲线与左下角球道边缘局部放大窗">二、图例、各色曲线与左下角“球道边缘局部放大”窗</h2>
+<p>在阅读 <code>精确刀具廓形</code> 图时，请对照右下角图例与图面引线重点区分以下 6 组几何元素：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">图例名称</th>
+<th style="text-align:left">图例 / 标注名称</th>
 <th style="text-align:left">线型与颜色</th>
 <th style="text-align:left">工程含义与设计作用</th>
 </tr>
@@ -674,37 +673,42 @@
 <td style="text-align:left">勾勒出整个成型刀头的完整回转外轮廓。其中接触段上端分界线以上的浅绿色阴影区域标有文字说明：<strong>“刀尖段：不切削，绿线为最大允许外形，不得超出，可在线内修整为倒角/平端”</strong>。</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>接触段 (切削，必须精确)</code></strong></td>
+<td style="text-align:left"><strong><code>接触段（切削，必须精确；到球道边缘）</code></strong></td>
 <td style="text-align:left"><strong>珊瑚红粗实线</strong></td>
-<td style="text-align:left"><strong>核心工作刀刃</strong>（叠加在左右两侧下段的绿线上）！该段刀刃直接包络切削出星形套球道的有效工作接触面，制造与检测时必须严格保证其轮廓度精度。</td>
+<td style="text-align:left"><strong>核心工作刀刃</strong>！上端带红色引线标注 <strong><code>接触段上端：切出球道底附近</code></strong>，下端红点标注 <strong><code>切出球道边缘（外球面处）</code></strong>（若点表未覆盖到外球面则注明 <code>切出点表末端（未到外球面）</code>）。该段刀刃直接包络切削出星形套球道有效工作面，制造与检测时必须严格保证其精度。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>边缘延伸段 (0.3 mm)</code> + 左下角局部放大窗</strong></td>
+<td style="text-align:left"><strong>橙色粗实线 + 左下角放大图</strong></td>
+<td style="text-align:left">在红点（球道边缘外球面处）之外继续朝刀柄侧延伸的一小段刃口（引线标注 <strong><code>延伸末端</code></strong>），为外球面尺寸偏差和装夹定位误差留出余量。由于延伸段很短，<strong>左下角内嵌放大窗 <code>球道边缘局部放大：延伸 0.3 mm</code></strong> 自动将该处放大，清晰标出 <code>球道边缘 z ...</code> 红点与 <code>延伸末端 z ...</code> 橙色段！</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>球道底约束 (R21.572)</code></strong></td>
 <td style="text-align:left"><strong>蓝色点线</strong></td>
-<td style="text-align:left">球道底部最低点（半径 <code>R21.572</code>）在刀具坐标系下形成的极限包络边界。刀尖段绿色实线向内偏置了 <code>让刀量</code>（默认 <code>0.05 mm</code>），始终保持在蓝色点线内侧，确保刀尖绝不刮伤球道底面。</td>
+<td style="text-align:left">球道底部最低点（半径 <code>R21.572</code>）在刀具轴截面中的投影边界。刀尖段绿色实线向内缩进了 <code>让刀量</code>（默认 <code>0.05 mm</code>），始终保持在蓝色点线内侧，确保刀尖绝不擦伤球道底。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>虚拟钢球</code></strong></td>
 <td style="text-align:left"><strong>灰色细虚线圆</strong></td>
-<td style="text-align:left">以原点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 为圆心、直径等于钢球直径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（默认 <code>19.844 mm</code>）的虚拟参考钢球，用于直观对比成型刀刃曲率与钢球曲率的差异。</td>
+<td style="text-align:left">以原点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 为圆心、直径等于钢球直径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（默认 <code>19.844 mm</code>）的设计基准球。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>36° 线 (切入角 β)</code></strong></td>
 <td style="text-align:left"><strong>灰色细实线</strong></td>
-<td style="text-align:left">从原点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 引出、与水平面呈切入角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>（图中标有 <code>β=36°</code>）的参考线，直观标示球道底部方向对应的刀具轴向位置（即接触段与刀尖段的分界高度附近）。</td>
+<td style="text-align:left">从原点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 引出、与水平面呈切入角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>（图中标有 <code>β=36°</code>）的参考线，加工时始终位于球道法向截面内。</td>
 </tr>
 </tbody>
 </table>
 <hr></hr>
 <h2 id="三、工程师看图检查要点">三、工程师看图检查要点</h2>
 <ol>
-<li><strong>检查接触段（红线）与刀尖段（绿线）衔接是否自然</strong>：<ul>
-<li>正常情况下，两侧珊瑚红粗实线（接触段）在接近 <code>36° 线</code> 处平滑过渡为上方的绿色刀尖避空线；</li>
-<li>若浅绿色刀尖区域完全消失，或者红线顶部被平顶直接截断，说明高级参数中的 <strong><code>刀尖高度</code> 设得太小</strong>（低于接触段上端 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mi>max</mi><mo>⁡</mo></msub></mrow><annotation encoding="application/x-tex">z_{\max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.04398em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">a</span><span class="mtight">x</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>），必须立即调大 <code>刀尖高度</code>。</li>
+<li><strong>检查接触段（红线）、边缘延伸段（橙线）与刀尖段（绿线）的过渡</strong>：<ul>
+<li>正常情况下，上端红线平滑过渡为绿色刀尖让刀段，下端红点处继续顺延出橙色边缘延伸段（可在左下角放大窗核对延伸起止坐标）；</li>
+<li>若在 <code>点表(CSV)</code> 模式下设置了 <code>边缘延伸 &gt; 0</code> 但点表本身只给到球道边缘，图面右下角会贴心给出橙色提示 <code>边缘延伸 X mm 未生效（点表只到球道边缘...）</code>。</li>
 </ul>
 </li>
 <li><strong>根据加工工艺优化刀尖段外形</strong>：<ul>
-<li>正如图中绿色文字提示所示，浅绿色填充区域内的刀尖段<strong>不参与有效球道面切削</strong>。若觉得默认刀尖高度（<code>9.922 mm</code>）较高，可在高级参数中将 <strong><code>刀尖高度</code></strong> 调小至略大于接触段上限（例如对默认参数设为 <code>6.2 ~ 6.5 mm</code>），或在绿色最大允许外形线以内将其修整为平端/大圆角，以提高刀头刚性与散热能力。</li>
+<li>若觉得默认刀尖高度（<code>9.922 mm</code>）较高，可在高级参数中将 <strong><code>刀尖高度</code></strong> 调小至略大于接触段上端高度（例如对默认参数设为 <code>6.2 ~ 6.5 mm</code>），或在绿色最大允许外形线以内将其修整为平端/大圆角，以提高刀头刚性。</li>
 </ul>
 </li>
 </ol>
@@ -740,7 +744,7 @@
                 </a>
                 
                 
-                <a href="tab2_section.html" class="navigation navigation-next " aria-label="Next page: 球道截面">
+                <a href="tab2_section.html" class="navigation navigation-next " aria-label="Next page: 球道设计截面">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -751,7 +755,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"刀具廓形","level":"1.6.1","depth":2,"next":{"title":"球道截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},"previous":{"title":"图形页签（Tab 图表）详解","level":"1.6","depth":1,"path":"5_tabs_charts/README.md","ref":"5_tabs_charts/README.md","articles":[{"title":"刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},{"title":"球道截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},{"title":"星形套截面","level":"1.6.3","depth":2,"path":"5_tabs_charts/tab3_part.md","ref":"5_tabs_charts/tab3_part.md","articles":[]},{"title":"加工姿态(子午面)","level":"1.6.4","depth":2,"path":"5_tabs_charts/tab4_pose.md","ref":"5_tabs_charts/tab4_pose.md","articles":[]},{"title":"反向仿真偏差","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},{"title":"圆弧近似","level":"1.6.6","depth":2,"path":"5_tabs_charts/tab6_arc.md","ref":"5_tabs_charts/tab6_arc.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab1_tool.md","mtime":"2026-11-04T04:00:26.015Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T04:00:38.853Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"精确刀具廓形","level":"1.6.1","depth":2,"next":{"title":"球道设计截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},"previous":{"title":"图形页签（Tab 图表）详解","level":"1.6","depth":1,"path":"5_tabs_charts/README.md","ref":"5_tabs_charts/README.md","articles":[{"title":"精确刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},{"title":"球道设计截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},{"title":"星形套轴向剖面","level":"1.6.3","depth":2,"path":"5_tabs_charts/tab3_part.md","ref":"5_tabs_charts/tab3_part.md","articles":[]},{"title":"加工姿态(子午面)","level":"1.6.4","depth":2,"path":"5_tabs_charts/tab4_pose.md","ref":"5_tabs_charts/tab4_pose.md","articles":[]},{"title":"精确刀具反向仿真","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},{"title":"圆弧近似刀具","level":"1.6.6","depth":2,"path":"5_tabs_charts/tab6_arc.md","ref":"5_tabs_charts/tab6_arc.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab1_tool.md","mtime":"2026-11-04T07:10:45.989Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T07:10:59.116Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
