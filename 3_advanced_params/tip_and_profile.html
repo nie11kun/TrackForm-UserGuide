@@ -260,7 +260,7 @@
                 <a href="tolerance_arc_export.html">
             
                     
-                    校验范围、单圆弧近似与导出设置
+                    校验范围、圆弧近似与导出设置
             
                 </a>
             
@@ -292,7 +292,7 @@
                 <a href="../4_result_panel/exact_and_check.html">
             
                     
-                    截面数据、精确刀具与加工校核
+                    截面设计、精确廓形与仿真落座
             
                 </a>
             
@@ -305,7 +305,7 @@
                 <a href="../4_result_panel/arc_and_table1.html">
             
                     
-                    单圆弧近似与轮廓方程常数(Table 1)
+                    圆弧近似刀具与轮廓方程常数(Table 1)
             
                 </a>
             
@@ -402,7 +402,7 @@
                 <a href="../5_tabs_charts/tab6_arc.html">
             
                     
-                    单圆弧近似
+                    圆弧近似
             
                 </a>
             
@@ -550,7 +550,7 @@
                 <a href="../8_workflows_cases/case3_gothic.html">
             
                     
-                    案例三：双圆弧(尖底)球道精确成型刀设计
+                    案例三：双圆弧球道(给定半径 R)与三种刀具方案
             
                 </a>
             
@@ -652,21 +652,25 @@
 <li><strong>接触段（红色实线）</strong>：真正参与切削球道工作面（从外球面边缘一直到球道底部接触边界）的刀刃段，必须精确磨制；</li>
 <li><strong>刀尖段（绿色实线）</strong>：从接触段最高点延伸到 <code>刀尖高度</code> 平端面的前端区域，正对着球道底部的非工作顶隙区，<strong>不参与切削</strong>，仅作为刀尖允许的最大外形边界（实际刀具可在此绿线内修整为倒角或平端）。</li>
 </ul>
-<h3 id="刀尖高度的三种状态对比（关键！）">刀尖高度的三种状态对比（关键！）</h3>
+<h3 id="刀尖高度的三种状态与实际顶隙智能校核（关键！）">刀尖高度的三种状态与实际顶隙智能校核（关键！）</h3>
 <p><img src="resources/cmp_tip_z_three_states.png" alt="刀尖高度三种状态对比"></img></p>
-<p>如上图所示，以默认 <code>AC3300-G</code> 零件为例，其接触段最高点为 <strong><code>z = 6.0205 mm</code></strong>（显示在左下计算结果栏的 <code>接触段 z</code> 最大值），虚拟钢球半径为 <strong><code>9.922 mm</code></strong>。不同 <code>刀尖高度</code> 设置下的效果对比如下：</p>
+<p>如上图所示，以默认 <code>AC3300-G</code> 零件为例，其接触段最高点为 <strong><code>z = 6.0205 mm</code></strong>（显示在左下计算结果栏的 <code>接触段 z</code> 最大值），虚拟钢球半径为 <strong><code>9.922 mm</code></strong>：</p>
 <ol>
 <li><strong>① 默认值（<code>刀尖高度 = 9.922 mm</code>）</strong><ul>
-<li><strong>表现</strong>：完整覆盖全部红色切削接触段，绿色刀尖段一直延伸到虚拟钢球半径高度处平切收口，刀尖段较长。</li>
+<li><strong>表现</strong>：完整覆盖全部红色切削接触段，绿色刀尖段一直延伸到虚拟钢球半径高度处平切收口。</li>
 </ul>
 </li>
 <li><strong>② 推荐工程优化（<code>刀尖高度 = 6.200 mm</code>，略高于接触段最高点 <code>6.0205</code>）</strong><ul>
 <li><strong>工程技巧</strong>：如果想让刀头前端更短促结实、刚性更好且更容易磨制，可先查看计算结果栏中 <code>接触段 z</code> 的最大值（如 <code>6.0205</code>），然后将 <strong><code>刀尖高度</code></strong> 减小到该值上方附近（如设为 <code>6.2</code>）。此时红色切削刃 100% 保持完整，而绿色不切削刀尖段大幅缩短！</li>
 </ul>
 </li>
-<li><strong>③ 错误过低设置（<code>刀尖高度 = 5.500 mm &lt; 6.0205 mm</code>）</strong><ul>
-<li><strong>严重后果</strong>：设定的刀尖高度低于接触段最高点 <code>6.0205</code>，导致真正需要切削球道底附近的红色刃口被强行截掉，加工出的球道底将产生欠切！</li>
-<li><strong>软件自动报警</strong>：此时计算结果栏顶部会标红报警：<strong><code>刀尖高度 5.5 低于接触段最高点 6.0205：切削刃被截掉，球道底将欠切！请把刀尖高度设为 ≥ 6.0205</code></strong>（同时单圆弧刀具若被截短也会给出相应红字提示）。</li>
+<li><strong>③ 低于接触段最高点（如双圆弧截面按钢球半径填 <code>9.875 mm</code>，而尖底接触段最高点为 <code>10.2269 mm</code>）</strong><ul>
+<li><strong>物理影响</strong>：刀尖侧切球道底的那一小段刃口被刀尖平端截去，切出的球道底部会比理论设计略浅一点（即产生 <code>球道底欠切</code>），但<strong>两侧钢球工作接触区丝毫不受影响</strong>！</li>
+<li><strong>软件的智能分级判定</strong>：<ul>
+<li><strong>若钢球实际落座后的 <code>实际顶隙</code> 仍在图纸 <code>顶隙下限</code> 之上</strong>（例如 <code>AC10000</code> 双圆弧球道，刀尖高度填 <code>9.875 mm</code> 截去了刀尖侧 <code>0.35 mm</code>，球道底欠切 <code>0.048 mm</code>，但钢球实际落座后的实际顶隙仍有 <code>0.038 mm &gt; 下限 0.02 mm</code>）：此时软件将其判为<strong>可用（不作为错误报警）</strong>，并在结果栏清晰说明截去量与实际顶隙余量；</li>
+<li><strong>若截去过多导致 <code>实际顶隙</code> 低于 <code>顶隙下限</code>（甚至擦碰钢球底）</strong>：此时计算结果栏会标红报警 <strong><code>请把刀尖高度调大（至 X.XXXX 可完全消除）</code></strong>，提醒您必须增大 <code>刀尖高度</code>。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -683,7 +687,7 @@
 <p><code>让刀量</code> 是指绿色刀尖段（不切削部分）相对于球道底约束圆弧<strong>向内缩进的径向避空量</strong>：</p>
 <ul>
 <li><strong>设置目的</strong>：为主轴跳动、对刀误差和砂轮/刀具磨损留出安全余量，防止刀尖在摆动过程中擦伤或啃伤球道底。</li>
-<li><strong>对结果的影响</strong>：只影响绿色刀尖段（以及计算结果栏中仅作提示的 <code>球道底欠切</code> 数值），<strong>完全不影响红色切削接触段</strong>。不建议设为 <code>0</code>（设为 <code>0</code> 时刀尖理论上正好贴着球道底擦过）。</li>
+<li><strong>对结果的影响</strong>：只影响绿色刀尖段，<strong>完全不影响红色切削接触段</strong>。不建议设为 <code>0</code>（设为 <code>0</code> 时刀尖理论上正好贴着球道底擦过）。</li>
 </ul>
 <hr></hr>
 <h2 id="3-让刀过渡-tiprelieflen">3. 让刀过渡 (<code>tip_relief_len</code>)</h2>
@@ -715,7 +719,7 @@
 <ul>
 <li><strong>工程作用</strong>：为工件外球面车削尺寸偏差和刀具对刀定位误差留出余量，确保球道开口边缘能够 100% 切到位，不留未切净的毛刺台阶；</li>
 <li><strong>特殊情况</strong>：当 <code>截面类型</code> 选 <code>点表(CSV)</code> 且导入的点表数据刚好只给到球道边缘为止时，请将 <code>边缘延伸</code> 填为 <strong><code>0</code></strong>；</li>
-<li><strong>对结果的影响</strong>：只延长红色接触段靠近刀柄一侧的长度；由于拟合范围略微加长，会轻微影响单圆弧近似的拟合数值。</li>
+<li><strong>对结果的影响</strong>：只延长红色接触段靠近刀柄一侧的长度；由于拟合范围略微加长，会轻微影响圆弧近似的拟合数值。</li>
 </ul>
 <hr></hr>
 <h2 id="5-廓形点距-profilestep">5. 廓形点距 (<code>profile_step</code>)</h2>
@@ -730,7 +734,7 @@
 <p><code>廓形点距</code> 控制刀具接触段沿廓形弧长等距输出的采样点间距，同时作用于界面绘图、<code>刀具 DXF</code> 和 <code>刀具点表 CSV</code>：</p>
 <ul>
 <li><strong>默认 <code>0.01 mm</code></strong>：兼顾极高的磨刀轮廓精度与秒级计算响应；</li>
-<li><strong>加密点表（如 <code>0.005 mm</code>）</strong>：当精密磨床或三坐标检测需要更密集的点表时可设为 <code>0.005</code>（点距越小输出点越多，双圆弧或点表截面下耗时约数秒）；</li>
+<li><strong>加密点表（如 <code>0.005 mm</code>）</strong>：当精密磨床或三坐标检测需要更密集的点表时可设为 <code>0.005</code>；</li>
 <li><strong>注意</strong>：该参数不影响 <code>基本轮廓（Table 2）</code> 的导出点数（后者由高级参数中的 <code>基本轮廓点数</code> 单独控制）。</li>
 </ul>
 
@@ -776,7 +780,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"刀尖与廓形","level":"1.4.1","depth":2,"next":{"title":"刀柄与姿态、工件细节","level":"1.4.2","depth":2,"path":"3_advanced_params/shank_and_part.md","ref":"3_advanced_params/shank_and_part.md","articles":[]},"previous":{"title":"高级参数设置","level":"1.4","depth":1,"path":"3_advanced_params/README.md","ref":"3_advanced_params/README.md","articles":[{"title":"刀尖与廓形","level":"1.4.1","depth":2,"path":"3_advanced_params/tip_and_profile.md","ref":"3_advanced_params/tip_and_profile.md","articles":[]},{"title":"刀柄与姿态、工件细节","level":"1.4.2","depth":2,"path":"3_advanced_params/shank_and_part.md","ref":"3_advanced_params/shank_and_part.md","articles":[]},{"title":"校验范围、单圆弧近似与导出设置","level":"1.4.3","depth":2,"path":"3_advanced_params/tolerance_arc_export.md","ref":"3_advanced_params/tolerance_arc_export.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"3_advanced_params/tip_and_profile.md","mtime":"2026-11-04T00:28:50.011Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T00:29:01.757Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"刀尖与廓形","level":"1.4.1","depth":2,"next":{"title":"刀柄与姿态、工件细节","level":"1.4.2","depth":2,"path":"3_advanced_params/shank_and_part.md","ref":"3_advanced_params/shank_and_part.md","articles":[]},"previous":{"title":"高级参数设置","level":"1.4","depth":1,"path":"3_advanced_params/README.md","ref":"3_advanced_params/README.md","articles":[{"title":"刀尖与廓形","level":"1.4.1","depth":2,"path":"3_advanced_params/tip_and_profile.md","ref":"3_advanced_params/tip_and_profile.md","articles":[]},{"title":"刀柄与姿态、工件细节","level":"1.4.2","depth":2,"path":"3_advanced_params/shank_and_part.md","ref":"3_advanced_params/shank_and_part.md","articles":[]},{"title":"校验范围、圆弧近似与导出设置","level":"1.4.3","depth":2,"path":"3_advanced_params/tolerance_arc_export.md","ref":"3_advanced_params/tolerance_arc_export.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"3_advanced_params/tip_and_profile.md","mtime":"2026-11-04T03:44:36.654Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T03:44:47.555Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

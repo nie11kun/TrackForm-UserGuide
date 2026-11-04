@@ -260,7 +260,7 @@
                 <a href="../3_advanced_params/tolerance_arc_export.html">
             
                     
-                    校验范围、单圆弧近似与导出设置
+                    校验范围、圆弧近似与导出设置
             
                 </a>
             
@@ -292,7 +292,7 @@
                 <a href="../4_result_panel/exact_and_check.html">
             
                     
-                    截面数据、精确刀具与加工校核
+                    截面设计、精确廓形与仿真落座
             
                 </a>
             
@@ -305,7 +305,7 @@
                 <a href="../4_result_panel/arc_and_table1.html">
             
                     
-                    单圆弧近似与轮廓方程常数(Table 1)
+                    圆弧近似刀具与轮廓方程常数(Table 1)
             
                 </a>
             
@@ -402,7 +402,7 @@
                 <a href="../5_tabs_charts/tab6_arc.html">
             
                     
-                    单圆弧近似
+                    圆弧近似
             
                 </a>
             
@@ -550,7 +550,7 @@
                 <a href="../8_workflows_cases/case3_gothic.html">
             
                     
-                    案例三：双圆弧(尖底)球道精确成型刀设计
+                    案例三：双圆弧球道(给定半径 R)与三种刀具方案
             
                 </a>
             
@@ -653,7 +653,7 @@
 <td style="text-align:left"><strong><code>PROFILE</code></strong></td>
 <td style="text-align:center"><code>3</code> (绿色 Green)</td>
 <td style="text-align:center"><code>CONTINUOUS</code></td>
-<td style="text-align:left"><strong>核心轮廓层</strong>：在 <code>tool_profile.dxf</code> 中为精确接触段折线；在 <code>arc_tool.dxf</code> 中为原生 <code>ARC</code> 圆弧图元 + 相切圆柱段直线；在 <code>part_section.dxf</code> 中为星形套外球面、内孔及两端面实线。</td>
+<td style="text-align:left"><strong>核心轮廓层</strong>：在 <code>tool_profile.dxf</code> 中为精确接触段折线；在 <code>arc_tool.dxf</code> 中为原生 <code>ARC</code> 圆弧图元（单段或多段相切圆弧）+ 相切圆柱段直线；在 <code>part_section.dxf</code> 中为星形套外球面、内孔及两端面实线。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>PROFILE_SPLINE</code></strong></td>
@@ -689,7 +689,7 @@
 <td style="text-align:left"><strong><code>MARK</code></strong></td>
 <td style="text-align:center"><code>6</code> (洋红 Magenta)</td>
 <td style="text-align:center"><code>CONTINUOUS</code></td>
-<td style="text-align:left"><strong>特征点标记层</strong>：球道底/球道边缘接触点小圆圈、单圆弧圆心小圆圈标记。</td>
+<td style="text-align:left"><strong>特征点标记层</strong>：球道底/球道边缘接触点小圆圈、圆弧圆心小圆圈及多段圆弧相切交界点标记。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>TEXT</code></strong></td>
@@ -716,22 +716,22 @@
 <h3 id="1-精确成型刀具图：刀具-dxf-toolprofiledxf">1. 精确成型刀具图：<code>刀具 DXF</code> (<code>tool_profile.dxf</code>)</h3>
 <p><img src="resources/dxf_tool_preview.png" alt="刀具 DXF 预览图"></img></p>
 <ul>
-<li><strong>适用场景</strong>：制造非圆弧复杂廓形刀具（如双圆弧哥德式尖底球道刀具、高精度椭圆/点表球道成型铣刀或磨轮）。</li>
+<li><strong>适用场景</strong>：制造非圆弧复杂廓形刀具（如双圆弧尖底球道精确成型刀、高精度椭圆/点表球道成型铣刀或磨轮）。</li>
 <li><strong>图元结构亮点</strong>：<ol>
 <li><strong>左侧主视图（刀头轴截面）</strong>：左右对称绘制完整刀头，同时提供 <strong><code>PROFILE</code>（绿色密集折线）</strong> 与 <strong><code>PROFILE_SPLINE</code>（青色光滑样条）</strong> 两个刀刃图层，顶部橙色 <code>TIP_MAX</code> 层标示刀尖最大允许外形，并自动标注虚拟钢球直径（如 <code>Ø19.844</code>）及球心至刀柄端面距离（如 <code>50</code>）；</li>
-<li><strong>右侧辅视图（球道法向截面 + 参数表）</strong>：上方以黄色 <code>SECTION</code> 层绘制 1:1 球道法向截面与接触角参考线，下方完整列出球道参数、椭圆半轴、切入角、接触段坐标范围等技术说明文字块。</li>
+<li><strong>右侧辅视图（球道法向截面 + 参数与仿真落座表）</strong>：上方以黄色 <code>SECTION</code> 层绘制 1:1 球道法向截面、接触角参考线及<strong>接触角跨距线性标注</strong>；下方完整列出球道理论参数、接触段坐标范围以及<strong>反向仿真钢球实际落座后的实际顶隙、实际接触角与实际跨距</strong>。</li>
 </ol>
 </li>
 </ul>
 <hr></hr>
-<h3 id="2-单圆弧近似刀具图：圆弧刀具-dxf-arctooldxf">2. 单圆弧近似刀具图：<code>圆弧刀具 DXF</code> (<code>arc_tool.dxf</code>)</h3>
+<h3 id="2-圆弧近似刀具图：圆弧刀具-dxf-arctooldxf">2. 圆弧近似刀具图：<code>圆弧刀具 DXF</code> (<code>arc_tool.dxf</code>)</h3>
 <p><img src="resources/dxf_arc_preview.png" alt="圆弧刀具 DXF 预览图"></img></p>
 <ul>
-<li><strong>适用场景</strong>：<strong>车间现场使用频率最高</strong>！当单圆弧近似偏差合格时，直接导出此图用于制造单圆弧成型刀具或编写砂轮金刚轮圆弧修整程序。</li>
+<li><strong>适用场景</strong>：<strong>车间现场使用频率最高</strong>！既支持<strong>单圆弧刀具（<code>圆弧段数 = 1</code>）</strong>，也支持<strong>多段首尾相切圆弧刀具（<code>圆弧段数 = 2 ~ 5</code>）</strong>，直接用于制造圆弧成型刀具或编写砂轮金刚轮圆弧修整程序。</li>
 <li><strong>图元结构亮点</strong>：<ol>
-<li><strong>原生 <code>ARC</code> 圆弧与相切 <code>LINE</code> 直线</strong>：<code>PROFILE</code> 图层（绿色）由纯正的 CAD 原生 <code>ARC</code> 圆弧图元、下端相切圆柱竖直线及顶部平切端面线组成，同时在 <code>PROFILE_SPLINE</code> 层（青色）保留精确廓形供对比；</li>
-<li><strong>完备的工程尺寸标注</strong>：自动生成原生 CAD 尺寸标注——包括<strong>单圆弧半径标注（如 <code>R12.36</code>）</strong>、<strong>圆柱段外径标注（如 <code>20.336</code>）</strong>、<strong>刀尖平端直径标注（如 <code>15.795</code>）</strong> 以及 <strong>球心至刀柄端面距离标注（如 <code>50</code>）</strong>；</li>
-<li><strong>圆心标记与 Table 1 常数表</strong>：以洋红色十字+小圆圈标出左右圆弧圆心位置，并在右侧文字块中完整列出单圆弧刀具几何参数与 <strong>轮廓方程常数（图纸 Table 1：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>C</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">C_1 \sim C_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）</strong>。</li>
+<li><strong>原生 <code>ARC</code> 圆弧与相切 <code>LINE</code> 直线</strong>：<code>PROFILE</code> 图层（绿色）由纯正的 CAD 原生 <code>ARC</code> 圆弧图元（当为多段圆弧时，依次输出各段相切 <code>ARC</code> 并以洋红小圆圈标出各段交界点）、下端相切圆柱竖直线及顶部平切端面线组成，同时在 <code>PROFILE_SPLINE</code> 层（青色）保留精确廓形供对比；</li>
+<li><strong>完备的工程尺寸标注</strong>：自动生成原生 CAD 尺寸标注——包括<strong>圆弧半径标注（如 <code>R12.36</code>）</strong>、<strong>圆柱段外径标注（如 <code>20.336</code>）</strong>、<strong>刀尖平端直径标注（如 <code>15.795</code>）</strong> 以及 <strong>球心至刀柄端面距离标注（如 <code>50</code>）</strong>；</li>
+<li><strong>圆心标记、实际落座审核与 Table 1 常数表</strong>：在右侧文字块中完整列出圆弧刀具几何参数、<strong>该刀具切出球道在钢球实际落座下的实测顶隙/接触角/跨距</strong>，以及（单圆弧时）<strong>轮廓方程常数（图纸 Table 1：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>C</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">C_1 \sim C_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）</strong>。</li>
 </ol>
 </li>
 </ul>
@@ -790,7 +790,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"next":{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"path":"6_exports_data/csv_files.md","ref":"6_exports_data/csv_files.md","articles":[]},"previous":{"title":"导出文件与工程应用","level":"1.7","depth":1,"path":"6_exports_data/README.md","ref":"6_exports_data/README.md","articles":[{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"path":"6_exports_data/dxf_files.md","ref":"6_exports_data/dxf_files.md","articles":[]},{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"path":"6_exports_data/csv_files.md","ref":"6_exports_data/csv_files.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"6_exports_data/dxf_files.md","mtime":"2026-11-04T00:28:50.016Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T00:29:01.757Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"next":{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"path":"6_exports_data/csv_files.md","ref":"6_exports_data/csv_files.md","articles":[]},"previous":{"title":"导出文件与工程应用","level":"1.7","depth":1,"path":"6_exports_data/README.md","ref":"6_exports_data/README.md","articles":[{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"path":"6_exports_data/dxf_files.md","ref":"6_exports_data/dxf_files.md","articles":[]},{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"path":"6_exports_data/csv_files.md","ref":"6_exports_data/csv_files.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"6_exports_data/dxf_files.md","mtime":"2026-11-04T03:44:36.664Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T03:44:47.555Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -260,7 +260,7 @@
                 <a href="../3_advanced_params/tolerance_arc_export.html">
             
                     
-                    校验范围、单圆弧近似与导出设置
+                    校验范围、圆弧近似与导出设置
             
                 </a>
             
@@ -292,7 +292,7 @@
                 <a href="../4_result_panel/exact_and_check.html">
             
                     
-                    截面数据、精确刀具与加工校核
+                    截面设计、精确廓形与仿真落座
             
                 </a>
             
@@ -305,7 +305,7 @@
                 <a href="../4_result_panel/arc_and_table1.html">
             
                     
-                    单圆弧近似与轮廓方程常数(Table 1)
+                    圆弧近似刀具与轮廓方程常数(Table 1)
             
                 </a>
             
@@ -402,7 +402,7 @@
                 <a href="../5_tabs_charts/tab6_arc.html">
             
                     
-                    单圆弧近似
+                    圆弧近似
             
                 </a>
             
@@ -550,7 +550,7 @@
                 <a href="case3_gothic.html">
             
                     
-                    案例三：双圆弧(尖底)球道精确成型刀设计
+                    案例三：双圆弧球道(给定半径 R)与三种刀具方案
             
                 </a>
             
@@ -636,7 +636,7 @@
                                 
                                 <h1 id="81-案例一：标准椭圆球道精确与单圆弧刀具设计-ac3300-g">8.1 案例一：标准椭圆球道精确与单圆弧刀具设计 (<code>AC3300-G</code>)</h1>
 <h2 id="一、任务背景与零件图纸参数">一、任务背景与零件图纸参数</h2>
-<p>某型号固定式球笼万向节星形套（代号 <strong><code>AC3300-G</code></strong>，内置于软件 <strong><code>文件(F) → 载入示例参数 → AC3300-G_椭圆_参数</code></strong>）采用标准椭圆法向截面球道。客户图纸给出的核心设计参数如下：</p>
+<p>某型号固定式球笼万向节星形套（代号 <strong><code>AC3300-G</code></strong>，内置于软件 <strong><code>文件(F) → 载入示例参数 → AC3300-G_参数</code></strong>）采用标准椭圆法向截面球道。客户图纸给出的核心设计参数如下：</p>
 <table>
 <thead>
 <tr>
@@ -649,47 +649,47 @@
 <tr>
 <td style="text-align:left"><strong>钢球规格</strong></td>
 <td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>25</mn><mi mathvariant="normal">/</mi><mn>3</mn><msup><mn>2</mn><mrow><mo mathvariant="normal">′</mo><mo mathvariant="normal">′</mo></mrow></msup></mrow><annotation encoding="application/x-tex">25/32^{\prime\prime}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord">25/3</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′′</span></span></span></span></span></span></span></span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>19.84375</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 19.84375\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">19.84375</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>)</td>
-<td style="text-align:left"><code>钢球直径</code> = <strong><code>19.844</code></strong> mm</td>
+<td style="text-align:left">基本参数 <code>钢球直径 Dw</code> = <strong><code>19.844</code></strong> mm</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>节圆直径 (PCD)</strong></td>
 <td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>62.464</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 62.464\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">62.464</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></td>
-<td style="text-align:left"><code>节圆直径 PCD</code> = <strong><code>62.464</code></strong> mm</td>
+<td style="text-align:left">基本参数 <code>节圆直径 PCD</code> = <strong><code>62.464</code></strong> mm</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>球道中心偏心距 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">e</span></span></span></span>)</strong></td>
 <td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4.27</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">4.27\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4.27</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></td>
-<td style="text-align:left"><code>球道偏心 e</code> = <strong><code>4.27</code></strong> mm</td>
+<td style="text-align:left">基本参数 <code>球道偏移 e</code> = <strong><code>4.27</code></strong> mm</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>球道截面类型</strong></td>
 <td style="text-align:left">椭圆截面 (Elliptical)</td>
-<td style="text-align:left"><code>截面类型</code> = <strong><code>椭圆</code></strong></td>
+<td style="text-align:left">基本参数 <code>截面类型</code> = <strong><code>椭圆</code></strong></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>名义接触角 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>)</strong></td>
-<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><msup><mn>2</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">42^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span></td>
-<td style="text-align:left"><code>接触角 α</code> = <strong><code>42.0</code></strong> °</td>
+<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><msup><mn>2</mn><mo>∘</mo></msup><mo>±</mo><msup><mn>2</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">42^\circ \pm 2^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.757445em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">±</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span></td>
+<td style="text-align:left">基本参数 <code>接触角 α</code> = <strong><code>42.0</code></strong> °，高级参数 <code>接触角下限/上限</code> = <strong><code>40.0</code> / <code>44.0</code></strong></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>曲率比 / 相似度 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>)</strong></td>
 <td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.04</mn></mrow><annotation encoding="application/x-tex">1.04</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1.04</span></span></span></span></td>
-<td style="text-align:left"><code>截面求解</code> = <strong><code>给定相似度</code></strong>，<code>给定相似度 k</code> = <strong><code>1.04</code></strong></td>
+<td style="text-align:left">基本参数 <code>定义方式</code> = <strong><code>给定相似度</code></strong>，<code>相似度 k</code> = <strong><code>1.04</code></strong></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>星形套外球面直径</strong></td>
 <td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi mathvariant="normal">∅</mi><mn>61.113</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">S\varnothing 61.113\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.765em;vertical-align:-0.08167em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord amsrm">∅</span><span class="mord">61.113</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></td>
-<td style="text-align:left">高级参数 <code>外球面直径</code> = <strong><code>61.113</code></strong> mm</td>
+<td style="text-align:left">基本参数 <code>外球面直径</code> = <strong><code>61.113</code></strong> mm</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>星形套总宽度 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>)</strong></td>
 <td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>23.1</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">23.1\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">23.1</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></td>
-<td style="text-align:left">高级参数 <code>工件宽度</code> = <strong><code>23.1</code></strong> mm</td>
+<td style="text-align:left">基本参数 <code>工件宽度 W</code> = <strong><code>23.1</code></strong> mm</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>外球面球心至左端面距离 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span>)</strong></td>
 <td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>13.31</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">13.31\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">13.31</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></td>
-<td style="text-align:left">高级参数 <code>球心至端面</code> = <strong><code>13.31</code></strong> mm</td>
+<td style="text-align:left">基本参数 <code>球心至端面 H</code> = <strong><code>13.31</code></strong> mm</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>中心花键孔直径</strong></td>
@@ -742,13 +742,13 @@
 <hr></hr>
 <h3 id="第三步：评估单圆弧近似替代可行性">第三步：评估单圆弧近似替代可行性</h3>
 <ol>
-<li>按 <strong><code>Ctrl + 6</code></strong> 切换到 <strong><a href="../5_tabs_charts/tab6_arc.html">Tab 6：单圆弧近似</a></strong> 标签页；</li>
-<li>查看右下角的 <code>单圆弧刀具切出的球道 − 设计截面</code> 子图以及左侧结果面板的 <code>── 单圆弧近似 ──</code> 段落：<ul>
-<li>取整后单圆弧半径：<strong><code>圆弧半径 R = 12.3600 mm</code></strong>（拟合 <code>12.3598</code>）；</li>
-<li>圆心坐标：<strong><code>圆心 径向 -2.1920 / 轴向 +1.0710</code></strong>（位于中心轴对侧，距钢球中心朝刀柄方向 <code>1.0710 mm</code>）；</li>
-<li>下端相切圆柱直径：<strong><code>圆柱段直径 Ø = 20.3360 mm</code></strong>；</li>
-<li><strong>生成球道偏差：<code>3.78 μm（±10） 合格</code></strong>（远小于图纸允许的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>±</mo><mn>10</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\pm 10\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">±</span><span class="mord">10</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span> 红色公差虚线带！）；</li>
-<li><strong>生成球道顶隙：<code>0.0325 mm [0.019~0.04] OK</code></strong>（完全满足顶隙范围）。</li>
+<li>按 <strong><code>Ctrl + 6</code></strong> 切换到 <strong><a href="../5_tabs_charts/tab6_arc.html">Tab 6：圆弧近似</a></strong> 标签页；</li>
+<li>查看右中子图的 <code>单圆弧刀具切出的球道 − 设计截面</code>、右上子图的钢球实际落座核对框以及左侧结果面板的 <code>■ 四、圆弧近似刀具</code> 分块：<ul>
+<li>取整后单圆弧半径：<strong><code>R = 12.3600 mm</code></strong>；</li>
+<li>圆心坐标：<strong><code>圆心 -2.1920 / +1.0710</code></strong>（位于中心轴对侧，距钢球中心朝刀柄方向 <code>1.0710 mm</code>）；</li>
+<li>下端相切圆柱直径：<strong><code>圆柱 Ø20.3360 mm</code></strong>；</li>
+<li><strong>与设计截面偏差：<code>3.78 μm（轮廓度 ±10） 合格</code></strong>（远小于图纸允许的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>±</mo><mn>10</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\pm 10\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">±</span><span class="mord">10</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span> 红色公差虚线带！）；</li>
+<li><strong>钢球实际落座指标</strong>：<code>实际顶隙 = 0.0325 mm [0.019~0.04] OK</code>，<code>实际接触角 = 41.988° [40~44] OK</code>。</li>
 </ul>
 </li>
 <li><strong>工程结论</strong>：完全可以使用 <strong><code>R12.360</code></strong> 的单圆弧成型刀具替代复杂样条曲线刀具！</li>
@@ -818,7 +818,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"案例一：椭圆截面成型刀与单圆弧设计","level":"1.9.1","depth":2,"next":{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"path":"8_workflows_cases/case2_points.md","ref":"8_workflows_cases/case2_points.md","articles":[]},"previous":{"title":"典型设计实战案例","level":"1.9","depth":1,"path":"8_workflows_cases/README.md","ref":"8_workflows_cases/README.md","articles":[{"title":"案例一：椭圆截面成型刀与单圆弧设计","level":"1.9.1","depth":2,"path":"8_workflows_cases/case1_ellipse.md","ref":"8_workflows_cases/case1_ellipse.md","articles":[]},{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"path":"8_workflows_cases/case2_points.md","ref":"8_workflows_cases/case2_points.md","articles":[]},{"title":"案例三：双圆弧(尖底)球道精确成型刀设计","level":"1.9.3","depth":2,"path":"8_workflows_cases/case3_gothic.md","ref":"8_workflows_cases/case3_gothic.md","articles":[]},{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"path":"8_workflows_cases/case4_allowance_pose.md","ref":"8_workflows_cases/case4_allowance_pose.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"8_workflows_cases/case1_ellipse.md","mtime":"2026-11-04T00:28:50.017Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T00:29:01.757Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"案例一：椭圆截面成型刀与单圆弧设计","level":"1.9.1","depth":2,"next":{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"path":"8_workflows_cases/case2_points.md","ref":"8_workflows_cases/case2_points.md","articles":[]},"previous":{"title":"典型设计实战案例","level":"1.9","depth":1,"path":"8_workflows_cases/README.md","ref":"8_workflows_cases/README.md","articles":[{"title":"案例一：椭圆截面成型刀与单圆弧设计","level":"1.9.1","depth":2,"path":"8_workflows_cases/case1_ellipse.md","ref":"8_workflows_cases/case1_ellipse.md","articles":[]},{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"path":"8_workflows_cases/case2_points.md","ref":"8_workflows_cases/case2_points.md","articles":[]},{"title":"案例三：双圆弧球道(给定半径 R)与三种刀具方案","level":"1.9.3","depth":2,"path":"8_workflows_cases/case3_gothic.md","ref":"8_workflows_cases/case3_gothic.md","articles":[]},{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"path":"8_workflows_cases/case4_allowance_pose.md","ref":"8_workflows_cases/case4_allowance_pose.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"8_workflows_cases/case1_ellipse.md","mtime":"2026-11-04T03:44:36.667Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T03:44:47.555Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

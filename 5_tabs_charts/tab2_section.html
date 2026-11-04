@@ -260,7 +260,7 @@
                 <a href="../3_advanced_params/tolerance_arc_export.html">
             
                     
-                    校验范围、单圆弧近似与导出设置
+                    校验范围、圆弧近似与导出设置
             
                 </a>
             
@@ -292,7 +292,7 @@
                 <a href="../4_result_panel/exact_and_check.html">
             
                     
-                    截面数据、精确刀具与加工校核
+                    截面设计、精确廓形与仿真落座
             
                 </a>
             
@@ -305,7 +305,7 @@
                 <a href="../4_result_panel/arc_and_table1.html">
             
                     
-                    单圆弧近似与轮廓方程常数(Table 1)
+                    圆弧近似刀具与轮廓方程常数(Table 1)
             
                 </a>
             
@@ -402,7 +402,7 @@
                 <a href="tab6_arc.html">
             
                     
-                    单圆弧近似
+                    圆弧近似
             
                 </a>
             
@@ -550,7 +550,7 @@
                 <a href="../8_workflows_cases/case3_gothic.html">
             
                     
-                    案例三：双圆弧(尖底)球道精确成型刀设计
+                    案例三：双圆弧球道(给定半径 R)与三种刀具方案
             
                 </a>
             
@@ -635,7 +635,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="52-tab-2：球道截面-ctrl2">5.2 Tab 2：球道截面 (<code>Ctrl+2</code>)</h1>
-<p><strong><code>球道截面</code></strong> 标签页展示垂直于球道中心轨迹切开的<strong>球道法向截面（Normal Cross-Section）</strong>。该视图与星形套产品图纸上的“球道法向截面放大图”完全对应，用于直观核对球道截面几何形状、接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>、相似度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 以及底部顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span>。</p>
+<p><strong><code>球道截面</code></strong> 标签页展示垂直于球道中心轨迹切开的<strong>球道法向截面（Normal Cross-Section）</strong>。该视图与星形套产品图纸上的“球道法向截面放大图”完全对应，用于直观核对球道截面几何形状、接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>（及上下限范围）、接触角跨距、相似度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 以及底部顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span>。</p>
 <hr></hr>
 <h2 id="一、椭圆截面与点表截面视图解读">一、椭圆截面与点表截面视图解读</h2>
 <p>当 <code>截面类型</code> 选择 <code>椭圆</code> 或 <code>点表(CSV)</code> 时，图表显示如下：</p>
@@ -645,34 +645,37 @@
 <li><strong>顶部标题栏</strong>：直接汇总当前截面类型及三项核心指标，例如：
 <code>球道法向截面 (椭圆)  接触角 42.00°  相似度 1.0400  顶隙 0.0287</code></li>
 <li><strong>横轴 <code>y 横向 (mm)</code></strong>：球道法向截面的水平宽度方向。中央红色竖直点划线 <code>y = 0</code> 为球道对称中心线，左右槽壁对称分布。</li>
-<li><strong>纵轴 <code>u (mm)，原点 = 钢球中心，向上为正</code></strong>：球道法向截面的深度方向。<ul>
-<li><strong>原点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></strong>：钢球落入球道并与左右槽壁形成接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> 时的<strong>理论钢球球心位置</strong>（图中标有黑色小十字 <code>+</code>）。</li>
+<li><strong>纵轴 <code>u (mm)，原点 = 钢球中心，向上为正</code></strong>：球道法向截面的深度方向。原点 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 为钢球与左右槽壁形成接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> 时的<strong>理论钢球球心位置</strong>（标有黑色小十字 <code>+</code>）。</li>
+</ul>
+<h3 id="2-主图与左上角球道底放大小窗详解">2. 主图与左上角“球道底放大”小窗详解</h3>
+<ul>
+<li><strong>蓝色粗实线（<code>球道截面</code>）</strong>：球道法向截面的设计轮廓（若设置了 <code>法向余量</code>，标题会注明并显示含余量的轮廓）；</li>
+<li><strong>黑色细虚线圆（<code>钢球 Ø19.844</code>）</strong>：处于名义装配接触位置、直径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的理论钢球轮廓；</li>
+<li><strong>洋红色实线与点线（<code>接触角方向</code> 与 <code>接触角上下限</code>）</strong>：<ul>
+<li>洋红色实线从钢球中心引向左右接触点，标示当前的理论接触角（如 <code>α=42.00°（图纸 40~44）</code>）；</li>
+<li>两侧的洋红色点线直观标出【高级参数 → 校验范围】中设定的<strong>接触角下限与上限</strong>扇区；</li>
+</ul>
+</li>
+<li><strong>水平双向箭头（<code>接触角跨距 13.278</code>）</strong>：直接标出左右两个接触点之间的水平距离（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msub><mi>D</mi><mi>w</mi></msub><mi>sin</mi><mo>⁡</mo><mi>α</mi></mrow><annotation encoding="application/x-tex">= D_w \sin\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>），方便与标有接触点跨距的零件图纸直接核对；</li>
+<li><strong>左上角内嵌小窗：<code>球道底放大（纵向夸大）</code>（无需手动拉框即可看清微米级顶隙！）</strong>：<ul>
+<li>由于顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span> 通常仅有 <code>0.01 ~ 0.09 mm</code>，在 1:1 全局视图下钢球底与球道底几乎贴在一起；</li>
+<li>左上角小窗自动将球道底局部在纵向放大，用洋红色双向箭头清晰标出 <strong><code>顶隙 0.0287</code></strong>，并用两条灰色水平点线标出图纸允许的 <strong><code>下限 0.019</code></strong> 与 <strong><code>上限 0.04</code></strong>，顶隙是否处于合格带中间一目了然！</li>
 </ul>
 </li>
 </ul>
-<h3 id="2-图例与几何元素含义">2. 图例与几何元素含义</h3>
-<ul>
-<li><strong>蓝色粗实线（<code>球道截面</code>）</strong>：球道法向截面的设计轮廓（已包含高级参数中的 <code>法向余量</code> 偏置）；</li>
-<li><strong>黑色细虚线圆（<code>钢球 Ø19.844</code>）</strong>：处于名义装配接触位置、直径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的理论钢球轮廓；</li>
-<li><strong>洋红色细实线（<code>接触角方向 α=42.00°</code>）</strong>：从钢球球心 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 引向左右两侧球道接触点的法线。该法线与水平轴的夹角即为<strong>接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span></strong>，直观展示钢球与球道槽壁的“两点角接触”位置；</li>
-<li><strong>底部顶隙区（<code>y = 0, u ≈ -9.95 mm</code>）</strong>：在球道正底部中央，蓝色球道底位于黑色虚线钢球底面下方微小距离处，两者之间的竖直间隙即为<strong>顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span></strong>（默认参数下为 <code>0.0287 mm</code>）。</li>
-</ul>
-<blockquote>
-<p><strong>交互看图技巧</strong>：由于顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span> 通常仅有 <code>0.01 ~ 0.04 mm</code>，在全局视图下底部蓝线与黑虚线看似重合。您可以点击底部工具栏的 <strong><code>[框选放大 Zoom]</code></strong>，在底部 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mo>−</mo><mn>9.95</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, -9.95)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">−</span><span class="mord">9.95</span><span class="mclose">)</span></span></span></span> 附近拉框放大，即可清晰观察到球道底与钢球底之间的微米级顶隙裕量！</p>
-</blockquote>
 <hr></hr>
-<h2 id="二、双圆弧（尖底哥德式）截面视图解读">二、双圆弧（尖底/哥德式）截面视图解读</h2>
-<p>当 <code>截面类型</code> 选择 <code>双圆弧(尖底)</code> 时，图表除了展示上述元素外，还会额外标出左右两段偏心圆弧的圆心位置：</p>
+<h2 id="二、双圆弧（尖底）截面视图解读">二、双圆弧（尖底）截面视图解读</h2>
+<p>当 <code>截面类型</code> 选择 <code>双圆弧</code>（如内置示例 <code>AC10000</code>，<code>给定半径 R = 10.24 mm</code>）时，图表显示如下：</p>
 <p><img src="resources/tab2_section_gothic.png" alt="Tab 2 球道截面（双圆弧尖底）"></img></p>
-<h3 id="双圆弧截面的独有特征">双圆弧截面的独有特征</h3>
+<h3 id="双圆弧截面的独有视觉特征">双圆弧截面的独有视觉特征</h3>
 <ol>
 <li><strong>红色十字标记 <code>+</code>（<code>圆弧圆心(交叉)</code>）</strong>：<ul>
-<li>在钢球球心 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 上方两侧，标有两个红色 <code>+</code> 号，分别代表左、右两段圆弧槽壁的曲率中心；</li>
-<li>左侧球道圆弧的圆心位于中心线<strong>右侧</strong>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 侧），右侧球道圆弧的圆心位于中心线<strong>左侧</strong>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">-y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 侧），形成典型的“交叉偏心圆心”，且圆心连线严格落在洋红色接触角法线延长线上。</li>
+<li>在钢球球心 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 上方两侧，标有两个红色 <code>+</code> 号，分别代表左、右两段圆弧槽壁的圆心；</li>
+<li>左侧球道圆弧的圆心位于中心线<strong>右侧</strong>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 侧），右侧球道圆弧的圆心位于中心线<strong>左侧</strong>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">-y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 侧），且圆心连线严格落在洋红色接触角法线延长线上。</li>
 </ul>
 </li>
-<li><strong>哥德式尖底与更大顶隙</strong>：<ul>
-<li>左右两段圆弧在底部中央 <code>y = 0</code> 处相交，形成明显的哥德式拱形尖底，顶部标题栏同步显示出增大后的实际顶隙（如 <code>顶隙 0.0985</code>）。</li>
+<li><strong>左上角放大窗清晰呈现“哥特式尖底”</strong>：<ul>
+<li>在左上角 <code>球道底放大（纵向夸大）</code> 小窗中，可以直观看到左右两段圆弧在底部中央 <code>y = 0</code> 处相交形成的<strong>尖拱底</strong>，以及增大后的顶隙（<code>顶隙 0.0908</code>，位于 <code>下限 0.02</code> 与 <code>上限 0.1</code> 之间）。</li>
 </ul>
 </li>
 </ol>
@@ -719,7 +722,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"球道截面","level":"1.6.2","depth":2,"next":{"title":"星形套截面","level":"1.6.3","depth":2,"path":"5_tabs_charts/tab3_part.md","ref":"5_tabs_charts/tab3_part.md","articles":[]},"previous":{"title":"刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab2_section.md","mtime":"2026-11-04T00:28:50.015Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T00:29:01.757Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"球道截面","level":"1.6.2","depth":2,"next":{"title":"星形套截面","level":"1.6.3","depth":2,"path":"5_tabs_charts/tab3_part.md","ref":"5_tabs_charts/tab3_part.md","articles":[]},"previous":{"title":"刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab2_section.md","mtime":"2026-11-04T03:44:36.663Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T03:44:47.555Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

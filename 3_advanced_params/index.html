@@ -260,7 +260,7 @@
                 <a href="tolerance_arc_export.html">
             
                     
-                    校验范围、单圆弧近似与导出设置
+                    校验范围、圆弧近似与导出设置
             
                 </a>
             
@@ -292,7 +292,7 @@
                 <a href="../4_result_panel/exact_and_check.html">
             
                     
-                    截面数据、精确刀具与加工校核
+                    截面设计、精确廓形与仿真落座
             
                 </a>
             
@@ -305,7 +305,7 @@
                 <a href="../4_result_panel/arc_and_table1.html">
             
                     
-                    单圆弧近似与轮廓方程常数(Table 1)
+                    圆弧近似刀具与轮廓方程常数(Table 1)
             
                 </a>
             
@@ -402,7 +402,7 @@
                 <a href="../5_tabs_charts/tab6_arc.html">
             
                     
-                    单圆弧近似
+                    圆弧近似
             
                 </a>
             
@@ -550,7 +550,7 @@
                 <a href="../8_workflows_cases/case3_gothic.html">
             
                     
-                    案例三：双圆弧(尖底)球道精确成型刀设计
+                    案例三：双圆弧球道(给定半径 R)与三种刀具方案
             
                 </a>
             
@@ -636,12 +636,13 @@
                                 
                                 <h1 id="第三章：高级参数设置详解">第三章：高级参数设置详解</h1>
 <p>在左侧控制面板中，点击 <strong><code>▸ 高级参数</code></strong> 按钮即可展开（变成 <strong><code>▾ 高级参数</code></strong>）或折叠高级参数区域。</p>
-<p>高级参数共包含 <strong>6 个功能组、15 项参数</strong>。对于大多数常规星形套零件，软件的默认高级参数已经针对现场加工与检测进行了优化，<strong>无需每次修改</strong>；但当遇到以下特定工程需求时，您需要展开高级参数进行精细控制：</p>
+<p>高级参数共包含 <strong>6 个功能组、18 项参数</strong>。对于大多数常规星形套零件，软件的默认高级参数已经针对现场加工与检测进行了优化，<strong>无需每次修改</strong>；但当遇到以下特定工程需求时，您需要展开高级参数进行精细控制：</p>
 <ol>
 <li><strong>缩短刀头高度或调整非工作区让刀避空</strong>（防止刀尖过长、控制球道底非工作区过渡平滑度）；</li>
 <li><strong>检查机床夹持干涉或绘制完整星形套截面图</strong>（设置刀柄球心距、反转刀柄倾角方向、填入星形套内孔直径）；</li>
-<li><strong>按客户图纸公差带配置自动合格判定</strong>（设置顶隙上下限与法向轮廓度公差带）；</li>
-<li><strong>控制单圆弧近似刀具的圆整位数与 Table 1/Table 2 导出格式</strong>（控制图纸标注小数位数、采样点数与常数基准）。</li>
+<li><strong>按客户图纸公差带配置全套自动审核判据</strong>（设置<strong>顶隙上下限</strong>、<strong>接触角上下限</strong>、<strong>接触角跨距上下限</strong>以及<strong>轮廓度公差</strong>）；</li>
+<li><strong>选择单圆弧 / 多段相切圆弧刀具或“按审核优化”求法</strong>（设置<strong>圆弧段数 <code>1~5</code> 段</strong>、<strong>单圆弧求法 <code>拟合精确廓形 / 按审核优化</code></strong> 以及磨刀尺寸<strong>取整位数</strong>）；</li>
+<li><strong>控制客户图纸 Table 1 / Table 2 导出格式</strong>（控制基本轮廓采样点数、终点位置与常数基准）。</li>
 </ol>
 <hr></hr>
 <h2 id="高级参数分组与速查表">高级参数分组与速查表</h2>
@@ -679,33 +680,33 @@
 </tr>
 <tr>
 <td style="text-align:left"><strong>校验范围</strong></td>
-<td style="text-align:left"><code>顶隙下限</code>、<code>顶隙上限</code>、<code>轮廓度公差</code></td>
-<td style="text-align:left"><code>0.019 mm</code>、<code>0.040 mm</code>、<code>0.02 mm</code></td>
-<td style="text-align:left">按图纸设定红字报警阈值与图表红色公差虚线带</td>
-<td style="text-align:left"><a href="tolerance_arc_export.html">3.3 校验公差、圆弧近似与导出参数</a></td>
+<td style="text-align:left"><code>顶隙下限</code>、<code>顶隙上限</code>、<code>接触角下限</code>、<code>接触角上限</code>、<code>接触角跨距下限</code>、<code>接触角跨距上限</code>、<code>轮廓度公差</code></td>
+<td style="text-align:left"><code>0.019 ~ 0.040 mm</code>、<code>40.0° ~ 44.0°</code>、<code>0.0 ~ 0.0 mm</code>（不校验）、<code>0.02 mm</code></td>
+<td style="text-align:left">按图纸设定理论截面与钢球实际落座的合格范围及红虚线公差带</td>
+<td style="text-align:left"><a href="tolerance_arc_export.html">3.3 校验范围、圆弧近似与导出设置</a></td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>单圆弧近似</strong></td>
-<td style="text-align:left"><code>取整位数</code></td>
-<td style="text-align:left"><code>3</code>（即 <code>0.001 mm</code>）</td>
-<td style="text-align:left">控制单圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 与圆心坐标的工程取整位数</td>
-<td style="text-align:left"><a href="tolerance_arc_export.html">3.3 校验公差、圆弧近似与导出参数</a></td>
+<td style="text-align:left"><strong>圆弧近似</strong></td>
+<td style="text-align:left"><code>圆弧段数</code>、<code>单圆弧求法</code>、<code>取整位数</code></td>
+<td style="text-align:left"><code>1 段</code>、<code>拟合精确廓形</code>、<code>3 位</code></td>
+<td style="text-align:left">选择单圆弧或多段相切圆弧（<code>2~5 段</code>）、按审核优化双圆弧单圆弧刀、控制取整位数</td>
+<td style="text-align:left"><a href="tolerance_arc_export.html">3.3 校验范围、圆弧近似与导出设置</a></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>导出</strong></td>
 <td style="text-align:left"><code>基本轮廓点数</code>、<code>基本轮廓终点</code>、<code>常数依据</code></td>
-<td style="text-align:left"><code>117</code>、<code>球道边缘</code>、<code>拟合值</code></td>
+<td style="text-align:left"><code>117 点</code>、<code>球道边缘</code>、<code>拟合值</code></td>
 <td style="text-align:left">对标客户图纸 Table 1 / Table 2 质检点表格式</td>
-<td style="text-align:left"><a href="tolerance_arc_export.html">3.3 校验公差、圆弧近似与导出参数</a></td>
+<td style="text-align:left"><a href="tolerance_arc_export.html">3.3 校验范围、圆弧近似与导出设置</a></td>
 </tr>
 </tbody>
 </table>
 <hr></hr>
 <h2 id="本章阅读导航">本章阅读导航</h2>
 <ul>
-<li><strong><a href="tip_and_profile.html">3.1 刀尖与廓形控制参数</a></strong>：深入理解刀尖高度的“三种状态”、球道底部非接触区的让刀过渡机制，以及边缘延伸和采样点距的设置原则。</li>
+<li><strong><a href="tip_and_profile.html">3.1 刀尖与廓形控制参数</a></strong>：深入理解刀尖高度的“三种状态”及刀尖截断时的实际落座顶隙判定机制、球道底非接触区的让刀过渡，以及边缘延伸和采样点距的设置原则。</li>
 <li><strong><a href="shank_and_part.html">3.2 刀柄姿态与工件细节参数</a></strong>：掌握如何利用 <code>球心距 L</code> 和 <code>刀柄方向</code> 进行机床夹持防碰撞预演，以及 <code>内孔直径</code> 的图纸读取方法。</li>
-<li><strong><a href="tolerance_arc_export.html">3.3 校验公差、圆弧近似与导出参数</a></strong>：学习如何根据客户图纸公差带配置自动报警判据、如何选择单圆弧取整位数，以及如何定制 Table 1 / Table 2 导出基准。</li>
+<li><strong><a href="tolerance_arc_export.html">3.3 校验范围、圆弧近似与导出设置</a></strong>：学习如何设置顶隙/接触角/跨距上下限、如何用<strong>多段相切圆弧</strong>或<strong>按审核优化单圆弧</strong>解决双圆弧（尖底）球道加工难题，以及如何定制 Table 1 / Table 2 导出基准。</li>
 </ul>
 
                                 
@@ -750,7 +751,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"高级参数设置","level":"1.4","depth":1,"next":{"title":"刀尖与廓形","level":"1.4.1","depth":2,"path":"3_advanced_params/tip_and_profile.md","ref":"3_advanced_params/tip_and_profile.md","articles":[]},"previous":{"title":"③ 刀具安装与 ④ 工件外形","level":"1.3.3","depth":2,"path":"2_basic_params/tool_and_part_params.md","ref":"2_basic_params/tool_and_part_params.md","articles":[]},"articles":[{"title":"刀尖与廓形","level":"1.4.1","depth":2,"path":"3_advanced_params/tip_and_profile.md","ref":"3_advanced_params/tip_and_profile.md","articles":[]},{"title":"刀柄与姿态、工件细节","level":"1.4.2","depth":2,"path":"3_advanced_params/shank_and_part.md","ref":"3_advanced_params/shank_and_part.md","articles":[]},{"title":"校验范围、单圆弧近似与导出设置","level":"1.4.3","depth":2,"path":"3_advanced_params/tolerance_arc_export.md","ref":"3_advanced_params/tolerance_arc_export.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"3_advanced_params/README.md","mtime":"2026-11-04T00:28:50.009Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T00:29:01.757Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"高级参数设置","level":"1.4","depth":1,"next":{"title":"刀尖与廓形","level":"1.4.1","depth":2,"path":"3_advanced_params/tip_and_profile.md","ref":"3_advanced_params/tip_and_profile.md","articles":[]},"previous":{"title":"③ 刀具安装与 ④ 工件外形","level":"1.3.3","depth":2,"path":"2_basic_params/tool_and_part_params.md","ref":"2_basic_params/tool_and_part_params.md","articles":[]},"articles":[{"title":"刀尖与廓形","level":"1.4.1","depth":2,"path":"3_advanced_params/tip_and_profile.md","ref":"3_advanced_params/tip_and_profile.md","articles":[]},{"title":"刀柄与姿态、工件细节","level":"1.4.2","depth":2,"path":"3_advanced_params/shank_and_part.md","ref":"3_advanced_params/shank_and_part.md","articles":[]},{"title":"校验范围、圆弧近似与导出设置","level":"1.4.3","depth":2,"path":"3_advanced_params/tolerance_arc_export.md","ref":"3_advanced_params/tolerance_arc_export.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"3_advanced_params/README.md","mtime":"2026-11-04T03:44:36.648Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T03:44:47.555Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

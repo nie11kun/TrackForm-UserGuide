@@ -260,7 +260,7 @@
                 <a href="../3_advanced_params/tolerance_arc_export.html">
             
                     
-                    校验范围、单圆弧近似与导出设置
+                    校验范围、圆弧近似与导出设置
             
                 </a>
             
@@ -292,7 +292,7 @@
                 <a href="../4_result_panel/exact_and_check.html">
             
                     
-                    截面数据、精确刀具与加工校核
+                    截面设计、精确廓形与仿真落座
             
                 </a>
             
@@ -305,7 +305,7 @@
                 <a href="../4_result_panel/arc_and_table1.html">
             
                     
-                    单圆弧近似与轮廓方程常数(Table 1)
+                    圆弧近似刀具与轮廓方程常数(Table 1)
             
                 </a>
             
@@ -402,7 +402,7 @@
                 <a href="../5_tabs_charts/tab6_arc.html">
             
                     
-                    单圆弧近似
+                    圆弧近似
             
                 </a>
             
@@ -550,7 +550,7 @@
                 <a href="../8_workflows_cases/case3_gothic.html">
             
                     
-                    案例三：双圆弧(尖底)球道精确成型刀设计
+                    案例三：双圆弧球道(给定半径 R)与三种刀具方案
             
                 </a>
             
@@ -635,25 +635,27 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="72-参数文件管理与会话自动记忆">7.2 参数文件管理与会话自动记忆</h1>
-<p>在企业的实际生产中，往往需要同时维护数十种不同规格型号的万向节星形套（如不同钢球直径、不同节圆 PCD、不同客户图纸点表）。本节介绍如何利用 TrackForm 的参数档案管理功能建立企业级球道刀具参数库。</p>
+<p>在企业的实际生产中，往往需要同时维护数十种不同规格型号的万向节星形套（如不同钢球直径、不同节圆 PCD、不同双圆弧半径或客户图纸点表）。本节介绍如何利用 TrackForm 的参数档案管理功能建立企业级球道刀具参数库。</p>
 <hr></hr>
 <h2 id="一、工作现场自动记忆机制（lastsessionjson）">一、工作现场自动记忆机制（<code>last_session.json</code>）</h2>
 <p>您在使用软件时无需担心因临时关闭窗口而丢失刚刚录入的参数：</p>
 <ol>
 <li><strong>关闭时自动保存</strong>：每当您正常关闭软件窗口（点击右上角 <code>×</code> 或按 <code>Alt+F4</code>）时，软件会自动将当前界面上的全部基本参数、高级参数、面板展开状态及窗口尺寸保存到用户数据目录下的 <code>last_session.json</code>（可通过 <strong><code>帮助(H) → 打开数据文件夹</code></strong> 查看）。</li>
-<li><strong>启动时自动恢复</strong>：下次打开 TrackForm 时，软件会自动读取 <code>last_session.json</code>，将所有输入框、下拉菜单、高级参数折叠状态及最后停留在哪个图表标签页完整恢复到您上次离开时的状态，并自动执行一次计算刷新图表。</li>
+<li><strong>启动时自动恢复</strong>：下次打开 TrackForm 时，软件会自动读取 <code>last_session.json</code>，将所有输入框、下拉菜单、高级参数折叠状态及最后停留在哪个图表标签页完整恢复到您上次离开时的状态，状态栏提示 <strong><code>已恢复上次的设置。请点“计算”开始</code></strong>，点击 <strong><code>▶ 计算 (F5)</code></strong> 即可立即开始工作。</li>
 </ol>
 <hr></hr>
 <h2 id="二、一键载入内置典型示例参数">二、一键载入内置典型示例参数</h2>
-<p>软件内置了经过验证的标准产品示例库（位于安装目录下的 <code>examples/</code> 文件夹）：</p>
+<p>软件内置了 4 套经过工程验证的标准产品示例（位于安装目录下的 <code>examples/</code> 文件夹）：</p>
 <ol>
 <li>点击顶部菜单 <strong><code>文件(F) → 载入示例参数</code></strong>；</li>
 <li>在展开的子菜单中直接点击示例名称：<ul>
-<li><strong><code>AC3300-G_椭圆_参数</code></strong>：标准椭圆截面星形套球道示例；</li>
-<li><strong><code>Nexteer_34205673_参数</code></strong>：英制钢球（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn><mi mathvariant="normal">/</mi><mn>1</mn><msup><mn>6</mn><mrow><mo mathvariant="normal">′</mo><mo mathvariant="normal">′</mo></mrow></msup><mo>=</mo><mn>17.4625</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">11/16^{\prime\prime} = 17.4625\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord">11/1</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">17.4625</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）导入客户图纸点表 CSV 的完整工程示例；</li>
+<li><strong><code>AC3300-G_参数</code></strong>：标准<strong>椭圆截面</strong>（<code>给定相似度 = 1.04</code>，接触角 <code>42°</code>）星形套球道示例，适合采用单圆弧近似刀具加工；</li>
+<li><strong><code>AC10000_参数</code></strong>：<strong>双圆弧（尖底）截面</strong>（采用新增的 <strong><code>给定半径 R = 10.24 mm</code></strong> 定义方式，接触角 <code>42°±3.5°</code>，接触角跨距 <code>12.3~14.0 mm</code>，圆弧段数设为 <code>3</code> 段相切圆弧）完整示例；</li>
+<li><strong><code>Nexteer_34205673_参数</code></strong>：英制钢球（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn><mi mathvariant="normal">/</mi><mn>1</mn><msup><mn>6</mn><mrow><mo mathvariant="normal">′</mo><mo mathvariant="normal">′</mo></mrow></msup><mo>=</mo><mn>17.4625</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">11/16^{\prime\prime} = 17.4625\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord">11/1</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">17.4625</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）导入客户图纸 <strong>Table 2 点表 CSV</strong> 并与原图 Table 1 单圆弧常数对标的工程示例；</li>
+<li><strong><code>AC0706-E_参数</code></strong>：大钢球（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>21.4313</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 21.4313\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">21.4313</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）导入客户图纸点表 CSV 的示例（同时演示软件对原始点表自身曲率波动的自动检测提示）。</li>
 </ul>
 </li>
-<li>点击后软件会自动回填全部参数、关联示例点表 CSV 并立即完成计算。您也可以点击 <strong><code>帮助(H) → 打开示例目录</code></strong> 直接查看示例源文件。</li>
+<li>点击后软件会自动回填全部参数、关联示例点表 CSV 并立即执行计算。您也可以点击 <strong><code>帮助(H) → 打开示例目录</code></strong> 直接查看示例源文件。</li>
 </ol>
 <hr></hr>
 <h2 id="三、建立产品型号参数档案库（json-保存与载入）">三、建立产品型号参数档案库（<code>.json</code> 保存与载入）</h2>
@@ -662,7 +664,7 @@
 <ol>
 <li>点击顶部菜单 <strong><code>文件(F) → 保存参数…</code></strong>（或按 <strong><code>Ctrl + S</code></strong>）；</li>
 <li>默认打开路径为用户数据文件夹下的 <code>params/</code> 子目录；</li>
-<li>输入有意义的产品型号名称（例如 <code>Nexteer_34205673_参数.json</code>），点击保存。</li>
+<li>输入有意义的产品型号名称（例如 <code>AC10000_双圆弧_参数.json</code>），点击保存。</li>
 </ol>
 <h3 id="2-载入历史参数档案（ctrl--o）">2. 载入历史参数档案（<code>Ctrl + O</code>）</h3>
 <ol>
@@ -670,46 +672,44 @@
 <li>选中对应的 <code>.json</code> 文件打开，全部参数与界面状态瞬间回填到位并自动完成计算。</li>
 </ol>
 <h3 id="3-json-参数文件内容结构示例">3. <code>.json</code> 参数文件内容结构示例</h3>
-<p>保存的 <code>.json</code> 文件是标准的 UTF-8 纯文本格式，包含文件头信息、完整的工程参数字典 <code>"params"</code> 以及界面状态 <code>"ui"</code>（方便纳入 Git / SVN 或 PDM/PLM 图文档系统进行版本管理）：</p>
+<p>保存的 <code>.json</code> 文件是标准的 UTF-8 纯文本格式，包含全部 37 项工程参数与界面状态（方便纳入 Git / SVN 或 PDM/PLM 图文档系统进行版本管理）：</p>
 <pre><code class="lang-json">{
   <span class="hljs-string">"app"</span>: <span class="hljs-string">"TrackForm"</span>,
   <span class="hljs-string">"version"</span>: <span class="hljs-number">1</span>,
-  <span class="hljs-string">"saved"</span>: <span class="hljs-string">"2026-04-06T12:00:00"</span>,
   <span class="hljs-string">"params"</span>: {
-    <span class="hljs-string">"ball_d"</span>: <span class="hljs-number">19.844</span>,
-    <span class="hljs-string">"pcd"</span>: <span class="hljs-number">62.464</span>,
-    <span class="hljs-string">"track_offset"</span>: <span class="hljs-number">4.27</span>,
-    <span class="hljs-string">"section_type"</span>: <span class="hljs-string">"椭圆"</span>,
-    <span class="hljs-string">"solve_mode"</span>: <span class="hljs-string">"给定相似度"</span>,
-    <span class="hljs-string">"pressure_angle"</span>: <span class="hljs-number">42.0</span>,
-    <span class="hljs-string">"conformity"</span>: <span class="hljs-number">1.04</span>,
-    <span class="hljs-string">"clearance"</span>: <span class="hljs-number">0.0295</span>,
-    <span class="hljs-string">"points_file"</span>: <span class="hljs-string">""</span>,
-    <span class="hljs-string">"points_tol"</span>: <span class="hljs-number">1e-05</span>,
-    <span class="hljs-string">"allowance"</span>: <span class="hljs-number">0.0</span>,
-    <span class="hljs-string">"setting_angle"</span>: <span class="hljs-number">36.0</span>,
-    <span class="hljs-string">"sphere_d"</span>: <span class="hljs-number">61.113</span>,
-    <span class="hljs-string">"width"</span>: <span class="hljs-number">23.1</span>,
-    <span class="hljs-string">"sphere_center_h"</span>: <span class="hljs-number">13.31</span>,
-    <span class="hljs-string">"bore_d"</span>: <span class="hljs-number">26.907</span>,
-    <span class="hljs-string">"tip_z"</span>: <span class="hljs-number">9.922</span>,
-    <span class="hljs-string">"tip_relief"</span>: <span class="hljs-number">0.05</span>,
-    <span class="hljs-string">"tip_relief_len"</span>: <span class="hljs-number">1.0</span>,
-    <span class="hljs-string">"extra_extend"</span>: <span class="hljs-number">0.3</span>,
-    <span class="hljs-string">"profile_step"</span>: <span class="hljs-number">0.01</span>,
-    <span class="hljs-string">"gauge_length"</span>: <span class="hljs-number">50.0</span>,
+    <span class="hljs-string">"ball_d"</span>: <span class="hljs-string">"19.75"</span>,
+    <span class="hljs-string">"pcd"</span>: <span class="hljs-string">"63.82"</span>,
+    <span class="hljs-string">"track_offset"</span>: <span class="hljs-string">"4.44"</span>,
+    <span class="hljs-string">"section_type"</span>: <span class="hljs-string">"双圆弧"</span>,
+    <span class="hljs-string">"solve_mode"</span>: <span class="hljs-string">"给定半径 R"</span>,
+    <span class="hljs-string">"pressure_angle"</span>: <span class="hljs-string">"42.0"</span>,
+    <span class="hljs-string">"gothic_r"</span>: <span class="hljs-string">"10.24"</span>,
+    <span class="hljs-string">"allowance"</span>: <span class="hljs-string">"0.0"</span>,
+    <span class="hljs-string">"setting_angle"</span>: <span class="hljs-string">"36.0"</span>,
+    <span class="hljs-string">"sphere_d"</span>: <span class="hljs-string">"62.35"</span>,
+    <span class="hljs-string">"width"</span>: <span class="hljs-string">"25.4"</span>,
+    <span class="hljs-string">"sphere_center_h"</span>: <span class="hljs-string">"15.72"</span>,
+    <span class="hljs-string">"tip_z"</span>: <span class="hljs-string">"9.875"</span>,
+    <span class="hljs-string">"tip_relief"</span>: <span class="hljs-string">"0.05"</span>,
+    <span class="hljs-string">"tip_relief_len"</span>: <span class="hljs-string">"1.0"</span>,
+    <span class="hljs-string">"extra_extend"</span>: <span class="hljs-string">"0.3"</span>,
+    <span class="hljs-string">"profile_step"</span>: <span class="hljs-string">"0.01"</span>,
+    <span class="hljs-string">"gauge_length"</span>: <span class="hljs-string">"50.0"</span>,
     <span class="hljs-string">"tilt_side"</span>: <span class="hljs-string">"朝 +Z"</span>,
-    <span class="hljs-string">"clearance_min"</span>: <span class="hljs-number">0.019</span>,
-    <span class="hljs-string">"clearance_max"</span>: <span class="hljs-number">0.04</span>,
-    <span class="hljs-string">"profile_tol"</span>: <span class="hljs-number">0.02</span>,
-    <span class="hljs-string">"arc_decimals"</span>: <span class="hljs-number">3</span>,
-    <span class="hljs-string">"n_basic"</span>: <span class="hljs-number">117</span>,
+    <span class="hljs-string">"bore_d"</span>: <span class="hljs-string">"29.0"</span>,
+    <span class="hljs-string">"clearance_min"</span>: <span class="hljs-string">"0.02"</span>,
+    <span class="hljs-string">"clearance_max"</span>: <span class="hljs-string">"0.1"</span>,
+    <span class="hljs-string">"alpha_min"</span>: <span class="hljs-string">"38.5"</span>,
+    <span class="hljs-string">"alpha_max"</span>: <span class="hljs-string">"45.5"</span>,
+    <span class="hljs-string">"span_min"</span>: <span class="hljs-string">"12.3"</span>,
+    <span class="hljs-string">"span_max"</span>: <span class="hljs-string">"14.0"</span>,
+    <span class="hljs-string">"profile_tol"</span>: <span class="hljs-string">"0.1"</span>,
+    <span class="hljs-string">"arc_count"</span>: <span class="hljs-string">"3"</span>,
+    <span class="hljs-string">"arc_fit"</span>: <span class="hljs-string">"拟合精确廓形"</span>,
+    <span class="hljs-string">"arc_decimals"</span>: <span class="hljs-string">"3"</span>,
+    <span class="hljs-string">"n_basic"</span>: <span class="hljs-string">"117"</span>,
     <span class="hljs-string">"basic_end"</span>: <span class="hljs-string">"球道边缘"</span>,
     <span class="hljs-string">"table_basis"</span>: <span class="hljs-string">"拟合值"</span>
-  },
-  <span class="hljs-string">"ui"</span>: {
-    <span class="hljs-string">"advanced_open"</span>: <span class="hljs-literal">false</span>,
-    <span class="hljs-string">"active_tab"</span>: <span class="hljs-number">0</span>
   }
 }
 </code></pre>
@@ -718,7 +718,7 @@
 <p>当 <code>截面类型</code> 为 <strong><code>点表(CSV)</code></strong> 时，<code>.json</code> 参数文件中会记录点表文件的路径（<code>"points_file"</code> 字段）。</p>
 <p>TrackForm 内置了贴心的<strong>相对路径自动解析机制</strong>：</p>
 <ul>
-<li><strong>同目录保存自动转为相对路径</strong>：如果您将 <code>.json</code> 参数文件（如 <code>Nexteer_34205673_参数.json</code>）保存在点表 CSV 文件（如 <code>Nexteer_34205673_截面点表.csv</code>）所在的<strong>同一个文件夹</strong>（或其上级目录）下，软件在保存 <code>.json</code> 时会自动将 <code>"points_file"</code> 记录为相对文件名 <code>"Nexteer_34205673_截面点表.csv"</code>；</li>
+<li><strong>同目录保存自动转为相对路径</strong>：如果您将 <code>.json</code> 参数文件保存在点表 CSV 文件所在的<strong>同一个文件夹</strong>下，软件在保存 <code>.json</code> 时会自动将 <code>"points_file"</code> 记录为相对文件名；</li>
 <li><strong>跨电脑免配置共享</strong>：当您把包含 <code>.json</code> 与 <code>.csv</code> 的文件夹打包发给同事或复制到另一台电脑上时，同事载入 <code>.json</code> 后，软件会自动在 <code>.json</code> 所在文件夹下寻找到对应的点表 CSV，<strong>绝不会因为电脑用户名或盘符不同而报“找不到点表文件”错误</strong>！</li>
 </ul>
 <hr></hr>
@@ -772,7 +772,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"next":{"title":"典型设计实战案例","level":"1.9","depth":1,"path":"8_workflows_cases/README.md","ref":"8_workflows_cases/README.md","articles":[{"title":"案例一：椭圆截面成型刀与单圆弧设计","level":"1.9.1","depth":2,"path":"8_workflows_cases/case1_ellipse.md","ref":"8_workflows_cases/case1_ellipse.md","articles":[]},{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"path":"8_workflows_cases/case2_points.md","ref":"8_workflows_cases/case2_points.md","articles":[]},{"title":"案例三：双圆弧(尖底)球道精确成型刀设计","level":"1.9.3","depth":2,"path":"8_workflows_cases/case3_gothic.md","ref":"8_workflows_cases/case3_gothic.md","articles":[]},{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"path":"8_workflows_cases/case4_allowance_pose.md","ref":"8_workflows_cases/case4_allowance_pose.md","articles":[]}]},"previous":{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"path":"7_menus_session/menus_shortcuts.md","ref":"7_menus_session/menus_shortcuts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"7_menus_session/params_management.md","mtime":"2026-11-04T00:28:50.017Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T00:29:01.757Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"next":{"title":"典型设计实战案例","level":"1.9","depth":1,"path":"8_workflows_cases/README.md","ref":"8_workflows_cases/README.md","articles":[{"title":"案例一：椭圆截面成型刀与单圆弧设计","level":"1.9.1","depth":2,"path":"8_workflows_cases/case1_ellipse.md","ref":"8_workflows_cases/case1_ellipse.md","articles":[]},{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"path":"8_workflows_cases/case2_points.md","ref":"8_workflows_cases/case2_points.md","articles":[]},{"title":"案例三：双圆弧球道(给定半径 R)与三种刀具方案","level":"1.9.3","depth":2,"path":"8_workflows_cases/case3_gothic.md","ref":"8_workflows_cases/case3_gothic.md","articles":[]},{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"path":"8_workflows_cases/case4_allowance_pose.md","ref":"8_workflows_cases/case4_allowance_pose.md","articles":[]}]},"previous":{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"path":"7_menus_session/menus_shortcuts.md","ref":"7_menus_session/menus_shortcuts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"7_menus_session/params_management.md","mtime":"2026-11-04T03:44:36.667Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T03:44:47.555Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
