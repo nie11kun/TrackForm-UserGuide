@@ -44,7 +44,7 @@
 ```json
 {
   "app": "TrackForm",
-  "version": 1,
+  "version": "1.2.0",
   "params": {
     "ball_d": "19.75",
     "pcd": "70.0",

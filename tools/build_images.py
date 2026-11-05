@@ -1079,26 +1079,26 @@ def build_ch5_images():
     host_goth._plot_section()
     save_fig(host_goth.figs["section"][0], os.path.join(res, "tab2_section_gothic.png"))
 
-    # 底部工具栏操作指南与局部放大示意 (toolbar_annotated.png)
-    fig = Figure(figsize=(11.0, 4.2), dpi=160)
-    ax1 = fig.add_axes([0.02, 0.56, 0.96, 0.40])
+    # 底部工具栏 + 鼠标滚轮缩放/拖拽平移 + 子图右上角单图放大查看示意 (toolbar_annotated.png)
+    fig = Figure(figsize=(11.2, 4.6), dpi=160)
+    ax1 = fig.add_axes([0.02, 0.56, 0.96, 0.41])
     ax1.set_xlim(0, 1100)
-    ax1.set_ylim(160, 0)
+    ax1.set_ylim(165, 0)
     ax1.axis("off")
-    ax1.add_patch(Rectangle((10, 15), 1080, 52, fc="#f8fafc", ec="#2f5d8c", lw=1.5))
+    ax1.add_patch(Rectangle((10, 12), 1080, 50, fc="#f8fafc", ec="#2f5d8c", lw=1.5))
     tools_info = [
-        (35, "[主页复位 Home]", "一键恢复初始全图视野"),
-        (195, "[← / → 前后视图]", "回退或重做上一步缩放位置"),
-        (385, "[拖拽平移 Pan]", "按下左键拖动平移，右键拖动缩放"),
-        (595, "[框选放大 Zoom]", "左键拉框放大刀尖/顶隙微米级细节"),
-        (805, "[边距设置]", "调整图形四周留白比例"),
-        (960, "[保存图片 Save]", "将当前页签另存为高清 PNG/PDF"),
+        (25, "[主页复位 Home]", "恢复初始全图视野\n（或左键双击子图）"),
+        (185, "[← / → 前后视图]", "回退/重做缩放位置\n（含内嵌放大小窗）"),
+        (365, "[拖拽平移 Pan]", "工具栏平移；未选中时\n可直接左键/中键拖动平移"),
+        (565, "[框选放大 Zoom]", "拉框局部放大；日常\n可直接用鼠标滚轮缩放"),
+        (775, "[边距设置]", "调整图形四周\n留白比例"),
+        (935, "[保存图片 Save]", "将当前页签另存为\n高清 PNG / PDF / SVG"),
     ]
     for tx, tname, tdesc in tools_info:
-        ax1.add_patch(Rectangle((tx, 23), 135, 36, fc="white", ec="#64748b", lw=1))
-        ax1.text(tx + 67.5, 41, tname, color="#1f4e79", fontsize=9, fontweight="bold", ha="center", va="center")
-        ax1.annotate(tdesc, xy=(tx + 67.5, 60), xytext=(tx + 67.5, 125),
-                     color="#0f172a", fontsize=8.3, ha="center", va="center",
+        ax1.add_patch(Rectangle((tx, 20), 140, 34, fc="white", ec="#64748b", lw=1))
+        ax1.text(tx + 70, 37, tname, color="#1f4e79", fontsize=8.6, fontweight="bold", ha="center", va="center")
+        ax1.annotate(tdesc, xy=(tx + 70, 56), xytext=(tx + 70, 125),
+                     color="#0f172a", fontsize=7.9, ha="center", va="center",
                      bbox=dict(boxstyle="round,pad=0.25", fc="#ffffe0", ec="#cbd5e1"),
                      arrowprops=dict(arrowstyle="->", color=HL, lw=1.2))
 
@@ -1113,11 +1113,19 @@ def build_ch5_images():
         a.plot(arc_r(pr.section, pr.params, zz), zz, ":", color="tab:blue", lw=1.2, label="球道底约束")
         a.grid(alpha=0.3)
     r0, z0 = float(pr.r[0]), float(pr.z[0])
+    # 左图模拟子图右上角悬停展开按钮 [展开]
+    ax_l.text(0.97, 0.94, "[展开]", transform=ax_l.transAxes, color="#1f6fd1", fontsize=8.0, fontweight="bold",
+              ha="right", va="top", bbox=dict(boxstyle="round,pad=0.25", fc="#dbe9ff", ec="#1f6fd1", lw=1.2))
+    ax_l.annotate("鼠标移到任意子图上，右上角浮现展开按钮\n点击可将该子图单独铺满放大查看（Esc 关闭）",
+                  xy=(0.91, 0.90), xycoords="axes fraction", xytext=(-1.2, 8.2), textcoords="data",
+                  color="#1f6fd1", fontsize=7.8, fontweight="bold",
+                  bbox=dict(boxstyle="round,pad=0.22", fc="#eff6ff", ec="#1f6fd1", lw=0.8),
+                  arrowprops=dict(arrowstyle="->", color="#1f6fd1", lw=1.2))
     ax_l.add_patch(Rectangle((r0 - 1.3, z0 - 0.8), 2.2, 2.2, fill=False, ec=HL, lw=1.8, ls="--"))
-    ax_l.text(r0 - 2.2, z0 - 1.5, "用【框选放大 Zoom】拉框选中交界处", color=HL, fontsize=8.5, ha="center", fontweight="bold")
+    ax_l.text(r0 - 4.5, z0 - 2.3, "滚轮以光标为中心缩放 / 左键拖动平移 / 双击复原", color=HL, fontsize=7.8, ha="center", fontweight="bold")
     ax_l.set_xlim(-2, 11)
     ax_l.set_ylim(-3, 11)
-    ax_l.set_title("缩放前：全局视图", fontsize=9.5, fontweight="bold")
+    ax_l.set_title("直接滚轮缩放/拖拽平移 & 右上角单图展开按钮", fontsize=9.2, fontweight="bold")
 
     ax_r.set_xlim(r0 - 1.3, r0 + 0.9)
     ax_r.set_ylim(z0 - 0.8, z0 + 1.4)
@@ -1125,7 +1133,7 @@ def build_ch5_images():
     ax_r.annotate("接触段终点与让刀段平滑相接\n（让刀量 0.05 mm 清晰可见）",
                   (r0, z0), (r0 - 1.15, z0 - 0.55), color=HL, fontsize=8.2,
                   arrowprops=dict(arrowstyle="->", color=HL, lw=1))
-    ax_r.set_title("框选放大后：清晰检查接触段与刀尖段交界细节", fontsize=9.5, fontweight="bold", color=HL)
+    ax_r.set_title("放大后效果：清晰检查接触段与刀尖段交界微米级细节", fontsize=9.2, fontweight="bold", color=HL)
     ax_r.legend(fontsize=7.5, loc="upper right")
     save_fig(fig, os.path.join(res, "toolbar_annotated.png"))
 
