@@ -131,6 +131,18 @@ body {
 .markdown-section table th {
     background-color: #f3f6fa;
     font-weight: 600;
+    white-space: nowrap;
+}
+
+.markdown-section table th,
+.markdown-section table td {
+    vertical-align: top;
+    line-height: 1.65;
+}
+
+.markdown-section table th:first-child,
+.markdown-section table td:first-child {
+    min-width: 135px;
 }
 
 /* 引用块优化 */
