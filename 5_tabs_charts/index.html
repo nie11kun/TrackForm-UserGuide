@@ -702,7 +702,26 @@
 <p><strong>贴心细节：底部首次出现术语注释</strong><br></br>每个图形页签的画布最底部均配有两行浅灰色小字注释，专门解释<strong>在该页签中首次出现的工程术语</strong>（如 <code>接触段</code>、<code>虚拟钢球</code>、<code>球道底约束</code>、<code>法向截面</code>、<code>实际落座</code>、<code>法向偏差</code>、<code>交界</code> 等），读图时无需翻书即可随时对照理解。</p>
 </blockquote>
 <hr></hr>
-<h2 id="底部图表导航工具栏操作指南">底部图表导航工具栏操作指南</h2>
+<h2 id="一、鼠标直接缩放平移与单张子图独立放大查看（新功能！）">一、鼠标直接缩放/平移与“单张子图独立放大查看”（新功能！）</h2>
+<p>无需先去底部工具栏切换模式，您在任意图形页签中可直接用鼠标完成全部高频看图操作：</p>
+<ul>
+<li><strong>鼠标滚轮缩放</strong>：直接滚动鼠标滚轮，即以<strong>当前光标所在位置为中心</strong>等比例放大或缩小（保持纵横比不变形）；</li>
+<li><strong>鼠标左键 / 中键拖动平移</strong>：在底部工具栏未开启“平移/框选放大”模式时，直接按住<strong>鼠标左键</strong>（或任何时候按住<strong>鼠标中键</strong>）拖动即可平移画布；</li>
+<li><strong>鼠标左键双击复原</strong>：在子图内<strong>双击鼠标左键</strong>，立即恢复初始 1:1 全局视图；</li>
+<li><strong>多子图与内嵌放大小窗精准独立控制</strong>：<ul>
+<li>当一个页签内包含多个子图（如 Tab 5 三子图、Tab 6 五子图）或内嵌局部放大小窗（如 Tab 1 左下角球道边缘放大窗、Tab 2 左上角球道底放大窗）时，滚轮缩放与拖动平移<strong>只作用于当前光标正下方的那一个子图/小窗</strong>；</li>
+<li>底部工具栏的 <strong><code>主页 / 后退 / 前进</code></strong> 视图历史同样完整记录内嵌小窗的缩放状态，且缩放时会自动冻结子图排版、将超出边框的数据标注裁剪在坐标轴内，绝不会挤压相邻子图；</li>
+</ul>
+</li>
+<li><strong>子图右上角 <code>⤢</code> 展开按钮（单图独立放大查看）</strong>：<ul>
+<li>将鼠标移到任意一个子图上，该子图<strong>右上角会自动浮现一个 <code>⤢</code> 展开按钮</strong>（仅在悬停时显示，不遮挡图形，也不会进入导出的图片）；</li>
+<li>点击 <code>⤢</code> 按钮后，主界面自动变暗锁定，并在中央弹出大尺寸独立图框，<strong>将该子图单独重绘并铺满整个大窗口</strong>（文字与线条同步放大 1.3 倍；若原图已缩放/平移，放大窗口会自动沿用当前显示范围）；</li>
+<li>在放大窗口内同样支持滚轮缩放、拖动平移、双击复原与底部工具栏；点击右上角 <strong><code>✕</code></strong>、按键盘 <strong><code>Esc</code> 键</strong>或<strong>点击四周暗色区域</strong>即可关闭放大窗口。</li>
+</ul>
+</li>
+</ul>
+<hr></hr>
+<h2 id="二、底部图表导航工具栏操作指南">二、底部图表导航工具栏操作指南</h2>
 <p>在右侧图表区域的左下角，配备有全功能交互工具栏和实时坐标读数器：</p>
 <p><img src="resources/toolbar_annotated.png" alt="底部图表导航工具栏详解"></img></p>
 <table>
@@ -717,22 +736,22 @@
 <tr>
 <td style="text-align:center"><strong>① 复位视图</strong></td>
 <td style="text-align:left"><strong><code>[主页 Home]</code></strong></td>
-<td style="text-align:left">当您放大或平移图表后，点击此按钮立即恢复默认的 1:1 全局居中视图。</td>
+<td style="text-align:left">当您放大或平移图表后，点击此按钮（或直接<strong>左键双击子图</strong>）立即恢复默认的 1:1 全局居中视图。</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>② 后退 / 前进</strong></td>
 <td style="text-align:left"><strong><code>[&lt;-] [-&gt;]</code></strong></td>
-<td style="text-align:left">在您之前浏览过的多个局部放大视图历史之间前后切换。</td>
+<td style="text-align:left">在您之前浏览过的多个局部放大视图历史（含内嵌放大小窗）之间前后切换。</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>③ 平移视图</strong></td>
 <td style="text-align:left"><strong><code>[平移 Pan]</code></strong></td>
-<td style="text-align:left">点击激活后：<ul><li>按住**鼠标左键拖拽**：任意方向平移画布；</li><li>按住**鼠标右键拖拽**：沿水平或竖直方向动态缩放坐标轴。</li></ul>再次点击可取消激活。</td>
+<td style="text-align:left">日常无需激活即可直接用<strong>左键/中键拖动平移</strong>；点击激活后，按住左键拖拽平移、按住右键拖拽沿单轴缩放。</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>④ 框选放大</strong></td>
 <td style="text-align:left"><strong><code>[框选放大 Zoom]</code></strong></td>
-<td style="text-align:left"><strong>最常用功能</strong>：点击激活后，在图表任意局部（如球道底部顶隙区或刀尖交界处）<strong>按住鼠标左键拉出一个矩形框</strong>，即可将该微米级细节放大至全屏查看！用鼠标右键拉框则是缩小。</td>
+<td style="text-align:left">日常可直接用<strong>鼠标滚轮缩放</strong>；点击激活此按钮后，按住鼠标左键拉出矩形框可将框选区域精确放大至全屏（右键拉框为缩小）。</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>⑤ 边距设置</strong></td>
@@ -742,7 +761,7 @@
 <tr>
 <td style="text-align:center"><strong>⑥ 保存图片</strong></td>
 <td style="text-align:left"><strong><code>[保存图片 Save]</code></strong></td>
-<td style="text-align:left">将当前正在查看的标签页图表直接导出保存为高清 <strong><code>.png</code> / <code>.pdf</code> / <code>.svg</code></strong> 图像文件，可直接插入技术报告或 PPT。</td>
+<td style="text-align:left">将当前正在查看的标签页（或放大窗口中的单张子图）直接导出保存为高清 <strong><code>.png</code> / <code>.pdf</code> / <code>.svg</code></strong> 图像文件。</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>⑦ 实时坐标</strong></td>
@@ -794,7 +813,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"图形页签（Tab 图表）详解","level":"1.6","depth":1,"next":{"title":"精确刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},"previous":{"title":"圆弧近似刀具与轮廓方程常数(Table 1)","level":"1.5.2","depth":2,"path":"4_result_panel/arc_and_table1.md","ref":"4_result_panel/arc_and_table1.md","articles":[]},"articles":[{"title":"精确刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},{"title":"球道设计截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},{"title":"星形套轴向剖面","level":"1.6.3","depth":2,"path":"5_tabs_charts/tab3_part.md","ref":"5_tabs_charts/tab3_part.md","articles":[]},{"title":"加工姿态(子午面)","level":"1.6.4","depth":2,"path":"5_tabs_charts/tab4_pose.md","ref":"5_tabs_charts/tab4_pose.md","articles":[]},{"title":"精确刀具反向仿真","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},{"title":"圆弧近似刀具","level":"1.6.6","depth":2,"path":"5_tabs_charts/tab6_arc.md","ref":"5_tabs_charts/tab6_arc.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/README.md","mtime":"2026-11-05T04:01:16.536Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T04:01:28.115Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"图形页签（Tab 图表）详解","level":"1.6","depth":1,"next":{"title":"精确刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},"previous":{"title":"圆弧近似刀具与轮廓方程常数(Table 1)","level":"1.5.2","depth":2,"path":"4_result_panel/arc_and_table1.md","ref":"4_result_panel/arc_and_table1.md","articles":[]},"articles":[{"title":"精确刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},{"title":"球道设计截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},{"title":"星形套轴向剖面","level":"1.6.3","depth":2,"path":"5_tabs_charts/tab3_part.md","ref":"5_tabs_charts/tab3_part.md","articles":[]},{"title":"加工姿态(子午面)","level":"1.6.4","depth":2,"path":"5_tabs_charts/tab4_pose.md","ref":"5_tabs_charts/tab4_pose.md","articles":[]},{"title":"精确刀具反向仿真","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},{"title":"圆弧近似刀具","level":"1.6.6","depth":2,"path":"5_tabs_charts/tab6_arc.md","ref":"5_tabs_charts/tab6_arc.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/README.md","mtime":"2026-11-05T07:00:26.376Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:00:35.722Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

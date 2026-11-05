@@ -647,11 +647,12 @@
 <li><strong>多段相切圆弧时</strong>：在右侧刃口逐段引出 <strong><code>R11.121（凸）</code></strong>、<strong><code>R18.972（凸）</code></strong>、<strong><code>R23.482（凹）</code></strong>，并在左侧刃口用黑色圆点 <code>●</code> 标出各段圆弧相切交界的轴向高度（如 <code>z 4.787</code>、<code>z 6.301</code>）。</li>
 </ul>
 </li>
-<li><strong>左半边刃口按四分段彩色叠加（新增！）</strong>：<ul>
+<li><strong>左半边刃口按四分段彩色叠加 + 交界黑色分界短线（新增！）</strong>：<ul>
 <li><strong>灰色宽带（<code>圆弧过渡</code>）</strong>：接底部圆柱段的圆弧过渡区（处于外球面之外，不切削）；</li>
-<li><strong>青色宽带（<code>边缘延伸</code>）</strong>：球道边缘（外球面）之外预留的延伸余量段；</li>
+<li><strong>橙色宽带（<code>边缘延伸</code>）</strong>：球道边缘（外球面）之外预留的延伸余量段（颜色与 Tab 1 精确刀具廓形页一致）；</li>
 <li><strong>蓝色宽带（<code>接触段</code>）</strong>：真正切削球道的核心刃口段；</li>
-<li><strong>紫色宽带（<code>刀尖延伸</code>）</strong>：当设置了 <code>刀尖延伸 &gt; 0</code> 时，显示在切出球道底处之外沿原圆弧继续延伸的刀尖段（不切深球道底）。</li>
+<li><strong>紫色宽带（<code>刀尖延伸</code>）</strong>：当设置了 <code>刀尖延伸 &gt; 0</code> 时，显示在切出球道底处之外沿原圆弧继续延伸的刀尖段（不切深球道底）；</li>
+<li><strong>分段交界黑色短线</strong>：在相邻分段的交界处画有垂直于刃口的黑色短线，即使边缘延伸等区段很短也能清晰辨认分界位置。</li>
 </ul>
 </li>
 <li><strong>右半边紫色点线与三角标记（<code>刀尖可沿原圆弧延伸的范围</code>）（新增！）</strong>：<ul>
@@ -741,7 +742,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"圆弧近似刀具","level":"1.6.6","depth":2,"next":{"title":"导出文件与工程应用","level":"1.7","depth":1,"path":"6_exports_data/README.md","ref":"6_exports_data/README.md","articles":[{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"path":"6_exports_data/dxf_files.md","ref":"6_exports_data/dxf_files.md","articles":[]},{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"path":"6_exports_data/csv_files.md","ref":"6_exports_data/csv_files.md","articles":[]}]},"previous":{"title":"精确刀具反向仿真","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab6_arc.md","mtime":"2026-11-05T04:01:16.540Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T04:01:28.115Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"圆弧近似刀具","level":"1.6.6","depth":2,"next":{"title":"导出文件与工程应用","level":"1.7","depth":1,"path":"6_exports_data/README.md","ref":"6_exports_data/README.md","articles":[{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"path":"6_exports_data/dxf_files.md","ref":"6_exports_data/dxf_files.md","articles":[]},{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"path":"6_exports_data/csv_files.md","ref":"6_exports_data/csv_files.md","articles":[]}]},"previous":{"title":"精确刀具反向仿真","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab6_arc.md","mtime":"2026-11-05T07:00:26.381Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:00:35.722Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
