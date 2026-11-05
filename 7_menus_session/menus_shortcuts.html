@@ -653,7 +653,7 @@
 <tr>
 <td style="text-align:left"><strong><code>载入参数…</code></strong></td>
 <td style="text-align:center"><code>Ctrl+O</code></td>
-<td style="text-align:left">从磁盘读取之前保存的 <code>.json</code> 参数档案文件，自动回填全部参数并立即重新计算刷新图表。</td>
+<td style="text-align:left">从磁盘读取之前保存的 <code>.json</code> 参数档案文件，自动回填全部参数并清空旧图表，提示点击 <strong><code>▶ 计算 (F5)</code></strong> 重新计算（防止误导出旧结果）。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>保存参数…</code></strong></td>
@@ -663,12 +663,12 @@
 <tr>
 <td style="text-align:left"><strong><code>载入示例参数</code></strong></td>
 <td style="text-align:center">子菜单</td>
-<td style="text-align:left">直接从内置 <code>examples/</code> 目录一键载入 4 套典型产品示例（<code>AC3300-G_参数</code>、<code>AC10000_参数</code>、<code>Nexteer_34205673_参数</code>、<code>AC0706-E_参数</code>），非常适合新手学习或对标验证。</td>
+<td style="text-align:left">直接从内置 <code>examples/</code> 目录一键载入 4 套典型产品示例（<code>AC3300-G_参数</code>、<code>AC10000_参数</code>、<code>Nexteer_34205673_参数</code>、<code>AC0706-E_参数</code>），载入后按 <code>F5</code> 即可计算。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>恢复默认设置</code></strong></td>
 <td style="text-align:center">—</td>
-<td style="text-align:left">弹出确认框，确认后将全部参数、高级参数面板展开状态及当前图表标签页一键重置为出厂默认（<code>AC3300-G</code>）状态。</td>
+<td style="text-align:left">弹出确认框，确认后将全部参数、高级参数面板展开状态及当前图表标签页一键重置为出厂默认（<code>AC3300-G</code>）状态并立即重新计算。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>退出</code></strong></td>
@@ -754,7 +754,7 @@
 <tr>
 <td style="text-align:left"><strong><code>展开计算结果窗口</code></strong></td>
 <td style="text-align:center">—</td>
-<td style="text-align:left">弹出独立可缩放的 <strong><code>计算结果 - TrackForm</code></strong> 大窗口，并提供一键 <code>复制全部</code> 按钮。</td>
+<td style="text-align:left">弹出独立可缩放的 <strong><code>计算结果 - TrackForm</code></strong> 宽窗口（四列对齐斑马纹表格 + 顶部 <code>查找 (Ctrl+F)</code> + 一键 <code>复制全部</code> 粘贴到 Excel）。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>展开 / 折叠高级参数</code></strong></td>
@@ -908,7 +908,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"next":{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"path":"7_menus_session/params_management.md","ref":"7_menus_session/params_management.md","articles":[]},"previous":{"title":"菜单功能、快捷键与参数管理","level":"1.8","depth":1,"path":"7_menus_session/README.md","ref":"7_menus_session/README.md","articles":[{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"path":"7_menus_session/menus_shortcuts.md","ref":"7_menus_session/menus_shortcuts.md","articles":[]},{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"path":"7_menus_session/params_management.md","ref":"7_menus_session/params_management.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"7_menus_session/menus_shortcuts.md","mtime":"2026-11-04T07:28:05.578Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T07:28:15.664Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"next":{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"path":"7_menus_session/params_management.md","ref":"7_menus_session/params_management.md","articles":[]},"previous":{"title":"菜单功能、快捷键与参数管理","level":"1.8","depth":1,"path":"7_menus_session/README.md","ref":"7_menus_session/README.md","articles":[{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"path":"7_menus_session/menus_shortcuts.md","ref":"7_menus_session/menus_shortcuts.md","articles":[]},{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"path":"7_menus_session/params_management.md","ref":"7_menus_session/params_management.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"7_menus_session/menus_shortcuts.md","mtime":"2026-11-05T03:56:00.547Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T03:56:11.839Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

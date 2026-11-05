@@ -691,7 +691,8 @@
 <pre><code class="lang-text"># TrackForm 球道成型刀具廓形点表
 # 钢球直径=19.844  PCD=62.464  偏移e=4.270  Rp=31.5225
 # 截面=椭圆  接触角=42.00°  切入角=36.00°  球心距=50.000  余量=0.000
-# 椭圆 a(横向)=10.1762  b(径向)=10.6436  uc=0.6929  相似度=1.0400  顶隙=0.0287
+# 椭圆 a(横向)=10.1762  b(径向)=10.6436  uc=0.6929  相似度=1.0400  顶隙=0.0287  跨距=13.2782
+# 实际切出（钢球落座）：接触角=42.001°  跨距=13.2785  顶隙=0.0287  球心移动=+0.0μm  实际PCD=62.4640(+0.0μm)
 # 顺序: 刀柄侧 -&gt; 刀尖；段=接触 为切削刃(必须精确)，段=刀尖 为最大允许外形(不切削)
 # r=半径(mm)  D=直径(mm)  z_球心=沿刀轴距虚拟钢球中心(刀尖为正)  z_端面=距刀柄端面
 序号,段,r,D,z_球心,z_端面
@@ -727,7 +728,7 @@ C10,152.76417
 </blockquote>
 <hr></hr>
 <h2 id="三、基本轮廓（table-2）-table2basicprofilecsv">三、<code>基本轮廓（Table 2）</code> (<code>table2_basic_profile.csv</code>)</h2>
-<p>点击左下角的 <strong><code>基本轮廓（Table 2）</code></strong> 按钮，软件会在球道底部到终止高度之间均匀生成离散点（默认 <code>117</code> 个点，由高级参数 <code>基本轮廓点数</code> 控制），导出与客户球道图纸 <strong>Table 2 (BASIC PROFILE)</strong> 格式完全一致的基准轮廓坐标表。</p>
+<p>点击左下角的 <strong><code>基本轮廓（Table 2）</code></strong> 按钮，软件会在球道底部到终止高度之间均匀生成离散点（默认 <code>117</code> 点），导出与客户球道图纸 <strong>Table 2 (BASIC PROFILE)</strong> 格式一致的基准轮廓坐标表。</p>
 <h3 id="1-各列坐标含义与图纸点表对标说明">1. 各列坐标含义与图纸点表对标说明</h3>
 <ul>
 <li><strong><code>No</code></strong>：点序号，从 <code>1</code>（球道底部最低点）递增至 <code>117</code>（球道上边缘终点）；</li>
@@ -735,7 +736,10 @@ C10,152.76417
 <li><strong><code>Y</code></strong>：从球道底部最低点向上量取的<strong>截面高度坐标</strong>（单位：<code>mm</code>，第 <code>1</code> 点球道底处固定为 <code>Z(±) = 0.00000, Y = 0.00000</code>）。</li>
 </ul>
 <h3 id="2-闭环复核技巧：导出的-table-2-可直接作为点表截面重新导入！">2. 闭环复核技巧：导出的 Table 2 可直接作为点表截面重新导入！</h3>
-<p>由于 <code>table2_basic_profile.csv</code> 采用标准的 <code>No, Z(±), Y</code> 格式，您可以随时在左侧基本参数中将 <code>截面类型</code> 切换为 <strong><code>点表(CSV)</code></strong>，然后直接选择刚才导出的 <code>table2_basic_profile.csv</code> 文件进行闭环验证（详见 <strong><a href="../8_workflows_cases/case2_points.html">8.2 案例二：导入客户点表 CSV 与 Table 1/2 对标</a></strong>）。</p>
+<ul>
+<li><code>table2_basic_profile.csv</code> 采用标准的 <code>No, Z(±), Y</code> 格式；</li>
+<li>您可以随时在左侧基本参数中将 <code>截面类型</code> 切换为 <strong><code>点表(CSV)</code></strong>，直接选择导出的 <code>table2_basic_profile.csv</code> 进行闭环验证（详见 <strong><a href="../8_workflows_cases/case2_points.html">8.2 案例二</a></strong>）。</li>
+</ul>
 <h3 id="3-真实导出文件内容示例">3. 真实导出文件内容示例</h3>
 <pre><code class="lang-text"># TrackForm 球道基本轮廓点表 (图纸 Table 2)
 # 常数依据=拟合值  轮廓终点=球道边缘  点数=117
@@ -792,7 +796,7 @@ No,Z(±),Y
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"next":{"title":"菜单功能、快捷键与参数管理","level":"1.8","depth":1,"path":"7_menus_session/README.md","ref":"7_menus_session/README.md","articles":[{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"path":"7_menus_session/menus_shortcuts.md","ref":"7_menus_session/menus_shortcuts.md","articles":[]},{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"path":"7_menus_session/params_management.md","ref":"7_menus_session/params_management.md","articles":[]}]},"previous":{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"path":"6_exports_data/dxf_files.md","ref":"6_exports_data/dxf_files.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"6_exports_data/csv_files.md","mtime":"2026-11-04T07:28:05.577Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T07:28:15.664Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"next":{"title":"菜单功能、快捷键与参数管理","level":"1.8","depth":1,"path":"7_menus_session/README.md","ref":"7_menus_session/README.md","articles":[{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"path":"7_menus_session/menus_shortcuts.md","ref":"7_menus_session/menus_shortcuts.md","articles":[]},{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"path":"7_menus_session/params_management.md","ref":"7_menus_session/params_management.md","articles":[]}]},"previous":{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"path":"6_exports_data/dxf_files.md","ref":"6_exports_data/dxf_files.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"6_exports_data/csv_files.md","mtime":"2026-11-05T03:56:00.544Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T03:56:11.839Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

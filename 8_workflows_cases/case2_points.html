@@ -661,7 +661,7 @@
 <p>您可以直接点击顶部菜单 <strong><code>文件(F) → 载入示例参数 → Nexteer_34205673_参数</code></strong> 一键载入本案例，或者按以下步骤手动操作体验完整流程：</p>
 <ol>
 <li><strong>查看点表 CSV 文件格式</strong>：
-打开 <code>examples/Nexteer_34205673_截面点表.csv</code>（可通过 <strong><code>帮助(H) → 打开示例目录</code></strong> 找到），可以看到它直接照抄了客户图纸 Table 2 的三列数据（<code>No, Z(±), Y</code>，其中第 1 点 <code>0.00000, 0.00000</code> 为球道底部零点，共 117 点）：<pre><code class="lang-text"># Nexteer drawing 34205673 — Table 2 BASIC PROFILE (117 points)
+打开 <code>examples/Nexteer_34205673_截面点表.csv</code>（可通过 <strong><code>帮助(H) → 打开示例目录</code></strong> 找到），文件内容为客户图纸 Table 2 的三列数据（<code>No, Z(±), Y</code>，共 117 点）：<pre><code class="lang-text"># Nexteer drawing 34205673 — Table 2 BASIC PROFILE (117 points)
 No,Z(±),Y
 1,0.00000,0.00000
 2,1.18695,0.07587
@@ -681,7 +681,8 @@ No,Z(±),Y
 </li>
 <li><strong>高级参数</strong>：<ul>
 <li><code>刀尖高度</code> = <strong><code>5.23775</code></strong>，<code>边缘延伸</code> = <strong><code>0.0</code></strong></li>
-<li><code>顶隙下限</code> = <strong><code>0.0051</code></strong>，<code>顶隙上限</code> = <strong><code>0.0201</code></strong>，<code>接触角下限</code> = <strong><code>28.5</code></strong>，<code>接触角上限</code> = <strong><code>37.5</code></strong></li>
+<li><code>顶隙下限</code> = <strong><code>0.0051</code></strong>，<code>顶隙上限</code> = <strong><code>0.0201</code></strong>，<code>接触角下偏差</code> = <strong><code>-4.5</code></strong>，<code>接触角上偏差</code> = <strong><code>4.5</code></strong></li>
+<li><code>PCD 下偏差</code> = <strong><code>-0.01</code></strong>，<code>PCD 上偏差</code> = <strong><code>0.01</code></strong></li>
 </ul>
 </li>
 </ul>
@@ -808,7 +809,7 @@ No,Z(±),Y
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"next":{"title":"案例三：双圆弧球道(给定半径 R)与三种刀具方案","level":"1.9.3","depth":2,"path":"8_workflows_cases/case3_gothic.md","ref":"8_workflows_cases/case3_gothic.md","articles":[]},"previous":{"title":"案例一：椭圆截面成型刀与单圆弧设计","level":"1.9.1","depth":2,"path":"8_workflows_cases/case1_ellipse.md","ref":"8_workflows_cases/case1_ellipse.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"8_workflows_cases/case2_points.md","mtime":"2026-11-04T07:28:05.578Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T07:28:15.664Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"next":{"title":"案例三：双圆弧球道(给定半径 R)与三种刀具方案","level":"1.9.3","depth":2,"path":"8_workflows_cases/case3_gothic.md","ref":"8_workflows_cases/case3_gothic.md","articles":[]},"previous":{"title":"案例一：椭圆截面成型刀与单圆弧设计","level":"1.9.1","depth":2,"path":"8_workflows_cases/case1_ellipse.md","ref":"8_workflows_cases/case1_ellipse.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"8_workflows_cases/case2_points.md","mtime":"2026-11-05T03:56:00.548Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T03:56:11.839Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

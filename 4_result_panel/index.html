@@ -635,25 +635,38 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="第四章：计算结果面板全面解读">第四章：计算结果面板全面解读</h1>
-<p>每次点击 <strong><code>▶ 计 算 (F5)</code></strong> 后，左侧面板下方的 <strong><code>计算结果</code></strong> 区域会自动输出完整的工程计算、反向包络仿真与钢球实际落座审核结论。面板顶部明确提示：</p>
-<blockquote>
-<p><strong><code>理论值 = 按图纸参数算出的设计值；实际值 = 反向仿真：刀具沿球道运动后实际切出的球道</code></strong></p>
-</blockquote>
-<p>通过这种<strong>【理论值】与【实际值·仿真】严格区分</strong>的结构，您可以一眼看清设计理论尺寸与刀具实际加工出的球道、钢球放进切出球道后的实际落座状态（实际顶隙、实际接触角、实际跨距）是否全部达标。</p>
+<p>每次点击 <strong><code>▶ 计 算 (F5)</code></strong> 后，左侧面板下方的 <strong><code>计算结果</code></strong> 区域会自动输出结构化的工程计算、反向包络仿真与钢球实际落座审核报告：</p>
+<ul>
+<li><strong>最顶部置顶显示 <code>■ 校验结论</code></strong>：全部合格时显示绿色 <strong><code>全部校验通过</code></strong>；若有任一指标超差或异常，自动汇总列出所有标红项及所在分块，无需向下翻找；</li>
+<li><strong>严格区分【理论值】与【实际值·仿真】</strong>：一眼看清设计理论尺寸与刀具实际加工出的球道、钢球落座状态（实际顶隙、实际接触角、实际跨距、实际 PCD）是否全部达标。</li>
+</ul>
 <hr></hr>
-<h2 id="计算结果面板操作与独立窗口展开">计算结果面板操作与独立窗口展开</h2>
+<h2 id="计算结果面板操作与独立宽窗口（含搜索与导出到-excel）">计算结果面板操作与独立宽窗口（含搜索与导出到 Excel）</h2>
 <p><img src="resources/result_panel_normal.png" alt="计算结果面板正常状态分块导览"></img></p>
-<h3 id="弹出独立宽窗口与一键复制（三种方式）">弹出独立宽窗口与一键复制（三种方式）</h3>
-<p>由于左侧栏宽度紧凑，您可以通过以下任一方式在独立的宽窗口中查看完整结果（独立窗口开启后，每次重新计算都会自动同步刷新）：</p>
+<h3 id="1-弹出独立宽窗口（三种打开方式）">1. 弹出独立宽窗口（三种打开方式）</h3>
+<p>左侧栏采用紧凑双栏排版；您可通过以下任一方式打开独立的 <strong><code>计算结果 - TrackForm</code></strong> 宽窗口（每次重新计算会自动同步刷新）：</p>
 <ol>
 <li>点击 <code>计算结果</code> 标题栏右侧的 <strong><code>⤢ 展开</code></strong> 按钮；</li>
 <li>直接在 <code>计算结果</code> 文本框内<strong>双击鼠标左键</strong>；</li>
 <li>点击顶部菜单栏 <strong><code>视图(V) → 展开计算结果窗口</code></strong>。</li>
 </ol>
-<p>在展开的 <strong><code>计算结果 - TrackForm</code></strong> 窗口右上角，点击 <strong><code>复制全部</code></strong> 按钮即可将全部文字一键复制到剪贴板，也可直接用鼠标拖选部分文字按 <code>Ctrl+C</code> 复制。</p>
+<h3 id="2-独立宽窗口的三大实用功能">2. 独立宽窗口的三大实用功能</h3>
+<ul>
+<li><strong>四列对齐 + 斑马纹表格</strong>：宽窗口自动按 <strong><code>名称 | 数值 | 判定 | 范围/备注</code></strong> 四列对齐渲染，并配有浅蓝灰交替斑马纹底色，阅读清晰不串行；</li>
+<li><strong>顶部关键词实时查找（<code>Ctrl+F</code>）</strong>：<ul>
+<li>在顶部 <strong><code>查找</code></strong> 输入框中输入关键词（如 <code>PCD</code>、<code>顶隙</code>、<code>延伸</code>），实时高亮全部匹配处并显示总匹配数（如 <code>2 处</code>）；</li>
+<li>按 <strong><code>Enter</code></strong>（或点击 <code>下一个</code>）跳转到下一处，按 <strong><code>Shift+Enter</code></strong>（或点击 <code>上一个</code>）跳转到上一处；</li>
+</ul>
+</li>
+<li><strong>一键复制全部并直接粘贴到 Excel</strong>：<ul>
+<li>点击右上角 <strong><code>复制全部</code></strong> 按钮，软件会将整份报告按<strong>制表符（<code>\t</code>）分列</strong>复制到剪贴板；</li>
+<li>打开 <strong>Excel</strong> 直接按 <code>Ctrl+V</code> 粘贴，即可自动分成整齐的 4 列数据表！</li>
+</ul>
+</li>
+</ul>
 <hr></hr>
-<h2 id="计算结果面板的五大信息分块">计算结果面板的五大信息分块</h2>
-<p>对照上图的编号批注，结果面板从上到下清晰划分为 <strong><code>■ 一</code> ~ <code>■ 五</code></strong> 共 5 个大块：</p>
+<h2 id="计算结果面板的六大结构分区">计算结果面板的六大结构分区</h2>
+<p>对照上图的编号批注，结果面板从上到下划分为 <strong><code>■ 校验结论</code></strong> 与 <strong><code>■ 一</code> ~ <code>■ 五</code></strong> 共 6 个分区：</p>
 <table>
 <thead>
 <tr>
@@ -665,27 +678,33 @@
 </thead>
 <tbody>
 <tr>
+<td style="text-align:center"><strong>顶部汇总</strong></td>
+<td style="text-align:left"><strong>■ 校验结论</strong></td>
+<td style="text-align:left">全部通过时显示绿色 <code>全部校验通过</code>；有异常时集中列出 <code>共 N 项需要注意</code> 及每条标红明细</td>
+<td style="text-align:left"><a href="exact_and_check.html">4.1 截面设计、精确廓形与仿真落座</a></td>
+</tr>
+<tr>
 <td style="text-align:center"><strong>■ 一</strong></td>
 <td style="text-align:left"><strong>球道截面设计【理论值】</strong></td>
-<td style="text-align:left">截面类型与定义方式、钢球中心轨迹半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">R_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>、求出的椭圆半轴/圆弧半径/点表尺寸、理论接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>、相似度、顶隙、接触角跨距及球道边缘接触角</td>
+<td style="text-align:left">截面类型与定义方式、轨迹半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">R_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>、椭圆半轴/圆弧半径/点表尺寸、理论接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>（及公差带）、相似度、顶隙、接触角跨距、球道边缘接触角</td>
 <td style="text-align:left"><a href="exact_and_check.html">4.1 截面设计、精确廓形与仿真落座</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>■ 二</strong></td>
 <td style="text-align:left"><strong>精确刀具廓形【理论值】</strong></td>
-<td style="text-align:left">切削接触段半径范围 <code>接触段 r</code>、轴向范围 <code>接触段 z</code>、<code>刀头最大直径</code>、<code>刀尖高度</code>，以及 <code>廓形单调(无自交)</code> 与 <code>过切校验 最小间隙</code></td>
+<td style="text-align:left">接触段半径/轴向范围、<code>边缘延伸</code> 范围、<code>刀头最大直径</code>、<code>刀尖高度</code>，以及 <code>廓形单调(无自交)</code> 与 <code>过切校验 最小间隙</code></td>
 <td style="text-align:left"><a href="exact_and_check.html">4.1 截面设计、精确廓形与仿真落座</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>■ 三</strong></td>
 <td style="text-align:left"><strong>精确刀具切出的球道【实际值·仿真】</strong></td>
-<td style="text-align:left">反向包络仿真切出球道的 <code>最大过切</code>、<code>侧面（钢球接触区）欠切</code>、<code>球道底欠切</code>，以及<strong>钢球放进切出的球道（实际落座）</strong>实测的 <code>实际顶隙</code>、<code>实际接触角</code>、<code>实际接触角跨距</code>、<code>钢球中心移动</code></td>
+<td style="text-align:left">反向包络仿真切出球道的过切/欠切校验，以及<strong>钢球实际落座</strong>实测的 <code>实际顶隙</code>、<code>实际接触角</code>、<code>实际接触角跨距</code>、<code>钢球中心移动</code>、<strong><code>实际 PCD</code></strong></td>
 <td style="text-align:left"><a href="exact_and_check.html">4.1 截面设计、精确廓形与仿真落座</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>■ 四</strong></td>
-<td style="text-align:left"><strong>圆弧近似刀具（单圆弧 / 多段相切圆弧）</strong></td>
-<td style="text-align:left">单圆弧（拟合精确廓形 / 按审核优化）或 2~5 段相切圆弧的磨刀尺寸，以及<strong>该刀具切出的球道【实际值·仿真】</strong>偏差与钢球实际落座审核结果</td>
+<td style="text-align:left"><strong>圆弧近似刀具（磨刀尺寸与刃口分段）</strong></td>
+<td style="text-align:left">单圆弧或多段相切圆弧磨刀尺寸、<strong><code>▸ 刃口分段（z 沿刀轴）</code> 与 <code>刀尖延伸</code></strong>，以及该刀具切出球道的轮廓偏差与钢球落座审核（含 <strong><code>实际 PCD</code></strong>）</td>
 <td style="text-align:left"><a href="arc_and_table1.html">4.2 圆弧近似刀具与轮廓方程常数 (Table 1)</a></td>
 </tr>
 <tr>
@@ -699,9 +718,9 @@
 <hr></hr>
 <h2 id="颜色标记说明">颜色标记说明</h2>
 <ul>
-<li><strong>蓝色分块标题（<code>■ 一</code> ~ <code>■ 五</code>）</strong>：结构化分隔理论设计与实际仿真结果，层次一目了然；</li>
-<li><strong>绿色 <code>OK</code> / <code>合格</code></strong>：表示该项理论或实际落座指标完全符合图纸公差范围或安全判据；</li>
-<li><strong>红色报警文字（如 <code>超出范围!</code>、<code>超差!</code>、<code>过切!</code> 等）</strong>：表示当前参数存在顶隙/接触角/跨距超限、钢球未贴合、点表曲率异常或圆弧刀具超差等问题，导出文件前软件也会弹窗拦截提醒。</li>
+<li><strong>深蓝底分块标题（<code>■ 校验结论</code>、<code>■ 一</code> ~ <code>■ 五</code>）</strong>：结构化分隔汇总、理论设计与实际仿真结果；</li>
+<li><strong>绿色 <code>全部校验通过</code> / <code>OK</code> / <code>合格</code></strong>：表示该项理论或实际落座指标完全符合图纸公差范围；</li>
+<li><strong>红色报警文字（<code>超出范围!</code>、<code>超差!</code>、<code>未全部做到</code> 等）</strong>：表示当前参数存在超差或几何受限，全部自动汇总到顶部 <code>■ 校验结论</code>，且点击导出时会弹窗提醒确认。</li>
 </ul>
 
                                 
@@ -746,7 +765,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"计算结果面板解读","level":"1.5","depth":1,"next":{"title":"截面设计、精确廓形与仿真落座","level":"1.5.1","depth":2,"path":"4_result_panel/exact_and_check.md","ref":"4_result_panel/exact_and_check.md","articles":[]},"previous":{"title":"校验范围、圆弧近似与导出设置","level":"1.4.3","depth":2,"path":"3_advanced_params/tolerance_arc_export.md","ref":"3_advanced_params/tolerance_arc_export.md","articles":[]},"articles":[{"title":"截面设计、精确廓形与仿真落座","level":"1.5.1","depth":2,"path":"4_result_panel/exact_and_check.md","ref":"4_result_panel/exact_and_check.md","articles":[]},{"title":"圆弧近似刀具与轮廓方程常数(Table 1)","level":"1.5.2","depth":2,"path":"4_result_panel/arc_and_table1.md","ref":"4_result_panel/arc_and_table1.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"4_result_panel/README.md","mtime":"2026-11-04T07:28:05.572Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T07:28:15.664Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"计算结果面板解读","level":"1.5","depth":1,"next":{"title":"截面设计、精确廓形与仿真落座","level":"1.5.1","depth":2,"path":"4_result_panel/exact_and_check.md","ref":"4_result_panel/exact_and_check.md","articles":[]},"previous":{"title":"校验范围、圆弧近似与导出设置","level":"1.4.3","depth":2,"path":"3_advanced_params/tolerance_arc_export.md","ref":"3_advanced_params/tolerance_arc_export.md","articles":[]},"articles":[{"title":"截面设计、精确廓形与仿真落座","level":"1.5.1","depth":2,"path":"4_result_panel/exact_and_check.md","ref":"4_result_panel/exact_and_check.md","articles":[]},{"title":"圆弧近似刀具与轮廓方程常数(Table 1)","level":"1.5.2","depth":2,"path":"4_result_panel/arc_and_table1.md","ref":"4_result_panel/arc_and_table1.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"4_result_panel/README.md","mtime":"2026-11-05T03:56:00.530Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T03:56:11.839Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

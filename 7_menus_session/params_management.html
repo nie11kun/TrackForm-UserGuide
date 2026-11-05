@@ -650,12 +650,12 @@
 <li>点击顶部菜单 <strong><code>文件(F) → 载入示例参数</code></strong>；</li>
 <li>在展开的子菜单中直接点击示例名称：<ul>
 <li><strong><code>AC3300-G_参数</code></strong>：标准<strong>椭圆截面</strong>（<code>给定相似度 = 1.04</code>，接触角 <code>42°</code>）星形套球道示例，适合采用单圆弧近似刀具加工；</li>
-<li><strong><code>AC10000_参数</code></strong>：<strong>双圆弧（尖底）截面</strong>（采用新增的 <strong><code>给定半径 R = 10.24 mm</code></strong> 定义方式，接触角 <code>42°±3.5°</code>，接触角跨距 <code>12.3~14.0 mm</code>，圆弧段数设为 <code>3</code> 段相切圆弧）完整示例；</li>
+<li><strong><code>AC10000_参数</code></strong>：<strong>双圆弧（尖底）截面</strong>（采用 <strong><code>给定半径 R = 10.24 mm</code></strong> 定义方式，接触角偏差 <code>-3.5°/+3.5°</code>，接触角跨距 <code>12.3~14.0 mm</code>，PCD 偏差 <code>-0.01/+0.01 mm</code>；默认演示单圆弧 <code>按审核优化 + 贴合设计截面</code>，也可切换 <code>圆弧段数 = 3</code> 体验三段相切圆弧）完整示例；</li>
 <li><strong><code>Nexteer_34205673_参数</code></strong>：英制钢球（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>11</mn><mi mathvariant="normal">/</mi><mn>1</mn><msup><mn>6</mn><mrow><mo mathvariant="normal">′</mo><mo mathvariant="normal">′</mo></mrow></msup><mo>=</mo><mn>17.4625</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">11/16^{\prime\prime} = 17.4625\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord">11/1</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">17.4625</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）导入客户图纸 <strong>Table 2 点表 CSV</strong> 并与原图 Table 1 单圆弧常数对标的工程示例；</li>
 <li><strong><code>AC0706-E_参数</code></strong>：大钢球（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>21.4313</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 21.4313\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">21.4313</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）导入客户图纸点表 CSV 的示例（同时演示软件对原始点表自身曲率波动的自动检测提示）。</li>
 </ul>
 </li>
-<li>点击后软件会自动回填全部参数、关联示例点表 CSV 并立即执行计算。您也可以点击 <strong><code>帮助(H) → 打开示例目录</code></strong> 直接查看示例源文件。</li>
+<li>点击示例后，软件会自动回填全部参数、清空旧图并在状态栏提示 <strong><code>请点击左侧“计算”按钮（或按 F5）重新计算</code></strong>。您也可以点击 <strong><code>帮助(H) → 打开示例目录</code></strong> 直接查看示例源文件。</li>
 </ol>
 <hr></hr>
 <h2 id="三、建立产品型号参数档案库（json-保存与载入）">三、建立产品型号参数档案库（<code>.json</code> 保存与载入）</h2>
@@ -669,26 +669,26 @@
 <h3 id="2-载入历史参数档案（ctrl--o）">2. 载入历史参数档案（<code>Ctrl + O</code>）</h3>
 <ol>
 <li>当后续需要复查该产品或调整余量时，点击 <strong><code>文件(F) → 载入参数…</code></strong>（或按 <strong><code>Ctrl + O</code></strong>）；</li>
-<li>选中对应的 <code>.json</code> 文件打开，全部参数与界面状态瞬间回填到位并自动完成计算。</li>
+<li>选中对应的 <code>.json</code> 文件打开，全部参数与界面状态瞬间回填到位，随后按 <strong><code>F5</code></strong> 即可完成计算。</li>
 </ol>
 <h3 id="3-json-参数文件内容结构示例">3. <code>.json</code> 参数文件内容结构示例</h3>
-<p>保存的 <code>.json</code> 文件是标准的 UTF-8 纯文本格式，包含全部 37 项工程参数与界面状态（方便纳入 Git / SVN 或 PDM/PLM 图文档系统进行版本管理）：</p>
+<p>保存的 <code>.json</code> 文件是标准的 UTF-8 纯文本格式，包含全部 41 项工程参数与界面状态（方便纳入 Git / SVN 或 PDM/PLM 图文档系统进行版本管理；同时向后兼容含旧版 <code>alpha_min / alpha_max</code> 的历史文件）：</p>
 <pre><code class="lang-json">{
   <span class="hljs-string">"app"</span>: <span class="hljs-string">"TrackForm"</span>,
   <span class="hljs-string">"version"</span>: <span class="hljs-number">1</span>,
   <span class="hljs-string">"params"</span>: {
     <span class="hljs-string">"ball_d"</span>: <span class="hljs-string">"19.75"</span>,
-    <span class="hljs-string">"pcd"</span>: <span class="hljs-string">"63.82"</span>,
-    <span class="hljs-string">"track_offset"</span>: <span class="hljs-string">"4.44"</span>,
+    <span class="hljs-string">"pcd"</span>: <span class="hljs-string">"70.0"</span>,
+    <span class="hljs-string">"track_offset"</span>: <span class="hljs-string">"5.2"</span>,
     <span class="hljs-string">"section_type"</span>: <span class="hljs-string">"双圆弧"</span>,
     <span class="hljs-string">"solve_mode"</span>: <span class="hljs-string">"给定半径 R"</span>,
     <span class="hljs-string">"pressure_angle"</span>: <span class="hljs-string">"42.0"</span>,
     <span class="hljs-string">"gothic_r"</span>: <span class="hljs-string">"10.24"</span>,
     <span class="hljs-string">"allowance"</span>: <span class="hljs-string">"0.0"</span>,
     <span class="hljs-string">"setting_angle"</span>: <span class="hljs-string">"36.0"</span>,
-    <span class="hljs-string">"sphere_d"</span>: <span class="hljs-string">"62.35"</span>,
-    <span class="hljs-string">"width"</span>: <span class="hljs-string">"25.4"</span>,
-    <span class="hljs-string">"sphere_center_h"</span>: <span class="hljs-string">"15.72"</span>,
+    <span class="hljs-string">"sphere_d"</span>: <span class="hljs-string">"68.5"</span>,
+    <span class="hljs-string">"width"</span>: <span class="hljs-string">"29.0"</span>,
+    <span class="hljs-string">"sphere_center_h"</span>: <span class="hljs-string">"13.0"</span>,
     <span class="hljs-string">"tip_z"</span>: <span class="hljs-string">"9.875"</span>,
     <span class="hljs-string">"tip_relief"</span>: <span class="hljs-string">"0.05"</span>,
     <span class="hljs-string">"tip_relief_len"</span>: <span class="hljs-string">"1.0"</span>,
@@ -696,17 +696,21 @@
     <span class="hljs-string">"profile_step"</span>: <span class="hljs-string">"0.01"</span>,
     <span class="hljs-string">"gauge_length"</span>: <span class="hljs-string">"50.0"</span>,
     <span class="hljs-string">"tilt_side"</span>: <span class="hljs-string">"朝 +Z"</span>,
-    <span class="hljs-string">"bore_d"</span>: <span class="hljs-string">"29.0"</span>,
+    <span class="hljs-string">"bore_d"</span>: <span class="hljs-string">"30.0"</span>,
     <span class="hljs-string">"clearance_min"</span>: <span class="hljs-string">"0.02"</span>,
     <span class="hljs-string">"clearance_max"</span>: <span class="hljs-string">"0.1"</span>,
-    <span class="hljs-string">"alpha_min"</span>: <span class="hljs-string">"38.5"</span>,
-    <span class="hljs-string">"alpha_max"</span>: <span class="hljs-string">"45.5"</span>,
     <span class="hljs-string">"span_min"</span>: <span class="hljs-string">"12.3"</span>,
     <span class="hljs-string">"span_max"</span>: <span class="hljs-string">"14.0"</span>,
+    <span class="hljs-string">"alpha_tol_lo"</span>: <span class="hljs-string">"-3.5"</span>,
+    <span class="hljs-string">"alpha_tol_hi"</span>: <span class="hljs-string">"3.5"</span>,
+    <span class="hljs-string">"pcd_tol_lo"</span>: <span class="hljs-string">"-0.01"</span>,
+    <span class="hljs-string">"pcd_tol_hi"</span>: <span class="hljs-string">"0.01"</span>,
     <span class="hljs-string">"profile_tol"</span>: <span class="hljs-string">"0.1"</span>,
-    <span class="hljs-string">"arc_count"</span>: <span class="hljs-string">"3"</span>,
-    <span class="hljs-string">"arc_fit"</span>: <span class="hljs-string">"拟合精确廓形"</span>,
+    <span class="hljs-string">"arc_count"</span>: <span class="hljs-string">"1"</span>,
+    <span class="hljs-string">"arc_fit"</span>: <span class="hljs-string">"按审核优化"</span>,
+    <span class="hljs-string">"audit_goal"</span>: <span class="hljs-string">"贴合设计截面"</span>,
     <span class="hljs-string">"arc_decimals"</span>: <span class="hljs-string">"3"</span>,
+    <span class="hljs-string">"arc_tip_ext"</span>: <span class="hljs-string">"0.0"</span>,
     <span class="hljs-string">"n_basic"</span>: <span class="hljs-string">"117"</span>,
     <span class="hljs-string">"basic_end"</span>: <span class="hljs-string">"球道边缘"</span>,
     <span class="hljs-string">"table_basis"</span>: <span class="hljs-string">"拟合值"</span>
@@ -772,7 +776,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"next":{"title":"典型设计实战案例","level":"1.9","depth":1,"path":"8_workflows_cases/README.md","ref":"8_workflows_cases/README.md","articles":[{"title":"案例一：椭圆截面成型刀与单圆弧设计","level":"1.9.1","depth":2,"path":"8_workflows_cases/case1_ellipse.md","ref":"8_workflows_cases/case1_ellipse.md","articles":[]},{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"path":"8_workflows_cases/case2_points.md","ref":"8_workflows_cases/case2_points.md","articles":[]},{"title":"案例三：双圆弧球道(给定半径 R)与三种刀具方案","level":"1.9.3","depth":2,"path":"8_workflows_cases/case3_gothic.md","ref":"8_workflows_cases/case3_gothic.md","articles":[]},{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"path":"8_workflows_cases/case4_allowance_pose.md","ref":"8_workflows_cases/case4_allowance_pose.md","articles":[]}]},"previous":{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"path":"7_menus_session/menus_shortcuts.md","ref":"7_menus_session/menus_shortcuts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"7_menus_session/params_management.md","mtime":"2026-11-04T07:28:05.578Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T07:28:15.664Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"next":{"title":"典型设计实战案例","level":"1.9","depth":1,"path":"8_workflows_cases/README.md","ref":"8_workflows_cases/README.md","articles":[{"title":"案例一：椭圆截面成型刀与单圆弧设计","level":"1.9.1","depth":2,"path":"8_workflows_cases/case1_ellipse.md","ref":"8_workflows_cases/case1_ellipse.md","articles":[]},{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"path":"8_workflows_cases/case2_points.md","ref":"8_workflows_cases/case2_points.md","articles":[]},{"title":"案例三：双圆弧球道(给定半径 R)与三种刀具方案","level":"1.9.3","depth":2,"path":"8_workflows_cases/case3_gothic.md","ref":"8_workflows_cases/case3_gothic.md","articles":[]},{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"path":"8_workflows_cases/case4_allowance_pose.md","ref":"8_workflows_cases/case4_allowance_pose.md","articles":[]}]},"previous":{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"path":"7_menus_session/menus_shortcuts.md","ref":"7_menus_session/menus_shortcuts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"7_menus_session/params_management.md","mtime":"2026-11-05T03:56:00.547Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T03:56:11.839Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -646,17 +646,21 @@
 <p><img src="resources/tip_section_type.png" alt="截面类型示意图"></img></p>
 <ul>
 <li><strong>三种类型对比与选择依据</strong>：<ol>
-<li><strong>椭圆</strong>：标准椭圆截面，椭圆中心位于截面对称轴上。这是球笼式万向节星形套<strong>最常用</strong>的球道形式，既能保证良好的接触应力分布，又非常适合使用<strong>单圆弧近似刀具</strong>加工。</li>
+<li><strong>椭圆</strong>：标准椭圆截面，椭圆中心位于截面对称轴上。<ul>
+<li>球笼式万向节星形套<strong>最常用</strong>的球道形式；</li>
+<li>兼顾良好的接触应力分布，且非常适合用<strong>单圆弧近似刀具</strong>加工。</li>
+</ul>
+</li>
 <li><strong>双圆弧</strong>：又称哥特式（Gothic）尖底圆弧截面，由左右两段等半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的圆弧交叉而成，两侧圆心交叉到对称轴另一侧，球道底部交汇形成一个微小的尖点棱线。<blockquote>
-<p><strong>双圆弧截面的三种刀具方案</strong>：由于双圆弧截面在底部存在折角尖点，其精确刀具接触段带有“凸转凹”拐点，普通的单圆弧“拟合精确廓形”无法贴合。为此软件提供了三种解决方案：</p>
+<p><strong>双圆弧截面的三种刀具方案</strong>：由于双圆弧截面在底部存在折角尖点，其精确刀具接触段带有“凸转凹”拐点，普通的单圆弧“拟合精确廓形”无法贴合。软件提供以下三种方案：</p>
 <ol>
 <li><strong>精确自由曲线刀具</strong>：直接导出 <strong><code>刀具 DXF</code></strong> 或 <strong><code>刀具点表 CSV</code></strong> 磨制精确样条刀；</li>
-<li><strong>多段相切圆弧刀具（推荐）</strong>：在【高级参数 → 圆弧近似】中将 <strong><code>圆弧段数</code></strong> 设为 <strong><code>2</code> 或 <code>3</code> 段</strong>（如内置示例 <code>AC10000</code>），用 2~3 段首尾相切的圆弧完美贴合凸凹拐点；</li>
-<li><strong>按审核优化的单圆弧刀具</strong>：当现场只能磨制单圆弧刀且球道底允许由尖底适应为圆底时，将 <strong><code>单圆弧求法</code></strong> 设为 <strong><code>按审核优化</code></strong>，自动求出一把使实际接触角、跨距、顶隙和侧面轮廓均合格的单圆弧刀。</li>
+<li><strong>多段相切圆弧刀具</strong>：在【高级参数 → 圆弧近似】中将 <strong><code>圆弧段数</code></strong> 设为 <strong><code>2</code> 或 <code>3</code> 段</strong>，用 2~3 段首尾相切的圆弧贴合凸凹拐点；</li>
+<li><strong>按审核优化的单圆弧刀具（<code>AC10000</code> 默认方案）</strong>：将 <strong><code>单圆弧求法</code></strong> 设为 <strong><code>按审核优化</code></strong>，并选择 <strong><code>审核优化目标</code></strong>（<code>贴合设计截面</code> / <code>审核范围硬约束</code> / <code>审核范围中值</code>），自动求出一把满足审核要求的单圆弧刀。</li>
 </ol>
 </blockquote>
 </li>
-<li><strong>点表(CSV)</strong>：当客户产品图纸没有给出椭圆或双圆弧参数，而是直接给出一张球道截面坐标点表（如图纸上的 <code>Table 2 Basic Profile</code>）时选用。</li>
+<li><strong>点表(CSV)</strong>：当客户产品图纸未给椭圆或双圆弧参数，而是直接附有球道截面坐标点表（如图纸上的 <code>Table 2 Basic Profile</code>）时选用。</li>
 </ol>
 </li>
 </ul>
@@ -691,7 +695,11 @@
 </ul>
 <p><img src="resources/tip_pressure_angle.png" alt="接触角 α 示意图"></img></p>
 <ul>
-<li><strong>设置方法</strong>：按零件图纸标定的名义接触角填写，常见范围为 <code>30° ~ 45°</code>（例如 <code>AC3300-G</code> 与 <code>AC10000</code> 为 <code>42°</code>，<code>AC0706-E</code> 为 <code>36°</code>，<code>Nexteer</code> 为 <code>33°</code>）。若图纸给出了接触角公差带（如 <code>42° ± 3.5°</code>），可在【高级参数 → 校验范围】中同步填入 <code>接触角下限</code> 和 <code>接触角上限</code>。</li>
+<li><strong>设置方法</strong>：<ul>
+<li>按零件图纸标定的名义接触角填写，常见范围为 <code>30° ~ 45°</code>（例如 <code>AC3300-G</code> 与 <code>AC10000</code> 为 <code>42°</code>，<code>AC0706-E</code> 为 <code>36°</code>，<code>Nexteer</code> 为 <code>33°</code>）。</li>
+<li>若图纸给出了接触角公差带（如 <code>42° ± 2°</code> 或 <code>42° ± 3.5°</code>），可在【高级参数 → 校验范围】中同步填入 <strong><code>接触角下偏差</code></strong>（如 <code>-2</code>）和 <strong><code>接触角上偏差</code></strong>（如 <code>+2</code>）。</li>
+</ul>
+</li>
 <li><strong>对结果的影响</strong>：接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> 越大，钢球与球道的接触点越靠近球道开口边缘，接触角跨距 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub><mi>sin</mi><mo>⁡</mo><mi>α</mi></mrow><annotation encoding="application/x-tex">D_w \sin\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> 越大，刀具齿形变化越显著。</li>
 </ul>
 <hr></hr>
@@ -746,7 +754,7 @@
 </ul>
 <p><img src="resources/tip_gothic_r.png" alt="双圆弧半径 R 示意图"></img></p>
 <ul>
-<li><strong>设置方法与 геометрические特征</strong>：<ul>
+<li><strong>设置方法与几何特征</strong>：<ul>
 <li>直接按双圆弧零件图纸标注的圆弧半径填写（必须大于钢球半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">D_w / 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">/2</span></span></span></span>，常见约为钢球半径的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.02</mn><mo>∼</mo><mn>1.08</mn></mrow><annotation encoding="application/x-tex">1.02 \sim 1.08</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1.02</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1.08</span></span></span></span> 倍；例如 <code>AC10000</code> 钢球直径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>19.75</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">19.75\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">19.75</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>、半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9.875</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">9.875\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9.875</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>，圆弧半径填 <code>10.24</code>）。</li>
 <li>填入后，软件会自动让左右两段半径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的圆弧在给定 <code>接触角 α</code> 处与钢球精确相切，两侧圆心交叉到对称轴另一侧，并在计算结果栏自动输出对应的 <strong><code>相似度</code></strong>（即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>÷</mo><mo stretchy="false">(</mo><msub><mi>D</mi><mi>w</mi></msub><mi mathvariant="normal">/</mi><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R \div (D_w/2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">÷</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">/2</span><span class="mclose">)</span></span></span></span>）和球道尖底处的 <strong><code>顶隙</code></strong>。</li>
 </ul>
@@ -811,8 +819,11 @@
 </ul>
 <p><img src="resources/tip_points_tol.png" alt="点表精度示意图"></img></p>
 <ul>
-<li><strong>为什么要设置点表精度（光顺 vs 硬插值对比）</strong>：
-图纸上的点表坐标通常只保留到小数点后 4 位或 5 位，存在微小的截断舍入误差。而空间包络计算出的<strong>刀具廓形对球道截面的曲率变化极其敏感</strong>——如果直接硬性穿过每一个带舍入误差的点（即设 <code>点表精度 = 0</code>），微小的坐标舍入误差会被放大成截面曲率的剧烈抖动，进而导致算出的刀具刃口出现波纹！</li>
+<li><strong>为什么要设置点表精度（光顺 vs 硬插值对比）</strong>：<ul>
+<li>图纸上的点表坐标通常只保留到小数点后 4~5 位，存在微小的截断舍入误差；</li>
+<li>空间包络算出的<strong>刀具廓形对球道截面的曲率变化极其敏感</strong>——若直接硬性穿过每一个带舍入误差的点（设 <code>点表精度 = 0</code>），微小的坐标舍入误差会被放大为曲率抖动，导致刀具刃口出现波纹。</li>
+</ul>
+</li>
 </ul>
 <p><img src="resources/cmp_points_tol.png" alt="点表精度 1e-5 光顺与 0 不光顺的效果对比"></img></p>
 <ul>
@@ -820,7 +831,8 @@
 <li><strong>5 位小数点表</strong>（如 <code>0.12287</code>，最常见客户图纸）：保持默认 <code>1e-05</code>（或输入 <code>0.00001</code>）。</li>
 <li><strong>4 位小数点表</strong>（如 <code>0.1229</code>）：请设为 <code>1e-04</code>（或 <code>0.0001</code>）。</li>
 <li><strong>三坐标实测点表</strong>：按测量机的实际测量精度填写（如 <code>0.001</code>）。</li>
-<li><strong>原始点表质量自动诊断</strong>：某些客户图纸点表（例如 <code>AC0706-E</code>）在球道底到接触点之间原本缺少加密点、被人工用直线段插值填补，导致原始点表本身就存在曲率反向或明显波动。软件内置了三点离散曲率检测器，若发现原始点表自身存在曲率反向或剧烈起伏，会在计算结果栏明确提示 <strong><code>点表在 Z = ... mm 处曲率反向或明显波动（原始点表即如此，非本软件引起），算出的刀具廓形在该段也会相应变形</code></strong>。</li>
+<li><strong>原始点表质量自动诊断</strong>：软件内置三点离散曲率检测器。若原始点表本身存在直线段插值或曲率突变（如 <code>AC0706-E</code>），结果栏会自动提示：
+<code>点表在 Z = ... mm 处曲率反向或明显波动（原始点表即如此，非本软件引起），算出的刀具廓形在该段也会相应变形</code>。</li>
 </ul>
 </li>
 </ul>
@@ -888,7 +900,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"② 球道法向截面","level":"1.3.2","depth":2,"next":{"title":"③ 刀具安装与 ④ 工件外形","level":"1.3.3","depth":2,"path":"2_basic_params/tool_and_part_params.md","ref":"2_basic_params/tool_and_part_params.md","articles":[]},"previous":{"title":"① 钢球与球道轨迹","level":"1.3.1","depth":2,"path":"2_basic_params/track_params.md","ref":"2_basic_params/track_params.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"2_basic_params/section_params.md","mtime":"2026-11-04T07:28:05.569Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T07:28:15.664Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"② 球道法向截面","level":"1.3.2","depth":2,"next":{"title":"③ 刀具安装与 ④ 工件外形","level":"1.3.3","depth":2,"path":"2_basic_params/tool_and_part_params.md","ref":"2_basic_params/tool_and_part_params.md","articles":[]},"previous":{"title":"① 钢球与球道轨迹","level":"1.3.1","depth":2,"path":"2_basic_params/track_params.md","ref":"2_basic_params/track_params.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"2_basic_params/section_params.md","mtime":"2026-11-05T03:56:00.521Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T03:56:11.839Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

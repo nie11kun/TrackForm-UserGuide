@@ -633,63 +633,107 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="trackform-用户指南">TrackForm 用户指南</h1>
-<p>欢迎使用 <strong>TrackForm 星形套球道成型刀具设计软件</strong>用户指南！本指南旨在帮助工艺工程师、刀具设计工程师、数控磨刀编程与质量检测人员快速掌握软件的各项操作，高效、精准地完成球笼式等速万向节星形套（内圈）球道成型刀具的设计、圆弧近似、钢球实际落座仿真审核与数据导出。</p>
-<h2 id="概述">概述</h2>
-<p><strong>TrackForm</strong> 是一款专为星形套硬铣/硬车球道成型刀具（实心回转体刀头）设计的工程软件。用户只需对照产品零件图输入球道与工件参数，软件即可自动完成空间包络计算與反向仿真落座校核，并输出可直接用于数控磨刀、CAD 出图及三坐标检测的工程文件：</p>
+<p>欢迎使用 <strong>TrackForm 星形套球道成型刀具设计软件</strong>用户指南！</p>
+<p>本指南面向<strong>工艺工程师、刀具设计工程师、数控磨刀编程与质量检测人员</strong>，以清晰的图文列表助您快速完成球笼式等速万向节星形套（内圈）球道成型刀具的设计、圆弧近似、钢球实际落座仿真审核与工程文件导出。</p>
+<hr></hr>
+<h2 id="核心功能速览">核心功能速览</h2>
 <ul>
-<li><strong>精确成型刀具廓形计算</strong>：根据星形套球道法向截面与刀具安装切入角，自动计算刀头切削接触段的精确母线廓形，并给出刀尖不切削区的最大允许外形（自动做让刀与平滑过渡处理）。</li>
-<li><strong>三种球道截面类型与多种图纸定义方式</strong>：<ul>
-<li><strong>椭圆截面</strong>：支持 <strong><code>给定相似度</code></strong>（接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> + 相似度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>）、<strong><code>给定顶隙</code></strong>（接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> + 顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span>）、<strong><code>给定半轴</code></strong>（直接输入横向半轴 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">a</span></span></span></span>、径向半轴 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span> 与中心高 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">u_c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）三种图纸标注方式。</li>
-<li><strong>双圆弧截面</strong>（哥特式尖底）：支持 <strong><code>给定相似度</code></strong>（接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> + 相似度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>）、<strong><code>给定顶隙</code></strong>（接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> + 顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span>）以及新增的 <strong><code>给定半径 R</code></strong>（直接输入接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> + 两段圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>）三种定义方式。</li>
-<li><strong>点表（CSV）截面</strong>：支持直接导入客户图纸给定的截面坐标点表（如 Table 2），自动完成样条光顺、钢球贴合检验与点表曲率质量检查。</li>
+<li><strong>精确成型刀具廓形计算</strong><ul>
+<li>根据星形套球道法向截面与刀具安装切入角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>，自动求解刀头切削接触段的精确母线廓形。</li>
+<li>自动生成刀尖不切削区的最大允许外形（含让刀避空与平滑过渡）及球道边缘延伸余量段。</li>
 </ul>
 </li>
-<li><strong>单圆弧 / 多段相切圆弧近似与“按审核优化”</strong>：<ul>
-<li><strong>单圆弧近似（<code>圆弧段数 = 1</code>）</strong>：支持 <strong><code>拟合精确廓形</code></strong>（对椭圆与常规点表截面快速拟合“圆弧 + 圆柱”刀具）和 <strong><code>按审核优化</code></strong>（针对双圆弧等尖底截面，自动调整单圆弧尺寸使切出球道的实际接触角、接触角跨距、顶隙全部落在图纸公差范围内，球道底自动圆滑适应）。</li>
-<li><strong>多段相切圆弧近似（<code>圆弧段数 = 2 ~ 5</code>）</strong>：针对双圆弧（尖底）等带凹凸拐点的截面，自动拟合首尾相切（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>G</mi><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">G^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span> 连续）的多段圆弧 + 圆柱刀具，兼顾极高轮廓精度与标准圆弧磨刀便利性。</li>
+<li><strong>三种球道截面类型与七种图纸定义组合</strong><ul>
+<li><strong>椭圆截面</strong>：支持 <code>给定相似度</code>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">\alpha + k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>）、<code>给定顶隙</code>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">\alpha + c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span>）、<code>给定半轴</code>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo separator="true">,</mo><msub><mi>u</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">a, b, u_c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）。</li>
+<li><strong>双圆弧截面（哥特式尖底）</strong>：支持 <code>给定相似度</code>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">\alpha + k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>）、<code>给定顶隙</code>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">\alpha + c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span>）、<code>给定半径 R</code>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>+</mo><mi>R</mi></mrow><annotation encoding="application/x-tex">\alpha + R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>）。</li>
+<li><strong>点表（CSV）截面</strong>：支持直接导入客户图纸截面坐标表（如 Table 2），自动完成样条光顺、钢球贴合检验与点表曲率质量诊断。</li>
 </ul>
 </li>
-<li><strong>理论值 vs 实际值（钢球实际落座）双重校核</strong>：不仅校核理论设计截面，还会反向仿真精确刀具与圆弧刀具实际切出的球道，并<strong>把钢球实际放进切出的球道中（实际落座）</strong>，自动测量并对照图纸公差范围校核 <strong><code>实际顶隙</code></strong>、<strong><code>实际接触角</code></strong>、<strong><code>实际接触角跨距</code></strong> 与 <strong><code>钢球中心径向移动量</code></strong>。</li>
-<li><strong>客户图纸轮廓方程常数（Table 1）与基本轮廓（Table 2）生成</strong>：一键算出单圆弧刀具对应的产品开发图参数方程常数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>C</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">C_1 \sim C_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（Table 1）与等弧长基本轮廓坐标表（Table 2）。</li>
-<li><strong>一键导出 CAD 图纸与数据表</strong>：支持导出 1:1 比例的 <code>刀具 DXF</code>、<code>圆弧刀具 DXF</code>（支持单圆弧与多段相切圆弧真实 <code>ARC</code> 实体）、<code>星形套截面 DXF</code> 以及 <code>刀具点表 CSV</code>、<code>方程常数 CSV（Table 1）</code>、<code>基本轮廓 CSV（Table 2）</code>。</li>
+<li><strong>单圆弧 / 多段相切圆弧近似、三种审核优化目标与刀尖延伸</strong><ul>
+<li><strong>单圆弧近似（<code>圆弧段数 = 1</code>）</strong>：支持 <code>拟合精确廓形</code> 与 <code>按审核优化</code>（提供 <strong><code>贴合设计截面</code></strong>、<strong><code>审核范围硬约束</code></strong>、<strong><code>审核范围中值</code></strong> 三种优化目标，自动将切出球道的顶隙、接触角、跨距、实际 PCD 约束进图纸公差带）。</li>
+<li><strong>多段相切圆弧近似（<code>圆弧段数 = 2 ~ 5</code>）</strong>：自动拟合首尾相切（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>G</mi><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">G^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span> 连续）的多段圆弧 + 圆柱刀具，完美贴合双圆弧尖底截面的凹凸拐点。</li>
+<li><strong>刀尖沿原圆弧延伸（<code>刀尖延伸</code>）</strong>：支持将圆弧刀具刀尖沿原圆弧继续延伸（不多切球道底），使切削点避开刀尖平端尖角、减缓刀尖磨损。</li>
+</ul>
+</li>
+<li><strong>【理论值】与【实际值·仿真】（钢球实际落座）双重校核 + 置顶校验结论</strong><ul>
+<li>反向仿真精确刀具与圆弧刀具实际切出的球道，并<strong>把钢球实际放进切出的球道中（实际落座）</strong>。</li>
+<li>自动测量并对照图纸公差校验 <strong><code>实际顶隙</code></strong>、<strong><code>实际接触角</code></strong>、<strong><code>实际接触角跨距</code></strong> 与 <strong><code>实际 PCD</code></strong>。</li>
+<li>结果面板顶部自动生成 <strong><code>■ 校验结论</code></strong>，一眼看清是否 <code>全部校验通过</code> 或汇总所有标红超差项；展开窗口支持<strong>四列斑马纹表格、关键词查找与一键复制粘贴到 Excel</strong>。</li>
+</ul>
+</li>
+<li><strong>客户图纸 Table 1 / Table 2 生成与 CAD / CSV 一键导出</strong><ul>
+<li>自动计算单圆弧刀具对应的产品开发图参数方程常数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>C</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">C_1 \sim C_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（Table 1）与等弧长基本轮廓坐标表（Table 2）。</li>
+<li>一键导出 1:1 比例的 <code>刀具 DXF</code>、<code>圆弧刀具 DXF</code>（含完整刀具外形与右半刃口四分段双视图）、<code>星形套截面 DXF</code> 以及 3 种 <code>CSV</code> 数据表。</li>
+</ul>
+</li>
 </ul>
 <p><img src="1_getting_started/resources/ui_main_annotated.png" alt="软件主界面导览"></img></p>
-<h2 id="目录结构">目录结构</h2>
-<p>本指南按实际工程使用流程分为以下 9 个部分，方便您随时查阅：</p>
-<ol>
-<li><a href="1_getting_started/">快速开始</a>：了解软件安装、主界面六大功能区布局、鼠标悬停图文提示及三分钟快速上手流程。</li>
-<li><a href="2_basic_params/">基本参数设置</a>：对照零件图纸，逐项详解决定刀具廓形的 19 项基本参数（含双圆弧 <code>给定半径 R</code> 等新定义方式）及常见图纸换算方法。</li>
-<li><a href="3_advanced_params/">高级参数设置</a>：掌握刀尖高度优化、让刀过渡、刀柄方向防干涉、新增校验范围（接触角/跨距上下限）、圆弧段数（<code>1~5</code> 段）与 <code>按审核优化</code> 求法及导出选项设置。</li>
-<li><a href="4_result_panel/">计算结果面板解读</a>：读懂结果面板五大分块中的<strong>【理论值】</strong>与<strong>【实际值·仿真】（钢球实际落座）</strong>指标、各分块下的专业术语小注、绿色 <code>OK</code> / <code>合格</code> 判据、红色报警提示及 Table 1 常数含义。</li>
-<li><a href="5_tabs_charts/">图形页签（Tab 图表）详解</a>：学会看懂右侧 6 个图形页签（<code>精确刀具廓形</code>、<code>球道设计截面</code>、<code>星形套轴向剖面</code>、<code>加工姿态(子午面)</code>、<code>精确刀具反向仿真</code>、<code>圆弧近似刀具</code>）、底部首次出现术语注释与缩放工具栏操作。</li>
-<li><a href="6_exports_data/">导出文件与工程应用</a>：详解导出的 3 种 DXF 图纸图层规范与 3 种 CSV 表格在数控磨刀、机床对刀编程及三坐标检测中的应用。</li>
-<li><a href="7_menus_session/">菜单功能、快捷键与参数管理</a>：掌握菜单栏命令、快捷键、自动会话记忆与内置/自定义参数文件（<code>.json</code>）的管理。</li>
-<li><a href="8_workflows_cases/">典型设计实战案例</a>：通过椭圆截面、客户点表导入、双圆弧截面（<code>AC10000</code> 给定半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span> 的三种制造方案对比）、预留余量与刀柄防干涉 4 个完整案例演练全流程。</li>
-<li><a href="9_troubleshooting/">常见提示与故障排除</a>：汇总参数输入提示、点表曲率质量提醒、计算结果标红报警的原因分析与快速调整方案。</li>
-</ol>
-<h2 id="系统需求">系统需求</h2>
-<p>为了确保软件运行流畅、图形清晰显示，请确保您的计算机满足以下要求：</p>
+<hr></hr>
+<h2 id="章节导航">章节导航</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">章节</th>
+<th style="text-align:left">主题</th>
+<th style="text-align:left">核心内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>第 1 章</strong></td>
+<td style="text-align:left"><strong><a href="1_getting_started/">快速开始</a></strong></td>
+<td style="text-align:left">软件安装升级、主界面六大分区、悬停图文提示与三分钟快速上手流程</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 2 章</strong></td>
+<td style="text-align:left"><strong><a href="2_basic_params/">基本参数设置</a></strong></td>
+<td style="text-align:left">对照零件图纸，逐项详解 19 项基本参数（含双圆弧 <code>给定半径 R</code> 等定义方式）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 3 章</strong></td>
+<td style="text-align:left"><strong><a href="3_advanced_params/">高级参数设置</a></strong></td>
+<td style="text-align:left">详解 22 项高级参数：刀尖高度、校验范围（含接触角/PCD 上下偏差）、圆弧段数、审核优化目标、刀尖延伸及导出选项</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 4 章</strong></td>
+<td style="text-align:left"><strong><a href="4_result_panel/">计算结果面板解读</a></strong></td>
+<td style="text-align:left">读懂置顶 <code>■ 校验结论</code>、五大分块的【理论值】与【实际值·仿真】（含实际 PCD、刃口分段）及展开窗口查找/复制</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 5 章</strong></td>
+<td style="text-align:left"><strong><a href="5_tabs_charts/">图形页签（Tab 图表）详解</a></strong></td>
+<td style="text-align:left">学会查看右侧 6 个图形页签（含刃口四分段着色、刀尖最大延伸标记、球道底局部放大）与工具栏操作</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 6 章</strong></td>
+<td style="text-align:left"><strong><a href="6_exports_data/">导出文件与工程应用</a></strong></td>
+<td style="text-align:left">详解 3 种 DXF 图纸（含新增刃口分段视图与引线标注列）与 3 种 CSV 表格的下游应用</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 7 章</strong></td>
+<td style="text-align:left"><strong><a href="7_menus_session/">菜单功能、快捷键与参数管理</a></strong></td>
+<td style="text-align:left">掌握菜单命令、快捷键、自动会话记忆与 <code>.json</code> 参数档案管理</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 8 章</strong></td>
+<td style="text-align:left"><strong><a href="8_workflows_cases/">典型设计实战案例</a></strong></td>
+<td style="text-align:left">椭圆截面、点表导入、双圆弧（<code>AC10000</code> 三种方案与审核优化目标对比）、余量与防干涉 4 个完整案例</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>第 9 章</strong></td>
+<td style="text-align:left"><strong><a href="9_troubleshooting/">常见提示与故障排除</a></strong></td>
+<td style="text-align:left">汇总参数输入报错、点表曲率提醒、计算结果标红报警的原因与快速解决办法</td>
+</tr>
+</tbody>
+</table>
+<hr></hr>
+<h2 id="系统需求与技术支持">系统需求与技术支持</h2>
 <ul>
-<li><strong>操作系统</strong>：Windows 10 / Windows 11（64 位）</li>
-<li><strong>内存</strong>：建议 4GB 及以上</li>
-<li><strong>硬盘空间</strong>：至少 500MB 可用空间</li>
-<li><strong>显示器</strong>：支持标准屏幕及高分屏（2K / 4K DPI 自动高清适配）</li>
+<li><strong>运行环境</strong>：Windows 10 / Windows 11（64 位），内存建议 4 GB 及以上，支持 2K / 4K 高分屏 DPI 自动高清适配。</li>
+<li><strong>在线用户手册</strong>：<a href="https://trackform-manual.niekun.net/" target="_blank">https://trackform-manual.niekun.net/</a></li>
+<li><strong>常见问题速查</strong>：<a href="9_troubleshooting/">常见提示与故障排除</a></li>
+<li><strong>官方网站与邮箱</strong>：<a href="https://xincore.niekun.net/" target="_blank">https://xincore.niekun.net/</a> ｜ <a href="mailto:xincore@niekun.net" target="_blank">xincore@niekun.net</a></li>
 </ul>
-<h2 id="获取帮助">获取帮助</h2>
-<p>如需帮助或技术支持，请参考以下资源：</p>
-<ol>
-<li><p><strong>在线用户手册</strong><br></br>浏览最新在线文档：<a href="https://trackform-manual.niekun.net/" target="_blank">https://trackform-manual.niekun.net/</a></p>
-</li>
-<li><p><strong>常见问题与排错 (FAQ)</strong><br></br>查看常见报警与排错指南：<a href="9_troubleshooting/">常见提示与故障排除</a></p>
-</li>
-<li><p><strong>技术支持与联系我们</strong>  </p>
-<ul>
-<li><strong>官方网站</strong>：<a href="https://xincore.niekun.net/" target="_blank">https://xincore.niekun.net/</a>  </li>
-<li><strong>支持邮箱</strong>：<a href="mailto:xincore@niekun.net" target="_blank">xincore@niekun.net</a></li>
-</ul>
-</li>
-</ol>
-<p>感谢您选择 <strong>TrackForm</strong>，祝您设计高效、加工顺利！</p>
 
                                 
                                 </section>
@@ -729,7 +773,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"介绍","level":"1.1","depth":1,"next":{"title":"快速开始","level":"1.2","depth":1,"path":"1_getting_started/README.md","ref":"1_getting_started/README.md","articles":[{"title":"软件安装与启动","level":"1.2.1","depth":2,"path":"1_getting_started/installation.md","ref":"1_getting_started/installation.md","articles":[]},{"title":"界面布局与基本操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},{"title":"三分钟快速上手","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"README.md","mtime":"2026-11-04T07:28:05.582Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T07:28:15.664Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"介绍","level":"1.1","depth":1,"next":{"title":"快速开始","level":"1.2","depth":1,"path":"1_getting_started/README.md","ref":"1_getting_started/README.md","articles":[{"title":"软件安装与启动","level":"1.2.1","depth":2,"path":"1_getting_started/installation.md","ref":"1_getting_started/installation.md","articles":[]},{"title":"界面布局与基本操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},{"title":"三分钟快速上手","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"README.md","mtime":"2026-11-05T03:56:00.559Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T03:56:11.839Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

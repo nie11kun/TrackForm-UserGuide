@@ -649,63 +649,72 @@
 <tbody>
 <tr>
 <td style="text-align:left"><strong>① 顶部菜单栏</strong></td>
-<td style="text-align:left">包含 <strong>文件(F)</strong>、<strong>计算(C)</strong>、<strong>导出(E)</strong>、<strong>视图(V)</strong>、<strong>帮助(H)</strong> 五大菜单，提供参数载入/保存、内置示例调用（<code>AC3300-G</code>、<code>AC10000</code>、<code>Nexteer_34205673</code>、<code>AC0706-E</code>）、恢复默认设置、页签切换、一键打开<strong>用户操作手册（在线）</strong>与打开数据目录等功能。</td>
+<td style="text-align:left">包含 <strong>文件(F)</strong>、<strong>计算(C)</strong>、<strong>导出(E)</strong>、<strong>视图(V)</strong>、<strong>帮助(H)</strong> 五大菜单：<ul><li>支持参数载入/保存、4 套内置示例调用（`AC3300-G`、`AC10000`、`Nexteer_34205673`、`AC0706-E`）与恢复默认设置；</li><li>提供结果窗口展开、高级参数折叠、页签切换、打开在线手册与打开数据文件夹等快捷入口。</li></ul></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>② 输入参数区</strong></td>
 <td style="text-align:left">按 `参数名称 \</td>
 <td>输入框 \</td>
-<td>单位` 三列整齐排列。上方为决定刀具齿形的 <strong>基本参数</strong>（4 个分组，19 项），下方为可点击展开/折叠的 <strong>▸ 高级参数</strong>（6 个分组，18 项）。面板高度随内容自适应，超出屏幕时支持鼠标滚轮平滑滚动。</td>
+<td>单位` 三列整齐排列：<ul><li>上方为决定齿形的 **基本参数**（4 个分组，19 项）；</li><li>下方为可展开/折叠的 **▸ 高级参数**（6 个分组，22 项）；</li><li>面板高度随内容自适应，超出屏幕时支持鼠标滚轮平滑滚动。</li></ul></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>③ 计算与导出区</strong></td>
-<td style="text-align:left">顶部为醒目的绿色 <strong>▶ 计算 (F5)</strong> 大按钮；中间为实时状态栏与进度条；下方为两列排布的 <strong>6 个导出按钮</strong>（一键导出 3 种 DXF 图纸与 3 种 CSV 表格）。</td>
+<td style="text-align:left"><ul><li>顶部为醒目的绿色 **▶ 计算 (F5)** 大按钮（计算期间右侧图形区自动显示进度遮罩与旋转圆弧）；</li><li>下方为两列排布的 **6 个导出按钮**（一键导出 3 种 DXF 图纸与 3 种 CSV 表格）。</li></ul></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>④ 计算结果区</strong></td>
-<td style="text-align:left">按 <strong>5 大分块</strong>清晰输出：<strong>一、球道截面设计【理论值】</strong>、<strong>二、精确刀具廓形【理论值】</strong>、<strong>三、精确刀具切出的球道【实际值·仿真】</strong>（含钢球实际落座测量）、<strong>四、圆弧近似刀具</strong>（支持单圆弧与多段相切圆弧，含实际落座审核）、<strong>五、轮廓方程常数 Table 1</strong>，且每个分块下方均配有灰字术语定义小注。点击标题栏右侧的 <strong>⤢ 展开</strong> 按钮（或<strong>双击文本框</strong>）可在独立宽窗口中查看并一键复制。</td>
+<td style="text-align:left"><ul><li>顶部置顶显示 **`■ 校验结论`**（`全部校验通过` 或标红汇总所有超差需要注意项）；</li><li>下方按 **`■ 一` ~ `■ 五` 五大分块**输出【理论值】与【实际值·仿真】（含钢球实际落座的顶隙、接触角、跨距、实际 PCD 及刃口四分段）；</li><li>点击标题栏右侧 **⤢ 展开**（或**双击文本框**）可在独立宽窗口中以**四列对齐斑马纹表格**查看，并支持**关键词查找（`Ctrl+F`）**与**一键复制全部（制表符分列，可直接粘贴到 Excel）**。</li></ul></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>⑤ 六大图形页签</strong></td>
-<td style="text-align:left">包含 <strong>精确刀具廓形</strong>、<strong>球道设计截面</strong>、<strong>星形套轴向剖面</strong>、<strong>加工姿态(子午面)</strong>、<strong>精确刀具反向仿真</strong>、<strong>圆弧近似刀具</strong> 6 个页签，支持鼠标点击或按快捷键 <code>Ctrl+1</code> ~ <code>Ctrl+6</code> 快速切换；每个页签底部还配有灰字小注解释该图中首次出现的术语。</td>
+<td style="text-align:left">包含 <strong>精确刀具廓形</strong>、<strong>球道设计截面</strong>、<strong>星形套轴向剖面</strong>、<strong>加工姿态(子午面)</strong>、<strong>精确刀具反向仿真</strong>、<strong>圆弧近似刀具</strong> 6 个页签：<ul><li>支持鼠标点击或按快捷键 `Ctrl+1` ~ `Ctrl+6` 快速切换；</li><li>每个页签底部均配有灰字小注解释该图中首次出现的工程术语。</li></ul></td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>⑥ 图表导航工具栏</strong></td>
-<td style="text-align:left">位于每个图形页签底部，提供<strong>主页复位</strong>、<strong>前后视图回退</strong>、<strong>拖拽平移</strong>、<strong>框选局部放大</strong>、<strong>边距调整</strong>与<strong>单张图片保存</strong>功能；右侧实时显示鼠标所在位置的精确坐标 <code>(x, y)</code>。</td>
+<td style="text-align:left">位于每个图形页签底部：<ul><li>提供**主页复位**、**前后视图回退**、**拖拽平移**、**框选局部放大**、**边距调整**与**单张图片保存**功能；</li><li>右侧实时显示鼠标所在位置的精确工程坐标 `(x, y)`。</li></ul></td>
 </tr>
 </tbody>
 </table>
 <hr></hr>
 <h2 id="2-四项高效交互设计">2. 四项高效交互设计</h2>
 <h3 id="（1）鼠标悬停查看参数示意图--说明卡片">（1）鼠标悬停查看“参数示意图 + 说明卡片”</h3>
-<p>填写参数时如果对某个尺寸的定义或图纸位置不确定，只需将<strong>鼠标指针悬停在参数名称或输入框上约 0.4 秒</strong>，参数栏右侧就会自动弹出图文提示卡片：</p>
+<p>填写参数时若对某个尺寸的定义或图纸位置不确定，只需将<strong>鼠标指针悬停在参数名称或输入框上约 0.4 秒</strong>，参数栏右侧即会自动弹出图文提示卡片：</p>
 <p><img src="resources/ui_hover_tip_demo.png" alt="鼠标悬停图文提示卡片演示"></img></p>
 <ul>
-<li><strong>上方高清几何示意图</strong>：基于真实星形套与刀具几何绘制，并用<strong>鲜艳的红色（<code>#d62728</code>）</strong>精准标出当前参数在球道、工件或刀具上的几何位置。</li>
-<li><strong>下方结构化说明</strong>：按 <strong>【含义】</strong>（物理定义与单位）、<strong>【设置】</strong>（如何对照零件图填写及常见数值范围）、<strong>【影响】</strong>（修改该参数会对刀具齿形或校验结果产生什么影响）三段清晰呈现。</li>
-<li><strong>不遮挡输入</strong>：提示卡片固定显示在左侧参数框的右外侧，绝不遮挡您正在编辑的输入框；点击输入框开始打字或移开鼠标时自动收起。</li>
-<li><strong>导出按钮同样支持悬停提示</strong>：将鼠标悬停在下方 6 个导出按钮上，也会弹出该导出文件的具体内容说明。</li>
+<li><strong>上方高清几何示意图</strong>：基于真实星形套与刀具几何绘制，用<strong>红色（<code>#d62728</code>）</strong>精准标出当前参数在球道、工件或刀具上的几何位置。</li>
+<li><strong>下方三段式结构化说明</strong>：<ul>
+<li><strong>【含义】</strong>：物理定义、正负号约定与单位；</li>
+<li><strong>【设置】</strong>：如何对照零件图填写及常见数值范围；</li>
+<li><strong>【影响】</strong>：修改该参数对刀具齿形或校验结果的具体影响。</li>
+</ul>
+</li>
+<li><strong>不遮挡输入</strong>：提示卡片固定在参数框右外侧，点击输入框打字或移开鼠标时自动收起；下方 6 个导出按钮同样支持悬停提示。</li>
 </ul>
 <h3 id="（2）参数智能显隐（只显示当前起作用的项）">（2）参数智能显隐（只显示当前起作用的项）</h3>
 <ul>
-<li>在 <strong>② 球道法向截面</strong> 分组中，当您切换 <code>截面类型</code>（<code>椭圆</code> / <code>双圆弧</code> / <code>点表(CSV)</code>）时，<code>定义方式</code> 下拉框会自动过滤为该截面适用的选项（例如选 <code>椭圆</code> 时提供 <code>给定相似度 / 给定顶隙 / 给定半轴</code>；选 <code>双圆弧</code> 时提供 <code>给定相似度 / 给定顶隙 / 给定半径 R</code>），并自动隐藏无关输入框，<strong>只保留当前模式下需要您填写的项</strong>：</li>
+<li><strong>在 <code>② 球道法向截面</code> 分组中</strong>：切换 <code>截面类型</code>（<code>椭圆</code> / <code>双圆弧</code> / <code>点表(CSV)</code>）与 <code>定义方式</code> 时，软件自动隐藏无关输入框，<strong>只保留当前模式下需要填写的项</strong>：</li>
 </ul>
 <p><img src="resources/ui_section_modes_compare.png" alt="不同截面模式下的参数动态切换"></img></p>
 <ul>
-<li>在 <strong>▸ 高级参数 → 圆弧近似</strong> 分组中，当 <code>圆弧段数</code> 选 <code>1</code>（单圆弧）时会显示 <code>单圆弧求法</code>（<code>拟合精确廓形</code> / <code>按审核优化</code>）；当 <code>圆弧段数</code> 选 <code>2 ~ 5</code>（多段相切圆弧）时会自动隐藏 <code>单圆弧求法</code>。</li>
+<li><strong>在 <code>▸ 高级参数 → 圆弧近似</code> 分组中</strong>：<ul>
+<li>当 <code>圆弧段数 = 1</code>（单圆弧）时显示 <code>单圆弧求法</code>（<code>拟合精确廓形</code> / <code>按审核优化</code>）；</li>
+<li>当 <code>单圆弧求法 = 按审核优化</code> 时，进一步显示 <strong><code>审核优化目标</code></strong>（<code>贴合设计截面</code> / <code>审核范围硬约束</code> / <code>审核范围中值</code>）；</li>
+<li>当 <code>圆弧段数 = 2 ~ 5</code>（多段相切圆弧）时，自动隐藏单圆弧专属选项。</li>
+</ul>
+</li>
 </ul>
 <h3 id="（3）贴心的输入容错与防误触设计">（3）贴心的输入容错与防误触设计</h3>
 <ul>
-<li><strong>中英文小数点自动兼容</strong>：在中文输入法状态下不小心把小数点打成了中文逗号 <code>，</code> 或英文逗号 <code>,</code>（例如输入 <code>19，844</code>），软件在计算时会自动将其识别为标准小数点 <code>19.844</code>，无需反复切换输入法。</li>
-<li><strong>滚轮防误改下拉框</strong>：在左侧参数区使用鼠标滚轮上下滚动浏览参数时，即使鼠标经过下拉选择框，<strong>也只会滚动面板而不会误改动下拉框的选项</strong>。</li>
+<li><strong>中英文小数点自动兼容</strong>：在中文输入法下不小心将小数点打成中文逗号 <code>，</code> 或英文逗号 <code>,</code>（如 <code>19，844</code>），计算时会自动识别为标准小数点 <code>19.844</code>。</li>
+<li><strong>滚轮防误改下拉框</strong>：在左侧参数区用鼠标滚轮上下滚动时，即使光标经过下拉选择框，<strong>也只会滚动面板而不会误改动下拉框选项</strong>。</li>
 </ul>
-<h3 id="（4）清晰的状态栏颜色反馈与导出防呆">（4）清晰的状态栏颜色反馈与导出防呆</h3>
-<p>状态栏位于绿色 <strong>▶ 计算 (F5)</strong> 按钮正下方，通过不同颜色和文字实时反馈软件当前状态：</p>
-<p><img src="resources/ui_status_states.png" alt="状态栏四种典型状态对比"></img></p>
+<h3 id="（4）清晰的计算进度遮罩、置顶结论与防呆保护">（4）清晰的计算进度遮罩、置顶结论与防呆保护</h3>
+<p>软件通过图形区遮罩与结果栏顶部的 <code>■ 校验结论</code> 实时反馈计算与合格状态：</p>
+<p><img src="resources/ui_status_states.png" alt="四种典型交互与校验状态对比"></img></p>
 <ul>
-<li><strong>启动时自动恢复上次设置</strong>：软件启动时自动载入上次关闭前的参数，状态栏显示 <code>已恢复上次的设置。请点“计算”开始</code>。</li>
-<li><strong>后台多线程计算不卡顿</strong>：点击计算后，右侧出现动态进度条，状态栏依次显示当前阶段（<code>正在计算刀具廓形…</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>正在过切校验…</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>正在反向仿真…</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>正在近似圆弧刀具…</code> / <code>正在按审核优化圆弧（第 N 步）…</code> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> <code>正在计算轮廓方程常数…</code>）及实时秒表，计算期间窗口仍可正常拖动或展开查看。</li>
-<li><strong>未重算与异常导出防呆保护</strong>：只要您改动了任何一个参数输入框，状态栏立即变为橙色提示 <code>参数已修改，请点“计算”更新结果</code>。如果您忘记点击“计算”就直接点导出按钮，或者当前计算结果存在异常报警（如刀尖截断导致实际顶隙不足、过切、圆弧刀具超差、实际接触角/跨距/顶隙超出范围），软件在导出前都会弹出确认对话框提醒您，防止误将过期或不合格的刀具图纸发往车间。</li>
+<li><strong>启动或载入参数后不自动计算（防误导出旧结果）</strong>：启动软件、载入参数文件或示例参数后，右侧图形区清空并提示 <code>已载入参数：... 请点击左侧“计算”按钮（或按 F5）重新计算</code>，避免误导出与当前参数不符的旧结果。</li>
+<li><strong>后台计算图形区暗色遮罩</strong>：点击计算后，右侧图形区自动盖上半透明暗色遮罩与蓝色旋转圆弧，实时显示当前计算阶段（如 <code>正在计算刀具廓形…</code>、<code>正在按审核优化单圆弧（贴合设计截面，约 20~60 秒）…已试算 40 次</code>），界面绝不卡死。</li>
+<li><strong>未重算与异常导出双重弹窗防呆</strong>：若修改了参数尚未重新计算，或当前结果存在标红报警项（如刀尖截断导致顶隙不足、过切、轮廓超差、实际接触角/跨距/顶隙/PCD 超出图纸范围），点击导出按钮时均会弹出确认对话框提醒您。</li>
 </ul>
 
                                 
@@ -750,7 +759,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"界面布局与基本操作","level":"1.2.2","depth":2,"next":{"title":"三分钟快速上手","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]},"previous":{"title":"软件安装与启动","level":"1.2.1","depth":2,"path":"1_getting_started/installation.md","ref":"1_getting_started/installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"1_getting_started/ui_overview.md","mtime":"2026-11-04T07:28:05.566Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T07:28:15.664Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"界面布局与基本操作","level":"1.2.2","depth":2,"next":{"title":"三分钟快速上手","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]},"previous":{"title":"软件安装与启动","level":"1.2.1","depth":2,"path":"1_getting_started/installation.md","ref":"1_getting_started/installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"1_getting_started/ui_overview.md","mtime":"2026-11-05T03:56:00.513Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T03:56:11.839Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

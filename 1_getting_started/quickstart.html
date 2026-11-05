@@ -641,8 +641,8 @@
 <h2 id="第一步：确认或载入示例参数">第一步：确认或载入示例参数</h2>
 <ol>
 <li>启动 <strong>TrackForm</strong> 软件。</li>
-<li>点击顶部菜单栏的 <strong>文件(F) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 载入示例参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> AC3300-G_参数</strong>（或者点击 <strong>文件(F) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 恢复默认设置</strong>）。</li>
-<li>此时左侧 <strong>基本参数</strong> 面板中已填入 AC3300-G 零件图纸的核心参数：<ul>
+<li>点击顶部菜单栏 <strong>文件(F) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 载入示例参数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> AC3300-G_参数</strong>。</li>
+<li>载入后软件会清空旧图表并在状态栏提示点击 <strong>计算 (F5)</strong>，此时左侧 <strong>基本参数</strong> 面板中已填入 AC3300-G 零件图纸的核心参数：<ul>
 <li><strong>① 钢球与球道轨迹</strong>：<code>钢球直径 Dw = 19.844</code> mm，<code>节圆直径 PCD = 62.464</code> mm，<code>球道偏移 e = 4.27</code> mm</li>
 <li><strong>② 球道法向截面</strong>：<code>截面类型 = 椭圆</code>，<code>定义方式 = 给定相似度</code>，<code>接触角 α = 42.0</code> °，<code>相似度 k = 1.04</code>，<code>法向余量 = 0.0</code> mm</li>
 <li><strong>③ 刀具安装</strong>：<code>切入角 β = 36.0</code> °</li>
@@ -654,57 +654,74 @@
 <h2 id="第二步：点击计算（或按-f5）">第二步：点击“计算”（或按 F5）</h2>
 <ol>
 <li>点击左侧面板中部醒目的绿色大按钮 <strong>▶ 计 算 (F5)</strong>（或直接按键盘上的 <code>F5</code> 键）。</li>
-<li>按钮下方的状态栏会显示计算阶段与用时，约 <strong>0.8 秒</strong> 后状态栏变为绿色的 <code>计算完成</code>，同时左下方的 <strong>计算结果</strong> 面板和右侧的 <strong>6 个图形页签</strong> 全部自动刷新。</li>
+<li>计算期间右侧图形区会自动盖上半透明暗色遮罩并显示蓝色旋转进度环与阶段提示；约 <strong>0.8 秒</strong> 后状态栏变为绿色的 <code>计算完成</code>，同时左下方的 <strong>计算结果</strong> 面板和右侧的 <strong>6 个图形页签</strong> 全部自动刷新。</li>
 </ol>
 <hr></hr>
 <h2 id="第三步：核对计算结果与审阅图形">第三步：核对计算结果与审阅图形</h2>
 <h3 id="1-查看左下计算结果面板（可点击-⤢-展开-放大查看）">1. 查看左下“计算结果”面板（可点击 <code>⤢ 展开</code> 放大查看）</h3>
-<p>重点核对面板五大分块中带颜色标记的关键结论（详细解读见<a href="../4_result_panel/">第 4 章：计算结果面板解读</a>）：</p>
-<pre><code class="lang-text">理论值 = 按图纸参数算出的设计值；实际值 = 反向仿真：刀具沿球道运动后实际切出的球道
+<p>重点核对面板顶部的 <strong><code>■ 校验结论</code></strong> 以及五大分块中带颜色标记的关键结论（详细解读见<a href="../4_result_panel/">第 4 章：计算结果面板解读</a>）：</p>
+<pre><code class="lang-text">■ 校验结论
+  全部校验通过
+
+理论值 = 按图纸参数算出的设计值；实际值 = 反向仿真：刀具沿球道运动后实际切出的球道
 
 ■ 一、球道截面设计【理论值】
-  接触角 α：钢球与球道接触点处法线与截面对称轴的夹角；相似度：接触点截面曲率半径 ÷ 钢球半径；顶隙：钢球最低点到球道底的距离；接触角跨距：两侧接触点间距 = Dw·sin α
   截面：椭圆（给定相似度）
-  钢球中心轨迹半径 Rp = 31.5225
-  椭圆半轴 a(横向) = 10.1762   b(径向) = 10.6436   中心高 uc = 0.6929
-  接触角 α = 42.000°（图纸 40 ~ 44）  OK
-  相似度 = 1.0400
-  顶隙 = 0.0287（图纸 0.019 ~ 0.04）  OK
-  接触角跨距 = 13.2782（未给范围，不校验）
-  球道边缘接触角 = 67.32°
+  钢球中心轨迹半径 Rp：31.5225
+  椭圆半轴 a(横向)：10.1762   b(径向) = 10.6436
+  椭圆中心高 uc：+0.6929（相对钢球中心，朝球道开口为正）
+  接触角 α：42.000°（公差 -2/+2°，实际接触角应在 40.000 ~ 44.000）
+  相似度：1.0400
+  顶隙：0.0287  OK（图纸 0.019 ~ 0.04）
+  接触角跨距：13.2782（未给范围，不校验）
+  球道边缘接触角：67.32°
 
 ■ 二、精确刀具廓形【理论值】
-  接触段：刀具上真正切削球道的刃口（r 半径、z 沿刀轴，原点 = 虚拟钢球中心）；刀尖高度：刀尖平端面的 z；过切校验：刀具是否切入设计球道（最小间隙 &lt; 0 为过切）
-  接触段（到球道边缘）r: 7.9269 ~ 10.1190   z: -0.0566 ~ 6.0205
-  边缘延伸 0.3 mm：在球道边缘 z = -0.0566 之外继续到 z = -0.1747（r 10.1384），为外球面尺寸偏差和定位误差留的余量
-  刀头最大直径 = 20.2768（含边缘延伸）   刀尖高度 = 9.922
-  廓形单调(无自交)  OK
-  过切校验 最小间隙 = 0.00e+00  OK
+  接触段（到球道边缘）r：7.9269 ~ 10.1190（z: -0.0566 ~ 6.0205）
+  边缘延伸：0.3 mm（在球道边缘 z = -0.0566 之外继续到 z = -0.1747（r 10.1384），为外球面尺寸偏差和定位误差留的余量）
+  刀头最大直径：20.2768（含边缘延伸）
+  刀尖高度：9.922
+  廓形单调(无自交)：OK
+  过切校验 最小间隙：0.00e+00  OK（&lt; 0 为过切）
 
 ■ 三、精确刀具切出的球道【实际值·仿真】
-  反向仿真：刀具沿球道摆动后包络切出的截面；欠切 = 比设计多留的料，过切 = 多切；实际落座：把钢球放进切出的截面使其恰好贴住，测得的接触角、跨距、顶隙
-  最大过切 = 0.00e+00  OK
-  侧面（钢球接触区）欠切 = 1.98e-05  OK
-  球道底欠切 = 0.0000（顶隙区）
-  钢球放进切出的球道（实际落座）：
-    实际顶隙 = 0.0287（图纸 0.019 ~ 0.04）  OK
-    实际接触角 = 42.001°（图纸 40 ~ 44）  OK
-    实际接触角跨距 = 13.2785（未给范围）
-    钢球中心相对设计位置移动 +0.0 μm（朝开口为正）
+  最大过切：0.00e+00  OK
+  侧面（钢球接触区）欠切：1.98e-05  OK
+  球道底欠切：0.0000（顶隙区）
+  ▸ 钢球放进切出的球道（实际落座）
+  实际顶隙：0.0287  OK（图纸 0.019 ~ 0.04）
+  实际接触角：42.001°  OK（图纸 40 ~ 44）
+  实际接触角跨距：13.2785（未给范围）
+  钢球中心移动：+0.0 μm（相对设计位置，朝球道开口为正）
+  实际 PCD：62.4640  OK（偏差 +0.0 μm；图纸 62.454 ~ 62.474）
 
 ■ 四、圆弧近似刀具：单圆弧，拟合精确廓形（取整到 3 位，磨刀尺寸）
-  圆心 径向/轴向：径向为负 = 圆心在刀轴另一侧，轴向朝刀柄为正；圆柱：刀柄侧圆柱段直径（刀头最大直径）
-  R=12.3600  圆心 -2.1920 / +1.0710  圆柱 Ø20.3360
-  该刀具切出的球道【实际值·仿真】：
-    与设计截面偏差 = 3.78 μm（轮廓度 ±10）  合格
-    实际顶隙 = 0.0325（图纸 0.019 ~ 0.04）  OK
-    实际接触角 = 41.988°（图纸 40 ~ 44）  OK
-    实际接触角跨距 = 13.2751（未给范围）
-    钢球中心相对设计位置移动 +3.8 μm（朝开口为正）
+  圆弧半径 R：12.3600
+  圆心 径向 / 轴向：-2.1920 / +1.0710（径向负=在刀轴另一侧，轴向朝刀柄为正）
+  圆柱直径（刀头最大直径）：Ø20.3360
+  刀尖直径：Ø16.9539（刀尖端面 z = 6.0680）
+  ▸ 刃口分段（z 沿刀轴）
+  圆弧过渡（接圆柱）：-1.0710 ~ -0.1747（长 0.8963，不切削）
+  边缘延伸：-0.1747 ~ -0.0566（长 0.1181，球道边缘外的余量）
+  接触段（切削球道）：-0.0566 ~ 6.0680（长 6.1246）
+  刀尖端面（平切）：z = 6.0680，Ø16.9539
+  刀尖延伸：0.0000（未延伸；刀尖最多可沿原圆弧延伸到 z = 10.2229，即再延伸 4.1549 而不切深球道底）
+  ▸ 该刀具切出的球道【实际值·仿真】
+  与设计截面偏差：3.78 μm  合格（轮廓度 ±10）
+  实际顶隙：0.0325  OK（图纸 0.019 ~ 0.04）
+  实际接触角：41.988°  OK（图纸 40 ~ 44）
+  实际接触角跨距：13.2751（未给范围）
+  钢球中心移动：+3.8 μm（朝开口为正）
+  实际 PCD：62.4716  OK（偏差 +7.6 μm；图纸 62.454 ~ 62.474）
 </code></pre>
 <ul>
-<li><strong>理论与实际落座双重校核</strong>：理论设计的接触角 <code>42.000°</code> 和顶隙 <code>0.0287 mm</code> 均显示绿色 <strong>OK</strong>；把钢球放进精确刀具实际切出的球道（实际落座）后，实测顶隙 <code>0.0287 mm</code>、实测接触角 <code>42.001°</code> 也全部显示绿色 <strong>OK</strong>。</li>
-<li><strong>圆弧近似刀具结论</strong>：可将成型刀简化为 <strong>圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mn>12.360</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">R = 12.360\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">12.360</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>、圆心径向偏置 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>2.192</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">-2.192\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">2.192</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>（交叉到刀轴另一侧）、圆心轴向位置 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1.071</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">+1.071\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1.071</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>（距虚拟球心朝刀柄方向）、圆柱段直径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>20.336</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 20.336\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">20.336</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></strong> 的单圆弧刀具；该圆弧刀切出的球道与设计截面的最大偏差仅为 <strong><code>3.78 μm</code></strong>（远小于轮廓度公差 <code>±10 μm</code>），判定为绿色 <strong>合格</strong>，且钢球落座后的实际顶隙 <code>0.0325 mm</code>、实际接触角 <code>41.988°</code> 均在图纸范围内（<strong>OK</strong>）！</li>
+<li><strong>顶部汇总结论</strong>：最上方 <strong><code>■ 校验结论</code></strong> 直接显示绿色 <strong><code>全部校验通过</code></strong>，表明所有几何校验与落座指标均合格。</li>
+<li><strong>理论与实际落座双重校核</strong>：把钢球放进精确刀具切出的球道后，<strong>实际顶隙</strong> <code>0.0287 mm</code>、<strong>实际接触角</strong> <code>42.001°</code>、<strong>实际 PCD</strong> <code>62.4640 mm</code> 全部显示绿色 <strong>OK</strong>。</li>
+<li><strong>圆弧近似刀具结论</strong>：<ul>
+<li>磨刀尺寸：圆弧半径 <code>R = 12.360 mm</code>、圆心径向 <code>-2.192 mm</code>、圆心轴向 <code>+1.071 mm</code>、圆柱直径 <code>Ø20.336 mm</code>、刀尖直径 <code>Ø16.9539 mm</code>；</li>
+<li>切出球道精度：与设计截面最大偏差仅 <strong><code>3.78 μm</code></strong>（远小于轮廓度公差 <code>±10 μm</code>），且钢球落座后的<strong>实际顶隙</strong> <code>0.0325 mm</code>、<strong>实际接触角</strong> <code>41.988°</code>、<strong>实际 PCD</strong> <code>62.4716 mm</code> 全部在图纸公差内（<strong>OK</strong>）！</li>
+</ul>
+</li>
 </ul>
 <h3 id="2-切换右侧图形页签审图">2. 切换右侧图形页签审图</h3>
 <p>点击右侧顶部的页签标题（或按 <code>Ctrl+1</code> ~ <code>Ctrl+6</code>）依次检查：</p>
@@ -773,7 +790,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"三分钟快速上手","level":"1.2.3","depth":2,"next":{"title":"基本参数设置","level":"1.3","depth":1,"path":"2_basic_params/README.md","ref":"2_basic_params/README.md","articles":[{"title":"① 钢球与球道轨迹","level":"1.3.1","depth":2,"path":"2_basic_params/track_params.md","ref":"2_basic_params/track_params.md","articles":[]},{"title":"② 球道法向截面","level":"1.3.2","depth":2,"path":"2_basic_params/section_params.md","ref":"2_basic_params/section_params.md","articles":[]},{"title":"③ 刀具安装与 ④ 工件外形","level":"1.3.3","depth":2,"path":"2_basic_params/tool_and_part_params.md","ref":"2_basic_params/tool_and_part_params.md","articles":[]}]},"previous":{"title":"界面布局与基本操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"1_getting_started/quickstart.md","mtime":"2026-11-04T07:28:05.566Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-04T07:28:15.664Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"三分钟快速上手","level":"1.2.3","depth":2,"next":{"title":"基本参数设置","level":"1.3","depth":1,"path":"2_basic_params/README.md","ref":"2_basic_params/README.md","articles":[{"title":"① 钢球与球道轨迹","level":"1.3.1","depth":2,"path":"2_basic_params/track_params.md","ref":"2_basic_params/track_params.md","articles":[]},{"title":"② 球道法向截面","level":"1.3.2","depth":2,"path":"2_basic_params/section_params.md","ref":"2_basic_params/section_params.md","articles":[]},{"title":"③ 刀具安装与 ④ 工件外形","level":"1.3.3","depth":2,"path":"2_basic_params/tool_and_part_params.md","ref":"2_basic_params/tool_and_part_params.md","articles":[]}]},"previous":{"title":"界面布局与基本操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"1_getting_started/quickstart.md","mtime":"2026-11-05T03:56:00.509Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T03:56:11.839Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
