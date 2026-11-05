@@ -1,6 +1,9 @@
 # 第六章：工程数据导出与下游使用指南
 
-完成刀具计算与校验后，TrackForm 提供了 **3 种标准 CAD 工程图（DXF）** 和 **3 种高精度数据表（CSV）** 的一键导出功能，无缝对接下游的 **AutoCAD / CAXA 制图、数控工具磨床（如 ANCA、Walter、Rollomatic）/ 慢走丝编程、外圆磨床砂轮修整以及三坐标测量机（CMM）检测**。
+完成刀具计算与校验后，TrackForm 提供 **3 种标准 CAD 工程图（DXF）** 和 **3 种高精度数据表（CSV）** 的一键导出功能，无缝对接下游各环节：
+* **CAD 制图与工艺设计**：AutoCAD、CAXA、浩辰 CAD、SolidWorks、UG/NX；
+* **数控磨刀与修整编程**：五轴数控工具磨床（ANCA、Walter、Rollomatic）、慢走丝及外圆磨床砂轮修整；
+* **精密质检**：三坐标测量机（CMM）与光学投影仪。
 
 ---
 
