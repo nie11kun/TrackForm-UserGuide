@@ -24,7 +24,7 @@
 | :--- | :--- | :--- | :---: | :--- | :--- |
 | **`刀具 DXF`** | `刀具 DXF…` | `tool_profile.dxf` | AutoCAD R2010 DXF | 精确样条成型刀具制图、光学曲线磨/慢走丝 CAD/CAM 直接提取刀刃样条线 | [6.1 导出 DXF 工程图详解](dxf_files.md) |
 | **`圆弧刀具 DXF`** | `圆弧刀具 DXF…` | `arc_tool.dxf` | AutoCAD R2010 DXF | **现场最常用**：单圆弧成型刀/成型砂轮工程图绘制、金刚轮圆弧修整编程 | [6.1 导出 DXF 工程图详解](dxf_files.md) |
-| **`星形套截面 DXF`** | `星形套截面 DXF…` | `part_section.dxf` | AutoCAD R2010 DXF | 星形套工序简图绘制、专用夹具设计、球道底径与内孔壁厚 CAD 校核 | [6.1 导出 DXF 工程图详解](dxf_files.md) |
+| **`星形套截面 DXF`**（随 `工件类型` 适配） | `<零件名>截面 DXF…` | `part_section.dxf` | AutoCAD R2010 DXF | 星形套工序简图绘制、专用夹具设计、球道底径与内孔壁厚 CAD 校核（`星形套（固定节）`完整开放） | [6.1 导出 DXF 工程图详解](dxf_files.md) |
 | **`刀具点表 CSV`** | `刀具点表 CSV…` | `tool_profile_points.csv` | UTF-8 BOM CSV | 数控磨床点云插补导入、双基准（`z_球心` / `z_端面`）刀刃检测 | [6.2 导出 CSV 数据表详解](csv_files.md) |
 | **`方程常数（Table 1）`** | `轮廓方程常数 CSV（Table 1）…` | `table1_constants.csv` | UTF-8 BOM CSV | 生成标准球道图纸 **Table 1（$C_1 \sim C_{10}$ 常数表）** | [6.2 导出 CSV 数据表详解](csv_files.md) |
 | **`基本轮廓（Table 2）`** | `基本轮廓 CSV（Table 2）…` | `table2_basic_profile.csv` | UTF-8 BOM CSV | 生成标准球道图纸 **Table 2（117 点基本轮廓坐标表）**、三坐标测量导入 | [6.2 导出 CSV 数据表详解](csv_files.md) |
