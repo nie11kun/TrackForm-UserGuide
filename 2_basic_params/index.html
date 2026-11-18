@@ -6,7 +6,7 @@
         <title>基本参数设置 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -363,7 +363,7 @@
                 <a href="../5_tabs_charts/tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -376,7 +376,7 @@
                 <a href="../5_tabs_charts/tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -403,6 +403,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../5_tabs_charts/tab7_scene3d.html">
+            
+                <a href="../5_tabs_charts/tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -635,10 +648,11 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="基本参数设置">基本参数设置</h1>
-<p>在主界面左侧的 <strong>输入参数</strong> 面板中，上方区域为 <strong>基本参数（决定齿形）</strong>。只要零件图纸和刀具安装角度确定，这一区域的设置将直接决定星形套球道的几何尺寸、空间形状以及成型刀具切削刃口的形状和长度。</p>
+<p>在主界面左侧的 <strong>输入参数</strong> 面板中，上方区域为 <strong>基本参数（决定齿形）</strong>。</p>
+<p>本区域共包含 <strong>4 个分组、21 项参数</strong>：一旦确定了万向节工件类型、零件图纸尺寸与刀具安装倾角，这些参数将直接决定球道几何形状、三维包络切削范围以及成型刀具切削刃口的完整廓形。</p>
 <hr></hr>
 <h2 id="1-基本参数分组总览">1. 基本参数分组总览</h2>
-<p>基本参数按照从“球道轨迹 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 法向截面 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 刀具姿态 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 零件外形”的工程识图顺序分为 4 个分组，共 <strong>19 个参数项</strong>：</p>
+<p>基本参数按照<strong>“工件与球道轨迹 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 法向截面 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 刀具安装 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 工件外形”</strong>的工程识图顺序分为 4 个分组（共 <strong>21 项</strong>）：</p>
 <table>
 <thead>
 <tr>
@@ -649,30 +663,34 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong><a href="track_params.html">① 钢球与球道轨迹</a></strong></td>
-<td style="text-align:left"><code>钢球直径 Dw</code>、<code>节圆直径 PCD</code>、<code>球道偏移 e</code></td>
-<td style="text-align:left">决定传动钢球尺寸，以及钢球中心沿球道摆动运动的轨迹圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">R_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>。</td>
+<td style="text-align:left"><strong><a href="track_params.html">① 钢球与球道轨迹</a></strong>（5 项）</td>
+<td style="text-align:left"><code>工件类型</code>、<code>钢球直径 Dw</code>、<code>节圆直径 PCD</code>、<code>球道偏移 e</code>、<code>球道斜角 γ</code></td>
+<td style="text-align:left">选定 6 种万向节构件形式（内/外圈、固定/伸缩、直/斜球道），确定钢球尺寸与球道中心轨迹特性。</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><a href="section_params.html">② 球道法向截面</a></strong></td>
-<td style="text-align:left"><code>截面类型</code>、<code>定义方式</code>、<code>接触角 α</code>、<code>相似度 k</code>、<code>顶隙 c</code>、<code>半轴 a/b</code>、<code>中心高 uc</code>、<code>圆弧半径 R</code>、<code>点表文件</code>、<code>点表精度</code>、<code>法向余量</code></td>
-<td style="text-align:left">决定球道垂直于中心线切开的法向截面形状（支持<strong>椭圆</strong>、<strong>双圆弧</strong>、<strong>点表(CSV)</strong>三种模式）及精加工/半精加工单边余量。</td>
+<td style="text-align:left"><strong><a href="section_params.html">② 球道法向截面</a></strong>（12 项）</td>
+<td style="text-align:left"><code>截面类型</code>、<code>定义方式</code>、<code>接触角 α</code>、<code>相似度 k</code>、<code>顶隙 c</code>、<code>半轴 a</code>、<code>半轴 b</code>、<code>中心高 uc</code>、<code>圆弧半径 R</code>、<code>点表文件</code>、<code>点表精度</code>、<code>法向余量</code></td>
+<td style="text-align:left">决定垂直于球道中心线切开的法向截面形状（<strong>椭圆</strong> / <strong>双圆弧</strong> / <strong>点表(CSV)</strong>）及精/半精加工法向余量。</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><a href="tool_and_part_params.html">③ 刀具安装</a></strong></td>
+<td style="text-align:left"><strong><a href="tool_and_part_params.html">③ 刀具安装</a></strong>（1 项）</td>
 <td style="text-align:left"><code>切入角 β</code></td>
-<td style="text-align:left">决定成型刀相对球道法向截面的安装倾角（如常用的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><msup><mn>6</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">36^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>），直接改变刀具齿形。</td>
+<td style="text-align:left">决定成型刀相对球道法向截面的安装倾角（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><msup><mn>6</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">36^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>），显著影响刀具齿形。</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><a href="tool_and_part_params.html">④ 工件外形</a></strong></td>
-<td style="text-align:left"><code>外球面直径</code>、<code>工件宽度 W</code>、<code>球心至端面 H</code></td>
-<td style="text-align:left">决定球道在星形套外球面上的开口边界与两端面范围，从而确定刀具切削接触段需要加工到多高（不改变齿形曲线本身的弯曲形状）。</td>
+<td style="text-align:left"><strong><a href="tool_and_part_params.html">④ 工件外形</a></strong>（3 项）</td>
+<td style="text-align:left"><code>外球面直径</code>、<code>工件宽度 W</code>、<code>球心至端面 H</code>（标签随 <code>工件类型</code> 自动适配）</td>
+<td style="text-align:left">决定球道开口边界与工件两端面范围，限定红色切削接触段起点及外框防干涉检查边界。</td>
 </tr>
 </tbody>
 </table>
 <hr></hr>
 <h2 id="2-不同零件图纸的参数填写模式速查">2. 不同零件图纸的参数填写模式速查</h2>
-<p>拿到一张星形套产品图时，请先查看图纸上是如何定义<strong>球道法向截面</strong>的，然后在 <strong>② 球道法向截面</strong> 中选择对应的模式（软件会根据所选的 <code>截面类型</code> 自动筛选 <code>定义方式</code>，并隐藏当前模式用不到的输入框）：</p>
+<p>拿到产品图纸时，按以下步骤快速匹配截面填写方式（软件会自动筛选并隐藏当前模式下用不到的输入框）：</p>
+<ol>
+<li>先在 <strong>① 钢球与球道轨迹</strong> 中选定 <strong><code>工件类型</code></strong>（如 <code>星形套（固定节）</code>、<code>斜筒形壳（VL 斜球道）</code> 等）；</li>
+<li>查看图纸上如何标注 <strong>② 球道法向截面</strong>，对照下表选择 <strong><code>截面类型</code></strong> 与 <strong><code>定义方式</code></strong>：</li>
+</ol>
 <p><img src="../1_getting_started/resources/ui_section_modes_compare.png" alt="不同截面模式下的参数动态切换"></img></p>
 <table>
 <thead>
@@ -685,13 +703,13 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong>椭圆球道</strong>，标注了接触角（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><msup><mn>2</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">42^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>）与相似度（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.04</mn></mrow><annotation encoding="application/x-tex">1.04</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1.04</span></span></span></span>）或接触点曲率半径</td>
+<td style="text-align:left"><strong>椭圆球道</strong>，标注接触角（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><msup><mn>2</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">42^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>）与相似度（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.04</mn></mrow><annotation encoding="application/x-tex">1.04</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1.04</span></span></span></span>）或曲率半径</td>
 <td style="text-align:left"><code>截面类型 = 椭圆</code><br></br><code>定义方式 = 给定相似度</code></td>
 <td style="text-align:left"><code>接触角 α</code>、<code>相似度 k</code></td>
 <td style="text-align:left">椭圆半轴 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo separator="true">,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a, b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span></span></span></span>、中心高 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">u_c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>、<strong>顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span></strong>、<strong>接触角跨距</strong></td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>椭圆球道</strong>，标注了接触角（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><msup><mn>2</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">42^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>）与顶隙（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.0295</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">0.0295\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0.0295</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）</td>
+<td style="text-align:left"><strong>椭圆球道</strong>，标注接触角（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><msup><mn>2</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">42^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>）与顶隙（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.0287</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">0.0287\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0.0287</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）</td>
 <td style="text-align:left"><code>截面类型 = 椭圆</code><br></br><code>定义方式 = 给定顶隙</code></td>
 <td style="text-align:left"><code>接触角 α</code>、<code>顶隙 c</code></td>
 <td style="text-align:left">椭圆半轴 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo separator="true">,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a, b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span></span></span></span>、中心高 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">u_c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>、<strong>相似度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></strong>、<strong>接触角跨距</strong></td>
@@ -703,19 +721,19 @@
 <td style="text-align:left"><strong>接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span></strong>、<strong>相似度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></strong>、<strong>顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span></strong>、<strong>接触角跨距</strong></td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>双圆弧（尖底）球道</strong>，标注了接触角（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><msup><mn>2</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">42^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>）与两段圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10.24</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">10.24\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">10.24</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）</td>
+<td style="text-align:left"><strong>双圆弧（尖底）球道</strong>，标注接触角（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><msup><mn>2</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">42^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>）与圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>（如 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10.24</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">10.24\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">10.24</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）</td>
 <td style="text-align:left"><code>截面类型 = 双圆弧</code><br></br><code>定义方式 = 给定半径 R</code></td>
 <td style="text-align:left"><code>接触角 α</code>、<code>圆弧半径 R</code></td>
 <td style="text-align:left">交叉圆心坐标、<strong>相似度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></strong>、<strong>顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span></strong>、<strong>接触角跨距</strong></td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>双圆弧（尖底）球道</strong>，标注了接触角与相似度</td>
+<td style="text-align:left"><strong>双圆弧（尖底）球道</strong>，标注接触角与相似度</td>
 <td style="text-align:left"><code>截面类型 = 双圆弧</code><br></br><code>定义方式 = 给定相似度</code></td>
 <td style="text-align:left"><code>接触角 α</code>、<code>相似度 k</code></td>
 <td style="text-align:left"><strong>圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span></strong>、交叉圆心坐标、<strong>顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span></strong>、<strong>接触角跨距</strong></td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>双圆弧（尖底）球道</strong>，标注了接触角与顶隙</td>
+<td style="text-align:left"><strong>双圆弧（尖底）球道</strong>，标注接触角与顶隙</td>
 <td style="text-align:left"><code>截面类型 = 双圆弧</code><br></br><code>定义方式 = 给定顶隙</code></td>
 <td style="text-align:left"><code>接触角 α</code>、<code>顶隙 c</code></td>
 <td style="text-align:left"><strong>圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span></strong>、交叉圆心坐标、<strong>相似度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></strong>、<strong>接触角跨距</strong></td>
@@ -771,7 +789,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"基本参数设置","level":"1.3","depth":1,"next":{"title":"① 钢球与球道轨迹","level":"1.3.1","depth":2,"path":"2_basic_params/track_params.md","ref":"2_basic_params/track_params.md","articles":[]},"previous":{"title":"三分钟快速上手","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]},"articles":[{"title":"① 钢球与球道轨迹","level":"1.3.1","depth":2,"path":"2_basic_params/track_params.md","ref":"2_basic_params/track_params.md","articles":[]},{"title":"② 球道法向截面","level":"1.3.2","depth":2,"path":"2_basic_params/section_params.md","ref":"2_basic_params/section_params.md","articles":[]},{"title":"③ 刀具安装与 ④ 工件外形","level":"1.3.3","depth":2,"path":"2_basic_params/tool_and_part_params.md","ref":"2_basic_params/tool_and_part_params.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"2_basic_params/README.md","mtime":"2026-11-05T07:12:47.045Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"基本参数设置","level":"1.3","depth":1,"next":{"title":"① 钢球与球道轨迹","level":"1.3.1","depth":2,"path":"2_basic_params/track_params.md","ref":"2_basic_params/track_params.md","articles":[]},"previous":{"title":"三分钟快速上手","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]},"articles":[{"title":"① 钢球与球道轨迹","level":"1.3.1","depth":2,"path":"2_basic_params/track_params.md","ref":"2_basic_params/track_params.md","articles":[]},{"title":"② 球道法向截面","level":"1.3.2","depth":2,"path":"2_basic_params/section_params.md","ref":"2_basic_params/section_params.md","articles":[]},{"title":"③ 刀具安装与 ④ 工件外形","level":"1.3.3","depth":2,"path":"2_basic_params/tool_and_part_params.md","ref":"2_basic_params/tool_and_part_params.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"2_basic_params/README.md","mtime":"2026-11-18T02:15:56.058Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -833,11 +851,11 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         

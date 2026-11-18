@@ -6,7 +6,7 @@
         <title>介绍 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -361,7 +361,7 @@
                 <a href="5_tabs_charts/tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -374,7 +374,7 @@
                 <a href="5_tabs_charts/tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -401,6 +401,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="5_tabs_charts/tab7_scene3d.html">
+            
+                <a href="5_tabs_charts/tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -633,14 +646,20 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="trackform-用户指南">TrackForm 用户指南</h1>
-<p>欢迎使用 <strong>TrackForm 星形套球道成型刀具设计软件</strong>用户指南！</p>
-<p>本指南面向<strong>工艺工程师、刀具设计工程师、数控磨刀编程与质量检测人员</strong>，以清晰的图文列表助您快速完成球笼式等速万向节星形套（内圈）球道成型刀具的设计、圆弧近似、钢球实际落座仿真审核与工程文件导出。</p>
+<p>欢迎使用 <strong>TrackForm 等速万向节球道成型刀具设计软件</strong>用户指南！</p>
+<p>本指南面向<strong>工艺工程师、刀具设计工程师、数控磨刀编程与质量检测人员</strong>，以清晰的图文列表助您快速完成等速万向节球道成型刀具的设计、圆弧近似、钢球实际落座仿真审核、三维加工演示与工程文件导出。</p>
 <hr></hr>
 <h2 id="核心功能速览">核心功能速览</h2>
 <ul>
+<li><strong>六大万向节工件类型（内圈 / 外框，圆弧 / 直线 / 斜交球道）</strong><ul>
+<li><strong>星形套（固定节）</strong>：固定节内圈，圆弧球道，工作面为外球面（<strong>已完整实现计算、7 大图表与全部 6 类导出</strong>）。</li>
+<li><strong>扩展工件类型（几何计算与三维演示内核已接入，工件 DXF 与 Table 1 仍在开发中）</strong>：<code>钟形壳（固定节）</code>、<code>星形套（DO 直球道）</code>、<code>筒形壳（DO 直球道）</code>、<code>星形套（VL 斜球道）</code>、<code>斜筒形壳（VL 斜球道）</code>（内部版开放试算与刀颈干涉检查，客户发行版提示“开发中”）。</li>
+<li>支持 VL 伸缩节斜球道的 <strong><code>球道斜角 γ</code></strong>，按工件类型自动适配界面参数标签、外形约束与结果判定。</li>
+</ul>
+</li>
 <li><strong>精确成型刀具廓形计算</strong><ul>
-<li>根据星形套球道法向截面与刀具安装切入角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>，自动求解刀头切削接触段的精确母线廓形。</li>
-<li>自动生成刀尖不切削区的最大允许外形（含让刀避空与平滑过渡）及球道边缘延伸余量段。</li>
+<li>根据球道法向截面与刀具安装切入角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>，自动求解刀头切削接触段的精确母线廓形（固定外框/伸缩节同时完成工件本体与摆动刀具碰撞干涉校核）。</li>
+<li>自动生成刀尖不切削区的最大允许外形（深灰虚线，含让刀避空与平滑过渡）及球道边缘延伸余量段（青色）。</li>
 </ul>
 </li>
 <li><strong>三种球道截面类型与七种图纸定义组合</strong><ul>
@@ -650,20 +669,20 @@
 </ul>
 </li>
 <li><strong>单圆弧 / 多段相切圆弧近似、三种审核优化目标与刀尖延伸</strong><ul>
-<li><strong>单圆弧近似（<code>圆弧段数 = 1</code>）</strong>：支持 <code>拟合精确廓形</code> 与 <code>按审核优化</code>（提供 <strong><code>贴合设计截面</code></strong>、<strong><code>审核范围硬约束</code></strong>、<strong><code>审核范围中值</code></strong> 三种优化目标，自动将切出球道的顶隙、接触角、跨距、实际 PCD 约束进图纸公差带）。</li>
+<li><strong>单圆弧近似（<code>圆弧段数 = 1</code>）</strong>：支持 <code>拟合精确廓形</code> 与 <code>按审核优化</code>（提供 <strong><code>贴合设计截面</code></strong>、<strong><code>审核范围硬约束</code></strong>、<strong><code>审核范围中值</code></strong> 三种优化目标）。</li>
 <li><strong>多段相切圆弧近似（<code>圆弧段数 = 2 ~ 5</code>）</strong>：自动拟合首尾相切（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>G</mi><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">G^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span> 连续）的多段圆弧 + 圆柱刀具，完美贴合双圆弧尖底截面的凹凸拐点。</li>
-<li><strong>刀尖沿原圆弧延伸（<code>刀尖延伸</code>）</strong>：支持将圆弧刀具刀尖沿原圆弧继续延伸（不多切球道底），使切削点避开刀尖平端尖角、减缓刀尖磨损。</li>
+<li><strong>刀尖沿原圆弧延伸（<code>刀尖延伸</code>）</strong>：将圆弧刀具刀尖沿原圆弧继续延伸（不多切球道底），使切削点避开刀尖平端尖角、减缓刀尖磨损。</li>
 </ul>
 </li>
-<li><strong>【理论值】与【实际值·仿真】（钢球实际落座）双重校核 + 置顶校验结论</strong><ul>
-<li>反向仿真精确刀具与圆弧刀具实际切出的球道，并<strong>把钢球实际放进切出的球道中（实际落座）</strong>。</li>
-<li>自动测量并对照图纸公差校验 <strong><code>实际顶隙</code></strong>、<strong><code>实际接触角</code></strong>、<strong><code>实际接触角跨距</code></strong> 与 <strong><code>实际 PCD</code></strong>。</li>
-<li>结果面板顶部自动生成 <strong><code>■ 校验结论</code></strong>，一眼看清是否 <code>全部校验通过</code> 或汇总所有标红超差项；展开窗口支持<strong>四列斑马纹表格、关键词查找与一键复制粘贴到 Excel</strong>。</li>
+<li><strong>【理论值】与【实际值·仿真】（钢球实际落座）+ OpenGL 三维演示</strong><ul>
+<li><strong>7 大图形页签（<code>Ctrl+1</code> ~ <code>Ctrl+7</code>）</strong>：6 个二维高精度工程图表采用全新统一工程配色，新增 <strong>Tab 7 <code>三维演示</code></strong>（OpenGL MSAA 硬件抗锯齿渲染，直观演示工件旋转与成型刀具沿球道轨迹包络切削）。</li>
+<li><strong>成品截面钢球实际落座</strong>：当设置 <code>法向余量</code>（粗磨/半精加工）时，仿真会自动在留余量截面还原精加工成品边界后再放球校验 <code>实际顶隙</code>、<code>实际接触角</code>、<code>实际跨距</code> 与 <code>实际 PCD</code>。</li>
+<li><strong>置顶校验结论与宽窗口浏览</strong>：顶部 <strong><code>■ 校验结论</code></strong> 一眼汇总 <code>全部校验通过</code> 或标红警示；展开窗口支持<strong>四列斑马纹表格、<code>Ctrl+F</code> 查找与一键复制粘贴到 Excel</strong>。</li>
 </ul>
 </li>
 <li><strong>客户图纸 Table 1 / Table 2 生成与 CAD / CSV 一键导出</strong><ul>
 <li>自动计算单圆弧刀具对应的产品开发图参数方程常数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>C</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">C_1 \sim C_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（Table 1）与等弧长基本轮廓坐标表（Table 2）。</li>
-<li>一键导出 1:1 比例的 <code>刀具 DXF</code>、<code>圆弧刀具 DXF</code>（含完整刀具外形与右半刃口四分段双视图）、<code>星形套截面 DXF</code> 以及 3 种 <code>CSV</code> 数据表。</li>
+<li>一键导出 1:1 比例的 <code>刀具 DXF</code>、<code>圆弧刀具 DXF</code>（含完整刀具外形与右半刃口四分段双视图）、<code>工件截面 DXF</code> 以及 3 种 <code>CSV</code> 数据表。</li>
 </ul>
 </li>
 </ul>
@@ -682,37 +701,37 @@
 <tr>
 <td style="text-align:center"><strong>第 1 章</strong></td>
 <td style="text-align:left"><strong><a href="1_getting_started/">快速开始</a></strong></td>
-<td style="text-align:left">软件安装升级、主界面六大分区、悬停图文提示与三分钟快速上手流程</td>
+<td style="text-align:left">软件安装升级、硬件加密狗保护、主界面分区、悬停图文提示与三分钟快速上手流程</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>第 2 章</strong></td>
 <td style="text-align:left"><strong><a href="2_basic_params/">基本参数设置</a></strong></td>
-<td style="text-align:left">对照零件图纸，逐项详解 19 项基本参数（含双圆弧 <code>给定半径 R</code> 等定义方式）</td>
+<td style="text-align:left">对照零件图纸，逐项详解 <strong>21 项基本参数</strong>（含 6 种 <code>工件类型</code>、<code>球道斜角 γ</code>、双圆弧 <code>给定半径 R</code> 等）</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>第 3 章</strong></td>
 <td style="text-align:left"><strong><a href="3_advanced_params/">高级参数设置</a></strong></td>
-<td style="text-align:left">详解 22 项高级参数：刀尖高度、校验范围（含接触角/PCD 上下偏差）、圆弧段数、审核优化目标、刀尖延伸及导出选项</td>
+<td style="text-align:left">详解 <strong>25 项高级参数</strong>（全软件共 <strong>46 项</strong>）：刀尖高度、校验范围、圆弧段数、审核优化目标、刀尖延伸及导出选项</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>第 4 章</strong></td>
 <td style="text-align:left"><strong><a href="4_result_panel/">计算结果面板解读</a></strong></td>
-<td style="text-align:left">读懂置顶 <code>■ 校验结论</code>、五大分块的【理论值】与【实际值·仿真】（含实际 PCD、刃口分段）及展开窗口查找/复制</td>
+<td style="text-align:left">读懂置顶 <code>■ 校验结论</code>、五大分块（含工件与刀具干涉校验、刃口分段）及展开窗口查找/复制</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>第 5 章</strong></td>
 <td style="text-align:left"><strong><a href="5_tabs_charts/">图形页签（Tab 图表）详解</a></strong></td>
-<td style="text-align:left">学会查看右侧 6 个图形页签（含刃口四分段着色、刀尖最大延伸标记、球道底局部放大）与工具栏操作</td>
+<td style="text-align:left">详解右侧 <strong>7 个图形页签（<code>Ctrl+1~7</code>）</strong>：2D 统一工程配色、子图独立放大（<code>⤢</code>）与 <strong>OpenGL 三维实时演示</strong></td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>第 6 章</strong></td>
 <td style="text-align:left"><strong><a href="6_exports_data/">导出文件与工程应用</a></strong></td>
-<td style="text-align:left">详解 3 种 DXF 图纸（含新增刃口分段视图与引线标注列）与 3 种 CSV 表格的下游应用</td>
+<td style="text-align:left">详解 3 种 DXF 图纸（图层编码、刃口分段视图与引线标注）与 3 种 CSV 表格的下游应用</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>第 7 章</strong></td>
 <td style="text-align:left"><strong><a href="7_menus_session/">菜单功能、快捷键与参数管理</a></strong></td>
-<td style="text-align:left">掌握菜单命令、快捷键、自动会话记忆与 <code>.json</code> 参数档案管理</td>
+<td style="text-align:left">掌握分组示例菜单、全局快捷键、自动会话记忆与 <code>.json</code> 参数档案管理</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>第 8 章</strong></td>
@@ -722,7 +741,7 @@
 <tr>
 <td style="text-align:center"><strong>第 9 章</strong></td>
 <td style="text-align:left"><strong><a href="9_troubleshooting/">常见提示与故障排除</a></strong></td>
-<td style="text-align:left">汇总参数输入报错、点表曲率提醒、计算结果标红报警的原因与快速解决办法</td>
+<td style="text-align:left">汇总参数输入报错、硬件加密狗断狗保护、点表曲率提醒、3D 渲染与结果标红的解决办法</td>
 </tr>
 </tbody>
 </table>
@@ -773,7 +792,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"介绍","level":"1.1","depth":1,"next":{"title":"快速开始","level":"1.2","depth":1,"path":"1_getting_started/README.md","ref":"1_getting_started/README.md","articles":[{"title":"软件安装与启动","level":"1.2.1","depth":2,"path":"1_getting_started/installation.md","ref":"1_getting_started/installation.md","articles":[]},{"title":"界面布局与基本操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},{"title":"三分钟快速上手","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"README.md","mtime":"2026-11-05T07:12:47.067Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"介绍","level":"1.1","depth":1,"next":{"title":"快速开始","level":"1.2","depth":1,"path":"1_getting_started/README.md","ref":"1_getting_started/README.md","articles":[{"title":"软件安装与启动","level":"1.2.1","depth":2,"path":"1_getting_started/installation.md","ref":"1_getting_started/installation.md","articles":[]},{"title":"界面布局与基本操作","level":"1.2.2","depth":2,"path":"1_getting_started/ui_overview.md","ref":"1_getting_started/ui_overview.md","articles":[]},{"title":"三分钟快速上手","level":"1.2.3","depth":2,"path":"1_getting_started/quickstart.md","ref":"1_getting_started/quickstart.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"README.md","mtime":"2026-11-18T02:15:56.075Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -835,11 +854,11 @@
         
     
         
-        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         

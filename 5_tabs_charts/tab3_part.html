@@ -3,10 +3,10 @@
 <html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
-        <title>星形套轴向剖面 · TrackForm User Guide</title>
+        <title>工件轴向剖面 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -363,7 +363,7 @@
                 <a href="tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -376,7 +376,7 @@
                 <a href="tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -403,6 +403,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="tab7_scene3d.html">
+            
+                <a href="tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -619,7 +632,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >星形套轴向剖面</a>
+        <a href=".." >工件轴向剖面</a>
     </h1>
 </div>
 
@@ -634,24 +647,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="53-tab-3：星形套轴向剖面-ctrl3">5.3 Tab 3：星形套轴向剖面 (<code>Ctrl+3</code>)</h1>
-<p><strong><code>星形套轴向剖面</code></strong> 标签页展示沿着星形套零件回转中心轴线切开的<strong>轴向剖面图（过球道子午面）</strong>，并自动在图面上引出全部核心车削毛坯与球道特征尺寸，底部还配有各项符号（<code>O'</code>、<code>球面中心</code>、<code>Rp</code>、<code>PCD</code>、<code>W</code>、<code>H</code>、<code>R(球道底)</code>）的灰字释义。它相当于一张实时生成的<strong>星形套工序核对工程图</strong>。</p>
-<p><img src="resources/tab3_part.png" alt="Tab 3 星形套轴向剖面详解"></img></p>
+                                <h1 id="53-tab-3：工件轴向剖面-ctrl3">5.3 Tab 3：工件轴向剖面 (<code>Ctrl+3</code>)</h1>
+<p><strong><code>工件轴向剖面</code></strong> 标签页展示沿着零件回转中心轴线切开的<strong>过球道轴向剖面图</strong>，自动引出核心毛坯与球道特征尺寸，底部配有各项符号的灰字释义。</p>
 <hr></hr>
-<h2 id="一、标题栏与坐标系基准定义">一、标题栏与坐标系基准定义</h2>
+<h2 id="一、固定节星形套视图解读（完整工序核对图）">一、固定节星形套视图解读（完整工序核对图）</h2>
+<p><img src="resources/tab3_part.png" alt="Tab 3 工件轴向剖面详解"></img></p>
+<h3 id="1-标题栏与坐标系基准">1. 标题栏与坐标系基准</h3>
 <ul>
-<li><strong>顶部标题栏</strong>：显示 <code>星形套轴向剖面 (过球道)  钢球 Ø19.844  钢球中心轨迹半径 Rp = 31.5225</code>。</li>
-<li><strong>横轴 <code>Z 工件轴线 (mm)，原点 = 球道中心 O'</code></strong>：<ul>
-<li>水平红色点划线 <code>X = 0</code> 为<strong>星形套回转中心轴线</strong>；</li>
-<li><strong>坐标原点 <code>Z = 0</code>（红色十字 <code>+ O'</code>）</strong>：固定在<strong>球道中心 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>O</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">O'</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></strong>（即钢球中心轨迹圆弧的曲率中心）；</li>
-<li><strong>外球面球心（黑色叉号 <code>× 球面中心</code>）</strong>：位于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mo>+</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">Z = +e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord mathnormal">e</span></span></span></span> 处（当偏心距 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mn>4.27</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">e = 4.27\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4.27</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 时，位于原点右侧 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>4.27</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">+4.27\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">4.27</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span> 处）。</li>
+<li><strong>顶部标题栏</strong>：<code>星形套（固定节） 轴向剖面 (过球道)  钢球 Ø19.844  钢球中心轨迹半径 Rp = 31.5225</code>；</li>
+<li><strong>横轴 <code>Z 工件轴线 (mm)，原点 = 球道中心 O'</code></strong>：红色十字 <code>+ O'</code> 为球道中心，黑色叉号 <code>× 球面中心</code> 位于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mo>+</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">Z = +e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord mathnormal">e</span></span></span></span> 处；</li>
+<li><strong>纵轴 <code>X 径向 (mm)</code></strong>：水平红色点划线 <code>X = 0</code> 为零件回转中心轴线（上下对称绘制）。</li>
 </ul>
-</li>
-<li><strong>纵轴 <code>X 径向 (mm)</code></strong>：垂直于星形套回转轴线的径向半径坐标（上下对称绘制）。</li>
-</ul>
-<hr></hr>
-<h2 id="二、图面几何元素与-8-项自动标注尺寸核对清单">二、图面几何元素与 8 项自动标注尺寸核对清单</h2>
-<p>在每次开始计算刀具前，强烈建议切换到 <strong><code>Tab 3：星形套截面</code></strong>，对照手中的客户星形套零件图纸逐一核对图上标出的尺寸与轮廓：</p>
+<h3 id="2-八项自动标注尺寸核对清单">2. 八项自动标注尺寸核对清单</h3>
 <table>
 <thead>
 <tr>
@@ -665,25 +672,25 @@
 <tr>
 <td style="text-align:center"><strong>1</strong></td>
 <td style="text-align:left"><strong><code>W 23.1</code></strong></td>
-<td style="text-align:left">高级参数 <code>工件宽度</code></td>
+<td style="text-align:left">基本参数 <code>工件宽度 W</code></td>
 <td style="text-align:left">核对零件左右两端面之间的总轴向厚度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>。</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>2</strong></td>
 <td style="text-align:left"><strong><code>H 13.31</code></strong></td>
-<td style="text-align:left">高级参数 <code>球心至端面</code></td>
+<td style="text-align:left">基本参数 <code>球心至端面 H</code></td>
 <td style="text-align:left">核对从左侧端面到<strong>外球面球心（<code>× 球面中心</code>）</strong>的轴向距离 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span>。</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>3</strong></td>
 <td style="text-align:left"><strong><code>e 4.27</code></strong></td>
-<td style="text-align:left">基本参数 <code>球道偏心 e</code></td>
-<td style="text-align:left">核对<strong>球道中心（红十字 <code>O'</code>）</strong>与<strong>外球面球心（黑叉号 <code>球面中心</code>）</strong>之间的轴向偏心距 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">e</span></span></span></span>。</td>
+<td style="text-align:left">基本参数 <code>球道偏移 e</code></td>
+<td style="text-align:left">核对<strong>球道中心（红十字 <code>O'</code>）</strong>与<strong>外球面球心（黑叉号 <code>球面中心</code>）</strong>之间的轴向偏移距 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">e</span></span></span></span>。</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>4</strong></td>
 <td style="text-align:left"><strong><code>SØ61.113</code></strong></td>
-<td style="text-align:left">高级参数 <code>外球面直径</code></td>
+<td style="text-align:left">基本参数 <code>外球面直径</code></td>
 <td style="text-align:left">核对以 <code>× 球面中心</code> 为圆心的星形套外球面直径。</td>
 </tr>
 <tr>
@@ -696,22 +703,31 @@
 <td style="text-align:center"><strong>6</strong></td>
 <td style="text-align:left"><strong><code>PCD 62.464</code></strong></td>
 <td style="text-align:left">基本参数 <code>节圆直径 PCD</code></td>
-<td style="text-align:left">核对在 <code>球面中心</code> 基准平面（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">Z = e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">e</span></span></span></span>）处上下两颗灰色钢球中心的跨距。</td>
+<td style="text-align:left">核对在基准横截面处上下两颗灰色钢球中心的跨距。</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>7</strong></td>
 <td style="text-align:left"><strong><code>R21.572 (球道底)</code></strong></td>
 <td style="text-align:left">自动计算结果</td>
-<td style="text-align:left">蓝色箭头标示从球道中心 <code>O'</code> 到球道最深处底面轮廓的圆弧半径（可用于车间圆弧样板或三坐标抽检球道底径）。</td>
+<td style="text-align:left">蓝色箭头标示从球道中心 <code>O'</code> 到球道最深处底面轮廓的圆弧半径（直线/斜球道标注为 <code>直线</code>）。</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>8</strong></td>
 <td style="text-align:left"><strong>蓝色点划线圆弧</strong></td>
 <td style="text-align:left"><code>Rp = 31.5225</code></td>
-<td style="text-align:left">标示钢球中心沿着子午面运动的圆弧轨迹（以 <code>O'</code> 为圆心、半径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>p</mi></msub></mrow><annotation encoding="application/x-tex">R_p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>）。</td>
+<td style="text-align:left">标示钢球中心沿着子午面运动的轨迹（圆弧球道为圆弧，DO/VL 伸缩节为平行轴线直线）。</td>
 </tr>
 </tbody>
 </table>
+<hr></hr>
+<h2 id="二、扩展工件类型（外圈--直线--斜球道）示意外形剖面">二、扩展工件类型（外圈 / 直线 / 斜球道）示意外形剖面</h2>
+<p>当（在内部版中）切换为 <strong><code>钟形壳（固定节）</code>、<code>星形套（DO 直球道）</code>、<code>筒形壳（DO 直球道）</code>、<code>星形套（VL 斜球道）</code> 或 <code>斜筒形壳（VL 斜球道）</code></strong> 时，Tab 3 会自动切换为对应几何表达方式（下图 ① 为 VL 斜筒形壳 <code>EVL12508M.0F2-1</code> 示例）：</p>
+<p><img src="resources/tab3_4_workshape_outer.png" alt="外圈轴向剖面与加工姿态示例"></img></p>
+<ul>
+<li><strong>球道与工作面严格按参数精确绘制</strong>：内球面 / 圆柱内孔、盲端有效长度 <code>L</code> 及<strong>末端刀具自然收尾圆角</strong>按实际刀具外形精确绘出；</li>
+<li><strong>外径 / 底壁 / 杆部按经验比例示意</strong>：用剖面线补齐外圈杯体与杆部轮廓，辅助核对开口深度与整体比例；</li>
+<li><strong>VL 斜球道投影说明</strong>：斜球道离开系统平面后逐渐偏出基准剖面，图中以虚线标示钢球中心线及球道底投影，并在底部浅灰注释中注明。</li>
+</ul>
 
                                 
                                 </section>
@@ -744,7 +760,7 @@
                 </a>
                 
                 
-                <a href="tab4_pose.html" class="navigation navigation-next " aria-label="Next page: 加工姿态(子午面)">
+                <a href="tab4_pose.html" class="navigation navigation-next " aria-label="Next page: 加工姿态">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -755,7 +771,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"星形套轴向剖面","level":"1.6.3","depth":2,"next":{"title":"加工姿态(子午面)","level":"1.6.4","depth":2,"path":"5_tabs_charts/tab4_pose.md","ref":"5_tabs_charts/tab4_pose.md","articles":[]},"previous":{"title":"球道设计截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab3_part.md","mtime":"2026-11-05T07:12:47.057Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"工件轴向剖面","level":"1.6.3","depth":2,"next":{"title":"加工姿态","level":"1.6.4","depth":2,"path":"5_tabs_charts/tab4_pose.md","ref":"5_tabs_charts/tab4_pose.md","articles":[]},"previous":{"title":"球道设计截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab3_part.md","mtime":"2026-11-18T02:15:56.069Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -817,11 +833,11 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         

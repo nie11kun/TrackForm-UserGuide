@@ -6,7 +6,7 @@
         <title>案例四：预留加工余量与刀柄防干涉调优 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -363,7 +363,7 @@
                 <a href="../5_tabs_charts/tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -376,7 +376,7 @@
                 <a href="../5_tabs_charts/tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -403,6 +403,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../5_tabs_charts/tab7_scene3d.html">
+            
+                <a href="../5_tabs_charts/tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -688,37 +701,37 @@
 <td style="text-align:left"><strong>单圆弧近似半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span></strong></td>
 <td style="text-align:center"><code>12.3600 mm</code></td>
 <td style="text-align:center"><strong><code>12.2120 mm</code></strong></td>
-<td style="text-align:left">圆弧半径正好减小约 <code>0.148 mm</code>（接近 <code>0.15 mm</code> 余量值）</td>
+<td style="text-align:left">圆弧半径减小约 <code>0.148 mm</code>（接近 <code>0.15 mm</code> 余量值）</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>单圆弧圆柱段直径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">\varnothing</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66334em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span></span></span></span></strong></td>
-<td style="text-align:center"><code>20.3360 mm</code></td>
-<td style="text-align:center"><strong><code>20.0380 mm</code></strong></td>
+<td style="text-align:left"><strong>单圆弧圆柱 / 刀尖直径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">\varnothing</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66334em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span></span></span></span></strong></td>
+<td style="text-align:center"><code>Ø20.3360 / Ø15.7952 mm</code></td>
+<td style="text-align:center"><strong><code>Ø20.0380 / Ø15.5516 mm</code></strong></td>
 <td style="text-align:left">圆柱外径减小约 <code>0.298 mm</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>单圆弧生成球道偏差</strong></td>
+<td style="text-align:left"><strong>单圆弧偏差与成品落座校核</strong></td>
 <td style="text-align:center"><code>3.78 μm 合格</code></td>
-<td style="text-align:center"><strong><code>3.78 μm 合格</code></strong></td>
-<td style="text-align:left">依然远小于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>±</mo><mn>10</mn><mtext>&nbsp;</mtext><mi>μ</mi><mtext>m</mtext></mrow><annotation encoding="application/x-tex">\pm 10\ \mu\text{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">±</span><span class="mord">10</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">μ</span><span class="mord text"><span class="mord">m</span></span></span></span></span>，半精铣刀同样可直接采用单圆弧！</td>
+<td style="text-align:center"><strong><code>4.39 μm 合格</code></strong>；还原精加工成品截面后：<code>实际顶隙 0.0344 OK</code>、<code>实际接触角 41.780° OK</code>、<code>实际 PCD 62.4667 OK</code></td>
+<td style="text-align:left">仿真自动先退回 <code>0.15 mm</code> 余量还原成品边界后再放球校验，确保粗/半精刀直接对接终检公差！</td>
 </tr>
 </tbody>
 </table>
 <hr></hr>
 <h3 id="第三步：切换-刀柄方向-为-朝--z-并校核机床空间姿态">第三步：切换 <code>刀柄方向</code> 为 <code>朝 -Z</code> 并校核机床空间姿态</h3>
 <ol>
-<li>点击左侧 <strong><code>▶ 高级参数</code></strong> 展开高级参数面板，在 <strong><code>── 刀柄与工件 ──</code></strong> 分组中：<ul>
+<li>点击左侧 <strong><code>▸ 高级参数</code></strong> 展开高级参数面板，在 <strong><code>刀柄与姿态</code></strong> 分组中：<ul>
 <li>根据机床主轴夹头悬伸长度核对 <strong><code>球心距 L</code></strong>（默认 <strong><code>50.0</code></strong> mm）；</li>
 <li>将 <strong><code>刀柄方向</code></strong> 下拉框从默认的 <code>朝 +Z</code> 切换为 <strong><code>朝 -Z</code></strong>；</li>
 </ul>
 </li>
-<li>按 <strong><code>F5</code></strong> 重新计算，并按 <strong><code>Ctrl + 4</code></strong> 切换到 <strong><a href="../5_tabs_charts/tab4_pose.html">Tab 4：加工姿态(子午面)</a></strong> 标签页：</li>
+<li>按 <strong><code>F5</code></strong> 重新计算，并按 <strong><code>Ctrl + 4</code></strong> 切换到 <strong><a href="../5_tabs_charts/tab4_pose.html">Tab 4：加工姿态</a></strong> 标签页：</li>
 </ol>
 <p><img src="../3_advanced_params/resources/cmp_tilt_side_pose.png" alt="刀柄方向朝+Z与朝-Z对比"></img></p>
 <ol>
 <li><strong>姿态校核结论</strong>：<ul>
 <li>切换为 <code>朝 -Z</code> 后，刀轴点划线与刀柄端面粗实线完全朝向左侧（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>Z</mi></mrow><annotation encoding="application/x-tex">-Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span> 方向）伸出，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>Z</mi></mrow><annotation encoding="application/x-tex">+Z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span></span></span></span> 侧空间完全敞开，彻底避开了右侧尾座顶尖；</li>
-<li>注意观察 <strong><code>刀具点表 CSV</code></strong> 中的 <code>z_端面</code> 列：当 <code>刀柄方向</code> 从 <code>朝 +Z</code> 切换为 <code>朝 -Z</code> 时，软件会自动适配刀柄端面所在侧，确保 <code>z_端面</code> 始终代表各刀刃点到刀柄定位端面的真实距离！</li>
+<li>两种方向下刀具齿形对称一致，且 <code>刀具点表 CSV</code> 中的 <strong><code>z_端面 = z_球心 + L</code></strong> 始终是以<strong>刀柄定位端面（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mo>−</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">z = -L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord mathnormal">L</span></span></span></span>）</strong>为零点沿刀轴向刀尖量取的距离，数控磨床对刀基准无需随摆向重新换算。</li>
 </ul>
 </li>
 </ol>
@@ -772,7 +785,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"next":{"title":"常见提示与故障排除","level":"1.10","depth":1,"path":"9_troubleshooting/README.md","ref":"9_troubleshooting/README.md","articles":[]},"previous":{"title":"案例三：双圆弧球道(给定半径 R)与三种刀具方案","level":"1.9.3","depth":2,"path":"8_workflows_cases/case3_gothic.md","ref":"8_workflows_cases/case3_gothic.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"8_workflows_cases/case4_allowance_pose.md","mtime":"2026-11-05T07:12:47.059Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"next":{"title":"常见提示与故障排除","level":"1.10","depth":1,"path":"9_troubleshooting/README.md","ref":"9_troubleshooting/README.md","articles":[]},"previous":{"title":"案例三：双圆弧球道(给定半径 R)与三种刀具方案","level":"1.9.3","depth":2,"path":"8_workflows_cases/case3_gothic.md","ref":"8_workflows_cases/case3_gothic.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"8_workflows_cases/case4_allowance_pose.md","mtime":"2026-11-18T02:15:56.071Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -834,11 +847,11 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         

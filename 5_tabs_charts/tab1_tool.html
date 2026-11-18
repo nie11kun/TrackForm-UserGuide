@@ -6,7 +6,7 @@
         <title>精确刀具廓形 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -363,7 +363,7 @@
                 <a href="tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -376,7 +376,7 @@
                 <a href="tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -403,6 +403,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="tab7_scene3d.html">
+            
+                <a href="tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -668,24 +681,24 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong><code>刀头最大外形</code></strong></td>
-<td style="text-align:left"><strong>绿色粗实线 + 浅绿填充区</strong></td>
-<td style="text-align:left">勾勒出整个成型刀头的完整回转外轮廓。其中接触段上端分界线以上的浅绿色阴影区域标有文字说明：<strong>“刀尖段：不切削，绿线为最大允许外形，不得超出，可在线内修整为倒角/平端”</strong>。</td>
+<td style="text-align:left"><strong><code>接触段（切削，须精确；到球道边缘）</code></strong></td>
+<td style="text-align:left"><strong>红色粗实线</strong></td>
+<td style="text-align:left"><strong>核心工作刀刃</strong>！上端带红色引线标注 <strong><code>接触段上端：切出球道底附近</code></strong>，下端红点标注 <strong><code>切出球道边缘（外球面/工作面处）</code></strong>（若点表未覆盖到工作面则注明 <code>切出点表末端（未到工作面）</code>）。制造与检测时必须严格保证该段精度。</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>接触段（切削，必须精确；到球道边缘）</code></strong></td>
-<td style="text-align:left"><strong>珊瑚红粗实线</strong></td>
-<td style="text-align:left"><strong>核心工作刀刃</strong>！上端带红色引线标注 <strong><code>接触段上端：切出球道底附近</code></strong>，下端红点标注 <strong><code>切出球道边缘（外球面处）</code></strong>（若点表未覆盖到外球面则注明 <code>切出点表末端（未到外球面）</code>）。该段刀刃直接包络切削出星形套球道有效工作面，制造与检测时必须严格保证其精度。</td>
+<td style="text-align:left"><strong><code>边缘延伸 (0.3 mm)</code> + 左下角局部放大窗</strong></td>
+<td style="text-align:left"><strong>青色粗实线 + 左下角放大图</strong></td>
+<td style="text-align:left">在红点（球道边缘）之外继续朝刀柄侧延伸的一小段刃口（引线标注 <strong><code>边缘延伸末端</code></strong>），为工件外球面/工作面尺寸偏差与装夹误差留余量。<strong>左下角内嵌放大窗 <code>球道边缘局部放大：边缘延伸 0.3 mm</code></strong> 将该处自动放大，标出 <code>球道边缘 z 0.031</code> 红点与 <code>边缘延伸末端 z -0.175</code> 青色段。</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>边缘延伸段 (0.3 mm)</code> + 左下角局部放大窗</strong></td>
-<td style="text-align:left"><strong>橙色粗实线 + 左下角放大图</strong></td>
-<td style="text-align:left">在红点（球道边缘外球面处）之外继续朝刀柄侧延伸的一小段刃口（引线标注 <strong><code>延伸末端</code></strong>），为外球面尺寸偏差和装夹定位误差留出余量。由于延伸段很短，<strong>左下角内嵌放大窗 <code>球道边缘局部放大：延伸 0.3 mm</code></strong> 自动将该处放大，清晰标出 <code>球道边缘 z ...</code> 红点与 <code>延伸末端 z ...</code> 橙色段！</td>
+<td style="text-align:left"><strong><code>刀尖段最大外形（不切削）</code></strong></td>
+<td style="text-align:left"><strong>深灰虚线 + 极浅灰阴影区</strong></td>
+<td style="text-align:left">从接触段上端延至刀尖平端面的允许外形边界。浅灰区注明：<strong>“刀尖段：不切削，深灰虚线为最大允许外形，不得超出，可在线内修整为倒角/平端”</strong>。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>球道底约束 (R21.572)</code></strong></td>
 <td style="text-align:left"><strong>蓝色点线</strong></td>
-<td style="text-align:left">球道底部最低点（半径 <code>R21.572</code>）在刀具轴截面中的投影边界。刀尖段绿色实线向内缩进了 <code>让刀量</code>（默认 <code>0.05 mm</code>），始终保持在蓝色点线内侧，确保刀尖绝不擦伤球道底。</td>
+<td style="text-align:left">球道底部最低点（固定节圆弧半径 <code>R21.572</code>；直线球道则为斜直线）在刀具轴截面中的投影边界。刀尖段深灰虚线向内缩进了 <code>让刀量</code>（默认 <code>0.05 mm</code>），始终保持在蓝色点线内侧，确保刀尖绝不擦伤球道底。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>虚拟钢球</code></strong></td>
@@ -702,13 +715,13 @@
 <hr></hr>
 <h2 id="三、工程师看图检查要点">三、工程师看图检查要点</h2>
 <ol>
-<li><strong>检查接触段（红线）、边缘延伸段（橙线）与刀尖段（绿线）的过渡</strong>：<ul>
-<li>正常情况下，上端红线平滑过渡为绿色刀尖让刀段，下端红点处继续顺延出橙色边缘延伸段（可在左下角放大窗核对延伸起止坐标）；</li>
-<li>若在 <code>点表(CSV)</code> 模式下设置了 <code>边缘延伸 &gt; 0</code> 但点表本身只给到球道边缘，图面右下角会贴心给出橙色提示 <code>边缘延伸 X mm 未生效（点表只到球道边缘...）</code>。</li>
+<li><strong>检查接触段（红线）、边缘延伸段（青线）与刀尖段（深灰虚线）的过渡</strong>：<ul>
+<li>正常情况下，上端红线平滑过渡为深灰虚线刀尖让刀段，下端红点处继续顺延出青色边缘延伸段（可在左下角放大窗核对 <code>0.031 ~ -0.175</code> 起止坐标）；</li>
+<li>若在 <code>点表(CSV)</code> 模式下设置了 <code>边缘延伸 &gt; 0</code> 但点表本身只给到球道边缘，图面右下角会给出提示 <code>边缘延伸 X mm 未生效（点表只到球道边缘...）</code>。</li>
 </ul>
 </li>
 <li><strong>根据加工工艺优化刀尖段外形</strong>：<ul>
-<li>若觉得默认刀尖高度（<code>9.922 mm</code>）较高，可在高级参数中将 <strong><code>刀尖高度</code></strong> 调小至略大于接触段上端高度（例如对默认参数设为 <code>6.2 ~ 6.5 mm</code>），或在绿色最大允许外形线以内将其修整为平端/大圆角，以提高刀头刚性。</li>
+<li>若觉得默认刀尖高度（<code>9.922 mm</code>）较高，可在高级参数中将 <strong><code>刀尖高度</code></strong> 调小至略大于接触段上端高度（例如对默认参数设为 <code>6.2 ~ 6.5 mm</code>），或在深灰虚线最大允许外形线以内将其修整为平端/大圆角，以提高刀头刚性。</li>
 </ul>
 </li>
 </ol>
@@ -755,7 +768,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"精确刀具廓形","level":"1.6.1","depth":2,"next":{"title":"球道设计截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},"previous":{"title":"图形页签（Tab 图表）详解","level":"1.6","depth":1,"path":"5_tabs_charts/README.md","ref":"5_tabs_charts/README.md","articles":[{"title":"精确刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},{"title":"球道设计截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},{"title":"星形套轴向剖面","level":"1.6.3","depth":2,"path":"5_tabs_charts/tab3_part.md","ref":"5_tabs_charts/tab3_part.md","articles":[]},{"title":"加工姿态(子午面)","level":"1.6.4","depth":2,"path":"5_tabs_charts/tab4_pose.md","ref":"5_tabs_charts/tab4_pose.md","articles":[]},{"title":"精确刀具反向仿真","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},{"title":"圆弧近似刀具","level":"1.6.6","depth":2,"path":"5_tabs_charts/tab6_arc.md","ref":"5_tabs_charts/tab6_arc.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab1_tool.md","mtime":"2026-11-05T07:12:47.057Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"精确刀具廓形","level":"1.6.1","depth":2,"next":{"title":"球道设计截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},"previous":{"title":"图形页签（Tab 图表）详解","level":"1.6","depth":1,"path":"5_tabs_charts/README.md","ref":"5_tabs_charts/README.md","articles":[{"title":"精确刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},{"title":"球道设计截面","level":"1.6.2","depth":2,"path":"5_tabs_charts/tab2_section.md","ref":"5_tabs_charts/tab2_section.md","articles":[]},{"title":"工件轴向剖面","level":"1.6.3","depth":2,"path":"5_tabs_charts/tab3_part.md","ref":"5_tabs_charts/tab3_part.md","articles":[]},{"title":"加工姿态","level":"1.6.4","depth":2,"path":"5_tabs_charts/tab4_pose.md","ref":"5_tabs_charts/tab4_pose.md","articles":[]},{"title":"精确刀具反向仿真","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},{"title":"圆弧近似刀具","level":"1.6.6","depth":2,"path":"5_tabs_charts/tab6_arc.md","ref":"5_tabs_charts/tab6_arc.md","articles":[]},{"title":"三维演示","level":"1.6.7","depth":2,"path":"5_tabs_charts/tab7_scene3d.md","ref":"5_tabs_charts/tab7_scene3d.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab1_tool.md","mtime":"2026-11-18T02:15:56.069Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -817,11 +830,11 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         

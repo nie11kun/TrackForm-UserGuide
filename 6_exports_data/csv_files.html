@@ -6,7 +6,7 @@
         <title>CSV 数据表导出与编程/检测应用 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -363,7 +363,7 @@
                 <a href="../5_tabs_charts/tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -376,7 +376,7 @@
                 <a href="../5_tabs_charts/tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -403,6 +403,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../5_tabs_charts/tab7_scene3d.html">
+            
+                <a href="../5_tabs_charts/tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -663,12 +676,12 @@
 <tr>
 <td style="text-align:left"><strong><code>段</code></strong></td>
 <td style="text-align:left">标识该点所属的刀头功能区段</td>
-<td style="text-align:left">• <code>接触</code>：球道有效工作接触区的核心切削刃（对应 Tab 1 中的红色实线，必须精确制造）；<br></br>• <code>刀尖</code>：球道底部避空区的最大允许外形（对应 Tab 1 中的绿色刀尖段，不参与切削）。</td>
+<td style="text-align:left">• <code>接触</code>：球道有效工作接触区与边缘延伸的切削刃（对应 Tab 1 红/青实线，须精确制造）；<br></br>• <code>刀尖</code>：球道底部避空区最大允许外形（对应 Tab 1 深灰虚线刀尖段，不参与切削）。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>r</code></strong></td>
 <td style="text-align:left">刀具半径（单位：<code>mm</code>）</td>
-<td style="text-align:left">各点到刀具旋转中心轴线的径向半径（例如接触段从 <code>10.13842</code> 递减至 <code>7.92685</code>）。</td>
+<td style="text-align:left">各点到刀具旋转中心轴线的径向半径（例如从 <code>10.13842</code> 递减至 <code>7.92685</code>）。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>D</code></strong></td>
@@ -678,23 +691,28 @@
 <tr>
 <td style="text-align:left"><strong><code>z_球心</code></strong></td>
 <td style="text-align:left"><strong>以虚拟钢球中心为原点 <code>z = 0</code></strong>（向刀尖方向为正，单位：<code>mm</code>）</td>
-<td style="text-align:left">与软件界面 <strong><a href="../5_tabs_charts/tab1_tool.html">Tab 1：刀具廓形</a></strong> 及计算结果面板中的 <code>接触段 z</code> 完全一致（例如从 <code>-0.17469</code> 递增至 <code>+9.92200</code>）。</td>
+<td style="text-align:left">与软件界面 <strong><a href="../5_tabs_charts/tab1_tool.html">Tab 1：精确刀具廓形</a></strong> 及结果面板 <code>接触段 z</code> 一致（从 <code>-0.17469</code> 递增至 <code>+9.92200</code>）。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>z_端面</code></strong></td>
 <td style="text-align:left"><strong>以刀柄定位端面为原点 <code>z = 0</code></strong>（距刀柄端面距离，单位：<code>mm</code>）</td>
-<td style="text-align:left">换算关系：<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>z_端面</mtext><mo>=</mo><mtext>z_球心</mtext><mo>+</mo><mtext>球心距&nbsp;</mtext><mi>L</mi></mrow><annotation encoding="application/x-tex">\text{z\_端面} = \text{z\_球心} + \text{球心距 } L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.99333em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">z_</span><span class="mord cjk_fallback">端面</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.99333em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">z_</span><span class="mord cjk_fallback">球心</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">球心距</span><span class="mord">&nbsp;</span></span><span class="mord mathnormal">L</span></span></span></span></span>（当 <code>刀柄方向 = 朝 +Z</code> 时为 <code>L - z_球心</code>）。<br></br><strong>现场最常用</strong>：数控磨床或加工中心装夹 HSK 刀柄时，直接以<strong>刀柄定位端面（HSK 法兰端面）作为 Z 向编程零点</strong>，即可直接读取 <code>z_端面</code> 列坐标进行编程与三坐标检测，免去一切手工加减换算！</td>
+<td style="text-align:left">换算公式恒为：<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>z_端面</mtext><mo>=</mo><mtext>z_球心</mtext><mo>+</mo><mtext>球心距&nbsp;</mtext><mi>L</mi></mrow><annotation encoding="application/x-tex">\text{z\_端面} = \text{z\_球心} + \text{球心距 } L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.99333em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">z_</span><span class="mord cjk_fallback">端面</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.99333em;vertical-align:-0.31em;"></span><span class="mord text"><span class="mord">z_</span><span class="mord cjk_fallback">球心</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">球心距</span><span class="mord">&nbsp;</span></span><span class="mord mathnormal">L</span></span></span></span></span>。<br></br><strong>现场最常用</strong>：数控磨床装夹 HSK 刀柄时直接以<strong>刀柄定位端面为 Z 向编程零点</strong>，即可直接读取 <code>z_端面</code> 列坐标编程与检测，免去手工加减换算！</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><em>说明：客户发行版输出上述 <code>6</code> 列纯粹几何坐标；内部版额外附带 <code>截面y, 截面Y, 法线角θ(deg)</code> 以及 <code>摆角φ(deg)</code>（圆弧球道）或 <code>沿球道s(mm)</code>（DO/VL 直线球道）四列校核数据。</em></li>
+</ul>
 <h3 id="2-真实导出文件内容示例">2. 真实导出文件内容示例</h3>
-<pre><code class="lang-text"># TrackForm 球道成型刀具廓形点表
-# 钢球直径=19.844  PCD=62.464  偏移e=4.270  Rp=31.5225
-# 截面=椭圆  接触角=42.00°  切入角=36.00°  球心距=50.000  余量=0.000
-# 椭圆 a(横向)=10.1762  b(径向)=10.6436  uc=0.6929  相似度=1.0400  顶隙=0.0287  跨距=13.2782
-# 实际切出（钢球落座）：接触角=42.001°  跨距=13.2785  顶隙=0.0287  球心移动=+0.0μm  实际PCD=62.4640(+0.0μm)
-# 顺序: 刀柄侧 -&gt; 刀尖；段=接触 为切削刃(必须精确)，段=刀尖 为最大允许外形(不切削)
-# r=半径(mm)  D=直径(mm)  z_球心=沿刀轴距虚拟钢球中心(刀尖为正)  z_端面=距刀柄端面
+<pre><code class="lang-text"># TrackForm 刀具廓形点表（刀具轴截面半廓形，单位 mm）。行顺序：刀柄侧 -&gt; 刀尖。
+# 段：接触 = 切削段（必须精确）；刀尖 = 最大允许外形（不切削，可在线内修整）。
+# r：该点到刀轴的距离（半径）；D = 2r 为该处刀具直径。
+# z_球心：沿刀轴的位置，原点 = 虚拟钢球中心，刀尖方向为正。
+# z_端面：该点到刀柄（HSK）端面的距离 = z_球心 + 球心距 L，以端面为基准编程时使用。
+# 设计值（理论）：接触角 42.000°（40 ~ 44）   接触角跨距 13.2782   顶隙 0.0287（0.019 ~ 0.04）
+# 实际切出（钢球落座）：接触角 41.982°（40 ~ 44）   接触角跨距 13.2736   顶隙 0.0287（0.019 ~ 0.04）   实际PCD 62.4640（+0.0μm，62.454 ~ 62.474）
+# 工件：星形套（固定节）   钢球 19.844  PCD 62.464  偏移 4.270  Rp 31.5225
+# 截面：椭圆  切入角 36.00°  球心距 50.000  余量 0.000
 序号,段,r,D,z_球心,z_端面
 1,接触,10.13842,20.27684,-0.17469,49.82531
 2,接触,10.13819,20.27637,-0.16469,49.83531
@@ -796,7 +814,7 @@ No,Z(±),Y
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"next":{"title":"菜单功能、快捷键与参数管理","level":"1.8","depth":1,"path":"7_menus_session/README.md","ref":"7_menus_session/README.md","articles":[{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"path":"7_menus_session/menus_shortcuts.md","ref":"7_menus_session/menus_shortcuts.md","articles":[]},{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"path":"7_menus_session/params_management.md","ref":"7_menus_session/params_management.md","articles":[]}]},"previous":{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"path":"6_exports_data/dxf_files.md","ref":"6_exports_data/dxf_files.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"6_exports_data/csv_files.md","mtime":"2026-11-05T07:12:47.058Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"next":{"title":"菜单功能、快捷键与参数管理","level":"1.8","depth":1,"path":"7_menus_session/README.md","ref":"7_menus_session/README.md","articles":[{"title":"菜单栏与快捷键速查","level":"1.8.1","depth":2,"path":"7_menus_session/menus_shortcuts.md","ref":"7_menus_session/menus_shortcuts.md","articles":[]},{"title":"参数文件管理与自动记忆","level":"1.8.2","depth":2,"path":"7_menus_session/params_management.md","ref":"7_menus_session/params_management.md","articles":[]}]},"previous":{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"path":"6_exports_data/dxf_files.md","ref":"6_exports_data/dxf_files.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"6_exports_data/csv_files.md","mtime":"2026-11-18T02:15:56.070Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -858,11 +876,11 @@ No,Z(±),Y
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         

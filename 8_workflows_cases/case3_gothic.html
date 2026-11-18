@@ -6,7 +6,7 @@
         <title>案例三：双圆弧球道(给定半径 R)与三种刀具方案 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -363,7 +363,7 @@
                 <a href="../5_tabs_charts/tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -376,7 +376,7 @@
                 <a href="../5_tabs_charts/tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -403,6 +403,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../5_tabs_charts/tab7_scene3d.html">
+            
+                <a href="../5_tabs_charts/tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -636,8 +649,8 @@
                                 
                                 <h1 id="83-案例三：双圆弧球道（给定半径-r）与三种刀具制造方案对比-ac10000">8.3 案例三：双圆弧球道（给定半径 R）与三种刀具制造方案对比 (<code>AC10000</code>)</h1>
 <h2 id="一、任务背景与零件图纸参数">一、任务背景与零件图纸参数</h2>
-<p>在许多高刚度、大扭矩球笼式等速万向节星形套中（以软件内置示例 <strong><code>AC10000_参数</code></strong> 为例），球道法向截面采用<strong>双圆弧（哥特式尖底，Gothic Arch）截面</strong>。</p>
-<p>与传统给出“相似度”的图纸不同，该零件图纸直接在截面图上标出了<strong>两段圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mn>10.24</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">R = 10.24\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">10.24</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></strong> 与名义<strong>接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>4</mn><msup><mn>2</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">\alpha = 42^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span></strong>，并规定了接触角、跨距、顶隙、PCD 与轮廓度的审核公差：</p>
+<p>在高刚度、大扭矩球笼式等速万向节星形套中（以软件内置示例 <strong><code>AC10000_星形套_参数</code></strong> 为例），球道法向截面采用<strong>双圆弧（哥特式尖底，Gothic Arch）截面</strong>。</p>
+<p>该零件图纸直接标出<strong>两段圆弧半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mn>10.24</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">R = 10.24\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">10.24</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></strong> 与名义<strong>接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>4</mn><msup><mn>2</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">\alpha = 42^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span></strong>，并规定了接触角、跨距、顶隙、PCD 与轮廓度的审核公差：</p>
 <table>
 <thead>
 <tr>
@@ -648,19 +661,19 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong>钢球直径 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)</strong></td>
-<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>19.75</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 19.75\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">19.75</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>（半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9.875</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">9.875\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9.875</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）</td>
-<td style="text-align:left">基本参数 <code>钢球直径 Dw</code> = <strong><code>19.75</code></strong> mm</td>
+<td style="text-align:left"><strong>工件结构与钢球直径 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)</strong></td>
+<td style="text-align:left">固定节星形套，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>19.75</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 19.75\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">19.75</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>（半径 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9.875</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">9.875\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9.875</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）</td>
+<td style="text-align:left"><code>工件类型</code> = <strong><code>星形套（固定节）</code></strong>，<code>钢球直径 Dw</code> = <strong><code>19.75</code></strong> mm</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>节圆直径 (PCD)</strong></td>
-<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>70.0</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 70.0\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">70.0</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></td>
-<td style="text-align:left">基本参数 <code>节圆直径 PCD</code> = <strong><code>70.0</code></strong> mm</td>
+<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>63.82</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">\varnothing 63.82\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">63.82</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></td>
+<td style="text-align:left">基本参数 <code>节圆直径 PCD</code> = <strong><code>63.82</code></strong> mm</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>球道中心偏移 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">e</span></span></span></span>)</strong></td>
-<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5.2</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">5.2\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5.2</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></td>
-<td style="text-align:left">基本参数 <code>球道偏移 e</code> = <strong><code>5.2</code></strong> mm</td>
+<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4.44</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">4.44\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4.44</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span></td>
+<td style="text-align:left">基本参数 <code>球道偏移 e</code> = <strong><code>4.44</code></strong> mm</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>球道截面类型与定义方式</strong></td>
@@ -684,7 +697,7 @@
 </tr>
 <tr>
 <td style="text-align:left"><strong>工件外形尺寸</strong></td>
-<td style="text-align:left">外球面 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi mathvariant="normal">∅</mi><mn>68.5</mn></mrow><annotation encoding="application/x-tex">S\varnothing 68.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.765em;vertical-align:-0.08167em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord amsrm">∅</span><span class="mord">68.5</span></span></span></span>，宽 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mn>29.0</mn></mrow><annotation encoding="application/x-tex">W=29.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">29.0</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mn>13.0</mn></mrow><annotation encoding="application/x-tex">H=13.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">13.0</span></span></span></span>，内孔 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>30.0</mn></mrow><annotation encoding="application/x-tex">\varnothing 30.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">30.0</span></span></span></span></td>
+<td style="text-align:left">外球面 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi mathvariant="normal">∅</mi><mn>62.35</mn></mrow><annotation encoding="application/x-tex">S\varnothing 62.35</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.765em;vertical-align:-0.08167em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mord amsrm">∅</span><span class="mord">62.35</span></span></span></span>，宽 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mn>25.4</mn></mrow><annotation encoding="application/x-tex">W=25.4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">25.4</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mn>15.72</mn></mrow><annotation encoding="application/x-tex">H=15.72</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">15.72</span></span></span></span>，内孔 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi><mn>29.0</mn></mrow><annotation encoding="application/x-tex">\varnothing 29.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72611em;vertical-align:-0.08167em;"></span><span class="mord amsrm">∅</span><span class="mord">29.0</span></span></span></span></td>
 <td style="text-align:left">基本参数 <code>④ 工件外形</code> 与高级参数 <code>内孔直径</code> 对应填入</td>
 </tr>
 <tr>
@@ -695,92 +708,93 @@
 </tbody>
 </table>
 <hr></hr>
-<h2 id="二、第一步：一键载入-ac10000参数-并核对双圆弧理论截面">二、第一步：一键载入 <code>AC10000_参数</code> 并核对双圆弧理论截面</h2>
+<h2 id="二、第一步：载入-ac10000星形套参数-并核对双圆弧理论截面">二、第一步：载入 <code>AC10000_星形套_参数</code> 并核对双圆弧理论截面</h2>
 <ol>
-<li>点击顶部菜单 <strong><code>文件(F) → 载入示例参数 → AC10000_参数</code></strong>，然后按 <strong><code>F5</code></strong> 计算。</li>
+<li>点击顶部菜单 <strong><code>文件(F) → 载入示例参数 → AC10000_星形套_参数</code></strong>，然后按 <strong><code>F5</code></strong> 计算。</li>
 <li>查看左侧 <strong><code>计算结果</code></strong> 面板第 一 分块与右侧 <strong><code>Tab 2：球道设计截面</code></strong>：<pre><code class="lang-text">■ 一、球道截面设计【理论值】
   截面：双圆弧（给定半径 R）
-  钢球中心轨迹半径 Rp：35.3842
+  工件类型：星形套（固定节）
+  钢球中心轨迹半径 Rp：32.2174
   圆弧半径 R：10.2400
-  圆心 (y, u)：(±0.2442, +0.2711)（两侧圆弧圆心交叉到对称轴另一侧）
-  球道底尖点法线角 θ0：1.366°
+  圆心 (y, u)：(±0.2442, 0.2712)（交叉）
+  尖点处法线角 θ0：1.367°
   接触角 α：42.000°（公差 -3.5/+3.5°，实际接触角应在 38.500 ~ 45.500）
   相似度：1.0370
   顶隙：0.0908  OK（图纸 0.02 ~ 0.1）
   接触角跨距：13.2153  OK（图纸 12.3 ~ 14）
-  球道边缘接触角：67.07°
+  球道边缘接触角：82.94°
 </code></pre>
 <ul>
-<li>软件根据输入的 <code>接触角 α = 42.0°</code> 和 <code>圆弧半径 R = 10.24 mm</code>，自动算出对应的<strong>相似度为 <code>1.0370</code></strong>、尖底处的<strong>理论顶隙为 <code>0.0908 mm</code></strong>、<strong>理论接触角跨距为 <code>13.2153 mm</code></strong>，全部落在图纸公差带内（绿色 <strong><code>OK</code></strong>）！</li>
+<li>软件根据输入的 <code>接触角 α = 42.0°</code> 和 <code>圆弧半径 R = 10.24 mm</code>，自动算出 <strong><code>相似度 = 1.0370</code></strong>、尖底处 <strong><code>顶隙 = 0.0908 mm</code></strong>、<strong><code>接触角跨距 = 13.2153 mm</code></strong>，全部绿色 <strong><code>OK</code></strong>！</li>
 </ul>
 </li>
 </ol>
 <hr></hr>
-<h2 id="三、痛点剖析：为什么双圆弧球道直接用单圆弧拟合会严重超差？">三、痛点剖析：为什么双圆弧球道直接用“单圆弧拟合”会严重超差？</h2>
-<p>在双圆弧（尖底）截面中，左右两段圆弧在球道底部交汇成尖点（尖点处法线角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mn>0</mn></msub><mo>=</mo><mn>1.36</mn><msup><mn>6</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">\theta_0 = 1.366^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">1.36</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>），这导致精确成型刀的接触段廓形存在一个明显的<strong>“由外凸转内凹”的拐点</strong>（刀柄侧外凸切球道侧面，刀尖侧内凹切出尖底）。</p>
-<p>如果您在【高级参数 → 圆弧近似】中将 <code>圆弧段数</code> 设为 <code>1</code>、且 <code>单圆弧求法</code> 选默认的 <code>拟合精确廓形</code>，切换到 <strong><code>Tab 6：圆弧近似刀具</code></strong> 会看到如下红字超差报警：</p>
+<h2 id="三、痛点剖析：为什么双圆弧直接用单圆弧拟合精确廓形会严重超差？">三、痛点剖析：为什么双圆弧直接用“单圆弧拟合精确廓形”会严重超差？</h2>
+<p>在双圆弧（尖底）截面中，左右圆弧在球道底部交汇成尖点（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>θ</mi><mn>0</mn></msub><mo>=</mo><mn>1.36</mn><msup><mn>7</mn><mo>∘</mo></msup></mrow><annotation encoding="application/x-tex">\theta_0 = 1.367^\circ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.674115em;vertical-align:0em;"></span><span class="mord">1.36</span><span class="mord"><span class="mord">7</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.674115em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∘</span></span></span></span></span></span></span></span></span></span></span>），导致精确成型刀的接触段廓形存在明显的<strong>“外凸转内凹”拐点</strong>（刀柄侧外凸切球道侧面，刀尖侧内凹切出尖底）。</p>
+<p>若将【高级参数 → 圆弧近似】的 <code>圆弧段数</code> 设为 <code>1</code>、<code>单圆弧求法</code> 设为默认的 <code>拟合精确廓形</code>，切换到 <strong><code>Tab 6：圆弧近似刀具</code></strong> 会看到如下红字超差报警：</p>
 <p><img src="resources/case3_gothic_arc_fail.png" alt="双圆弧截面直接用单圆弧拟合精确廓形超差图"></img></p>
 <ul>
-<li><strong>失败原因</strong>：一段单圆弧只能朝一个方向弯曲，强行去拟合带凹凸拐点的整条接触段，得到的单圆弧半径高达 <code>R 24.419 mm</code>，切出的球道与设计截面最大偏差高达 <strong><code>292.62 μm</code>（超差！）</strong>，且钢球放进去后的<strong>实际接触角变成了 <code>53.27°</code>（超出 <code>38.5°~45.5°</code>！）</strong>、<strong>实际跨距 <code>15.828 mm</code>（超出！）</strong>、<strong>实际顶隙 <code>0.3710 mm</code>（超出！）</strong>。</li>
+<li><strong>失败原因</strong>：一段单圆弧只能单向弯曲，强行拟合带凹凸拐点的接触段会得到半径高达 <code>R = 24.4190 mm</code> 的圆弧，切出球道最大偏差达 <strong><code>292.62 μm（超差!）</code></strong>，实际落座完全失真（<code>实际接触角 = 53.240°</code>、<code>实际跨距 = 15.8228</code>、<code>实际顶隙 = 0.3710</code>、<code>实际 PCD = 64.1528</code> 全红）。</li>
 </ul>
-<p>那么，车间加工双圆弧球道究竟有哪些合格方案？TrackForm 为您提供了以下 <strong>三种完美解决方案</strong>，可根据车间的磨刀与检测设备自由选用：</p>
+<p>以下对比 TrackForm 提供的 <strong>三种合格刀具制造方案</strong>：</p>
 <hr></hr>
 <h2 id="四、双圆弧球道的三种合格刀具方案详解">四、双圆弧球道的三种合格刀具方案详解</h2>
 <h3 id="方案-a：精确自由曲线成型刀（刀具-dxf--刀具点表-csv）">方案 A：精确自由曲线成型刀（<code>刀具 DXF</code> + <code>刀具点表 CSV</code>）</h3>
-<p>如果您使用五轴数控工具磨床（支持导入 DXF 样条线或高密度点表插补磨削），可直接使用软件算出的<strong>精确成型刀廓形</strong>：</p>
+<p>使用五轴数控工具磨床（支持样条线或密集点表插补磨削）时，可直接使用精确成型刀廓形：</p>
 <p><img src="resources/case3_gothic_tool.png" alt="AC10000 精确成型刀具廓形与反向仿真落座"></img></p>
 <p><img src="resources/case3_gothic_sim.png" alt="AC10000 精确刀具反向仿真与钢球实际落座检验"></img></p>
 <ul>
 <li>查看计算结果第 二、三 分块与上图 <strong><code>Tab 5：精确刀具反向仿真</code></strong>：<ul>
-<li><strong>侧面零误差</strong>：精确刀具在侧面接触区的欠切仅为 <code>6.8e-5 mm</code>（<code>0.068 μm</code> 离散误差量级）；</li>
-<li><strong>刀尖高度适度平切</strong>：本例中 <code>刀尖高度</code> 保持在钢球半径 <code>9.875 mm</code>（低于尖底接触段最高点 <code>10.2269 mm</code>），刀尖平端将最尖端的 <code>0.35 mm</code> 刀刃截平，使球道底尖点略微变浅 <code>0.048 mm</code>；</li>
-<li><strong>落座指标全合格</strong>：软件通过钢球实际落座仿真证实——落座后的 <strong><code>实际顶隙 = 0.0384 mm</code></strong> 仍稳高于图纸下限 <code>0.02 mm</code>（绿色 <code>OK</code>），且 <strong><code>实际接触角 = 42.02° OK</code></strong>、<strong><code>实际接触角跨距 = 13.221 mm OK</code></strong>、<strong><code>实际 PCD = 69.9999 mm OK</code></strong>！既避免了刀尖过尖崩刃，又 100% 满足全部图纸指标。</li>
+<li><strong>刀尖高度适度平切（避免过度尖锐崩刃）</strong>：双圆弧尖底接触段沿刀轴延伸至 <code>z = 16.3870 mm</code>，本例 <code>刀尖高度 = 9.875 mm</code> 适度截去尖端，球道底欠切仅 <strong><code>0.0046 mm</code>（<code>4.6 μm</code>）</strong>；</li>
+<li><strong>侧面零误差、落座指标全合格</strong>：钢球实际落座后的 <strong><code>实际顶隙 = 0.0862 mm OK</code></strong>、<strong><code>实际接触角 = 41.990° OK</code></strong>、<strong><code>实际接触角跨距 = 13.2127 mm OK</code></strong>、<strong><code>实际 PCD = 63.8200 mm OK（偏差 +0.0 μm）</code></strong>！</li>
 </ul>
 </li>
-<li><strong>导出文件</strong>：直接点击 <strong><code>刀具 DXF</code></strong>（提取 <code>PROFILE_SPLINE</code> 青色样条层）或 <strong><code>刀具点表 CSV</code></strong>。</li>
+<li><strong>导出文件</strong>：点击 <strong><code>刀具 DXF</code></strong>（提取 <code>PROFILE</code> 折线或开启 <code>PROFILE_SPLINE</code> 红色样条层）或 <strong><code>刀具点表 CSV</code></strong>。</li>
 </ul>
 <hr></hr>
 <h3 id="方案-b：多段相切圆弧刀具（推荐！圆弧段数--3）">方案 B：多段相切圆弧刀具（推荐！<code>圆弧段数 = 3</code>）</h3>
-<p>如果工具磨床或砂轮修整程序只支持标准圆弧指令（<code>G02/G03</code>），只需展开 <strong><code>▸ 高级参数 → 圆弧近似</code></strong>，将 <strong><code>圆弧段数</code></strong> 设为 <strong><code>3</code></strong>（这也是内置示例 <code>AC10000_参数</code> 的默认设置）：</p>
+<p>若磨床或砂轮修整程序只支持标准圆弧指令（<code>G02/G03</code>），只需展开 <strong><code>▸ 高级参数 → 圆弧近似</code></strong>，将 <strong><code>圆弧段数</code></strong> 设为 <strong><code>3</code></strong>：</p>
 <p><img src="resources/case3_gothic_multi_arc.png" alt="AC10000 3段相切圆弧刀具与实际落座合格图"></img></p>
 <ul>
 <li><strong>拟合结果与实际落座表现</strong>：<pre><code class="lang-text">■ 四、圆弧近似刀具：3 段相切圆弧（取整到 3 位，磨刀尺寸）
-  1. 外凸 R=11.1210  圆心 -1.1210 / +0.0250  z 0.097~4.819
-  2. 外凸 R=18.9720  圆心 -7.9030 / +4.0340  z 4.819~6.329
-  3. 内凹 R=23.4820  圆心 +27.3260 / -16.2990  z 6.329~9.875
-  圆柱 Ø20.0000  刀尖 Ø11.5718  交界错位 0.42 μm
-  该刀具切出的球道【实际值·仿真】：
-    与设计截面偏差 = 7.02 μm（轮廓度 ±50）  合格
-    实际顶隙 = 0.0860（图纸 0.02 ~ 0.1）  OK
-    实际接触角 = 42.036°（图纸 38.5 ~ 45.5）  OK
-    实际接触角跨距 = 13.2256（图纸 12.3 ~ 14）  OK
+  第 1 段（外凸）R：11.1170   圆心 径向 -1.1170 / 轴向 +0.5430；z 0.139 ~ 4.763
+  第 2 段（外凸）R：18.4770   圆心 径向 -7.5840 / 轴向 +4.0550；z 4.763 ~ 6.291
+  第 3 段（内凹）R：23.3230   圆心 径向 +27.0480 / 轴向 -19.3510；z 6.291 ~ 9.873
+  圆柱直径：Ø20.0000   刀尖直径：Ø11.4754   交界错位：1.03 μm
+  ▸ 该刀具切出的球道【实际值·仿真】
+  与设计截面偏差：6.58 μm  合格（轮廓度 ±50）
+  实际顶隙：0.0863  OK（图纸 0.02 ~ 0.1）
+  实际接触角：41.932°  OK（图纸 38.5 ~ 45.5）
+  实际接触角跨距：13.1978  OK（图纸 12.3 ~ 14）
+  实际 PCD：63.8200  OK（偏差 -0.0 μm；图纸 63.81 ~ 63.83）
 </code></pre>
 <ul>
-<li>用 <strong>2 段外凸圆弧（<code>R11.121</code>、<code>R18.972</code>）+ 1 段内凹圆弧（<code>R23.482</code>）</strong> 首尾相切衔接，完美贴合了双圆弧刀具的凹凸拐点！</li>
-<li>全截面最大法向偏差仅为 <strong><code>7.02 μm</code></strong>（远小于 <code>±50 μm</code> 公差），钢球实际落座后的<strong>实际接触角 <code>42.04°</code>、实际跨距 <code>13.226 mm</code>、实际顶隙 <code>0.0860 mm</code></strong> 全部精准命中图纸名义值并显示绿色 <strong><code>OK</code></strong>！</li>
+<li>用 <strong>2 段外凸圆弧（<code>R11.117</code>、<code>R18.477</code>）+ 1 段内凹圆弧（<code>R23.323</code>）</strong> 首尾相切衔接，精准还原“外凸转内凹”拐点；</li>
+<li>全截面最大法向偏差仅 <strong><code>6.58 μm</code></strong>（远小于 <code>±50 μm</code> 公差），钢球实际落座四项指标全部精准合格（<strong><code>OK</code></strong>）！</li>
 </ul>
 </li>
-<li><strong>导出文件</strong>：直接点击 <strong><code>圆弧刀具 DXF</code></strong>（导出包含 3 段原生 <code>ARC</code> 圆弧实体、圆心与相切交界点标注的完整加工图）与 <strong><code>基本轮廓（Table 2）</code></strong>。</li>
+<li><strong>导出文件</strong>：点击 <strong><code>圆弧刀具 DXF</code></strong>（包含 3 段严格 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>G</mi><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">G^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span> 相切的原生 <code>ARC</code> 圆弧实体及交界标注）与 <strong><code>基本轮廓（Table 2）</code></strong>。</li>
 </ul>
 <hr></hr>
 <h3 id="方案-c：按审核优化的单圆弧刀具（圆弧段数--1-单圆弧求法--按审核优化--三种-审核优化目标）">方案 C：按审核优化的单圆弧刀具（<code>圆弧段数 = 1, 单圆弧求法 = 按审核优化</code> + 三种 <code>审核优化目标</code>）</h3>
-<p>如果现场工艺规定<strong>只能使用 1 段单圆弧刀具</strong>（或者客户必须要求提供单圆弧专用的 <strong>Table 1 常数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>C</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">C_1 \sim C_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></strong>），且球道底部非工作储油区允许从“尖底”自然适应为单圆弧刀切出的“圆底”：</p>
+<p>若工艺规定<strong>只能使用 1 段单圆弧刀具</strong>（或客户必须提供单圆弧专属 <strong>Table 1 常数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>C</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">C_1 \sim C_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></strong>），且球道底部非工作区允许从“尖底”自然适应为圆底：</p>
 <ol>
-<li>在 <strong><code>▸ 高级参数 → 圆弧近似</code></strong> 中，将 <strong><code>圆弧段数</code></strong> 设为 <strong><code>1</code></strong>，并将 <strong><code>单圆弧求法</code></strong> 切换为 <strong><code>按审核优化</code></strong>（内置示例 <code>AC10000_参数</code> 默认即为此设置）；</li>
-<li>根据客户验收重点，选择 <strong><code>审核优化目标</code></strong>：<ul>
-<li><strong><code>贴合设计截面</code>（默认）</strong>：优先使球道工作侧面与理论双圆弧最贴近（侧面偏差仅 <strong><code>3.00 μm</code></strong>），审核范围作为软约束；</li>
-<li><strong><code>审核范围硬约束</code></strong>：优先保证<strong>实际顶隙、实际接触角、实际跨距、实际 PCD</strong> 四项审核指标 100% 落在公差带内，在此前提下尽量贴合侧面；</li>
-<li><strong><code>审核范围中值</code></strong>：将实际顶隙、接触角、跨距、实际 PCD 都推向各自公差带正中间（留出最大安全余量）。</li>
+<li>在 <strong><code>▸ 高级参数 → 圆弧近似</code></strong> 中，将 <strong><code>圆弧段数</code></strong> 设为 <strong><code>1</code></strong>，<strong><code>单圆弧求法</code></strong> 设为 <strong><code>按审核优化</code></strong>（内置示例 <code>AC10000_星形套_参数</code> 默认即为此设置）；</li>
+<li>根据图纸验收重点选择 <strong><code>审核优化目标</code></strong>：<ul>
+<li><strong><code>贴合设计截面</code>（默认）</strong>：优先保证球道工作侧面与理论双圆弧最贴近，审核范围为软约束；</li>
+<li><strong><code>审核范围硬约束</code></strong>：若产品公差更紧、默认模式出现顶隙/PCD/接触角超限，切换此项可将所有审核项硬性约束进公差带；</li>
+<li><strong><code>审核范围中值</code></strong>：将实际顶隙、接触角、跨距、实际 PCD 推向各自公差带正中（留出最大安全余量）。</li>
 </ul>
 </li>
-<li>点击 <strong><code>▶ 计算 (F5)</code></strong>（优化过程约需 20~60 秒，右侧图形区显示旋转进度环与试算次数）：</li>
+<li>点击 <strong><code>▶ 计算 (F5)</code></strong>（优化过程约需 20~60 秒）：</li>
 </ol>
 <p><img src="resources/case3_gothic_audit_arc.png" alt="AC10000 单圆弧按审核优化合格图"></img></p>
 <ul>
-<li><strong>优化结果与实际落座表现</strong>：<ul>
-<li><strong>选 <code>贴合设计截面</code> 时</strong>：求得单圆弧 <code>R = 10.5060 mm，圆心 -0.5580 / -0.0250，圆柱 Ø19.8960 mm</code>，球道侧面工作区（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>y</mi><mi mathvariant="normal">∣</mi><mo>≥</mo><mn>3.31</mn><mtext>&nbsp;mm</mtext></mrow><annotation encoding="application/x-tex">|y| \ge 3.31\text{ mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3.31</span><span class="mord text"><span class="mord">&nbsp;mm</span></span></span></span></span>）与双圆弧设计截面的偏差低至 <strong><code>3.00 μm</code>（合格）</strong>！由于紧贴双圆弧侧面，圆底顶隙略小（<code>0.0029 mm</code>），结果栏会自动提示：
-<code>审核项未全部满足：当前按“贴合设计截面”优化（审核范围为软约束）。只按审核项验收时，可把“审核优化目标”改为“审核范围硬约束”或“审核范围中值”</code>。</li>
-<li><strong>选 <code>审核范围硬约束</code> 或 <code>审核范围中值</code> 时</strong>：软件自动将<strong>实际顶隙、实际接触角、实际跨距、实际 PCD</strong> 全部拉回图纸公差带内（全部显示绿色 <strong><code>OK</code></strong>），并同时在第五分块完整输出对应的 <strong>Table 1（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>C</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">C_1 \sim C_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）</strong>！</li>
+<li><strong>优化结果与实际落座表现（<code>AC10000_星形套_参数</code> 默认 <code>贴合设计截面</code>）</strong>：<ul>
+<li>磨刀尺寸：<strong><code>R = 11.3640 mm</code>、<code>圆心 径向 -1.3520 / 轴向 +0.6180</code>、<code>圆柱 Ø20.0240 mm</code>、<code>刀尖 Ø15.7827 mm</code>（端面 <code>z = 5.9927 mm</code>）</strong>；</li>
+<li>截面与落座审核：<strong><code>侧面偏差（|y| ≥ 3.30）= 6.30 μm  合格</code></strong>、<strong><code>实际顶隙 = 0.0272 OK</code></strong>、<strong><code>实际接触角 = 44.475° OK</code></strong>、<strong><code>实际接触角跨距 = 13.8368 OK</code></strong>、<strong><code>实际 PCD = 63.8130 OK（偏差 -7.0 μm）</code></strong>，全项一次性通过！</li>
+<li>同时完整输出 <strong>Table 1 常数 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>1</mn></msub><mo>∼</mo><msub><mi>C</mi><mn>10</mn></msub></mrow><annotation encoding="application/x-tex">C_1 \sim C_{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>)</strong>，<code>常数自检 = 0.14 μm OK</code>！</li>
 </ul>
 </li>
 <li><strong>导出文件</strong>：点击 <strong><code>圆弧刀具 DXF</code></strong>、<strong><code>方程常数（Table 1）</code></strong> 与 <strong><code>基本轮廓（Table 2）</code></strong>。</li>
@@ -805,15 +819,15 @@
 </tr>
 <tr>
 <td style="text-align:left"><strong>与双圆弧设计截面偏差</strong></td>
-<td style="text-align:left"><strong>零误差</strong>（侧面 <code>&lt; 0.1 μm</code>）</td>
-<td style="text-align:left">全截面 <strong><code>7.02 μm</code></strong>（连尖底一并还原）</td>
-<td style="text-align:left">侧面工作区 <strong><code>3.00 μm</code></strong>（<code>贴合设计截面</code> 模式）</td>
+<td style="text-align:left"><strong>零误差</strong>（侧面 <code>&lt; 0.1 μm</code>，底部留料 <code>4.6 μm</code>）</td>
+<td style="text-align:left">全截面 <strong><code>6.58 μm</code></strong>（连尖底一并还原）</td>
+<td style="text-align:left">侧面工作区 <strong><code>6.30 μm</code></strong>（球道底适应为圆底）</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>四项落座审核（顶隙/接触角/跨距/PCD）</strong></td>
 <td style="text-align:left">全部绿色 <strong><code>OK</code></strong></td>
 <td style="text-align:left">全部绿色 <strong><code>OK</code></strong></td>
-<td style="text-align:left">选 <code>审核范围硬约束</code> 或 <code>中值</code> 时全部绿色 <strong><code>OK</code></strong></td>
+<td style="text-align:left">全部绿色 <strong><code>OK</code></strong>（公差更紧时可切 <code>硬约束/中值</code>）</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>是否提供 Table 1 常数</strong></td>
@@ -872,7 +886,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"案例三：双圆弧球道(给定半径 R)与三种刀具方案","level":"1.9.3","depth":2,"next":{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"path":"8_workflows_cases/case4_allowance_pose.md","ref":"8_workflows_cases/case4_allowance_pose.md","articles":[]},"previous":{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"path":"8_workflows_cases/case2_points.md","ref":"8_workflows_cases/case2_points.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"8_workflows_cases/case3_gothic.md","mtime":"2026-11-05T07:12:47.059Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"案例三：双圆弧球道(给定半径 R)与三种刀具方案","level":"1.9.3","depth":2,"next":{"title":"案例四：预留加工余量与刀柄防干涉调优","level":"1.9.4","depth":2,"path":"8_workflows_cases/case4_allowance_pose.md","ref":"8_workflows_cases/case4_allowance_pose.md","articles":[]},"previous":{"title":"案例二：导入截面点表(CSV)与图纸 Table 1/2 对照","level":"1.9.2","depth":2,"path":"8_workflows_cases/case2_points.md","ref":"8_workflows_cases/case2_points.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"8_workflows_cases/case3_gothic.md","mtime":"2026-11-18T02:15:56.071Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -934,11 +948,11 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         

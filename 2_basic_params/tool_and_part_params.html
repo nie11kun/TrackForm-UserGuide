@@ -6,7 +6,7 @@
         <title>③ 刀具安装与 ④ 工件外形 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -363,7 +363,7 @@
                 <a href="../5_tabs_charts/tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -376,7 +376,7 @@
                 <a href="../5_tabs_charts/tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -403,6 +403,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../5_tabs_charts/tab7_scene3d.html">
+            
+                <a href="../5_tabs_charts/tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -646,7 +659,9 @@
 <p><img src="resources/tip_setting_angle.png" alt="切入角 β 示意图"></img></p>
 <ul>
 <li><strong>设置方法</strong>：<ul>
-<li>请严格按照机床摆头方案或刀具图纸规定的主轴切入角填写（允许输入范围 <code>15° ~ 75°</code>，行业最常用标准值为 <strong><code>36.0°</code></strong>）。</li>
+<li>请严格按照机床摆头方案或刀具图纸规定的主轴切入角填写（允许输入范围 <code>15° ~ 75°</code>）；</li>
+<li><strong>内圈零件（如星形套）</strong>：行业最常用标准值为 <strong><code>36.0°</code></strong>；</li>
+<li><strong>外圈零件（如斜筒形壳 / 钟形壳）</strong>：由于刀具须从内腔开口端面斜向伸入加工，受腔口与刀颈空间限制，切入角通常较小（如 <code>EVL12508M.0F2-1</code> 为 <strong><code>20.0°</code></strong>）。</li>
 </ul>
 </li>
 </ul>
@@ -661,11 +676,52 @@
 </li>
 </ul>
 <hr></hr>
-<h2 id="2-④-工件外形">2. ④ 工件外形</h2>
-<p>星形套的外球面直径、总宽度和球心位置共同决定了<strong>球道槽在零件上实际存在的范围</strong>。</p>
+<h2 id="2-④-工件外形（标签随-工件类型-自动适配）">2. ④ 工件外形（标签随 <code>工件类型</code> 自动适配）</h2>
+<p>工件的工作面直径、长度范围与端面距离共同决定了<strong>球道槽在零件上实际存在的边界</strong>。</p>
 <blockquote>
-<p><strong>核心规律</strong>：这 3 个工件外形参数<strong>不会改变刀具齿形曲线本身的弯曲形状</strong>，它们只决定球道边缘切到哪里为止——即决定刀具红色切削接触段的<strong>起点位置（靠近刀柄一侧需要做到多长）</strong>以及加工姿态图中球道沿长度方向的<strong>摆角范围</strong>。</p>
+<p><strong>核心规律</strong>：这 3 个工件外形参数<strong>不改变刀具齿形曲线本身的弯曲形状</strong>，只决定球道边缘切到哪里为止——即决定红色切削接触段的<strong>起点位置（靠刀柄侧做多长）</strong>、加工姿态范围以及外圈/盲端工件的刀颈防干涉边界。</p>
 </blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">当前选中的 <code>工件类型</code></th>
+<th style="text-align:left">第 1 项（工作面直径）</th>
+<th style="text-align:left">第 2 项（轴向长度/宽度）</th>
+<th style="text-align:left">第 3 项（基准距离）</th>
+<th style="text-align:left">盲端说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>星形套（固定节）</code></strong>（默认）</td>
+<td style="text-align:left"><code>外球面直径</code></td>
+<td style="text-align:left"><code>工件宽度 W</code></td>
+<td style="text-align:left"><code>球心至端面 H</code></td>
+<td style="text-align:left">两端贯通</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>星形套（DO / VL 球道）</code></strong></td>
+<td style="text-align:left"><code>外球面直径</code></td>
+<td style="text-align:left"><code>工件宽度 W</code></td>
+<td style="text-align:left"><code>球心至端面 H</code></td>
+<td style="text-align:left">两端贯通</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>钟形壳（固定节）</code></strong></td>
+<td style="text-align:left"><code>内球面直径</code></td>
+<td style="text-align:left"><code>球道有效长度 L</code></td>
+<td style="text-align:left"><code>球心至开口端面 H</code></td>
+<td style="text-align:left">末端由刀具自然收尾</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>筒形壳（DO）</code> / <code>斜筒形壳（VL）</code></strong></td>
+<td style="text-align:left"><code>内孔直径</code></td>
+<td style="text-align:left"><code>球道有效长度 L</code></td>
+<td style="text-align:left"><code>系统面至开口端面 H</code></td>
+<td style="text-align:left">末端由刀具在 <code>L</code> 终点自然收尾</td>
+</tr>
+</tbody>
+</table>
 <h3 id="（1）外球面直径">（1）外球面直径</h3>
 <ul>
 <li><strong>单位</strong>：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>mm</mtext></mrow><annotation encoding="application/x-tex">\text{mm}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord text"><span class="mord">mm</span></span></span></span></span></li>
@@ -690,7 +746,7 @@
 <p><img src="resources/tip_width.png" alt="工件宽度 W 示意图"></img></p>
 <ul>
 <li><strong>设置方法</strong>：按零件图上的星形套总宽 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span> 填写。</li>
-<li><strong>对结果的影响</strong>：与 <code>球心至端面 H</code> 一起确定星形套左右两端面的轴向位置，从而决定刀具沿球道摆动加工的起始摆角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>φ</mi><mi>min</mi><mo>⁡</mo></msub></mrow><annotation encoding="application/x-tex">\varphi_{\min}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31750199999999995em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">i</span><span class="mtight">n</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 与终止摆角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>φ</mi><mi>max</mi><mo>⁡</mo></msub></mrow><annotation encoding="application/x-tex">\varphi_{\max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">a</span><span class="mtight">x</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（显示在右侧 <strong>星形套截面</strong> 和 <strong>加工姿态(子午面)</strong> 页签中）。</li>
+<li><strong>对结果的影响</strong>：与 <code>球心至端面 H</code> 一起确定星形套左右两端面的轴向位置，从而决定刀具沿球道摆动加工的起始摆角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>φ</mi><mi>min</mi><mo>⁡</mo></msub></mrow><annotation encoding="application/x-tex">\varphi_{\min}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31750199999999995em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">i</span><span class="mtight">n</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 与终止摆角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>φ</mi><mi>max</mi><mo>⁡</mo></msub></mrow><annotation encoding="application/x-tex">\varphi_{\max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">a</span><span class="mtight">x</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（显示在右侧 <strong><code>工件轴向剖面</code></strong> 和 <strong><code>加工姿态</code></strong> 页签中）。</li>
 </ul>
 <h3 id="（3）球心至端面-h">（3）球心至端面 H</h3>
 <ul>
@@ -750,7 +806,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"③ 刀具安装与 ④ 工件外形","level":"1.3.3","depth":2,"next":{"title":"高级参数设置","level":"1.4","depth":1,"path":"3_advanced_params/README.md","ref":"3_advanced_params/README.md","articles":[{"title":"刀尖与廓形","level":"1.4.1","depth":2,"path":"3_advanced_params/tip_and_profile.md","ref":"3_advanced_params/tip_and_profile.md","articles":[]},{"title":"刀柄与姿态、工件细节","level":"1.4.2","depth":2,"path":"3_advanced_params/shank_and_part.md","ref":"3_advanced_params/shank_and_part.md","articles":[]},{"title":"校验范围、圆弧近似与导出设置","level":"1.4.3","depth":2,"path":"3_advanced_params/tolerance_arc_export.md","ref":"3_advanced_params/tolerance_arc_export.md","articles":[]}]},"previous":{"title":"② 球道法向截面","level":"1.3.2","depth":2,"path":"2_basic_params/section_params.md","ref":"2_basic_params/section_params.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"2_basic_params/tool_and_part_params.md","mtime":"2026-11-05T07:12:47.047Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"③ 刀具安装与 ④ 工件外形","level":"1.3.3","depth":2,"next":{"title":"高级参数设置","level":"1.4","depth":1,"path":"3_advanced_params/README.md","ref":"3_advanced_params/README.md","articles":[{"title":"刀尖与廓形","level":"1.4.1","depth":2,"path":"3_advanced_params/tip_and_profile.md","ref":"3_advanced_params/tip_and_profile.md","articles":[]},{"title":"刀柄与姿态、工件细节","level":"1.4.2","depth":2,"path":"3_advanced_params/shank_and_part.md","ref":"3_advanced_params/shank_and_part.md","articles":[]},{"title":"校验范围、圆弧近似与导出设置","level":"1.4.3","depth":2,"path":"3_advanced_params/tolerance_arc_export.md","ref":"3_advanced_params/tolerance_arc_export.md","articles":[]}]},"previous":{"title":"② 球道法向截面","level":"1.3.2","depth":2,"path":"2_basic_params/section_params.md","ref":"2_basic_params/section_params.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"2_basic_params/tool_and_part_params.md","mtime":"2026-11-18T02:15:56.060Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -812,11 +868,11 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         

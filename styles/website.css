@@ -34,7 +34,7 @@ html, body {
     font-family: var(--base-font) !important;
     font-size: 16px;
     line-height: 1.8;
-    max-width: 880px;
+    max-width: 920px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -83,8 +83,7 @@ body {
 
 /* 段落优化 */
 .markdown-section p {
-    margin: 1.1em 0;
-    text-align: justify;
+    margin: 0.95em 0;
     letter-spacing: 0.02em;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -154,6 +153,10 @@ body {
     border-radius: 0 6px 6px 0;
 }
 
+.markdown-section blockquote p {
+    margin: 0.4em 0;
+}
+
 /* 侧边栏优化 */
 .book-summary {
     border-right: 1px solid;
@@ -163,7 +166,13 @@ body {
 .markdown-section ul,
 .markdown-section ol {
     padding-left: 2em;
-    margin: 1em 0;
+    margin: 0.9em 0;
+}
+
+.markdown-section ul ul,
+.markdown-section ol ul,
+.markdown-section ul ol {
+    margin: 0.3em 0 0.45em 0;
 }
 
 .markdown-section ul li,

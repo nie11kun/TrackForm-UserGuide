@@ -6,7 +6,7 @@
         <title>圆弧近似刀具 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -54,7 +54,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../6_exports_data/" />
+    <link rel="next" href="tab7_scene3d.html" />
     
     
     <link rel="prev" href="tab5_sim.html" />
@@ -363,7 +363,7 @@
                 <a href="tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -376,7 +376,7 @@
                 <a href="tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -403,6 +403,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="tab7_scene3d.html">
+            
+                <a href="tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -640,62 +653,62 @@
 <p><img src="resources/tab6_arc.png" alt="Tab 6 圆弧近似刀具详解（默认椭圆截面 + 单圆弧）"></img></p>
 <hr></hr>
 <h2 id="一、五子图布局（上二--下三）与各自含义">一、五子图布局（上二 + 下三）与各自含义</h2>
-<h3 id="1-左上图：刀具（取整后，磨刀尺寸）（含左半刃口四分段着色--右半刀尖可延伸范围--立体圆柱段！）">1. 左上图：<code>...刀具（取整后，磨刀尺寸）</code>（含左半刃口四分段着色 + 右半刀尖可延伸范围 + 立体圆柱段！）</h3>
+<h3 id="1-左上图：单圆弧刀具（取整后，磨刀尺寸）（左半刃口四分段--右半刀尖可延伸--立体圆柱段）">1. 左上图：<code>单圆弧刀具（取整后，磨刀尺寸）</code>（左半刃口四分段 + 右半刀尖可延伸 + 立体圆柱段）</h3>
 <ul>
 <li><strong>图面直接尺寸标注</strong>：<ul>
-<li><strong>单圆弧时</strong>：直接用洋红色半径箭头标出 <strong><code>R12.360</code></strong>、洋红色十字 <code>+</code> 标出圆心位置，并用水平双向箭头标出 <strong><code>刀尖 Ø15.795</code></strong> 与 <strong><code>圆柱 Ø20.336</code></strong>；</li>
-<li><strong>多段相切圆弧时</strong>：在右侧刃口逐段引出 <strong><code>R11.121（凸）</code></strong>、<strong><code>R18.972（凸）</code></strong>、<strong><code>R23.482（凹）</code></strong>，并在左侧刃口用黑色圆点 <code>●</code> 标出各段圆弧相切交界的轴向高度（如 <code>z 4.787</code>、<code>z 6.301</code>）。</li>
+<li><strong>单圆弧时</strong>：直接用<strong>黑色十字 <code>+</code></strong> 标出圆心位置，用半径箭头标出 <strong><code>R12.360</code></strong>，并用水平双向箭头标出 <strong><code>刀尖 Ø15.795</code></strong> 与 <strong><code>圆柱 Ø20.336</code></strong>；</li>
+<li><strong>多段相切圆弧时</strong>：在右侧刃口逐段引出 <strong><code>R11.117（凸）</code></strong>、<strong><code>R18.477（凸）</code></strong>、<strong><code>R23.323（凹）</code></strong>，并用黑色圆点 <code>●</code> 标出各段圆弧相切交界的轴向高度（如 <code>z 4.763</code>、<code>z 6.291</code>）。</li>
 </ul>
 </li>
-<li><strong>左半边刃口按四分段彩色叠加 + 交界黑色分界短线（新增！）</strong>：<ul>
-<li><strong>灰色宽带（<code>圆弧过渡</code>）</strong>：接底部圆柱段的圆弧过渡区（处于外球面之外，不切削）；</li>
-<li><strong>橙色宽带（<code>边缘延伸</code>）</strong>：球道边缘（外球面）之外预留的延伸余量段（颜色与 Tab 1 精确刀具廓形页一致）；</li>
-<li><strong>蓝色宽带（<code>接触段</code>）</strong>：真正切削球道的核心刃口段；</li>
-<li><strong>紫色宽带（<code>刀尖延伸</code>）</strong>：当设置了 <code>刀尖延伸 &gt; 0</code> 时，显示在切出球道底处之外沿原圆弧继续延伸的刀尖段（不切深球道底）；</li>
-<li><strong>分段交界黑色短线</strong>：在相邻分段的交界处画有垂直于刃口的黑色短线，即使边缘延伸等区段很短也能清晰辨认分界位置。</li>
+<li><strong>左半边刃口按四分段彩色叠加（与 Tab 1 / DXF 统一配色）</strong>：<ul>
+<li><strong>灰色宽带（<code>圆弧过渡</code>）</strong>：接底部圆柱段的圆弧过渡区（<code>z -1.071 ~ -0.175</code>，不切削）；</li>
+<li><strong>青色宽带（<code>边缘延伸</code>）</strong>：球道边缘之外预留的延伸余量段（<code>z -0.175 ~ 0.031</code>）；</li>
+<li><strong>红色宽带（<code>接触段</code>）</strong>：真正切削球道的核心刃口段（<code>z 0.031 ~ 6.068</code>）；</li>
+<li><strong>紫色宽带（<code>刀尖延伸</code>）</strong>：当设置了 <code>刀尖延伸 &gt; 0</code> 时，沿原圆弧继续延伸的刀尖段（不切深球道底）；</li>
+<li><strong>分段交界黑色短线</strong>：垂直于刃口画出分界短线，即使区段很短也能清晰辨认交界位置。</li>
 </ul>
 </li>
-<li><strong>右半边紫色点线与三角标记（<code>刀尖可沿原圆弧延伸的范围</code>）（新增！）</strong>：<ul>
-<li>在右半刃口刀尖端面上方，用<strong>紫色点线</strong>绘出刀尖沿同一圆弧还可继续延伸而不切深球道底的轨迹，并用紫色倒三角 <code>▼</code> 标出极限高度 <strong><code>刀尖最多延伸至 z 11.093</code></strong>！</li>
+<li><strong>右半边紫色点线与三角标记（<code>刀尖可沿原圆弧延伸的范围</code>）</strong>：<ul>
+<li>在右半刃口刀尖端面上方，用<strong>紫色点线</strong>绘出刀尖沿同一圆弧还可继续延伸而不切深球道底的轨迹，并用紫色倒三角 <code>▼</code> 标出极限 <strong><code>刀尖最多延伸至 z 11.093</code></strong>！</li>
 </ul>
 </li>
 <li><strong>刀柄侧立体圆柱段示意</strong>：在圆弧下端接刀柄处，以<strong>浅绿色立体圆柱（旁注 <code>圆柱段（接刀柄）</code>）</strong>直观绘出圆柱段。</li>
 </ul>
 <h3 id="2-右上图：刀具切出的球道，钢球按实际落座【实际值】">2. 右上图：<code>...刀具切出的球道，钢球按实际落座【实际值】</code></h3>
 <ul>
-<li>将取整后的圆弧近似刀具沿球道摆动包络切出实际球道（<strong>绿色虚线</strong>），与理论设计截面（<strong>蓝色实线</strong>）叠加对比；</li>
-<li><strong>钢球实际落座四项检验</strong>：把直径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的钢球实际放入圆弧刀切出的球道中，标出 <strong><code>实际接触角</code></strong>、<strong><code>实际接触点</code></strong>、<strong><code>实际跨距</code></strong>，并在<strong>右上角核对框</strong>中给出 <strong><code>实际接触角</code></strong>、<strong><code>实际接触角跨距</code></strong>、<strong><code>实际顶隙</code></strong>、<strong><code>实际PCD</code></strong> 四项实测值是否全部符合图纸公差的 <code>OK</code> / <code>超出!</code> 判定！</li>
-<li><em>注：当启用 <code>单圆弧求法 = 按审核优化</code> 时，球道底部中央区域会以浅橙色背景标出 <strong><code>球道底：允许适应</code></strong>。</em></li>
+<li>将取整后的圆弧近似刀具沿球道运动包络切出实际球道（<strong>绿色虚线</strong>），与理论设计截面（<strong>蓝色实线</strong>）叠加对比；</li>
+<li><strong>钢球实际落座四项检验</strong>：把直径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的钢球放入切出球道（有 <code>法向余量</code> 时先退回余量还原成品边界），标出 <strong><code>实际接触角 41.90°</code></strong>、<strong><code>实际接触点</code></strong> 与 <strong><code>实际跨距 13.253</code></strong>，右上角核对框汇总 <strong><code>实际接触角</code></strong>、<strong><code>实际接触角跨距</code></strong>、<strong><code>实际顶隙</code></strong>、<strong><code>实际 PCD 62.4685</code></strong> 全部为绿色 <strong><code>OK</code></strong>（超限变红 <code>超出!</code>）。</li>
+<li><em>注：当启用 <code>单圆弧求法 = 按审核优化</code> 时，球道底部中央区域会以浅金色背景标出 <strong><code>球道底：允许适应</code></strong>。</em></li>
 </ul>
 <h3 id="3-左下图：球道底局部放大（纵向夸大）：钢球最低点到切出截面底--实际顶隙（独立子图！）">3. 左下图：<code>球道底局部放大（纵向夸大）：钢球最低点到切出截面底 = 实际顶隙</code>（独立子图！）</h3>
 <ul>
 <li>将圆弧刀具切出的球道底部（绿色虚线）、理论设计截面底部（蓝色实线）与实际落座后的钢球底部（灰色点线）纵向夸大显示；</li>
-<li>用洋红色双向箭头直接标出 <strong><code>实际顶隙</code></strong>（如 <code>0.0347</code>），并对照 <strong><code>顶隙下限</code></strong> 与 <strong><code>顶隙上限</code></strong> 水平点线直观核验顶隙余量。</li>
+<li>用洋红色双向箭头直接标出 <strong><code>实际顶隙 0.0347</code></strong>，并对照 <strong><code>顶隙下限 0.019</code></strong> 与 <strong><code>顶隙上限 0.04</code></strong> 水平点线直观核验顶隙余量。</li>
 </ul>
 <h3 id="4-中下图：切出球道法向偏差--最大侧面偏差--μm--合格超差">4. 中下图：<code>切出球道法向偏差  最大/侧面偏差 ... μm  合格/超差</code></h3>
 <ul>
 <li><strong>横轴 <code>y 横向 (mm)</code></strong>，<strong>纵轴 <code>法向偏差 (μm)，&gt;0 欠切</code></strong>；</li>
-<li><strong>蓝色粗实线</strong>：圆弧刀具实际切出的球道与设计截面之间的法向偏差曲线；</li>
-<li><strong>上下两条红色水平虚线</strong>：由高级参数 <strong><code>轮廓度公差</code></strong> 决定的合格公差带（如默认 <code>±10 μm</code> 或 <code>AC10000</code> 的 <code>±50 μm</code>）。当蓝色曲线在考核区内完全处于两条红虚线之间时，标题显示为<strong>绿色 <code>合格</code></strong>；超出则变为<strong>红色 <code>超差</code></strong>！</li>
+<li><strong>黑色粗实线</strong>：圆弧刀具实际切出的球道与设计截面之间的法向偏差曲线；</li>
+<li><strong>上下两条红色水平虚线</strong>：由高级参数 <strong><code>轮廓度公差</code></strong> 决定的合格公差带（如默认 <code>±10 μm</code> 或 <code>AC10000</code> 的 <code>±50 μm</code>）。黑色曲线在考核区内完全处于两条红虚线之间时，标题显示为<strong>绿色 <code>合格</code></strong>；超出则变为<strong>红色 <code>超差</code></strong>！</li>
 </ul>
 <h3 id="5-右下图：刀具半径差（-−-精确）">5. 右下图：<code>刀具半径差（... − 精确）</code></h3>
 <ul>
 <li><strong>横轴 <code>z 沿刀轴 (mm)</code></strong>，<strong>纵轴 <code>半径差 (μm)</code></strong>；</li>
-<li>展示同一轴向位置 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span> 处，圆弧近似刀具与精确刀具之间的半径差（多段圆弧时还用灰色竖直点线标出各段圆弧相切交界位置）。</li>
+<li>用<strong>黑色粗实线</strong>展示同一轴向位置 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span> 处，圆弧近似刀具与精确刀具之间的半径差（多段圆弧时用灰色竖直点线标出各段相切交界位置）。</li>
 </ul>
 <hr></hr>
 <h2 id="二、三种典型圆弧近似场景对比">二、三种典型圆弧近似场景对比</h2>
 <ol>
 <li><strong>椭圆 / 点表截面 + 单圆弧（<code>圆弧段数 = 1, 拟合精确廓形</code>）</strong>：<ul>
-<li>如本页顶部大图所示，1 段圆弧即可使球道最大偏差低至 <code>3.78 μm</code>，右上角实际落座三项全部绿色 <code>OK</code>，右中图显示绿色 <code>合格</code>。</li>
+<li>如本页顶部大图所示，1 段圆弧即可使球道最大偏差低至 <strong><code>3.78 μm</code></strong>，右上角实际落座四项（含实际 PCD）全部绿色 <code>OK</code>，中下图显示绿色 <code>合格</code>。</li>
 </ul>
 </li>
 <li><strong>双圆弧（尖底）截面 + 多段相切圆弧（<code>圆弧段数 = 3</code>）</strong>：<ul>
-<li>针对双圆弧截面，将 <code>圆弧段数</code> 设为 <code>3</code> 段后，2 段外凸圆弧 + 1 段内凹圆弧完美贴合拐点，全截面偏差仅 <code>7.02 μm</code>，实际落座三项全部绿色 <code>OK</code>（详见 <strong><a href="../8_workflows_cases/case3_gothic.html">8.3 案例三</a></strong>）。</li>
+<li>将 <code>圆弧段数</code> 设为 <code>3</code> 段后，2 段外凸圆弧 + 1 段内凹圆弧完美贴合拐点，全截面偏差仅 <strong><code>6.58 μm</code></strong>，实际落座四项全部绿色 <code>OK</code>（详见 <strong><a href="../8_workflows_cases/case3_gothic.html">8.3 案例三</a></strong>）。</li>
 </ul>
 </li>
 <li><strong>双圆弧（尖底）截面 + 单圆弧按审核优化（<code>圆弧段数 = 1, 按审核优化</code>）</strong>：<ul>
-<li>当现场必须使用 1 段单圆弧加工双圆弧图纸且允许球道底从尖底适应为圆底时，选用 <code>按审核优化</code>，球道底以浅橙色标示 <code>允许适应</code>，侧面工作区偏差仅 <code>5.31 μm</code>，且右上角实际接触角、实际跨距、实际顶隙全部绿色 <code>OK</code>！</li>
+<li>必须用 1 段单圆弧加工双圆弧图纸且允许球道底从尖底适应为圆底时，选用 <code>按审核优化</code>，球道底以浅金色标示 <code>允许适应</code>，<code>AC10000</code> 侧面工作区偏差仅 <strong><code>6.30 μm</code></strong> 且全部落座审核项均绿色 <strong><code>OK</code></strong>！</li>
 </ul>
 </li>
 </ol>
@@ -731,7 +744,7 @@
                 </a>
                 
                 
-                <a href="../6_exports_data/" class="navigation navigation-next " aria-label="Next page: 导出文件与工程应用">
+                <a href="tab7_scene3d.html" class="navigation navigation-next " aria-label="Next page: 三维演示">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -742,7 +755,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"圆弧近似刀具","level":"1.6.6","depth":2,"next":{"title":"导出文件与工程应用","level":"1.7","depth":1,"path":"6_exports_data/README.md","ref":"6_exports_data/README.md","articles":[{"title":"DXF 图纸导出与 CAD/磨刀应用","level":"1.7.1","depth":2,"path":"6_exports_data/dxf_files.md","ref":"6_exports_data/dxf_files.md","articles":[]},{"title":"CSV 数据表导出与编程/检测应用","level":"1.7.2","depth":2,"path":"6_exports_data/csv_files.md","ref":"6_exports_data/csv_files.md","articles":[]}]},"previous":{"title":"精确刀具反向仿真","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab6_arc.md","mtime":"2026-11-05T07:12:47.057Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"圆弧近似刀具","level":"1.6.6","depth":2,"next":{"title":"三维演示","level":"1.6.7","depth":2,"path":"5_tabs_charts/tab7_scene3d.md","ref":"5_tabs_charts/tab7_scene3d.md","articles":[]},"previous":{"title":"精确刀具反向仿真","level":"1.6.5","depth":2,"path":"5_tabs_charts/tab5_sim.md","ref":"5_tabs_charts/tab5_sim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab6_arc.md","mtime":"2026-11-18T02:15:56.070Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -804,11 +817,11 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         

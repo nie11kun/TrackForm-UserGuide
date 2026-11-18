@@ -6,7 +6,7 @@
         <title>截面设计、精确廓形与仿真落座 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -363,7 +363,7 @@
                 <a href="../5_tabs_charts/tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -376,7 +376,7 @@
                 <a href="../5_tabs_charts/tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -403,6 +403,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../5_tabs_charts/tab7_scene3d.html">
+            
+                <a href="../5_tabs_charts/tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -646,8 +659,8 @@
 </li>
 <li><strong>存在超差或异常项时</strong>：<pre><code class="lang-text">■ 校验结论
   共 2 项需要注意（下方各小节中同样标红）
-    · 四、圆弧近似刀具：与设计截面偏差 287.10 μm  超差!（轮廓度 ±50）
-    · 四、圆弧近似刀具：实际接触角 51.318°  超出范围!（图纸 38.5 ~ 45.5）
+    · 四、圆弧近似刀具：与设计截面偏差 292.62 μm  超差!（轮廓度 ±50）
+    · 四、圆弧近似刀具：实际接触角 53.240°  超出范围!（图纸 38.5 ~ 45.5）
 </code></pre>
 </li>
 </ul>
@@ -656,6 +669,7 @@
 <p>以默认 <code>AC3300-G</code> 椭圆球道为例，第一分块输出如下：</p>
 <pre><code class="lang-text">■ 一、球道截面设计【理论值】
   截面：椭圆（给定相似度）
+  工件类型：星形套（固定节）
   钢球中心轨迹半径 Rp：31.5225
   椭圆半轴 a(横向)：10.1762   b(径向) = 10.6436
   椭圆中心高 uc：+0.6929（相对钢球中心，朝球道开口为正；距球道底 10.6436）
@@ -663,7 +677,7 @@
   相似度：1.0400
   顶隙：0.0287  OK（图纸 0.019 ~ 0.04）
   接触角跨距：13.2782（未给范围，不校验）
-  球道边缘接触角：67.32°
+  球道边缘接触角：81.17°
 </code></pre>
 <table>
 <thead>
@@ -674,16 +688,16 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong><code>截面</code></strong></td>
-<td style="text-align:left">当前所选的截面类型与定义方式（如 <code>椭圆（给定相似度）</code>、<code>双圆弧（给定半径 R）</code> 或 <code>点表(CSV) &lt;文件名&gt;</code>）。</td>
+<td style="text-align:left"><strong><code>截面</code> 与 <code>工件类型</code></strong></td>
+<td style="text-align:left">分别列出截面类型与定义方式（如 <code>椭圆（给定相似度）</code>），以及当前选定的 <code>工件类型</code>（如 <code>星形套（固定节）</code>；扩展类型在内部版中旁注 <code>开发中</code>）。</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>钢球中心轨迹半径 Rp</code></strong></td>
-<td style="text-align:left">钢球中心绕球道中心 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>O</mi><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup></mrow><annotation encoding="application/x-tex">O'</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span> 沿球道摆动运动的圆弧轨迹半径（单位 <code>mm</code>）。</td>
+<td style="text-align:left"><strong><code>钢球中心轨迹半径 Rp</code> / <code>钢球中心轨迹</code></strong></td>
+<td style="text-align:left">• <strong>圆弧球道（固定节）</strong>：显示 <code>钢球中心轨迹半径 Rp</code>（单位 <code>mm</code>）；<br></br>• <strong>直线 / VL 斜球道</strong>：显示 <code>直线</code> 或 <code>斜线 γ = ...°</code>（旁注 <code>距轴线 PCD/2</code>）。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>截面特征描述行</strong></td>
-<td style="text-align:left">按截面类型输出几何尺寸：<br></br>• <strong>椭圆</strong>：输出 <code>椭圆半轴 a(横向)</code>、<code>b(径向)</code> 及 <code>椭圆中心高 uc</code>；<br></br>• <strong>双圆弧</strong>：输出 <code>圆弧半径 R</code>、交叉 <code>圆心 (y, u)</code> 坐标及 <code>球道底尖点法线角 θ0</code>；<br></br>• <strong>点表(CSV)</strong>：输出 <code>点表半宽 / 深</code>、<code>光顺偏差</code>、求出的接触角与钢球最小间隙，以及点表曲率质量诊断。</td>
+<td style="text-align:left">按截面类型输出几何尺寸：<br></br>• <strong>椭圆</strong>：输出 <code>椭圆半轴 a(横向)</code>、<code>b(径向)</code> 及 <code>椭圆中心高 uc</code>；<br></br>• <strong>双圆弧</strong>：输出 <code>圆弧半径 R</code>、交叉 <code>圆心 (y, u)</code> 坐标及 <code>尖点处法线角 θ0</code>；<br></br>• <strong>点表(CSV)</strong>：输出点表宽深、<code>光顺偏差</code>、钢球最小间隙及点表曲率质量诊断。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>接触角 α</code></strong></td>
@@ -703,19 +717,20 @@
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>球道边缘接触角</code></strong></td>
-<td style="text-align:left">球道槽壁与星形套外球面相交处（球道开口边缘）的截面法线角。</td>
+<td style="text-align:left">球道槽壁与工件工作面（如外球面 / 内球面 / 内孔）相交处（球道开口边缘）的截面法线角。</td>
 </tr>
 </tbody>
 </table>
 <hr></hr>
 <h2 id="三、■-二、精确刀具廓形【理论值】-逐行详解">三、<code>■ 二、精确刀具廓形【理论值】</code> 逐行详解</h2>
 <pre><code class="lang-text">■ 二、精确刀具廓形【理论值】
-  接触段（到球道边缘）r：7.9269 ~ 10.1190（z: -0.0566 ~ 6.0205）
-  边缘延伸：0.3 mm（在球道边缘 z = -0.0566 之外继续到 z = -0.1747（r 10.1384），为外球面尺寸偏差和定位误差留的余量）
+  接触段 r（到球道边缘）：7.9269 ~ 10.1209
+  接触段 z（到球道边缘）：0.0310 ~ 6.0205
+  边缘延伸：0.3 mm（在球道边缘 z = 0.0310 之外继续到 z = -0.1747（r 10.1384），为外球面尺寸偏差和定位误差留的余量）
   刀头最大直径：20.2768（含边缘延伸）
   刀尖高度：9.922
-  廓形单调(无自交)：OK
-  过切校验 最小间隙：0.00e+00  OK（&lt; 0 为过切）
+  廓形单调（无自交）：是
+  过切校验 最小间隙：1.75e-07  OK（&lt; 0 为过切）
 </code></pre>
 <table>
 <thead>
@@ -726,58 +741,57 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong><code>接触段（到球道边缘）r</code></strong></td>
-<td style="text-align:left">真正切出球道（从球道底到外球面球道边缘处）的核心接触段刃口在刀具坐标系（原点=虚拟钢球中心，朝刀尖为正）下的半径范围与轴向范围 <code>z</code>。其中 <code>z</code> 的最大值（如 <code>6.0205</code>）即为<strong>接触段最高点</strong>。</td>
+<td style="text-align:left"><strong><code>接触段 r / z（到球道边缘）</code></strong></td>
+<td style="text-align:left">真正切出球道（从球道底到工作面球道边缘处）的核心接触段刃口在刀具坐标系（原点 = 虚拟钢球中心，朝刀尖为正）下的半径与轴向范围；其中 <code>z</code> 最大值（如 <code>6.0205</code>）即<strong>接触段最高点</strong>。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>边缘延伸</code></strong></td>
-<td style="text-align:left">在球道边缘（外球面处）之外朝刀柄方向多算的一小段刃口，为星形套外球面尺寸偏差与机床装夹定位误差留出安全余量。</td>
+<td style="text-align:left">在球道边缘之外朝刀柄方向多算的一小段刃口（青色段），为工件尺寸偏差与装夹定位误差留出余量。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>刀头最大直径 / 刀尖高度</code></strong></td>
 <td style="text-align:left">精确刀具接触段（含边缘延伸）的最大回转外径与当前设定的刀尖平端高度。</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong><code>廓形单调(无自交)</code></strong></td>
+<td style="text-align:left"><strong><code>廓形单调（无自交）</code></strong></td>
 <td style="text-align:left">检查刀具接触段母线沿轴向是否单调变化、无回折自交。</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><code>过切校验 最小间隙</code></strong></td>
-<td style="text-align:left">将整段三维球道面网格点与摆动中的刀具逐点比对，确保走刀全程无干涉过切。</td>
+<td style="text-align:left">将整段三维球道面网格点与摆动/移动中的刀具逐点比对，确保走刀全程无干涉过切。</td>
 </tr>
 </tbody>
 </table>
 <hr></hr>
-<h2 id="四、■-三、精确刀具切出的球道【实际值·仿真】（含钢球实际落座与实际-pcd）">四、<code>■ 三、精确刀具切出的球道【实际值·仿真】</code>（含钢球实际落座与实际 PCD）</h2>
-<p>软件驱动精确刀具沿球道摆动做反向包络仿真，求出实际切出的球道截面，并<strong>将直径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的钢球实际放进切出的球道中（实际落座）</strong>：</p>
+<h2 id="四、■-三、精确刀具切出的球道【实际值·仿真】（含钢球落座与工件干涉）">四、<code>■ 三、精确刀具切出的球道【实际值·仿真】</code>（含钢球落座与工件干涉）</h2>
+<p>软件驱动精确刀具沿球道轨迹运动做反向包络仿真，求出实际切出的球道截面，并<strong>将直径为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>w</mi></msub></mrow><annotation encoding="application/x-tex">D_w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的钢球实际放进切出的球道中（实际落座）</strong>：</p>
 <pre><code class="lang-text">■ 三、精确刀具切出的球道【实际值·仿真】
   最大过切：0.00e+00  OK
-  侧面（钢球接触区）欠切：1.98e-05  OK
+  侧面（钢球接触区）欠切：2.27e-05  OK
   球道底欠切：0.0000（顶隙区）
   ▸ 钢球放进切出的球道（实际落座）
   实际顶隙：0.0287  OK（图纸 0.019 ~ 0.04）
-  实际接触角：42.001°  OK（图纸 40 ~ 44）
-  实际接触角跨距：13.2785（未给范围）
-  钢球中心移动：+0.0 μm（相对设计位置，朝球道开口为正）
+  实际接触角：41.982°  OK（图纸 40 ~ 44）
+  实际接触角跨距：13.2736（未给范围）
   实际 PCD：62.4640  OK（偏差 +0.0 μm；图纸 62.454 ~ 62.474）
+  钢球中心相对设计位置移动：+0.0 μm（朝开口为正）
 </code></pre>
 <h3 id="1-反向包络仿真与刀尖截断智能判据">1. 反向包络仿真与刀尖截断智能判据</h3>
 <ul>
 <li><strong><code>最大过切</code></strong> 与 <strong><code>侧面（钢球接触区）欠切</code></strong>：正常时均为 <code>1e-5 mm</code> 以下的离散仿真误差量级，显示绿色 <strong><code>OK</code></strong>。</li>
 <li><strong><code>球道底欠切</code> 的智能分析</strong>：<ul>
 <li>当 <code>刀尖高度</code> 高于接触段最高点时，球道底完全切出；</li>
-<li>当 <code>刀尖高度</code> 低于接触段最高点时，软件会自动说明截去范围，并结合下方<strong>钢球实际落座后的 <code>实际顶隙</code></strong> 进行判定：只要 <code>实际顶隙</code> 仍在图纸 <code>顶隙下限</code> 之上就完全合格；只有当截去过多导致实际顶隙低于下限时才会标红报警。</li>
+<li>当 <code>刀尖高度</code> 低于接触段最高点时，软件会自动说明截去范围，并结合下方<strong>钢球实际落座后的 <code>实际顶隙</code></strong>判定：只要 <code>实际顶隙</code> 仍在图纸 <code>顶隙下限</code> 之上就完全合格；只有当截去过多导致实际顶隙低于下限时，才在报告顶部标红报警 <code>请提高刀尖高度（最高到 ... 时不截断）</code>。</li>
 </ul>
 </li>
 </ul>
 <h3 id="2-▸-钢球放进切出的球道（实际落座）-五项实测指标">2. <code>▸ 钢球放进切出的球道（实际落座）</code> 五项实测指标</h3>
-<p>把刚性钢球沿着对称轴放入仿真切出的球道槽内，直到钢球与两侧槽壁稳稳贴合接触，此时测得的真实装配状态：</p>
+<p>将刚性钢球沿对称轴放入切出球道直到与两侧槽壁贴合接触（<strong>当设置了 <code>法向余量</code> 如 <code>0.15 mm</code> 时，仿真会先沿法向退回该余量还原精加工成品边界后再放球</strong>），测得 5 项装配指标：</p>
 <ol>
-<li><strong><code>实际顶隙</code></strong>：落座后钢球最低点到切出球道底部的真实距离（对照 <code>顶隙下限 ~ 顶隙上限</code> 校验 <strong><code>OK</code></strong> / <strong><code>超出范围!</code></strong>）；</li>
-<li><strong><code>实际接触角</code></strong>：落座后钢球与切出球道侧壁接触点的真实法线角（对照 <code>接触角 + 下偏差 ~ 接触角 + 上偏差</code> 校验）；</li>
-<li><strong><code>实际接触角跨距</code></strong>：落座后左右两接触点之间的真实水平距离（对照 <code>接触角跨距下限 ~ 接触角跨距上限</code> 校验）；</li>
-<li><strong><code>钢球中心移动</code></strong>：落座后的钢球球心相对于理论设计球心 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 的径向偏移量（单位 <code>μm</code>，朝球道开口方向抬高为正 <code>+</code>，朝球道底沉降为负 <code>-</code>）；</li>
-<li><strong><code>实际 PCD</code>（新增！）</strong>：由钢球落座后的中心移动量换算出的实际钢球分布圆直径（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>实际&nbsp;PCD</mtext><mo>=</mo><mn>2</mn><msqrt><mrow><mo stretchy="false">(</mo><msub><mi>R</mi><mi>p</mi></msub><mo>+</mo><mtext>移动量</mtext><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>−</mo><msup><mi>e</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">\text{实际 PCD} = 2\sqrt{(R_p + \text{移动量})^2 - e^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">实际</span><span class="mord">&nbsp;PCD</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.32305399999999995em;"></span><span class="mord">2</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.916946em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord text"><span class="mord cjk_fallback">移动量</span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.8769460000000002em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewbox="0 0 400000 1296" preserveaspectratio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
+<li><strong><code>实际顶隙</code></strong>：落座后钢球最低点到成品球道底的真实距离（对照 <code>[顶隙下限, 顶隙上限]</code> 校验 <strong><code>OK</code></strong> / <strong><code>超出范围!</code></strong>）；</li>
+<li><strong><code>实际接触角</code></strong>：落座后钢球与切出球道侧壁接触点的真实法线角（对照 <code>[接触角 + 下偏差, 接触角 + 上偏差]</code> 校验）；</li>
+<li><strong><code>实际接触角跨距</code></strong>：落座后左右两接触点之间的真实水平距离（对照 <code>[跨距下限, 跨距上限]</code> 校验）；</li>
+<li><strong><code>实际 PCD</code></strong>：由钢球落座中心移动量换算出的实际节圆直径（圆弧球道按 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><msqrt><mrow><mo stretchy="false">(</mo><msub><mi>R</mi><mi>p</mi></msub><mo>±</mo><mi mathvariant="normal">Δ</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo>−</mo><msup><mi>e</mi><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding="application/x-tex">2\sqrt{(R_p \pm \Delta)^2 - e^2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.32305399999999995em;"></span><span class="mord">2</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.916946em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">±</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">Δ</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.8769460000000002em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewbox="0 0 400000 1296" preserveaspectratio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
 c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
 c340,-704.7,510.7,-1060.3,512,-1067
 l0 -0
@@ -787,8 +801,17 @@ s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,
 c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
 s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
 c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
-M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.32305399999999995em;"><span></span></span></span></span></span></span></span></span>），对照 <code>PCD + 下偏差 ~ PCD + 上偏差</code> 自动校验 <strong><code>OK</code></strong> 或 <strong><code>超出范围!</code></strong>。</li>
+M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.32305399999999995em;"><span></span></span></span></span></span></span></span></span>，直线球道按 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>PCD</mtext><mo>±</mo><mn>2</mn><mi mathvariant="normal">Δ</mi></mrow><annotation encoding="application/x-tex">\text{PCD} \pm 2\Delta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">PCD</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">±</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">2Δ</span></span></span></span>），对照 PCD 上下偏差校验；</li>
+<li><strong><code>钢球中心相对设计位置移动</code></strong>：落座钢球心相对设计中心 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0,0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 的偏移量（单位 <code>μm</code>，朝球道开口方向为正 <code>+</code>）。</li>
 </ol>
+<h3 id="3-▸-工件与刀具干涉（非固定节星形套显示）">3. <code>▸ 工件与刀具干涉</code>（非固定节星形套显示）</h3>
+<p>当使用除 <code>星形套（固定节）</code> 以外的 5 种扩展工件类型（如外圈斜筒形壳 <code>EVL12508M.0F2-1</code>）时，第 三 分块会自动附加 <strong><code>▸ 工件与刀具干涉</code></strong> 子块（同步对应 Tab 4 下方的允许刀颈直径曲线）：</p>
+<ul>
+<li><strong><code>球道范围 Z</code> / <code>球道盲端（刀具收尾）</code></strong>：列出贯通球道或外圈盲端处刀具收尾轴向位置；</li>
+<li><strong><code>刀颈允许最大直径（最窄处）</code></strong>：三维扫描全行程后给出的刀颈安全包络极限直径（若整段碰不到工件则显示 <code>≥ 50</code>，否则给出最窄处直径及距球心距离）；</li>
+<li><strong><code>刀头尾端直径</code></strong>：检验刀头末端是否触碰工件实体（触发则标红 <strong><code>碰工件!</code></strong>）；</li>
+<li><strong><code>刀柄端面距开口端面</code></strong>：检验行程终点时刀柄端面是否位于工件外部（<code>&lt; 0</code> 则标红 <strong><code>伸入工件!</code></strong>）。</li>
+</ul>
 <hr></hr>
 <h2 id="五、常见红色报警汇总与快速处理">五、常见红色报警汇总与快速处理</h2>
 <p><img src="resources/result_panel_warnings.png" alt="计算结果面板常见红色报警对照"></img></p>
@@ -799,7 +822,7 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
 <li>若出现在第 四 分块且正在使用单圆弧 <code>按审核优化</code>，可将 <strong><code>审核优化目标</code></strong> 切换为 <strong><code>审核范围硬约束</code></strong> 或 <strong><code>审核范围中值</code></strong>，或改用多段相切圆弧（<code>圆弧段数 = 2~3</code>）；</li>
 </ul>
 </li>
-<li><strong>情形 C（双圆弧截面直接用单圆弧“拟合精确廓形”超差或点表曲率异常）</strong>：双圆弧截面请选择 <code>2~3</code> 段相切圆弧或单圆弧 <code>按审核优化</code>；点表截面请核对 <code>顶隙 c</code> 与 <code>点表精度</code>。</li>
+<li><strong>情形 C（双圆弧直接用单圆弧“拟合精确廓形”超差 / 点表曲率异常 / 刀颈碰工件）</strong>：双圆弧请选 <code>2~3</code> 段相切圆弧或单圆弧 <code>按审核优化</code>；点表请核对 <code>顶隙 c</code> 与 <code>点表精度</code>；外圈碰工件或伸入工件时请减小切入角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span></span></span></span>、增大 <code>球心距 L</code> 或缩小刀颈直径。</li>
 </ul>
 
                                 
@@ -844,7 +867,7 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"截面设计、精确廓形与仿真落座","level":"1.5.1","depth":2,"next":{"title":"圆弧近似刀具与轮廓方程常数(Table 1)","level":"1.5.2","depth":2,"path":"4_result_panel/arc_and_table1.md","ref":"4_result_panel/arc_and_table1.md","articles":[]},"previous":{"title":"计算结果面板解读","level":"1.5","depth":1,"path":"4_result_panel/README.md","ref":"4_result_panel/README.md","articles":[{"title":"截面设计、精确廓形与仿真落座","level":"1.5.1","depth":2,"path":"4_result_panel/exact_and_check.md","ref":"4_result_panel/exact_and_check.md","articles":[]},{"title":"圆弧近似刀具与轮廓方程常数(Table 1)","level":"1.5.2","depth":2,"path":"4_result_panel/arc_and_table1.md","ref":"4_result_panel/arc_and_table1.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"4_result_panel/exact_and_check.md","mtime":"2026-11-05T07:12:47.051Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"截面设计、精确廓形与仿真落座","level":"1.5.1","depth":2,"next":{"title":"圆弧近似刀具与轮廓方程常数(Table 1)","level":"1.5.2","depth":2,"path":"4_result_panel/arc_and_table1.md","ref":"4_result_panel/arc_and_table1.md","articles":[]},"previous":{"title":"计算结果面板解读","level":"1.5","depth":1,"path":"4_result_panel/README.md","ref":"4_result_panel/README.md","articles":[{"title":"截面设计、精确廓形与仿真落座","level":"1.5.1","depth":2,"path":"4_result_panel/exact_and_check.md","ref":"4_result_panel/exact_and_check.md","articles":[]},{"title":"圆弧近似刀具与轮廓方程常数(Table 1)","level":"1.5.2","depth":2,"path":"4_result_panel/arc_and_table1.md","ref":"4_result_panel/arc_and_table1.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"4_result_panel/exact_and_check.md","mtime":"2026-11-18T02:15:56.063Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -906,11 +929,11 @@ M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlis
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         

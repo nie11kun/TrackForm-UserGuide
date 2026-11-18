@@ -6,7 +6,7 @@
         <title>球道设计截面 · TrackForm User Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 6.2.5">
+        <meta name="generator" content="HonKit 6.2.6">
         <meta name="author" content="Nie Kun">
         
         
@@ -363,7 +363,7 @@
                 <a href="tab3_part.html">
             
                     
-                    星形套轴向剖面
+                    工件轴向剖面
             
                 </a>
             
@@ -376,7 +376,7 @@
                 <a href="tab4_pose.html">
             
                     
-                    加工姿态(子午面)
+                    加工姿态
             
                 </a>
             
@@ -403,6 +403,19 @@
             
                     
                     圆弧近似刀具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="tab7_scene3d.html">
+            
+                <a href="tab7_scene3d.html">
+            
+                    
+                    三维演示
             
                 </a>
             
@@ -635,7 +648,11 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="52-tab-2：球道设计截面-ctrl2">5.2 Tab 2：球道设计截面 (<code>Ctrl+2</code>)</h1>
-<p><strong><code>球道设计截面</code></strong> 标签页展示垂直于球道中心轨迹切开的<strong>球道法向设计截面【理论值】（Normal Cross-Section）</strong>。该视图与星形套产品图纸上的“球道法向截面放大图”完全对应，用于直观核对球道截面几何形状、接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span>（及上下限范围）、接触点、接触角跨距、相似度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 以及底部顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span>。</p>
+<p><strong><code>球道设计截面</code></strong> 标签页展示垂直于球道中心轨迹切开的<strong>球道法向设计截面【理论值】（Normal Cross-Section）</strong>，与零件图纸上的“球道法向截面放大图”完全对应：</p>
+<ul>
+<li>直观核对球道截面几何形状、<strong>接触角 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span></strong>（及上下限范围）与<strong>接触点</strong>；</li>
+<li>核对<strong>接触角跨距</strong>、<strong>相似度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></strong> 以及左上角独立放大的<strong>球道底部顶隙 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span></strong>。</li>
+</ul>
 <hr></hr>
 <h2 id="一、椭圆截面与点表截面视图解读">一、椭圆截面与点表截面视图解读</h2>
 <p>当 <code>截面类型</code> 选择 <code>椭圆</code> 或 <code>点表(CSV)</code> 时，图表显示如下：</p>
@@ -669,8 +686,8 @@
 <p><img src="resources/tab2_section_gothic.png" alt="Tab 2 球道截面（双圆弧尖底）"></img></p>
 <h3 id="双圆弧截面的独有视觉特征">双圆弧截面的独有视觉特征</h3>
 <ol>
-<li><strong>红色十字标记 <code>+</code>（<code>圆弧圆心(交叉)</code>）</strong>：<ul>
-<li>在钢球球心 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 上方两侧，标有两个红色 <code>+</code> 号，分别代表左、右两段圆弧槽壁的圆心；</li>
+<li><strong>黑色十字标记 <code>+</code>（<code>圆弧圆心（交叉）</code>）</strong>：<ul>
+<li>在钢球球心 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(0, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 上方两侧，标有两个黑色 <code>+</code> 号，分别代表左、右两段圆弧槽壁的圆心；</li>
 <li>左侧球道圆弧的圆心位于中心线<strong>右侧</strong>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 侧），右侧球道圆弧的圆心位于中心线<strong>左侧</strong>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">-y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> 侧），且圆心连线严格落在洋红色接触角法线延长线上。</li>
 </ul>
 </li>
@@ -711,7 +728,7 @@
                 </a>
                 
                 
-                <a href="tab3_part.html" class="navigation navigation-next " aria-label="Next page: 星形套轴向剖面">
+                <a href="tab3_part.html" class="navigation navigation-next " aria-label="Next page: 工件轴向剖面">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -722,7 +739,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"球道设计截面","level":"1.6.2","depth":2,"next":{"title":"星形套轴向剖面","level":"1.6.3","depth":2,"path":"5_tabs_charts/tab3_part.md","ref":"5_tabs_charts/tab3_part.md","articles":[]},"previous":{"title":"精确刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 星形套球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab2_section.md","mtime":"2026-11-05T07:12:47.057Z","type":"markdown"},"gitbook":{"version":"6.2.5","time":"2026-11-05T07:12:56.319Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"球道设计截面","level":"1.6.2","depth":2,"next":{"title":"工件轴向剖面","level":"1.6.3","depth":2,"path":"5_tabs_charts/tab3_part.md","ref":"5_tabs_charts/tab3_part.md","articles":[]},"previous":{"title":"精确刀具廓形","level":"1.6.1","depth":2,"path":"5_tabs_charts/tab1_tool.md","ref":"5_tabs_charts/tab1_tool.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"Nie Kun","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TrackForm User Guide","language":"zh-hans","gitbook":"*","description":"TrackForm 等速万向节球道成型刀具设计软件完整用户指南"},"file":{"path":"5_tabs_charts/tab2_section.md","mtime":"2026-11-18T02:15:56.069Z","type":"markdown"},"gitbook":{"version":"6.2.6","time":"2026-11-18T02:16:08.708Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -784,11 +801,11 @@
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/lunr.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/@honkit/honkit-plugin-lunr/search-lunr.js"></script>
         
     
         
