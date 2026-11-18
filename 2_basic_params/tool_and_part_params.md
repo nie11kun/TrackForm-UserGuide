@@ -24,7 +24,7 @@
 ![不同切入角 β 下的刀具廓形与刀轴姿态对比](resources/cmp_setting_angle.png)
 
 * **重要结论**：
-  * 随着切入角 $\beta$ 的改变，刀具接触段的高低范围、弯曲曲率以及拟合出的单圆弧半径 $R$ 和圆柱直径都会发生显著变化（如上图中 $\beta=30^\circ$ 时圆柱直径为 $\varnothing 20.692\text{ mm}$，而 $\beta=42^\circ$ 时变为 $\varnothing 20.063\text{ mm}$）。
+  * 随着切入角 $\beta$ 的改变，刀具接触段的高低范围、弯曲曲率以及拟合出的单圆弧半径 $R$ 和圆柱直径都会发生相应变化（如上图中 $\beta=30^\circ$ 时单圆弧 $R=13.411\text{ mm}$、圆柱 $\varnothing 20.344\text{ mm}$，$\beta=36^\circ$ 时 $R=12.359\text{ mm}$、$\varnothing 20.336\text{ mm}$，而 $\beta=42^\circ$ 时变为 $R=11.731\text{ mm}$、$\varnothing 20.328\text{ mm}$）。
   * 因此，**软件中填写的 `切入角 β` 必须与实际数控机床加工程序中的刀轴倾角 100% 一致**，不能混用！
 
 ---

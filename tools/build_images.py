@@ -131,8 +131,8 @@ class DummyHost(PlotsMixin):
     def __init__(self, params: Params):
         self.params = params
         self.prof = compute_profile(params)
-        _, self._gap = overcut_check(self.prof, n_t=301, n_phi=401)
-        sim_y, ug, ud, dev, (yn, un) = simulate_section(self.prof, n_y=121, n_phi=801, normal_points=True)
+        _, self._gap = overcut_check(self.prof, n_t=401, n_phi=601)
+        sim_y, ug, ud, dev, (yn, un) = simulate_section(self.prof, n_y=121, n_phi=1201, normal_points=True)
         self._sim_y, self._ug, self._ud, self._dev = sim_y, ug, ud, dev
         self._seat = self._sim_seat = seat_ball(yn, un, params.rb, params.allowance)
 
@@ -144,12 +144,12 @@ class DummyHost(PlotsMixin):
         tool = (fit_arcs(self.prof, n_arc, dec, chain) if n_arc > 1 else
                 round_arc(self.prof, opt_raw, dec) if audit else fit_arc(self.prof, dec))
         self.arc_eval = evaluate_arc(self.prof, tool, params.profile_tol,
-                                     params.n_basic, n_y=161, n_phi=1001, flank_only=audit)
+                                     params.n_basic, n_y=201, n_phi=1601, flank_only=audit)
         wp = WORKPIECE[params.workpiece]
         if n_arc == 1 and wp.ready:
             raw_tool = opt_raw if audit else fit_arc(self.prof, None)
             ev_t = (evaluate_arc(self.prof, raw_tool, params.profile_tol,
-                                 params.n_basic, n_y=161, n_phi=1001, flank_only=audit)
+                                 params.n_basic, n_y=201, n_phi=1601, flank_only=audit)
                     if params.table_basis == "fit" and dec is not None else self.arc_eval)
             C = table1_constants(params, ev_t.tool, ev_t.ball_height)
             basic = table2_from_equation(C, params.n_basic) if params.basic_end == "c9" else ev_t.basic
@@ -940,9 +940,9 @@ def build_ch4_images():
         ("row", "接触段 r / z（到球道边缘）", "r: 7.9269 ~ 10.1209", "", "z: 0.0310 ~ 6.0205"),
         ("row", "边缘延伸", "0.3 mm", "", "在 z = 0.0310 外继续到 z = -0.1747（r 10.1384）"),
         ("row", "刀头最大直径 / 刀尖高度", "20.2768（含边缘延伸）", "", "刀尖高度 9.922"),
-        ("row", "廓形单调 / 过切校验", "最小间隙 1.75e-07", "OK", "< 0 为过切"),
+        ("row", "廓形单调 / 过切校验", "最小间隙 4.21e-07", "OK", "< 0 为过切"),
         ("head", "■ 三、精确刀具切出的球道【实际值·仿真】", "", "", ""),
-        ("row", "最大过切 / 侧面欠切", "0.00e+00 / 2.27e-05", "OK", "球道底欠切 0.0000（顶隙区）"),
+        ("row", "最大过切 / 侧面欠切", "0.00e+00 / 1.59e-05", "OK", "球道底欠切 0.0000（顶隙区）"),
         ("sub", "● 钢球放进切出的球道（实际落座）", "", "", ""),
         ("row", "实际顶隙 / 实际接触角", "0.0287 / 41.982°", "OK", "图纸 0.019~0.04 / 40~44°"),
         ("row", "实际 PCD", "62.4640", "OK", "偏差 +0.0 μm；图纸 62.454 ~ 62.474"),
@@ -1380,6 +1380,8 @@ def build_ch5_images():
 # =============================================================================
 def render_dxf_to_png(dxf_path: str, png_path: str, title: str):
     doc = ezdxf.readfile(dxf_path)
+    if "TIP_MAX" in doc.layers:
+        doc.layers.get("TIP_MAX").color = 253
     msp = doc.modelspace()
     fig = plt.figure(figsize=(11.5, 7.2), dpi=160)
     ax = fig.add_axes([0.02, 0.02, 0.96, 0.91])
